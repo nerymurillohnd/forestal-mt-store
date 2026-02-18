@@ -12,14 +12,7 @@ interface Props {
   variant?: "green" | "dark";
 }
 
-const {
-  eyebrow,
-  heading,
-  description,
-  primaryCta,
-  secondaryCta,
-  variant = "green",
-} = Astro.props;
+const { eyebrow, heading, description, primaryCta, secondaryCta, variant = "green" } = Astro.props;
 
 const bgClass = variant === "green" ? "bg-[#206D03]" : "bg-charcoal";
 ---

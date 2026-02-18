@@ -11,12 +11,7 @@ interface Props {
   suffix?: string;
 }
 
-export default function CountUpIsland({
-  target,
-  label,
-  prefix = "",
-  suffix = "",
-}: Props) {
+export default function CountUpIsland({ target, label, prefix = "", suffix = "" }: Props) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
   const triggered = useRef(false);

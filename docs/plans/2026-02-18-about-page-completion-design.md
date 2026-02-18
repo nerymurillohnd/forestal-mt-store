@@ -12,12 +12,12 @@ The About page (`src/pages/about/index.astro`) renders ~65-70% of the content de
 
 ### Missing Sections
 
-| Section | MDX Lines | Content |
-|---------|-----------|---------|
-| How We Sell | 194-214 | B2B/B2C breakdown with features and CTAs |
-| Our Slogan | 368-372 | "Exporting Nature Without Borders" explanation |
-| Leadership | 339-352 | Founder, current roles, Nery Samuel Murillo |
-| Our Commitment | 392-397 | Closing statement with brand promise |
+| Section        | MDX Lines | Content                                        |
+| -------------- | --------- | ---------------------------------------------- |
+| How We Sell    | 194-214   | B2B/B2C breakdown with features and CTAs       |
+| Our Slogan     | 368-372   | "Exporting Nature Without Borders" explanation |
+| Leadership     | 339-352   | Founder, current roles, Nery Samuel Murillo    |
+| Our Commitment | 392-397   | Closing statement with brand promise           |
 
 ### Condensed Content
 
@@ -49,13 +49,13 @@ Inspired by Plant Hotel landing page aesthetic (Pinterest ref), refined for Fore
 
 Base URL: `https://cdn.forestal-mt.com/pages/about/`
 
-| Filename | Section | Usage |
-|----------|---------|-------|
-| `sourced-from-origin.jpg` | "We Are The Source" BotanicalSection | Background with glass overlay |
-| `indiginuos-partner.jpg` | ImpactBar | Background for animated counters |
-| `the-founder-legacy.jpg` | Leadership grid | Founder legacy, leadership section |
-| `murillo-tejada-family.jpg` | SplitEditorial "Our Story" + PullQuote | Family narrative, origin story |
-| `ethnobotanical-collections.jpg` | "How We Sell" + SloganBanner | Botanical background |
+| Filename                         | Section                                | Usage                              |
+| -------------------------------- | -------------------------------------- | ---------------------------------- |
+| `sourced-from-origin.jpg`        | "We Are The Source" BotanicalSection   | Background with glass overlay      |
+| `indiginuos-partner.jpg`         | ImpactBar                              | Background for animated counters   |
+| `the-founder-legacy.jpg`         | Leadership grid                        | Founder legacy, leadership section |
+| `murillo-tejada-family.jpg`      | SplitEditorial "Our Story" + PullQuote | Family narrative, origin story     |
+| `ethnobotanical-collections.jpg` | "How We Sell" + SloganBanner           | Botanical background               |
 
 Excluded: `hero.jpg`, `og.jpg` (used elsewhere).
 
@@ -361,16 +361,17 @@ Implementation: IntersectionObserver (threshold 0.15). CSS transition: `opacity 
 
 ### Astro vs Preact Criteria
 
-| Needs | → Technology |
-|-------|-------------|
-| Layout, text, style only | Astro component (zero JS shipped) |
-| Scroll-triggered animation | Preact island `client:visible` |
-| Interactive state (tabs, accordion toggle) | Preact island `client:visible` |
-| Simple expandable content | Astro `<details>/<summary>` (zero JS) |
+| Needs                                      | → Technology                          |
+| ------------------------------------------ | ------------------------------------- |
+| Layout, text, style only                   | Astro component (zero JS shipped)     |
+| Scroll-triggered animation                 | Preact island `client:visible`        |
+| Interactive state (tabs, accordion toggle) | Preact island `client:visible`        |
+| Simple expandable content                  | Astro `<details>/<summary>` (zero JS) |
 
 ### Zero External Dependencies
 
 All interactive components use native browser APIs:
+
 - `IntersectionObserver` for scroll triggers
 - `requestAnimationFrame` for counter animation
 - `<details>/<summary>` for CSS-only accordion
@@ -382,6 +383,7 @@ All interactive components use native browser APIs:
 ### Image Optimization
 
 All R2 images served through Cloudflare Image Resizing:
+
 - Background images: `width=1920,format=webp,quality=80`
 - Editorial images: `width=960,format=webp,quality=85`
 - Leadership photos: `width=480,format=webp,quality=85`
@@ -392,22 +394,22 @@ URL pattern: `https://cdn.forestal-mt.com/cdn-cgi/image/width=W,format=webp/{pat
 
 ## Component Reusability
 
-| Component | About | Home | Catalogs | Wholesale | Contact |
-|-----------|-------|------|----------|-----------|---------|
-| BotanicalSection | x | x | x | x | |
-| SplitEditorial | x | | x | | |
-| PullQuote | x | x | | | |
-| GlassCard | x | x | x | x | |
-| LeadershipCard | x | | | | |
-| ChannelSplit | x | x | | x | |
-| SloganBanner | x | x | | | |
-| AccordionItem/Group | x | | | x | x |
-| FeatureList | x | | x | x | |
-| DualCTASection | x | x | x | x | x |
-| CountUpIsland | x | x | | x | |
-| ImpactBarIsland | x | x | | | |
-| AccordionIsland | x | | | x | x |
-| TabSwitcherIsland | x | | | x | |
-| ScrollRevealIsland | x | x | x | x | x |
+| Component           | About | Home | Catalogs | Wholesale | Contact |
+| ------------------- | ----- | ---- | -------- | --------- | ------- |
+| BotanicalSection    | x     | x    | x        | x         |         |
+| SplitEditorial      | x     |      | x        |           |         |
+| PullQuote           | x     | x    |          |           |         |
+| GlassCard           | x     | x    | x        | x         |         |
+| LeadershipCard      | x     |      |          |           |         |
+| ChannelSplit        | x     | x    |          | x         |         |
+| SloganBanner        | x     | x    |          |           |         |
+| AccordionItem/Group | x     |      |          | x         | x       |
+| FeatureList         | x     |      | x        | x         |         |
+| DualCTASection      | x     | x    | x        | x         | x       |
+| CountUpIsland       | x     | x    |          | x         |         |
+| ImpactBarIsland     | x     | x    |          |           |         |
+| AccordionIsland     | x     |      |          | x         | x       |
+| TabSwitcherIsland   | x     |      |          | x         |         |
+| ScrollRevealIsland  | x     | x    | x        | x         | x       |
 
 Most components serve 3+ pages, justifying the investment.

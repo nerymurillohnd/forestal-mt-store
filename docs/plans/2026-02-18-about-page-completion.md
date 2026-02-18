@@ -10,13 +10,13 @@
 
 **R2 Image Base URL:** `https://cdn.forestal-mt.com/pages/about/`
 
-| Image | Used In |
-|-------|---------|
-| `sourced-from-origin.jpg` | BotanicalSection "We Are The Source" |
-| `indiginuos-partner.jpg` | ImpactBar background |
-| `the-founder-legacy.jpg` | Leadership grid |
-| `murillo-tejada-family.jpg` | SplitEditorial "Our Story" + PullQuote |
-| `ethnobotanical-collections.jpg` | "How We Sell" + SloganBanner |
+| Image                            | Used In                                |
+| -------------------------------- | -------------------------------------- |
+| `sourced-from-origin.jpg`        | BotanicalSection "We Are The Source"   |
+| `indiginuos-partner.jpg`         | ImpactBar background                   |
+| `the-founder-legacy.jpg`         | Leadership grid                        |
+| `murillo-tejada-family.jpg`      | SplitEditorial "Our Story" + PullQuote |
+| `ethnobotanical-collections.jpg` | "How We Sell" + SloganBanner           |
 
 ---
 
@@ -25,6 +25,7 @@
 ### Task 1: BotanicalSection.astro
 
 **Files:**
+
 - Create: `src/components/BotanicalSection.astro`
 
 **Step 1: Create component**
@@ -58,7 +59,7 @@ const {
     loading="lazy"
     decoding="async"
   />
-  <div class:list={["absolute inset-0 bg-gradient-to-t", overlay]} />
+  <div class:list={["absolute inset-0 bg-gradient-to-t", overlay]}></div>
   <div class="relative z-10">
     <slot />
   </div>
@@ -82,6 +83,7 @@ git commit -m "feat: add BotanicalSection component for R2 image backgrounds"
 ### Task 2: GlassCard.astro
 
 **Files:**
+
 - Create: `src/components/GlassCard.astro`
 
 **Step 1: Create component**
@@ -102,7 +104,9 @@ interface Props {
 const { number, eyebrow, heading, body } = Astro.props;
 ---
 
-<div class="rounded-[2px] border border-white/10 bg-white/[0.06] p-8 backdrop-blur-sm frosted-hover">
+<div
+  class="rounded-[2px] border border-white/10 bg-white/[0.06] p-8 backdrop-blur-sm frosted-hover"
+>
   {
     number && (
       <span class="font-[family-name:var(--font-display)] text-[2rem] leading-none text-[#F3C00D]/30">
@@ -150,6 +154,7 @@ git commit -m "feat: add GlassCard component for botanical sections"
 ### Task 3: FeatureList.astro
 
 **Files:**
+
 - Create: `src/components/FeatureList.astro`
 
 **Step 1: Create component**
@@ -200,6 +205,7 @@ git commit -m "feat: add FeatureList component with gold dash markers"
 ### Task 4: AccordionItem.astro + AccordionGroup.astro
 
 **Files:**
+
 - Create: `src/components/AccordionItem.astro`
 - Create: `src/components/AccordionGroup.astro`
 
@@ -220,7 +226,9 @@ const { title, open = false } = Astro.props;
 ---
 
 <details class="group border-b border-[#F3C00D]/10" open={open}>
-  <summary class="flex cursor-pointer items-center justify-between py-5 font-[family-name:var(--font-heading)] text-[1rem] font-normal tracking-wide select-none [&::-webkit-details-marker]:hidden">
+  <summary
+    class="flex cursor-pointer items-center justify-between py-5 font-[family-name:var(--font-heading)] text-[1rem] font-normal tracking-wide select-none [&::-webkit-details-marker]:hidden"
+  >
     <span>{title}</span>
     <svg
       class="h-4 w-4 shrink-0 text-[#F3C00D]/60 transition-transform duration-300 group-open:rotate-180"
@@ -229,7 +237,7 @@ const { title, open = false } = Astro.props;
       stroke="currentColor"
       stroke-width="1.5"
     >
-      <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+      <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"></path>
     </svg>
   </summary>
   <div class="pb-6 font-[family-name:var(--font-body)] text-[14px] leading-[1.85]">
@@ -273,6 +281,7 @@ git commit -m "feat: add AccordionItem and AccordionGroup (CSS-only, zero JS)"
 ### Task 5: SplitEditorial.astro
 
 **Files:**
+
 - Create: `src/components/SplitEditorial.astro`
 
 **Step 1: Create component**
@@ -385,6 +394,7 @@ git commit -m "feat: add SplitEditorial component for image+text blocks"
 ### Task 6: PullQuote.astro
 
 **Files:**
+
 - Create: `src/components/PullQuote.astro`
 
 **Step 1: Create component**
@@ -412,7 +422,8 @@ const bgClass = isDark ? "bg-charcoal" : "surface-parchment";
 
 <section class:list={["py-20 md:py-28", bgClass]}>
   <div class="reveal-on-scroll mx-auto max-w-3xl px-6 text-center lg:px-12">
-    <span class:list={["font-[family-name:var(--font-display)] text-[3rem] leading-none", markColor]}
+    <span
+      class:list={["font-[family-name:var(--font-display)] text-[3rem] leading-none", markColor]}
       >&ldquo;</span
     >
     <blockquote
@@ -424,7 +435,12 @@ const bgClass = isDark ? "bg-charcoal" : "surface-parchment";
     />
     {
       attribution && (
-        <p class:list={["mt-6 font-[family-name:var(--font-ui)] text-[12px] uppercase tracking-[0.2em]", attrColor]}>
+        <p
+          class:list={[
+            "mt-6 font-[family-name:var(--font-ui)] text-[12px] uppercase tracking-[0.2em]",
+            attrColor,
+          ]}
+        >
           <span class="mr-2 inline-block h-px w-4 align-middle bg-[#F3C00D]/40" />
           {attribution}
         </p>
@@ -446,6 +462,7 @@ git commit -m "feat: add PullQuote component for editorial quotes"
 ### Task 7: SloganBanner.astro
 
 **Files:**
+
 - Create: `src/components/SloganBanner.astro`
 
 **Step 1: Create component**
@@ -469,7 +486,11 @@ const { slogan, description, image } = Astro.props;
 
 {
   image ? (
-    <BotanicalSection image={image} alt="Botanical background" overlay="from-charcoal/90 via-charcoal/70 to-charcoal/60">
+    <BotanicalSection
+      image={image}
+      alt="Botanical background"
+      overlay="from-charcoal/90 via-charcoal/70 to-charcoal/60"
+    >
       <div class="reveal-on-scroll mx-auto max-w-3xl px-6 text-center lg:px-12">
         <div class="mx-auto h-px w-12 bg-gradient-to-r from-transparent via-[#F3C00D]/50 to-transparent" />
         <p class="mt-8 font-[family-name:var(--font-display)] text-[clamp(1.75rem,4vw,3rem)] font-normal leading-tight text-white">
@@ -514,6 +535,7 @@ git commit -m "feat: add SloganBanner component for brand statements"
 ### Task 8: DualCTASection.astro
 
 **Files:**
+
 - Create: `src/components/DualCTASection.astro`
 
 **Step 1: Create component**
@@ -533,14 +555,7 @@ interface Props {
   variant?: "green" | "dark";
 }
 
-const {
-  eyebrow,
-  heading,
-  description,
-  primaryCta,
-  secondaryCta,
-  variant = "green",
-} = Astro.props;
+const { eyebrow, heading, description, primaryCta, secondaryCta, variant = "green" } = Astro.props;
 
 const bgClass = variant === "green" ? "bg-[#206D03]" : "bg-charcoal";
 ---
@@ -554,12 +569,15 @@ const bgClass = variant === "green" ? "bg-[#206D03]" : "bg-charcoal";
         </p>
       )
     }
-    <h2 class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-white">
+    <h2
+      class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-white"
+    >
       {heading}
     </h2>
     {
       description && (
-        <p class="mx-auto mt-6 max-w-2xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-white/60"
+        <p
+          class="mx-auto mt-6 max-w-2xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-white/60"
           set:html={description}
         />
       )
@@ -600,6 +618,7 @@ git commit -m "feat: add DualCTASection component for closing CTAs"
 ### Task 9: LeadershipCard.astro
 
 **Files:**
+
 - Create: `src/components/LeadershipCard.astro`
 
 **Step 1: Create component**
@@ -620,7 +639,9 @@ interface Props {
 const { name, title, bio, image } = Astro.props;
 ---
 
-<div class="border-t-[3px] border-[#F3C00D]/50 bg-white shadow-[0_1px_3px_rgba(0,0,0,0.04)] card-hover">
+<div
+  class="border-t-[3px] border-[#F3C00D]/50 bg-white shadow-[0_1px_3px_rgba(0,0,0,0.04)] card-hover"
+>
   {/* Photo area */}
   <div class="relative aspect-[4/3] overflow-hidden bg-parchment">
     {
@@ -647,7 +668,9 @@ const { name, title, bio, image } = Astro.props;
     <h3 class="font-[family-name:var(--font-heading)] text-[1.05rem] font-normal text-charcoal">
       {name}
     </h3>
-    <p class="mt-1 font-[family-name:var(--font-ui)] text-[11px] font-semibold uppercase tracking-[0.15em] text-gold-dark">
+    <p
+      class="mt-1 font-[family-name:var(--font-ui)] text-[11px] font-semibold uppercase tracking-[0.15em] text-gold-dark"
+    >
       {title}
     </p>
     <div class="mt-3 h-px w-8 bg-[#F3C00D]/30"></div>
@@ -670,6 +693,7 @@ git commit -m "feat: add LeadershipCard component for team sections"
 ### Task 10: ChannelSplit.astro
 
 **Files:**
+
 - Create: `src/components/ChannelSplit.astro`
 
 **Step 1: Create component**
@@ -697,11 +721,17 @@ const { b2b, b2c } = Astro.props;
 
 <div class="mx-auto grid max-w-5xl grid-cols-1 gap-6 px-6 md:grid-cols-2 lg:px-12">
   {/* B2B Column */}
-  <div class="rounded-[2px] border border-white/10 bg-white/[0.06] p-8 backdrop-blur-sm frosted-hover md:p-10">
-    <p class="font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.3em] text-[#F3C00D]/60">
+  <div
+    class="rounded-[2px] border border-white/10 bg-white/[0.06] p-8 backdrop-blur-sm frosted-hover md:p-10"
+  >
+    <p
+      class="font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.3em] text-[#F3C00D]/60"
+    >
       {b2b.eyebrow}
     </p>
-    <h3 class="mt-2 font-[family-name:var(--font-heading)] text-[1.15rem] font-normal tracking-wide text-white">
+    <h3
+      class="mt-2 font-[family-name:var(--font-heading)] text-[1.15rem] font-normal tracking-wide text-white"
+    >
       {b2b.heading}
     </h3>
     <div class="mt-3 h-px w-8 bg-[#F3C00D]/20"></div>
@@ -724,11 +754,17 @@ const { b2b, b2c } = Astro.props;
   </div>
 
   {/* B2C Column */}
-  <div class="rounded-[2px] border border-white/10 bg-white/[0.06] p-8 backdrop-blur-sm frosted-hover md:p-10">
-    <p class="font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.3em] text-[#F3C00D]/60">
+  <div
+    class="rounded-[2px] border border-white/10 bg-white/[0.06] p-8 backdrop-blur-sm frosted-hover md:p-10"
+  >
+    <p
+      class="font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.3em] text-[#F3C00D]/60"
+    >
       {b2c.eyebrow}
     </p>
-    <h3 class="mt-2 font-[family-name:var(--font-heading)] text-[1.15rem] font-normal tracking-wide text-white">
+    <h3
+      class="mt-2 font-[family-name:var(--font-heading)] text-[1.15rem] font-normal tracking-wide text-white"
+    >
       {b2c.heading}
     </h3>
     <div class="mt-3 h-px w-8 bg-[#F3C00D]/20"></div>
@@ -766,6 +802,7 @@ git commit -m "feat: add ChannelSplit component for B2B/B2C layout"
 ### Task 11: CountUpIsland.tsx
 
 **Files:**
+
 - Create: `src/components/islands/CountUpIsland.tsx`
 
 **Step 1: Create island**
@@ -784,12 +821,7 @@ interface Props {
   suffix?: string;
 }
 
-export default function CountUpIsland({
-  target,
-  label,
-  prefix = "",
-  suffix = "",
-}: Props) {
+export default function CountUpIsland({ target, label, prefix = "", suffix = "" }: Props) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
   const triggered = useRef(false);
@@ -848,6 +880,7 @@ git commit -m "feat: add CountUpIsland Preact island for animated counters"
 ### Task 12: ImpactBarIsland.tsx
 
 **Files:**
+
 - Create: `src/components/islands/ImpactBarIsland.tsx`
 
 **Step 1: Create island**
@@ -913,10 +946,7 @@ function Counter({
   );
 }
 
-export default function ImpactBarIsland({
-  stats,
-  staggerMs = 200,
-}: Props) {
+export default function ImpactBarIsland({ stats, staggerMs = 200 }: Props) {
   const [trigger, setTrigger] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -938,17 +968,9 @@ export default function ImpactBarIsland({
   }, []);
 
   return (
-    <div
-      ref={ref}
-      class="grid grid-cols-2 gap-8 py-4 md:grid-cols-4 md:gap-12"
-    >
+    <div ref={ref} class="grid grid-cols-2 gap-8 py-4 md:grid-cols-4 md:gap-12">
       {stats.map((stat, i) => (
-        <Counter
-          key={stat.label}
-          {...stat}
-          delay={i * staggerMs}
-          trigger={trigger}
-        />
+        <Counter key={stat.label} {...stat} delay={i * staggerMs} trigger={trigger} />
       ))}
     </div>
   );
@@ -967,6 +989,7 @@ git commit -m "feat: add ImpactBarIsland Preact island for staggered counters"
 ### Task 13: AccordionIsland.tsx
 
 **Files:**
+
 - Create: `src/components/islands/AccordionIsland.tsx`
 
 **Step 1: Create island**
@@ -1031,11 +1054,7 @@ export default function AccordionIsland({
               stroke="currentColor"
               stroke-width="1.5"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="m19.5 8.25-7.5 7.5-7.5-7.5"
-              />
+              <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
             </svg>
           </button>
           <div
@@ -1070,6 +1089,7 @@ git commit -m "feat: add AccordionIsland Preact island with smooth animation"
 ### Task 14: TabSwitcherIsland.tsx
 
 **Files:**
+
 - Create: `src/components/islands/TabSwitcherIsland.tsx`
 
 **Step 1: Create island**
@@ -1091,10 +1111,7 @@ interface Props {
   variant?: "light" | "dark";
 }
 
-export default function TabSwitcherIsland({
-  tabs,
-  variant = "dark",
-}: Props) {
+export default function TabSwitcherIsland({ tabs, variant = "dark" }: Props) {
   const [active, setActive] = useState(0);
 
   const isDark = variant === "dark";
@@ -1163,6 +1180,7 @@ git commit -m "feat: add TabSwitcherIsland Preact island for tabbed content"
 ### Task 15: ScrollRevealIsland.tsx
 
 **Files:**
+
 - Create: `src/components/islands/ScrollRevealIsland.tsx`
 
 **Step 1: Create island**
@@ -1187,11 +1205,7 @@ const transforms = {
   right: "translateX(32px)",
 };
 
-export default function ScrollRevealIsland({
-  children,
-  delay = 0,
-  direction = "up",
-}: Props) {
+export default function ScrollRevealIsland({ children, delay = 0, direction = "up" }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -1241,6 +1255,7 @@ git commit -m "feat: add ScrollRevealIsland Preact island for scroll animations"
 ### Task 16: Rewrite about/index.astro
 
 **Files:**
+
 - Modify: `src/pages/about/index.astro` (full rewrite)
 
 **Step 1: Rewrite the About page**
@@ -1250,18 +1265,17 @@ Replace the entire content of `src/pages/about/index.astro` with the new 20-sect
 **Imports to add:**
 
 ```astro
-import BotanicalSection from "../../components/BotanicalSection.astro";
-import SplitEditorial from "../../components/SplitEditorial.astro";
-import PullQuote from "../../components/PullQuote.astro";
-import GlassCard from "../../components/GlassCard.astro";
-import LeadershipCard from "../../components/LeadershipCard.astro";
-import ChannelSplit from "../../components/ChannelSplit.astro";
-import SloganBanner from "../../components/SloganBanner.astro";
-import AccordionItem from "../../components/AccordionItem.astro";
-import AccordionGroup from "../../components/AccordionGroup.astro";
-import FeatureList from "../../components/FeatureList.astro";
-import DualCTASection from "../../components/DualCTASection.astro";
-import ImpactBarIsland from "../../components/islands/ImpactBarIsland.tsx";
+import BotanicalSection from "../../components/BotanicalSection.astro"; import SplitEditorial from
+"../../components/SplitEditorial.astro"; import PullQuote from "../../components/PullQuote.astro";
+import GlassCard from "../../components/GlassCard.astro"; import LeadershipCard from
+"../../components/LeadershipCard.astro"; import ChannelSplit from
+"../../components/ChannelSplit.astro"; import SloganBanner from
+"../../components/SloganBanner.astro"; import AccordionItem from
+"../../components/AccordionItem.astro"; import AccordionGroup from
+"../../components/AccordionGroup.astro"; import FeatureList from
+"../../components/FeatureList.astro"; import DualCTASection from
+"../../components/DualCTASection.astro"; import ImpactBarIsland from
+"../../components/islands/ImpactBarIsland.tsx";
 ```
 
 **Data arrays to keep (existing):** `timeline`, `collections`, `values`, `impacts`
@@ -1282,15 +1296,18 @@ const whoWeAreBullets = [
 const historyDeepDive = [
   {
     title: "Expansion into Ethnobotanicals",
-    content: "<p>With renewed clarity of mission, Forestal MT expanded into <strong>three curated botanical collections</strong>, each rooted in Honduras&rsquo; ancestral heritage:</p><ul class='mt-3 space-y-2'><li><strong>Batana Oil</strong> &mdash; Wild-harvested <em>Elaeis oleifera</em> from La Mosquitia</li><li><strong>Stingless Bee Honey</strong> &mdash; Traditional Jimerito from native forests</li><li><strong>Traditional Herbs</strong> &mdash; Wildcrafted botanicals from cloud forests and coastal regions</li></ul><p class='mt-3'>These collections bridge indigenous territories, traditional harvesters, and biodiverse Honduran landscapes to global partners seeking authenticity and traceability.</p>",
+    content:
+      "<p>With renewed clarity of mission, Forestal MT expanded into <strong>three curated botanical collections</strong>, each rooted in Honduras&rsquo; ancestral heritage:</p><ul class='mt-3 space-y-2'><li><strong>Batana Oil</strong> &mdash; Wild-harvested <em>Elaeis oleifera</em> from La Mosquitia</li><li><strong>Stingless Bee Honey</strong> &mdash; Traditional Jimerito from native forests</li><li><strong>Traditional Herbs</strong> &mdash; Wildcrafted botanicals from cloud forests and coastal regions</li></ul><p class='mt-3'>These collections bridge indigenous territories, traditional harvesters, and biodiverse Honduran landscapes to global partners seeking authenticity and traceability.</p>",
   },
   {
     title: "Strategic Diversification",
-    content: "<p>Alongside its core ethnobotanical and forestry operations, Forestal MT maintains <strong>complementary business activities</strong> that strengthen long-term resilience and regional impact:</p><ul class='mt-3 space-y-2'><li><strong>Real estate development</strong> &mdash; Strategic land management and property development</li><li><strong>Livestock operations</strong> &mdash; Sustainable ranching practices</li><li><strong>Strategic investments</strong> &mdash; Portfolio diversification for generational wealth</li><li><strong>Local commerce</strong> &mdash; Supporting regional economic development</li></ul>",
+    content:
+      "<p>Alongside its core ethnobotanical and forestry operations, Forestal MT maintains <strong>complementary business activities</strong> that strengthen long-term resilience and regional impact:</p><ul class='mt-3 space-y-2'><li><strong>Real estate development</strong> &mdash; Strategic land management and property development</li><li><strong>Livestock operations</strong> &mdash; Sustainable ranching practices</li><li><strong>Strategic investments</strong> &mdash; Portfolio diversification for generational wealth</li><li><strong>Local commerce</strong> &mdash; Supporting regional economic development</li></ul>",
   },
   {
     title: "Present Day — Global Ambassador",
-    content: "<p>What began as a single bottle of Batana Oil has grown into a <strong>multi-collection export enterprise</strong> serving partners across North America, Central and South America, Europe, and Asia.</p><p class='mt-3'>Through continued growth, Forestal MT preserves a transparent forest-to-customer chain and remains committed to safeguarding ancestral knowledge, ecological integrity, and sustainable rural livelihoods.</p>",
+    content:
+      "<p>What began as a single bottle of Batana Oil has grown into a <strong>multi-collection export enterprise</strong> serving partners across North America, Central and South America, Europe, and Asia.</p><p class='mt-3'>Through continued growth, Forestal MT preserves a transparent forest-to-customer chain and remains committed to safeguarding ancestral knowledge, ecological integrity, and sustainable rural livelihoods.</p>",
   },
 ];
 
@@ -1323,20 +1340,17 @@ const leadership = [
 **New sections to add between existing ones (in order):**
 
 After section 6 ("We Are The Source"), add:
+
 1. **Impact Bar** — `BotanicalSection` with `ImpactBarIsland`
 2. **PullQuote** — Founder quote
 
-After Timeline (section 10), add:
-3. **AccordionGroup** — History deep dive
+After Timeline (section 10), add: 3. **AccordionGroup** — History deep dive
 
-After Collections (section 12), add:
-4. **BotanicalSection + ChannelSplit** — How We Sell
+After Collections (section 12), add: 4. **BotanicalSection + ChannelSplit** — How We Sell
 
-After Values (section 14), add:
-5. **Leadership section** — 3 LeadershipCards
+After Values (section 14), add: 5. **Leadership section** — 3 LeadershipCards
 
-After Logo (section 16), add:
-6. **SloganBanner** — "Exporting Nature Without Borders"
+After Logo (section 16), add: 6. **SloganBanner** — "Exporting Nature Without Borders"
 
 Modify existing Community Impact to use `FeatureList` component.
 
@@ -1394,16 +1408,16 @@ git push
 
 ## Component Count Summary
 
-| Category | Before | After |
-|----------|--------|-------|
-| Astro components | 14 | 25 (+11) |
-| Preact islands | 2 | 7 (+5) |
-| **Total** | **16** | **32** |
+| Category         | Before | After    |
+| ---------------- | ------ | -------- |
+| Astro components | 14     | 25 (+11) |
+| Preact islands   | 2      | 7 (+5)   |
+| **Total**        | **16** | **32**   |
 
 ## About Page Section Count
 
-| Category | Before | After |
-|----------|--------|-------|
-| Sections | 11 | 20 (+9) |
-| R2 images used | 0 (only hero) | 5 botanical + hero |
-| Missing MDX content | 4 sections | 0 |
+| Category            | Before        | After              |
+| ------------------- | ------------- | ------------------ |
+| Sections            | 11            | 20 (+9)            |
+| R2 images used      | 0 (only hero) | 5 botanical + hero |
+| Missing MDX content | 4 sections    | 0                  |

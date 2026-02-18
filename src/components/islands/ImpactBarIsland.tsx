@@ -58,10 +58,7 @@ function Counter({
   );
 }
 
-export default function ImpactBarIsland({
-  stats,
-  staggerMs = 200,
-}: Props) {
+export default function ImpactBarIsland({ stats, staggerMs = 200 }: Props) {
   const [trigger, setTrigger] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -83,17 +80,9 @@ export default function ImpactBarIsland({
   }, []);
 
   return (
-    <div
-      ref={ref}
-      class="grid grid-cols-2 gap-8 py-4 md:grid-cols-4 md:gap-12"
-    >
+    <div ref={ref} class="grid grid-cols-2 gap-8 py-4 md:grid-cols-4 md:gap-12">
       {stats.map((stat, i) => (
-        <Counter
-          key={stat.label}
-          {...stat}
-          delay={i * staggerMs}
-          trigger={trigger}
-        />
+        <Counter key={stat.label} {...stat} delay={i * staggerMs} trigger={trigger} />
       ))}
     </div>
   );

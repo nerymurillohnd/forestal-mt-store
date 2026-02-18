@@ -13,7 +13,9 @@ interface Props {
 const { number, eyebrow, heading, body } = Astro.props;
 ---
 
-<div class="rounded-[2px] border border-white/10 bg-white/[0.06] p-8 backdrop-blur-sm frosted-hover">
+<div
+  class="rounded-[2px] border border-white/10 bg-white/[0.06] p-8 backdrop-blur-sm frosted-hover"
+>
   {
     number && (
       <span class="font-[family-name:var(--font-display)] text-[2rem] leading-none text-[#F3C00D]/30">

@@ -57,23 +57,23 @@ Generated via `@astrojs/sitemap` integration with hybrid approach:
 
 ```js
 // astro.config.mjs
-import sitemap from '@astrojs/sitemap';
+import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  site: 'https://forestal-mt.com',
+  site: "https://forestal-mt.com",
   integrations: [
     sitemap({
       filter: (page) =>
-        !page.includes('/cart/') &&
-        !page.includes('/checkout/') &&
-        !page.includes('/account/') &&
-        !page.includes('/admin/') &&
-        !page.includes('/login/') &&
-        !page.includes('/register/') &&
-        !page.includes('/forgot-password/') &&
-        !page.includes('/reset-password/') &&
-        !page.includes('/order-confirmation/') &&
-        !page.includes('/order-tracking/'),
+        !page.includes("/cart/") &&
+        !page.includes("/checkout/") &&
+        !page.includes("/account/") &&
+        !page.includes("/admin/") &&
+        !page.includes("/login/") &&
+        !page.includes("/register/") &&
+        !page.includes("/forgot-password/") &&
+        !page.includes("/reset-password/") &&
+        !page.includes("/order-confirmation/") &&
+        !page.includes("/order-tracking/"),
     }),
   ],
 });
@@ -89,12 +89,12 @@ Structured data is implemented as JSON-LD `<script type="application/ld+json">` 
 
 ### E-E-A-T Signals
 
-| Signal | Implementation |
-|--------|---------------|
-| **Experience** | Product sourcing stories, harvesting process descriptions, origin community context |
-| **Expertise** | Botanical nomenclature, traditional use documentation, ethnobotanical references |
-| **Authoritativeness** | Organization schema, brand schema, direct-from-origin claims, company legal entity |
-| **Trustworthiness** | Complete contact info, physical address, legal disclaimers, transparent sourcing |
+| Signal                | Implementation                                                                      |
+| --------------------- | ----------------------------------------------------------------------------------- |
+| **Experience**        | Product sourcing stories, harvesting process descriptions, origin community context |
+| **Expertise**         | Botanical nomenclature, traditional use documentation, ethnobotanical references    |
+| **Authoritativeness** | Organization schema, brand schema, direct-from-origin claims, company legal entity  |
+| **Trustworthiness**   | Complete contact info, physical address, legal disclaimers, transparent sourcing    |
 
 ### @graph Pattern
 
@@ -104,10 +104,10 @@ Each page outputs a single JSON-LD block with an `@graph` array containing all r
 {
   "@context": "https://schema.org",
   "@graph": [
-    { "@type": "Organization", "..." : "..." },
-    { "@type": "WebSite", "..." : "..." },
-    { "@type": "BreadcrumbList", "..." : "..." },
-    { "@type": "Product", "..." : "..." }
+    { "@type": "Organization", "...": "..." },
+    { "@type": "WebSite", "...": "..." },
+    { "@type": "BreadcrumbList", "...": "..." },
+    { "@type": "Product", "...": "..." }
   ]
 }
 ```
@@ -121,36 +121,38 @@ Each page outputs a single JSON-LD block with an `@graph` array containing all r
 **Full nodes (Home only):** The Home page includes the complete Organization, Brand, and WebSite definitions with all properties (contacts, founders, return policy, etc.).
 
 The frontmatter `schemas[]` uses `mode: compact` to signal this to the builder:
+
 - No `mode` → builder injects the full JSON-LD file
 - `mode: compact` → builder injects only the stub (`@type`, `@id`, `name`, `url`, `logo`)
 
-| Page Type | Nodes in @graph |
-|-----------|----------------|
-| Home | `WebSite`, `Organization` (full), `Brand` (full), `SearchAction`, `VideoObject`, `ImageObject` |
-| About | `Organization` (compact), `Brand` (compact), `AboutPage`, `ImageObject`, `BreadcrumbList` |
-| Catalogue pages | `Organization` (compact), `Brand` (compact), `AboutPage`, `OfferCatalog`, `VideoObject`, `ImageObject`, `BreadcrumbList` |
-| PDPs | `Organization` (compact), `Brand` (compact), `ProductGroup`, `Product` (hasVariant), `Offer`, `ImageObject`, `HowTo`, `BreadcrumbList` |
-| Shop | `Organization` (compact), `Brand` (compact), `OnlineStore`, `CollectionPage`, `ItemList`, `OfferShippingDetails` (x9), `ImageObject`, `BreadcrumbList` |
-| FAQs | `Organization` (compact), `Brand` (compact), `FAQPage`, `Question`/`Answer`, `ImageObject`, `BreadcrumbList` |
-| Blog & Stories | `Organization` (compact), `Brand` (compact), `Blog`, `BlogPosting`, `ImageObject`, `BreadcrumbList` |
-| Contact | `Organization` (compact), `Brand` (compact), `ContactPage`, `ImageObject`, `BreadcrumbList` |
-| Wholesale | `Organization` (compact), `Brand` (compact), `WebPage`, `Service` (x4), `ImageObject`, `BreadcrumbList` |
-| Community | `Organization` (compact), `Brand` (compact), `WebPage`, `ImageObject`, `BreadcrumbList` |
-| Testimonials | `Organization` (compact), `Brand` (compact), `WebPage`, `Review`, `ImageObject`, `BreadcrumbList` |
-| Documentation | `Organization` (compact), `Brand` (compact), `WebPage`, `ImageObject`, `BreadcrumbList` |
-| Legal pages | `Organization` (compact), `Brand` (compact), `WebPage`, `BreadcrumbList` |
-| Utility pages | `Organization` (compact), `Brand` (compact), `WebPage`, `ImageObject` |
+| Page Type       | Nodes in @graph                                                                                                                                        |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Home            | `WebSite`, `Organization` (full), `Brand` (full), `SearchAction`, `VideoObject`, `ImageObject`                                                         |
+| About           | `Organization` (compact), `Brand` (compact), `AboutPage`, `ImageObject`, `BreadcrumbList`                                                              |
+| Catalogue pages | `Organization` (compact), `Brand` (compact), `AboutPage`, `OfferCatalog`, `VideoObject`, `ImageObject`, `BreadcrumbList`                               |
+| PDPs            | `Organization` (compact), `Brand` (compact), `ProductGroup`, `Product` (hasVariant), `Offer`, `ImageObject`, `HowTo`, `BreadcrumbList`                 |
+| Shop            | `Organization` (compact), `Brand` (compact), `OnlineStore`, `CollectionPage`, `ItemList`, `OfferShippingDetails` (x9), `ImageObject`, `BreadcrumbList` |
+| FAQs            | `Organization` (compact), `Brand` (compact), `FAQPage`, `Question`/`Answer`, `ImageObject`, `BreadcrumbList`                                           |
+| Blog & Stories  | `Organization` (compact), `Brand` (compact), `Blog`, `BlogPosting`, `ImageObject`, `BreadcrumbList`                                                    |
+| Contact         | `Organization` (compact), `Brand` (compact), `ContactPage`, `ImageObject`, `BreadcrumbList`                                                            |
+| Wholesale       | `Organization` (compact), `Brand` (compact), `WebPage`, `Service` (x4), `ImageObject`, `BreadcrumbList`                                                |
+| Community       | `Organization` (compact), `Brand` (compact), `WebPage`, `ImageObject`, `BreadcrumbList`                                                                |
+| Testimonials    | `Organization` (compact), `Brand` (compact), `WebPage`, `Review`, `ImageObject`, `BreadcrumbList`                                                      |
+| Documentation   | `Organization` (compact), `Brand` (compact), `WebPage`, `ImageObject`, `BreadcrumbList`                                                                |
+| Legal pages     | `Organization` (compact), `Brand` (compact), `WebPage`, `BreadcrumbList`                                                                               |
+| Utility pages   | `Organization` (compact), `Brand` (compact), `WebPage`, `ImageObject`                                                                                  |
 
 **Entity rendering:**
 
-| Entity | Full node on | Compact stub on |
-|--------|-------------|-----------------|
-| `Organization` | Home | All other pages |
-| `Brand` | Home | All other pages |
-| `WebSite` | Home | Not included elsewhere |
-| `OnlineStore` | Shop | Not included elsewhere |
+| Entity         | Full node on | Compact stub on        |
+| -------------- | ------------ | ---------------------- |
+| `Organization` | Home         | All other pages        |
+| `Brand`        | Home         | All other pages        |
+| `WebSite`      | Home         | Not included elsewhere |
+| `OnlineStore`  | Shop         | Not included elsewhere |
 
 **Compact stub format (builder contract):**
+
 ```json
 {
   "@type": "Organization",
@@ -208,26 +210,26 @@ SHOP PAGE @graph:
 
 **Node relationships (same-page, schema.org validated):**
 
-| From → To | Property | Page | Direction |
-|-----------|----------|------|-----------|
+| From → To              | Property    | Page | Direction      |
+| ---------------------- | ----------- | ---- | -------------- |
 | WebSite → Organization | `publisher` | Home | Child → parent |
-| Brand → Organization | `owner` | Home | Child → parent |
-| Organization → Brand | `brand` | Home | Parent → child |
+| Brand → Organization   | `owner`     | Home | Child → parent |
+| Organization → Brand   | `brand`     | Home | Parent → child |
 
 **Static vs dynamic nodes:**
 
-| Node | Where defined | How delivered |
-|------|--------------|---------------|
-| Organization | `structured-data/jsonld/Organization.json` | Included in Home page `@graph` (static) |
-| WebSite | `structured-data/jsonld/WebSite.json` | Included in Home page `@graph` (static) |
-| Brand | `structured-data/jsonld/Brand.json` | Inline within Organization; also referenced by Product nodes |
-| OnlineStore | `structured-data/jsonld/OnlineStore.json` | Included in Shop page `@graph` (SSR) |
-| OfferShippingDetails | `structured-data/jsonld/OfferShippingDetails.json` | 9 regional shipping zones; rendered on Shop page @graph, referenced by Offer nodes via `@id` |
-| Service (x4) | `structured-data/jsonld/Service-wholesale.json` | 4 B2B services (wholesale, private label, custom packaging, export logistics); rendered on Wholesale page @graph |
-| VideoObject (x4) | `structured-data/jsonld/VideoObject-*.json` | Included in Home + 3 Catalogue page `@graph` (static) |
-| ProductGroup (x46) | `structured-data/jsonld/ProductGroup-all-products.json` | Reference manifest; includes hasVariant, ImageObject, Offer per variant |
-| HowTo (x46) | `structured-data/jsonld/HowTo-all-products.json` | Reference manifest; SSR pages build from D1 `content.howToUse` |
-| BreadcrumbList (x79) | `structured-data/jsonld/BreadcrumbList-all-pages.json` | Reference manifest; PDPs use Home > Catalog > Product pattern |
+| Node                 | Where defined                                           | How delivered                                                                                                    |
+| -------------------- | ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| Organization         | `structured-data/jsonld/Organization.json`              | Included in Home page `@graph` (static)                                                                          |
+| WebSite              | `structured-data/jsonld/WebSite.json`                   | Included in Home page `@graph` (static)                                                                          |
+| Brand                | `structured-data/jsonld/Brand.json`                     | Inline within Organization; also referenced by Product nodes                                                     |
+| OnlineStore          | `structured-data/jsonld/OnlineStore.json`               | Included in Shop page `@graph` (SSR)                                                                             |
+| OfferShippingDetails | `structured-data/jsonld/OfferShippingDetails.json`      | 9 regional shipping zones; rendered on Shop page @graph, referenced by Offer nodes via `@id`                     |
+| Service (x4)         | `structured-data/jsonld/Service-wholesale.json`         | 4 B2B services (wholesale, private label, custom packaging, export logistics); rendered on Wholesale page @graph |
+| VideoObject (x4)     | `structured-data/jsonld/VideoObject-*.json`             | Included in Home + 3 Catalogue page `@graph` (static)                                                            |
+| ProductGroup (x46)   | `structured-data/jsonld/ProductGroup-all-products.json` | Reference manifest; includes hasVariant, ImageObject, Offer per variant                                          |
+| HowTo (x46)          | `structured-data/jsonld/HowTo-all-products.json`        | Reference manifest; SSR pages build from D1 `content.howToUse`                                                   |
+| BreadcrumbList (x79) | `structured-data/jsonld/BreadcrumbList-all-pages.json`  | Reference manifest; PDPs use Home > Catalog > Product pattern                                                    |
 
 **Static JSON files** (Organization, Brand, WebSite, OnlineStore, OfferShippingDetails, VideoObject, Service-wholesale) are imported and injected as-is. OfferShippingDetails (9 nodes) are rendered on the Shop page @graph — this is where the full definitions live that Offer nodes reference via @id. Service (4 nodes) are rendered on the Wholesale page @graph. **Reference manifests** (ProductGroup, HowTo, BreadcrumbList) are NOT imported at runtime — they exist for validation and documentation. Page-level schemas are built from D1 query results by a builder utility (`src/lib/jsonld.ts`).
 
@@ -265,20 +267,21 @@ Thing
 
 **Property ownership table (which types can carry which properties):**
 
-| Property | Valid on Types | Range (value type) | Forestal MT Usage |
-|----------|---------------|-------------------|-------------------|
-| `shippingDetails` | **Offer ONLY** | OfferShippingDetails | 9 @id refs on each of 132 variant Offers |
-| `hasMerchantReturnPolicy` | Offer, Organization, Product | MerchantReturnPolicy | Inline on Organization, @id ref on each Offer |
-| `hasOfferCatalog` | Organization, Person, Service | OfferCatalog | On OnlineStore (3 sub-catalogs) + on Wholesale Supply service (@id ref to #catalog) |
-| `hasShippingService` | Organization, OfferShippingDetails | ShippingService | NOT used — different type from OfferShippingDetails |
-| `brand` | Organization, Product, Service | Brand, Organization | On Organization (inline+@id), ProductGroup (@id ref), OnlineStore (@id ref) |
-| `parentOrganization` | Organization | Organization | OnlineStore → Organization |
-| `publisher` | CreativeWork | Organization, Person | WebSite → Organization |
-| `seller` | Offer | Organization, Person | Each Offer → Organization @id ref |
-| `provider` | Service, CreativeWork, others | Organization, Person | Each Service → Organization @id ref |
-| `variesBy` | ProductGroup | DefinedTerm, text | "https://schema.org/size" on all 46 ProductGroups |
+| Property                  | Valid on Types                     | Range (value type)   | Forestal MT Usage                                                                   |
+| ------------------------- | ---------------------------------- | -------------------- | ----------------------------------------------------------------------------------- |
+| `shippingDetails`         | **Offer ONLY**                     | OfferShippingDetails | 9 @id refs on each of 132 variant Offers                                            |
+| `hasMerchantReturnPolicy` | Offer, Organization, Product       | MerchantReturnPolicy | Inline on Organization, @id ref on each Offer                                       |
+| `hasOfferCatalog`         | Organization, Person, Service      | OfferCatalog         | On OnlineStore (3 sub-catalogs) + on Wholesale Supply service (@id ref to #catalog) |
+| `hasShippingService`      | Organization, OfferShippingDetails | ShippingService      | NOT used — different type from OfferShippingDetails                                 |
+| `brand`                   | Organization, Product, Service     | Brand, Organization  | On Organization (inline+@id), ProductGroup (@id ref), OnlineStore (@id ref)         |
+| `parentOrganization`      | Organization                       | Organization         | OnlineStore → Organization                                                          |
+| `publisher`               | CreativeWork                       | Organization, Person | WebSite → Organization                                                              |
+| `seller`                  | Offer                              | Organization, Person | Each Offer → Organization @id ref                                                   |
+| `provider`                | Service, CreativeWork, others      | Organization, Person | Each Service → Organization @id ref                                                 |
+| `variesBy`                | ProductGroup                       | DefinedTerm, text    | "https://schema.org/size" on all 46 ProductGroups                                   |
 
 **Key rules derived from this table:**
+
 1. `shippingDetails` goes on **Offer nodes**, NOT on OnlineStore or Organization
 2. `hasMerchantReturnPolicy` goes on **both** Organization (declares policy) AND Offer nodes (for Product rich results)
 3. `hasOfferCatalog` goes on **OnlineStore** (valid because OnlineStore inherits from Organization)
@@ -293,7 +296,18 @@ A single builder utility (`src/lib/jsonld.ts`) assembles the `@graph` for every 
 
 ```ts
 // src/lib/jsonld.ts
-type PageType = "home" | "about" | "pdp" | "shop" | "catalog" | "wholesale" | "contact" | "community" | "faq" | "blog" | "legal";
+type PageType =
+  | "home"
+  | "about"
+  | "pdp"
+  | "shop"
+  | "catalog"
+  | "wholesale"
+  | "contact"
+  | "community"
+  | "faq"
+  | "blog"
+  | "legal";
 
 interface JsonLdGraph {
   "@context": "https://schema.org";
@@ -305,21 +319,22 @@ export function buildJsonLd(page: PageType, data?: Record<string, unknown>): Jso
 
 **Builder inputs per page type:**
 
-| Page Type | Static JSON Imports | D1 Data (via `data` param) | Output @graph Nodes |
-|-----------|--------------------|-----------------------------|---------------------|
-| `home` | Organization, WebSite, Brand, VideoObject-home-hero | — | Organization, WebSite, SearchAction, VideoObject, ImageObject |
-| `about` | Organization | — | Organization, ImageObject, BreadcrumbList |
-| `pdp` | — | handler → products, pricing, media, seo, content, inventory | ProductGroup, Product[] (hasVariant), Offer[], ImageObject, HowTo, BreadcrumbList |
-| `shop` | OnlineStore, OfferShippingDetails | products (all or filtered by ?q=) | OnlineStore, CollectionPage, ItemList, OfferShippingDetails (x9), BreadcrumbList |
-| `catalog` | VideoObject-{catalog}-hero | catalog slug → products in catalog | CollectionPage, OfferCatalog, VideoObject, BreadcrumbList |
-| `wholesale` | Service-wholesale | — | WebPage, Service (x4), BreadcrumbList |
-| `contact` | Organization | — | ContactPage, Organization, ImageObject, BreadcrumbList |
-| `community` | — | — | WebPage, ImageObject, BreadcrumbList |
-| `faq` | — | FAQ content | FAQPage, Question/Answer, ImageObject, BreadcrumbList |
-| `blog` | — | blog posts | Blog, BlogPosting, ImageObject, BreadcrumbList |
-| `legal` | — | — | WebPage, BreadcrumbList |
+| Page Type   | Static JSON Imports                                 | D1 Data (via `data` param)                                  | Output @graph Nodes                                                               |
+| ----------- | --------------------------------------------------- | ----------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `home`      | Organization, WebSite, Brand, VideoObject-home-hero | —                                                           | Organization, WebSite, SearchAction, VideoObject, ImageObject                     |
+| `about`     | Organization                                        | —                                                           | Organization, ImageObject, BreadcrumbList                                         |
+| `pdp`       | —                                                   | handler → products, pricing, media, seo, content, inventory | ProductGroup, Product[] (hasVariant), Offer[], ImageObject, HowTo, BreadcrumbList |
+| `shop`      | OnlineStore, OfferShippingDetails                   | products (all or filtered by ?q=)                           | OnlineStore, CollectionPage, ItemList, OfferShippingDetails (x9), BreadcrumbList  |
+| `catalog`   | VideoObject-{catalog}-hero                          | catalog slug → products in catalog                          | CollectionPage, OfferCatalog, VideoObject, BreadcrumbList                         |
+| `wholesale` | Service-wholesale                                   | —                                                           | WebPage, Service (x4), BreadcrumbList                                             |
+| `contact`   | Organization                                        | —                                                           | ContactPage, Organization, ImageObject, BreadcrumbList                            |
+| `community` | —                                                   | —                                                           | WebPage, ImageObject, BreadcrumbList                                              |
+| `faq`       | —                                                   | FAQ content                                                 | FAQPage, Question/Answer, ImageObject, BreadcrumbList                             |
+| `blog`      | —                                                   | blog posts                                                  | Blog, BlogPosting, ImageObject, BreadcrumbList                                    |
+| `legal`     | —                                                   | —                                                           | WebPage, BreadcrumbList                                                           |
 
 **Rules:**
+
 1. One function, one page type, one `@graph` — no scattered `<script>` tags
 2. Static JSON files are imported once at module level, not per-request
 3. D1 queries happen in the Astro page, results passed to the builder via `data`
@@ -343,6 +358,7 @@ const product = await db.prepare("SELECT * FROM products WHERE handler = ?").bin
 // ... more queries ...
 const jsonLd = buildJsonLd("pdp", { product, pricing, media, seo, content, inventory });
 ---
+
 <head>
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 </head>
@@ -423,7 +439,12 @@ The following examples show the exact `@graph` content each page type produces. 
       "@id": "https://forestal-mt.com/products/{handler}/#breadcrumb",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://forestal-mt.com/" },
-        { "@type": "ListItem", "position": 2, "name": "{product.catalog}", "item": "https://forestal-mt.com/{catalogSlug}/" },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "{product.catalog}",
+          "item": "https://forestal-mt.com/{catalogSlug}/"
+        },
         { "@type": "ListItem", "position": 3, "name": "{product.name}" }
       ]
     },
@@ -555,6 +576,7 @@ The following examples show the exact `@graph` content each page type produces. 
 ```
 
 **Key points:**
+
 - Static nodes (Organization, Brand, WebSite) are defined once in their JSON files and output on the Home page
 - Dynamic nodes (ProductGroup, Product, Offer, ImageObject) are self-contained on each PDP — Google does NOT resolve `@id` across pages
 - `shippingDetails` (9 regions): each PDP's Offer must include its own OfferShippingDetails inline or the full node in its `@graph` — cannot reference the Shop page's definitions cross-page
@@ -568,44 +590,44 @@ Each PDP uses `ProductGroup` (not plain `Product`) as its root entity. This is t
 
 **Schema structure:**
 
-| Field | Source | Notes |
-|-------|--------|-------|
-| `@type` | `"ProductGroup"` | Fixed |
-| `@id` | `{SITE_URL}/products/{handler}/#product-group` | Fragment for graph resolution |
-| `name` | `products.name` | ProductGroup display name |
-| `productGroupID` | `products.productGroupId` | e.g., "FMT-TH-BL" |
-| `description` | `seo.seoDescription` | Meta description reused |
-| `url` | `products.url` | Canonical PDP URL |
-| `brand` | `{ "@id": "#brand" }` | Ref to Brand node |
-| `image` | `{ "@id": ".../#image" }` | Ref to ImageObject in same @graph |
-| `variesBy` | `"https://schema.org/size"` | Fixed — all products vary by size |
-| `hasVariant[]` | Joined from products + pricing + media + inventory | Array of Product nodes |
+| Field            | Source                                             | Notes                             |
+| ---------------- | -------------------------------------------------- | --------------------------------- |
+| `@type`          | `"ProductGroup"`                                   | Fixed                             |
+| `@id`            | `{SITE_URL}/products/{handler}/#product-group`     | Fragment for graph resolution     |
+| `name`           | `products.name`                                    | ProductGroup display name         |
+| `productGroupID` | `products.productGroupId`                          | e.g., "FMT-TH-BL"                 |
+| `description`    | `seo.seoDescription`                               | Meta description reused           |
+| `url`            | `products.url`                                     | Canonical PDP URL                 |
+| `brand`          | `{ "@id": "#brand" }`                              | Ref to Brand node                 |
+| `image`          | `{ "@id": ".../#image" }`                          | Ref to ImageObject in same @graph |
+| `variesBy`       | `"https://schema.org/size"`                        | Fixed — all products vary by size |
+| `hasVariant[]`   | Joined from products + pricing + media + inventory | Array of Product nodes            |
 
 **hasVariant — each variant is a Product with its own Offer:**
 
-| Field | Source | Notes |
-|-------|--------|-------|
-| `@type` | `"Product"` | Each variant is a full Product |
-| `name` | `products.variants[].name` | Full variant name with size |
-| `sku` | `products.variants[].sku` | Unique SKU identifier |
-| `size` | `inventory.variants[].size` | Metric-only (e.g., "57 g") |
-| `image` | `media.variantImages[].url` | Plain URL (not ImageObject) |
-| `offers.price` | `pricing.variants[].price` | USD, 2 decimals |
-| `offers.availability` | `inventory.variants[].availability` | InStock or OutOfStock |
-| `offers.shippingDetails` | 9 `@id` refs (static) | Refs to OfferShippingDetails nodes rendered on Shop page |
-| `offers.hasMerchantReturnPolicy` | `@id` ref (static) | Ref to `#return-policy` defined inline on Organization |
+| Field                            | Source                              | Notes                                                    |
+| -------------------------------- | ----------------------------------- | -------------------------------------------------------- |
+| `@type`                          | `"Product"`                         | Each variant is a full Product                           |
+| `name`                           | `products.variants[].name`          | Full variant name with size                              |
+| `sku`                            | `products.variants[].sku`           | Unique SKU identifier                                    |
+| `size`                           | `inventory.variants[].size`         | Metric-only (e.g., "57 g")                               |
+| `image`                          | `media.variantImages[].url`         | Plain URL (not ImageObject)                              |
+| `offers.price`                   | `pricing.variants[].price`          | USD, 2 decimals                                          |
+| `offers.availability`            | `inventory.variants[].availability` | InStock or OutOfStock                                    |
+| `offers.shippingDetails`         | 9 `@id` refs (static)               | Refs to OfferShippingDetails nodes rendered on Shop page |
+| `offers.hasMerchantReturnPolicy` | `@id` ref (static)                  | Ref to `#return-policy` defined inline on Organization   |
 
 **ImageObject — one per PDP, representative of page:**
 
-| Field | Source | Notes |
-|-------|--------|-------|
-| `@type` | `"ImageObject"` | Fixed |
-| `@id` | `{SITE_URL}/products/{handler}/#image` | Referenced by ProductGroup.image |
-| `url`, `contentUrl` | `media.image.url` | ProductGroup main image (1200x1200) |
-| `description` | `media.image.alt` | Alt text |
-| `caption` | `media.image.caption` | Descriptive caption |
-| `representativeOfPage` | `true` | Signals this is THE page image |
-| `creator`, `copyrightHolder` | `{ "@id": "#organization" }` | Organization ref |
+| Field                        | Source                                 | Notes                               |
+| ---------------------------- | -------------------------------------- | ----------------------------------- |
+| `@type`                      | `"ImageObject"`                        | Fixed                               |
+| `@id`                        | `{SITE_URL}/products/{handler}/#image` | Referenced by ProductGroup.image    |
+| `url`, `contentUrl`          | `media.image.url`                      | ProductGroup main image (1200x1200) |
+| `description`                | `media.image.alt`                      | Alt text                            |
+| `caption`                    | `media.image.caption`                  | Descriptive caption                 |
+| `representativeOfPage`       | `true`                                 | Signals this is THE page image      |
+| `creator`, `copyrightHolder` | `{ "@id": "#organization" }`           | Organization ref                    |
 
 **Coverage:** 46 ProductGroups, 132 variant Products, 132 Offers, 46 ImageObjects.
 
@@ -618,6 +640,7 @@ Each PDP uses `ProductGroup` (not plain `Product`) as its root entity. This is t
 Each PDP includes a `HowTo` node in its `@graph` array, generated from `content.json → howToUse[]` at SSR time.
 
 **Strategic rationale:** Google deprecated HowTo rich results in September 2023. We implement HowTo schemas for:
+
 - **Semantic understanding** — helps Google's Knowledge Graph classify product usage
 - **SGE/LLM preparation** — structured how-to data feeds AI-generated answers
 - **Bing support** — Bing still renders HowTo rich results
@@ -625,14 +648,14 @@ Each PDP includes a `HowTo` node in its `@graph` array, generated from `content.
 
 **Schema structure:**
 
-| Field | Source | Notes |
-|-------|--------|-------|
-| `@type` | `"HowTo"` | Fixed |
-| `@id` | `{SITE_URL}/products/{handler}/#howto` | Fragment for graph resolution |
-| `name` | `"How to Use {product.name}"` | SEO-friendly descriptive title |
-| `description` | `content.shortDescription` | Reuses existing editorial copy |
-| `supply[0]` | `{ "@type": "HowToSupply", "name": product.name }` | The product itself |
-| `step[]` | Parsed from `content.howToUse[]` | Each string → one HowToStep |
+| Field         | Source                                             | Notes                          |
+| ------------- | -------------------------------------------------- | ------------------------------ |
+| `@type`       | `"HowTo"`                                          | Fixed                          |
+| `@id`         | `{SITE_URL}/products/{handler}/#howto`             | Fragment for graph resolution  |
+| `name`        | `"How to Use {product.name}"`                      | SEO-friendly descriptive title |
+| `description` | `content.shortDescription`                         | Reuses existing editorial copy |
+| `supply[0]`   | `{ "@type": "HowToSupply", "name": product.name }` | The product itself             |
+| `step[]`      | Parsed from `content.howToUse[]`                   | Each string → one HowToStep    |
 
 **Step parsing:** Each `howToUse` string follows the pattern `"Step Title: Instructions..."`. Split on first `: ` — left = `name`, right = `text`. For strings without `: `, fallback: `name = "Step {N}"`, `text = full string`.
 
@@ -648,25 +671,25 @@ Every page (except Home) includes a `BreadcrumbList` node in its `@graph` array.
 
 **PDP breadcrumb pattern:** `Home > {Catalog} > {Product}`
 
-| Catalog | Breadcrumb Example | Catalog URL |
-|---------|-------------------|-------------|
-| Batana Oil | Home > Batana Oil > Raw Batana Oil | `/batana-oil/` |
-| Stingless Bee Honey | Home > Stingless Bee Honey > Jimerito | `/stingless-bee-honey/` |
-| Traditional Herbs | Home > Traditional Herbs > Amaranth Greens | `/traditional-herbs/` |
+| Catalog             | Breadcrumb Example                         | Catalog URL             |
+| ------------------- | ------------------------------------------ | ----------------------- |
+| Batana Oil          | Home > Batana Oil > Raw Batana Oil         | `/batana-oil/`          |
+| Stingless Bee Honey | Home > Stingless Bee Honey > Jimerito      | `/stingless-bee-honey/` |
+| Traditional Herbs   | Home > Traditional Herbs > Amaranth Greens | `/traditional-herbs/`   |
 
 **Why Catalog instead of Shop in PDP breadcrumbs:** Linking to the catalog page (`/batana-oil/`, etc.) provides stronger topical hierarchy in SERPs, more internal link juice to catalog pages, and Google renders it as `forestal-mt.com › Batana Oil › Raw Batana Oil`. Shop (`/products/`) is already linked from the main navigation.
 
 **Other page patterns:**
 
-| Page Type | Breadcrumb Pattern | Example |
-|-----------|--------------------|---------|
-| Core pages | Home > {Page} | Home > About Us |
-| Community subpages | Home > Community > {Subpage} | Home > Community > FAQs |
-| Legal pages | Home > {Page} | Home > Privacy Policy |
-| Shop | Home > Shop | — |
-| E-commerce | Home > {Page} | Home > Cart |
-| Account subpages | Home > My Account > {Subpage} | Home > My Account > My Orders |
-| Admin subpages | Home > Admin Dashboard > {Subpage} | Home > Admin Dashboard > Product Management |
+| Page Type          | Breadcrumb Pattern                 | Example                                     |
+| ------------------ | ---------------------------------- | ------------------------------------------- |
+| Core pages         | Home > {Page}                      | Home > About Us                             |
+| Community subpages | Home > Community > {Subpage}       | Home > Community > FAQs                     |
+| Legal pages        | Home > {Page}                      | Home > Privacy Policy                       |
+| Shop               | Home > Shop                        | —                                           |
+| E-commerce         | Home > {Page}                      | Home > Cart                                 |
+| Account subpages   | Home > My Account > {Subpage}      | Home > My Account > My Orders               |
+| Admin subpages     | Home > Admin Dashboard > {Subpage} | Home > Admin Dashboard > Product Management |
 
 **Google guidelines:** Last item in the breadcrumb has no `item` URL (represents the current page). All parent items include `item` URLs for navigation.
 
@@ -681,4 +704,4 @@ Every page (except Home) includes a `BreadcrumbList` node in its `@graph` array.
 
 ---
 
-*Forestal Murillo Tejada S. de R.L. - Forestal MT*
+_Forestal Murillo Tejada S. de R.L. - Forestal MT_

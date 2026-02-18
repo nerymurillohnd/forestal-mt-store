@@ -14,10 +14,7 @@ interface Props {
   variant?: "light" | "dark";
 }
 
-export default function TabSwitcherIsland({
-  tabs,
-  variant = "dark",
-}: Props) {
+export default function TabSwitcherIsland({ tabs, variant = "dark" }: Props) {
   const [active, setActive] = useState(0);
 
   const isDark = variant === "dark";

@@ -17,11 +17,7 @@ const transforms: Record<string, string> = {
   right: "translateX(32px)",
 };
 
-export default function ScrollRevealIsland({
-  children,
-  delay = 0,
-  direction = "up",
-}: Props) {
+export default function ScrollRevealIsland({ children, delay = 0, direction = "up" }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 

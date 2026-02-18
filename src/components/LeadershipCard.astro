@@ -12,10 +12,7 @@ const { name, title, bio } = Astro.props;
 
 // Initials from name (first + last word)
 const parts = name.trim().split(" ");
-const initials =
-  parts.length >= 2
-    ? parts[0][0] + parts[parts.length - 1][0]
-    : parts[0][0];
+const initials = parts.length >= 2 ? parts[0][0] + parts[parts.length - 1][0] : parts[0][0];
 ---
 
 <div
@@ -23,9 +20,7 @@ const initials =
 >
   <div class="p-6">
     {/* Initials circle */}
-    <div
-      class="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#F3C00D]/10"
-    >
+    <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#F3C00D]/10">
       <span
         class="font-[family-name:var(--font-heading)] text-[0.85rem] font-normal text-[#a18500]"
       >
