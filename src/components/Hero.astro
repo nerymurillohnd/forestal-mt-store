@@ -69,6 +69,7 @@ const posterSrc = hasVideo ? getStreamPoster(background.stream, 1920, 1080) : nu
     {
       hasVideo && (
         <video
+          id="hero-video"
           autoplay
           muted
           loop
@@ -76,10 +77,9 @@ const posterSrc = hasVideo ? getStreamPoster(background.stream, 1920, 1080) : nu
           preload="auto"
           disablepictureinpicture
           poster={posterSrc}
+          data-hls={hlsSrc}
           class="h-full w-full object-cover"
-        >
-          <source src={hlsSrc} type="application/x-mpegURL" />
-        </video>
+        />
       )
     }
 
@@ -182,3 +182,24 @@ const posterSrc = hasVideo ? getStreamPoster(background.stream, 1920, 1080) : nu
     )
   }
 </section>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const video = document.getElementById("hero-video");
+    if (!video) return;
+    const src = video.dataset.hls;
+    if (!src) return;
+
+    if (video.canPlayType("application/vnd.apple.mpegurl")) {
+      video.src = src;
+    } else {
+      import("hls.js/dist/hls.light.min.js").then((mod) => {
+        const Hls = mod.default || mod;
+        if (!Hls.isSupported()) return;
+        const hls = new Hls({ enableWorker: false });
+        hls.loadSource(src);
+        hls.attachMedia(video);
+      });
+    }
+  });
+</script>
