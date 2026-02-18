@@ -47,9 +47,10 @@ const overlayClass = catalogAccent ? `overlay-${catalogAccent}` : "";
 <section
   class:list={[
     "grain relative flex items-end overflow-hidden",
-    height === "100dvh" ? "h-dvh" : `min-h-[${height}]`,
+    height === "100dvh" && "h-dvh",
     overlayClass,
   ]}
+  style={height !== "100dvh" ? `min-height: ${height}` : undefined}
 >
   {/* Background */}
   <div class="absolute inset-0">
