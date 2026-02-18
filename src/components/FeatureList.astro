@@ -1,0 +1,31 @@
+---
+/**
+ * FeatureList — Styled bullet list with gold dash markers.
+ * Replaces inline <ul> patterns across pages.
+ */
+interface Props {
+  items: string[];
+  variant?: "light" | "dark";
+}
+
+const { items, variant = "light" } = Astro.props;
+
+const textColor = variant === "dark" ? "text-white/60" : "text-[#333]/70";
+const markerColor = variant === "dark" ? "bg-[#F3C00D]/40" : "bg-[#F3C00D]/50";
+---
+
+<ul class="space-y-4">
+  {
+    items.map((item) => (
+      <li
+        class:list={[
+          "flex items-start gap-4 font-[family-name:var(--font-body)] text-[14px] leading-relaxed",
+          textColor,
+        ]}
+      >
+        <span class:list={["mt-2.5 h-px w-5 shrink-0", markerColor]} />
+        <span set:html={item} />
+      </li>
+    ))
+  }
+</ul>

@@ -1,0 +1,89 @@
+---
+/**
+ * SplitEditorial — 50/50 image + text editorial block.
+ * Simpler than OriginChapter — no metadata, pure narrative.
+ */
+interface Props {
+  eyebrow?: string;
+  heading: string;
+  paragraphs: string[];
+  image: string;
+  imageAlt?: string;
+  direction?: "left" | "right";
+  variant?: "light" | "dark";
+}
+
+const {
+  eyebrow,
+  heading,
+  paragraphs,
+  image,
+  imageAlt = "",
+  direction = "left",
+  variant = "light",
+} = Astro.props;
+
+const imageFirst = direction === "left";
+const isDark = variant === "dark";
+
+const eyebrowColor = isDark ? "text-[#F3C00D]/80" : "text-gold-dark";
+const headingColor = isDark ? "text-white" : "text-charcoal";
+const textColor = isDark ? "text-white/55" : "text-[#333]/70";
+---
+
+<div
+  class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2 lg:gap-16 lg:px-12"
+>
+  {/* Image */}
+  <div
+    class:list={[
+      "relative aspect-[4/5] overflow-hidden rounded-[2px]",
+      imageFirst ? "lg:order-1" : "lg:order-2",
+    ]}
+  >
+    <img
+      src={image}
+      alt={imageAlt}
+      class="parallax-image h-full w-full object-cover"
+      loading="lazy"
+      decoding="async"
+    />
+    <div class="absolute inset-0 rounded-[2px] ring-1 ring-inset ring-[#F3C00D]/10"></div>
+  </div>
+
+  {/* Text */}
+  <div class:list={["reveal-on-scroll", imageFirst ? "lg:order-2" : "lg:order-1"]}>
+    {
+      eyebrow && (
+        <p
+          class:list={[
+            "font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em]",
+            eyebrowColor,
+          ]}
+        >
+          {eyebrow}
+        </p>
+      )
+    }
+    <h2
+      class:list={[
+        "mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal",
+        headingColor,
+      ]}
+      set:html={heading}
+    />
+    <hr class="gold-rule-left" />
+    {
+      paragraphs.map((p) => (
+        <p
+          class:list={[
+            "mt-4 first:mt-8 font-[family-name:var(--font-body)] text-[15px] leading-[1.85]",
+            textColor,
+          ]}
+          set:html={p}
+        />
+      ))
+    }
+    <slot />
+  </div>
+</div>

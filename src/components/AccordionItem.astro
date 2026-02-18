@@ -1,0 +1,32 @@
+---
+/**
+ * AccordionItem — CSS-only expandable section using <details>/<summary>.
+ * Zero JS, ARIA accessible. Gold chevron rotates on open.
+ */
+interface Props {
+  title: string;
+  open?: boolean;
+}
+
+const { title, open = false } = Astro.props;
+---
+
+<details class="group border-b border-[#F3C00D]/10" open={open}>
+  <summary
+    class="flex cursor-pointer items-center justify-between py-5 font-[family-name:var(--font-heading)] text-[1rem] font-normal tracking-wide select-none [&::-webkit-details-marker]:hidden"
+  >
+    <span>{title}</span>
+    <svg
+      class="h-4 w-4 shrink-0 text-[#F3C00D]/60 transition-transform duration-300 group-open:rotate-180"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      stroke-width="1.5"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+    </svg>
+  </summary>
+  <div class="pb-6 font-[family-name:var(--font-body)] text-[14px] leading-[1.85]">
+    <slot />
+  </div>
+</details>

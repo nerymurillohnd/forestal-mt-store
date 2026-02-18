@@ -1,0 +1,33 @@
+---
+/**
+ * BotanicalSection — Full-width section with R2 botanical image background.
+ * Gradient overlay + slot content. Used for immersive botanical sections.
+ */
+interface Props {
+  image: string;
+  alt?: string;
+  overlay?: string;
+  class?: string;
+}
+
+const {
+  image,
+  alt = "",
+  overlay = "from-charcoal/85 via-charcoal/50 to-charcoal/30",
+  class: className = "",
+} = Astro.props;
+---
+
+<section class:list={["grain relative overflow-hidden py-24", className]}>
+  <img
+    src={image}
+    alt={alt}
+    class="absolute inset-0 h-full w-full object-cover"
+    loading="lazy"
+    decoding="async"
+  />
+  <div class:list={["absolute inset-0 bg-gradient-to-t", overlay]} />
+  <div class="relative z-10">
+    <slot />
+  </div>
+</section>

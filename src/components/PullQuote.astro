@@ -1,0 +1,48 @@
+---
+/**
+ * PullQuote — Full-width editorial quote separator.
+ * Large serif italic text with gold decorative marks.
+ */
+interface Props {
+  quote: string;
+  attribution?: string;
+  variant?: "light" | "dark";
+}
+
+const { quote, attribution, variant = "light" } = Astro.props;
+
+const isDark = variant === "dark";
+const quoteColor = isDark ? "text-white/80" : "text-charcoal/80";
+const markColor = isDark ? "text-[#F3C00D]/30" : "text-[#F3C00D]/40";
+const attrColor = isDark ? "text-white/40" : "text-charcoal/40";
+const bgClass = isDark ? "bg-charcoal" : "surface-parchment";
+---
+
+<section class:list={["py-20 md:py-28", bgClass]}>
+  <div class="reveal-on-scroll mx-auto max-w-3xl px-6 text-center lg:px-12">
+    <span
+      class:list={["font-[family-name:var(--font-display)] text-[3rem] leading-none", markColor]}
+      >&ldquo;</span
+    >
+    <blockquote
+      class:list={[
+        "mt-2 font-[family-name:var(--font-body)] text-[clamp(1.15rem,2.2vw,1.5rem)] font-normal italic leading-[1.7]",
+        quoteColor,
+      ]}
+      set:html={quote}
+    />
+    {
+      attribution && (
+        <p
+          class:list={[
+            "mt-6 font-[family-name:var(--font-ui)] text-[12px] uppercase tracking-[0.2em]",
+            attrColor,
+          ]}
+        >
+          <span class="mr-2 inline-block h-px w-4 align-middle bg-[#F3C00D]/40" />
+          {attribution}
+        </p>
+      )
+    }
+  </div>
+</section>

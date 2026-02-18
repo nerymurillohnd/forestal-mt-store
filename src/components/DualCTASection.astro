@@ -1,0 +1,68 @@
+---
+/**
+ * DualCTASection — Closing section with 2 CTAs.
+ * Replaces inline Partner CTA pattern across pages.
+ */
+interface Props {
+  eyebrow?: string;
+  heading: string;
+  description?: string;
+  primaryCta: { label: string; url: string };
+  secondaryCta?: { label: string; url: string };
+  variant?: "green" | "dark";
+}
+
+const {
+  eyebrow,
+  heading,
+  description,
+  primaryCta,
+  secondaryCta,
+  variant = "green",
+} = Astro.props;
+
+const bgClass = variant === "green" ? "bg-[#206D03]" : "bg-charcoal";
+---
+
+<section class:list={["grain relative overflow-hidden py-24", bgClass]}>
+  <div class="reveal-on-scroll relative z-10 mx-auto max-w-3xl px-6 text-center lg:px-12">
+    {
+      eyebrow && (
+        <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80">
+          {eyebrow}
+        </p>
+      )
+    }
+    <h2
+      class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-white"
+    >
+      {heading}
+    </h2>
+    {
+      description && (
+        <p
+          class="mx-auto mt-6 max-w-2xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-white/60"
+          set:html={description}
+        />
+      )
+    }
+    <div class="mt-10 flex flex-wrap justify-center gap-4">
+      <a
+        href={primaryCta.url}
+        class="inline-block rounded-[3px] bg-[#F3C00D] px-8 py-3.5 font-[family-name:var(--font-ui)] text-[13px] font-semibold text-[#333] transition-all duration-300 hover:bg-[#F3C00D]/90 hover:shadow-lg hover:shadow-[#F3C00D]/20"
+      >
+        {primaryCta.label}
+      </a>
+      {
+        secondaryCta && (
+          <a
+            href={secondaryCta.url}
+            class="inline-block rounded-[3px] border border-white/25 px-8 py-3.5 font-[family-name:var(--font-ui)] text-[13px] font-semibold text-white/90 transition-all duration-300 hover:border-white/50 hover:bg-white/5"
+          >
+            {secondaryCta.label}
+          </a>
+        )
+      }
+    </div>
+  </div>
+</section>

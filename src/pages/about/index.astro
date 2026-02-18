@@ -1,7 +1,8 @@
 ---
 /**
  * ABOUT — Company Landing Page
- * Origin story, timeline, values, collections. MDX content as DATA.
+ * Origin story, timeline, values, collections, leadership, channels.
+ * All content from about.mdx — complete integration with 20 sections.
  */
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Head from "../../components/Head.astro";
@@ -11,11 +12,27 @@ import SectionHeader from "../../components/SectionHeader.astro";
 import GoldTopCard from "../../components/GoldTopCard.astro";
 import TrustMarquee from "../../components/TrustMarquee.astro";
 import OriginMetadata from "../../components/OriginMetadata.astro";
+import BotanicalSection from "../../components/BotanicalSection.astro";
+import SplitEditorial from "../../components/SplitEditorial.astro";
+import PullQuote from "../../components/PullQuote.astro";
+import GlassCard from "../../components/GlassCard.astro";
+import LeadershipCard from "../../components/LeadershipCard.astro";
+import ChannelSplit from "../../components/ChannelSplit.astro";
+import SloganBanner from "../../components/SloganBanner.astro";
+import AccordionItem from "../../components/AccordionItem.astro";
+import AccordionGroup from "../../components/AccordionGroup.astro";
+import FeatureList from "../../components/FeatureList.astro";
+import DualCTASection from "../../components/DualCTASection.astro";
+import ImpactBarIsland from "../../components/islands/ImpactBarIsland.tsx";
 import { getEntry } from "astro:content";
 
 const page = await getEntry("pages", "about");
 if (!page) throw new Error("Missing content: pages/about");
 const { data } = page;
+
+const R2_ABOUT = "https://cdn.forestal-mt.com/pages/about";
+
+/* ── Data arrays ── */
 
 const timeline = [
   {
@@ -126,11 +143,44 @@ const values = [
 ];
 
 const impacts = [
-  "Direct partnerships with local harvesters — no intermediaries, no brokers",
-  "Fair compensation for traditional knowledge keepers and indigenous communities",
-  "Sustainable harvesting practices that protect ecosystems and ensure regeneration",
-  "Rural economic development supporting livelihoods in Olancho and La Mosquitia",
-  "Cultural preservation — keeping traditional processing methods and ethnobotanical knowledge alive",
+  "<strong>Direct partnerships with local harvesters:</strong> No intermediaries, no brokers",
+  "<strong>Fair compensation for traditional knowledge keepers:</strong> Indigenous communities receive fair payment for ancestral methods",
+  "<strong>Sustainable harvesting practices:</strong> Wild-harvesting that protects ecosystems and ensures regeneration",
+  "<strong>Rural economic development:</strong> Supporting livelihoods in Olancho and La Mosquitia",
+  "<strong>Cultural preservation:</strong> Keeping traditional processing methods and ethnobotanical knowledge alive",
+];
+
+const whoWeAreBullets = [
+  "Artisanal and wild-harvested products rooted in indigenous knowledge",
+  "Direct sourcing from native ecosystems and cultural territories",
+  "Traditional processing that preserves botanical potency",
+  "Ethical export with a clear chain of origin",
+  "Diversified operations across exports, real estate, commerce, agriculture, and livestock",
+];
+
+const impactStats = [
+  { target: 5000, label: "Hectares Stewarded", suffix: "+" },
+  { target: 46, label: "Products" },
+  { target: 4, label: "Continents Served" },
+  { target: 6, label: "Years of Partnerships", suffix: "+" },
+];
+
+const leadership = [
+  {
+    name: "Nery Roberto Murillo M.",
+    title: "Founder",
+    bio: "Entered the lumber industry in the 1990s with a long-term vision. Founded Forestal MT in 2009. His philosophy of responsible land management became the foundation for the company's ethnobotanical mission.",
+  },
+  {
+    name: "Nery Samuel Murillo",
+    title: "General Manager",
+    bio: "Strategic direction and international partnerships. Leading the company's digital expansion and global B2B/B2C growth across North America, Europe, and Asia.",
+  },
+  {
+    name: "Operations & Finance",
+    title: "Family Leadership",
+    bio: "Quality control, sourcing, production oversight, compliance, accounting, and regulatory affairs. Three generations working together to maintain the commitment to quality and trust.",
+  },
 ];
 ---
 
@@ -148,7 +198,7 @@ const impacts = [
 
   {
     /* ═══════════════════════════════════════════════════════════════
-      HERO — Hero component
+      1. HERO
   ═══════════════════════════════════════════════════════════════ */
   }
   <Hero
@@ -160,11 +210,16 @@ const impacts = [
     ctas={data.hero.ctas}
   />
 
+  {
+    /* ═══════════════════════════════════════════════════════════════
+      2. BREADCRUMB
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <Breadcrumb pageName={data.pageName} />
 
   {
     /* ═══════════════════════════════════════════════════════════════
-      WHO WE ARE — Centered intro narrative
+      3. WHO WE ARE — Intro narrative + feature bullets
   ═══════════════════════════════════════════════════════════════ */
   }
   <section class="surface-warm py-24">
@@ -187,19 +242,30 @@ const impacts = [
           >North America, Central and South America, Europe, and Asia</strong
         >.
       </p>
+      <p
+        class="reveal-on-scroll mt-4 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70"
+      >
+        Our business model reflects long-term resilience through <strong
+          class="font-semibold text-[#333]/85">diversified operations</strong
+        > including international exports, real estate development, local commerce, agriculture, and
+        livestock.
+      </p>
+    </div>
+    <div class="reveal-on-scroll mx-auto mt-12 max-w-2xl px-6 lg:px-12">
+      <FeatureList items={whoWeAreBullets} />
     </div>
   </section>
 
   {
     /* ═══════════════════════════════════════════════════════════════
-      TRUST MARQUEE — Between intro and Mission/Vision
+      4. TRUST MARQUEE
   ═══════════════════════════════════════════════════════════════ */
   }
   <TrustMarquee />
 
   {
     /* ═══════════════════════════════════════════════════════════════
-      MISSION / VISION / PROMISE — GoldTopCard on parchment bg
+      5. MISSION / VISION / PROMISE — GoldTopCards
   ═══════════════════════════════════════════════════════════════ */
   }
   <section class="surface-parchment py-24">
@@ -231,11 +297,14 @@ const impacts = [
 
   {
     /* ═══════════════════════════════════════════════════════════════
-      WE ARE THE SOURCE — Dark statement section
+      6. WE ARE THE SOURCE — Botanical immersion + GlassCards
   ═══════════════════════════════════════════════════════════════ */
   }
-  <section class="surface-dark grain relative overflow-hidden py-24">
-    <div class="relative z-10 mx-auto max-w-4xl px-6 text-center lg:px-12">
+  <BotanicalSection
+    image={`${R2_ABOUT}/sourced-from-origin.jpg`}
+    alt="Forestal MT sourcing directly from Honduran communities"
+  >
+    <div class="mx-auto max-w-4xl px-6 text-center lg:px-12">
       <SectionHeader
         eyebrow="What Sets Us Apart"
         heading="We Are the Source.<br />Not a Middleman."
@@ -244,17 +313,23 @@ const impacts = [
       <p
         class="reveal-on-scroll mx-auto mt-8 max-w-2xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-white/55"
       >
-        Most suppliers resell from unknown origins. We source directly from indigenous communities
-        in Honduras who craft these products using ancestral methods. No brokers. No traders. No
+        Most suppliers resell from unknown origins. We source directly from indigenous communities in
+        Honduras who craft these products using ancestral methods. No brokers. No traders. No
         intermediaries.
       </p>
       <p
         class="reveal-on-scroll mx-auto mt-4 max-w-2xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-white/55"
       >
-        You get Batana Oil from <em>Elaeis oleifera</em> palms in La Mosquitia, Jimerito honey from ancestral
-        log hives, and wildcrafted herbs from native territories — with <strong
+        You get Batana Oil from <em>Elaeis oleifera</em> palms in La Mosquitia, Jimerito honey from
+        ancestral log hives, and wildcrafted herbs from native territories — with <strong
           class="font-semibold text-white/75">full traceability from forest to your door</strong
         >.
+      </p>
+      <p
+        class="reveal-on-scroll mx-auto mt-4 max-w-2xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-white/55"
+      >
+        We ship worldwide, build long-term partnerships, and deliver origin-crafted products with
+        consistent quality. When you grow, we grow.
       </p>
       <p
         class="reveal-on-scroll mx-auto mt-6 max-w-2xl font-[family-name:var(--font-body)] text-[14px] leading-[1.85] text-white/40"
@@ -263,11 +338,56 @@ const impacts = [
         harvesters, and every step of the process.
       </p>
     </div>
+  </BotanicalSection>
+
+  {
+    /* ═══════════════════════════════════════════════════════════════
+      7. IMPACT STATS — Animated counters on botanical background
+  ═══════════════════════════════════════════════════════════════ */
+  }
+  <BotanicalSection
+    image={`${R2_ABOUT}/indiginuos-partner.jpg`}
+    alt="Indigenous partner communities in Honduras"
+    overlay="from-charcoal/90 via-charcoal/60 to-charcoal/85"
+  >
+    <div class="mx-auto max-w-5xl px-6 lg:px-12">
+      <ImpactBarIsland client:visible stats={impactStats} />
+    </div>
+  </BotanicalSection>
+
+  {
+    /* ═══════════════════════════════════════════════════════════════
+      8. PULL QUOTE — Founder voice
+  ═══════════════════════════════════════════════════════════════ */
+  }
+  <PullQuote
+    quote="We don't just export products — we carry forward the knowledge of the people who have lived with these forests for generations. Every bottle of Batana Oil, every jar of honey, every herb tells a story of care, tradition, and trust."
+    attribution="Nery Roberto Murillo Montalvan, Founder"
+  />
+
+  {
+    /* ═══════════════════════════════════════════════════════════════
+      9. OUR STORY — SplitEditorial with family photo
+  ═══════════════════════════════════════════════════════════════ */
+  }
+  <section class="surface-warm py-24">
+    <SplitEditorial
+      eyebrow="Our Story"
+      heading="From Forest Stewardship<br />to Global Ambassador"
+      image={`${R2_ABOUT}/murillo-tejada-family.jpg`}
+      imageAlt="The Murillo Tejada family — founders of Forestal MT"
+      direction="left"
+      paragraphs={[
+        "Our story begins in the forests of Olancho. In the <strong>1990s</strong>, Nery Roberto Murillo Montalvan began working the land and caring for thousands of hectares as a responsibility to future generations.",
+        "The early years focused on responsible forestry and pine resin exports, building discipline in land management, logistics, and compliance. In <strong>2018</strong>, during a pine resin project in La Mosquitia, Miskito community leaders gifted us two bottles of traditional Batana Oil. That moment revealed a new path rooted in ancestral knowledge and origin-crafted botanicals.",
+        "In <strong>2020</strong>, the family renewed the company's direction and fully embraced ethnobotanicals. Today, Forestal MT serves global partners while protecting the integrity of the forest, the people who harvest with care, and the traditions that make these products possible.",
+      ]}
+    />
   </section>
 
   {
     /* ═══════════════════════════════════════════════════════════════
-      TIMELINE — Vertical company history (gold separator from above)
+      10. TIMELINE — Vertical company history
   ═══════════════════════════════════════════════════════════════ */
   }
   <section class="relative overflow-hidden border-t border-[#F3C00D]/10 bg-charcoal py-24">
@@ -278,9 +398,7 @@ const impacts = [
         variant="dark"
       />
 
-      {/* Timeline */}
       <div class="relative mt-20">
-        {/* Vertical line */}
         <div
           class="absolute left-[7.5rem] top-0 hidden h-full w-px bg-gradient-to-b from-[#F3C00D]/40 via-[#F3C00D]/20 to-transparent md:block"
         >
@@ -294,18 +412,13 @@ const impacts = [
           {
             timeline.map((milestone) => (
               <div class="relative grid grid-cols-1 gap-4 md:grid-cols-[7.5rem_1fr] md:gap-8">
-                {/* Year — left side */}
                 <div class="pl-10 md:pl-0 md:text-right">
                   <span class="font-[family-name:var(--font-display)] text-[clamp(1.5rem,2.5vw,2rem)] leading-none text-[#F3C00D]">
                     {milestone.year}
                   </span>
                 </div>
-
-                {/* Gold dot marker */}
                 <div class="absolute left-4 top-[0.35rem] hidden h-2.5 w-2.5 rounded-full border-2 border-[#F3C00D] bg-charcoal md:left-[6.85rem] md:block" />
                 <div class="absolute left-[0.7rem] top-[0.35rem] h-2.5 w-2.5 rounded-full border-2 border-[#F3C00D] bg-charcoal md:hidden" />
-
-                {/* Content — right side */}
                 <div class="pl-10 md:pl-8">
                   <h3 class="font-[family-name:var(--font-heading)] text-[1.05rem] font-normal tracking-wide text-white">
                     {milestone.title}
@@ -319,7 +432,6 @@ const impacts = [
           }
         </div>
 
-        {/* Terminal dot */}
         <div class="relative mt-12 md:ml-[7.5rem] md:pl-8">
           <div
             class="absolute left-4 top-1/2 hidden h-3 w-3 -translate-y-1/2 rounded-full bg-[#F3C00D]/40 md:left-[-0.65rem] md:block"
@@ -341,7 +453,82 @@ const impacts = [
 
   {
     /* ═══════════════════════════════════════════════════════════════
-      COLLECTIONS — 3 editorial portrait cards
+      11. HISTORY DEEP DIVE — Accordion for detailed history sections
+  ═══════════════════════════════════════════════════════════════ */
+  }
+  <section class="surface-dark grain relative py-16">
+    <div class="relative z-10 mx-auto max-w-3xl px-6 lg:px-12">
+      <AccordionGroup variant="dark">
+        <AccordionItem title="Expansion into Ethnobotanicals">
+          <p class="text-white/55">
+            With renewed clarity of mission, Forestal MT expanded into <strong
+              class="text-white/70">three curated botanical collections</strong
+            >, each rooted in Honduras' ancestral heritage:
+          </p>
+          <ul class="mt-3 space-y-2 text-white/55">
+            <li>
+              <strong class="text-white/70">Batana Oil</strong> — Wild-harvested <em
+                >Elaeis oleifera</em
+              > from La Mosquitia
+            </li>
+            <li>
+              <strong class="text-white/70">Stingless Bee Honey</strong> — Traditional Jimerito from
+              native forests
+            </li>
+            <li>
+              <strong class="text-white/70">Traditional Herbs</strong> — Wildcrafted botanicals from
+              cloud forests and coastal regions
+            </li>
+          </ul>
+          <p class="mt-3 text-white/55">
+            These collections bridge indigenous territories, traditional harvesters, and biodiverse
+            Honduran landscapes to global partners seeking authenticity and traceability.
+          </p>
+        </AccordionItem>
+        <AccordionItem title="Strategic Diversification">
+          <p class="text-white/55">
+            Alongside its core ethnobotanical and forestry operations, Forestal MT maintains <strong
+              class="text-white/70">complementary business activities</strong
+            > that strengthen long-term resilience and regional impact:
+          </p>
+          <ul class="mt-3 space-y-2 text-white/55">
+            <li>
+              <strong class="text-white/70">Real estate development</strong> — Strategic land
+              management and property development
+            </li>
+            <li>
+              <strong class="text-white/70">Livestock operations</strong> — Sustainable ranching
+              practices
+            </li>
+            <li>
+              <strong class="text-white/70">Strategic investments</strong> — Portfolio
+              diversification for generational wealth
+            </li>
+            <li>
+              <strong class="text-white/70">Local commerce</strong> — Supporting regional economic
+              development
+            </li>
+          </ul>
+        </AccordionItem>
+        <AccordionItem title="Present Day — Global Ambassador">
+          <p class="text-white/55">
+            What began as a single bottle of Batana Oil has grown into a <strong
+              class="text-white/70">multi-collection export enterprise</strong
+            > serving partners across North America, Central and South America, Europe, and Asia.
+          </p>
+          <p class="mt-3 text-white/55">
+            Through continued growth, Forestal MT preserves a transparent forest-to-customer chain
+            and remains committed to safeguarding ancestral knowledge, ecological integrity, and
+            sustainable rural livelihoods.
+          </p>
+        </AccordionItem>
+      </AccordionGroup>
+    </div>
+  </section>
+
+  {
+    /* ═══════════════════════════════════════════════════════════════
+      12. COLLECTIONS — 3 editorial portrait cards
   ═══════════════════════════════════════════════════════════════ */
   }
   <section class="surface-warm py-24">
@@ -402,7 +589,53 @@ const impacts = [
 
   {
     /* ═══════════════════════════════════════════════════════════════
-      VALUES — GoldTopCard grid on parchment
+      13. HOW WE SELL — B2B/B2C ChannelSplit on botanical background
+  ═══════════════════════════════════════════════════════════════ */
+  }
+  <BotanicalSection
+    image={`${R2_ABOUT}/ethnobotanical-collections.jpg`}
+    alt="Forestal MT ethnobotanical collections"
+    overlay="from-charcoal/90 via-charcoal/70 to-charcoal/85"
+  >
+    <div class="mx-auto max-w-5xl px-6 lg:px-12">
+      <SectionHeader eyebrow="How We Sell" heading="Two Channels, One Commitment" variant="dark" />
+      <div class="mt-16">
+        <ChannelSplit
+          b2b={{
+            eyebrow: "For Businesses",
+            heading: "B2B Wholesale",
+            items: [
+              "Bulk and wholesale ingredients for formulators, brands, and distributors",
+              "Custom packaging options available",
+              "Consistent supply with traceable chain of origin",
+              "Worldwide shipping",
+            ],
+            cta: { label: "Wholesale Program", url: "/wholesale/" },
+          }}
+          b2c={{
+            eyebrow: "For Consumers",
+            heading: "B2C Direct",
+            items: [
+              "Retail-ready products through our online shop",
+              "Direct access to origin-crafted botanicals",
+              "International shipping available",
+            ],
+            cta: { label: "Browse Products", url: "/products/" },
+          }}
+        />
+        <p
+          class="reveal-on-scroll mx-auto mt-10 max-w-xl text-center font-[family-name:var(--font-body)] text-[14px] italic text-white/35"
+        >
+          Whether you need 10 kg or 1,000 kg, we maintain the same commitment to quality,
+          authenticity, and direct communication.
+        </p>
+      </div>
+    </div>
+  </BotanicalSection>
+
+  {
+    /* ═══════════════════════════════════════════════════════════════
+      14. VALUES — GoldTopCard grid
   ═══════════════════════════════════════════════════════════════ */
   }
   <section class="surface-parchment py-24">
@@ -425,7 +658,40 @@ const impacts = [
 
   {
     /* ═══════════════════════════════════════════════════════════════
-      OUR LOGO — Accent batana bg with OriginMetadata
+      15. LEADERSHIP — Family leadership grid
+  ═══════════════════════════════════════════════════════════════ */
+  }
+  <section class="surface-warm py-24">
+    <div class="mx-auto max-w-7xl px-6 lg:px-12">
+      <SectionHeader eyebrow="Our People" heading="Leadership" />
+      <p
+        class="reveal-on-scroll mx-auto mt-6 max-w-2xl text-center font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70"
+      >
+        Forestal MT is owned and operated by the Murillo Tejada family. Three generations work
+        together to maintain the company's commitment to quality, authenticity, and trust.
+      </p>
+      <div class="stagger-children mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          leadership.map((leader) => (
+            <LeadershipCard
+              name={leader.name}
+              title={leader.title}
+              bio={leader.bio}
+              image={
+                leader.title === "Founder"
+                  ? `${R2_ABOUT}/the-founder-legacy.jpg`
+                  : undefined
+              }
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {
+    /* ═══════════════════════════════════════════════════════════════
+      16. OUR LOGO — Symbol meaning with OriginMetadata
   ═══════════════════════════════════════════════════════════════ */
   }
   <section class="accent-batana py-24">
@@ -434,10 +700,10 @@ const impacts = [
       <p
         class="reveal-on-scroll mt-8 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70"
       >
-        The <strong class="font-semibold text-[#333]/85">six pine trees</strong> in our emblem stand for
-        family, continuity, and care for the land. The tallest tree represents the founder and the company's
-        backbone. The arrangement reflects the flow from origin to export, showing that every product
-        carries a clear, honest story.
+        The <strong class="font-semibold text-[#333]/85">six pine trees</strong> in our emblem stand
+        for family, continuity, and care for the land. The tallest tree represents the founder and
+        the company's backbone. The arrangement reflects the flow from origin to export, showing that
+        every product carries a clear, honest story.
       </p>
 
       <div class="mx-auto mt-10 max-w-lg">
@@ -463,7 +729,18 @@ const impacts = [
 
   {
     /* ═══════════════════════════════════════════════════════════════
-      COMMUNITY IMPACT — What We Support
+      17. SLOGAN BANNER — "Exporting Nature Without Borders"
+  ═══════════════════════════════════════════════════════════════ */
+  }
+  <SloganBanner
+    slogan="Exporting Nature Without Borders"
+    description="This is more than a tagline. It reflects our mission to bring Honduras' ethnobotanical heritage to the world with integrity, clear origin, and respect for the people and landscapes that make it possible. It is a promise that our products can travel far while staying true to where they come from."
+    image={`${R2_ABOUT}/ethnobotanical-collections.jpg`}
+  />
+
+  {
+    /* ═══════════════════════════════════════════════════════════════
+      18. COMMUNITY IMPACT — FeatureList
   ═══════════════════════════════════════════════════════════════ */
   }
   <section class="surface-warm py-24">
@@ -472,63 +749,36 @@ const impacts = [
       <p
         class="reveal-on-scroll mt-8 text-center font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70"
       >
-        Every purchase supports rural communities in Honduras. We work directly with local
-        harvesters and producers, providing fair wages and sustainable livelihoods.
+        Every purchase supports rural communities in Honduras. We work directly with local harvesters
+        and producers, providing fair wages and sustainable livelihoods.
       </p>
 
       <div class="reveal-on-scroll mt-12">
-        <ul class="space-y-5">
-          {
-            impacts.map((item) => (
-              <li class="flex items-start gap-4 font-[family-name:var(--font-body)] text-[14px] leading-relaxed text-[#333]/70">
-                <span class="mt-2 h-px w-5 shrink-0 bg-[#F3C00D]/50" />
-                {item}
-              </li>
-            ))
-          }
-        </ul>
+        <FeatureList items={impacts} />
       </div>
     </div>
   </section>
 
   {
     /* ═══════════════════════════════════════════════════════════════
-      PARTNER CTA — Green section
+      19. OUR COMMITMENT — PullQuote closing statement
   ═══════════════════════════════════════════════════════════════ */
   }
-  <section class="grain relative overflow-hidden bg-[#206D03] py-24">
-    <div class="reveal-on-scroll relative z-10 mx-auto max-w-3xl px-6 text-center lg:px-12">
-      <p
-        class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80"
-      >
-        Work With Us
-      </p>
-      <h2
-        class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-white"
-      >
-        Partner With Us
-      </h2>
-      <p
-        class="mx-auto mt-6 max-w-2xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-white/60"
-      >
-        Whether you're a formulator seeking traceable ingredients, a brand looking for
-        origin-crafted botanicals, or a distributor expanding your portfolio — Forestal MT delivers
-        direct-from-origin products with proven quality and long-term reliability.
-      </p>
-      <div class="mt-10 flex flex-wrap justify-center gap-4">
-        <a
-          href="/contact/"
-          class="inline-block rounded-[3px] bg-[#F3C00D] px-8 py-3.5 font-[family-name:var(--font-ui)] text-[13px] font-semibold text-[#333] transition-all duration-300 hover:bg-[#F3C00D]/90 hover:shadow-lg hover:shadow-[#F3C00D]/20"
-        >
-          Get in Touch
-        </a>
-        <a
-          href="/wholesale/"
-          class="inline-block rounded-[3px] border border-white/25 px-8 py-3.5 font-[family-name:var(--font-ui)] text-[13px] font-semibold text-white/90 transition-all duration-300 hover:border-white/50 hover:bg-white/5"
-        >
-          Wholesale Program
-        </a>
-      </div>
-    </div>
-  </section>
+  <PullQuote
+    quote="Forestal MT is a bridge between Honduras' living landscapes and the world. We bring products shaped by ancestral wisdom, careful hands, and a clear chain of origin. <strong>Exporting Nature Without Borders</strong> is our way of saying that nature's gifts can travel far, always with clear origin, respect, and purpose."
+    variant="dark"
+  />
+
+  {
+    /* ═══════════════════════════════════════════════════════════════
+      20. PARTNER CTA — DualCTASection
+  ═══════════════════════════════════════════════════════════════ */
+  }
+  <DualCTASection
+    eyebrow="Work With Us"
+    heading="Partner With Us"
+    description="Whether you're a formulator seeking traceable ingredients, a brand looking for origin-crafted botanicals, or a distributor expanding your portfolio — Forestal MT delivers direct-from-origin products with proven quality and long-term reliability."
+    primaryCta={{ label: "Get in Touch", url: "/contact/" }}
+    secondaryCta={{ label: "Wholesale Program", url: "/wholesale/" }}
+  />
 </BaseLayout>

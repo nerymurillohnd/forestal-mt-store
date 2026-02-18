@@ -1,0 +1,87 @@
+---
+/**
+ * ChannelSplit — B2B/B2C dual-column layout with distinct CTAs.
+ * Used inside BotanicalSection for "How We Sell" pattern.
+ */
+interface Channel {
+  eyebrow: string;
+  heading: string;
+  items: string[];
+  cta: { label: string; url: string };
+}
+
+interface Props {
+  b2b: Channel;
+  b2c: Channel;
+}
+
+const { b2b, b2c } = Astro.props;
+---
+
+<div class="mx-auto grid max-w-5xl grid-cols-1 gap-6 px-6 md:grid-cols-2 lg:px-12">
+  {/* B2B Column */}
+  <div
+    class="rounded-[2px] border border-white/10 bg-white/[0.06] p-8 backdrop-blur-sm frosted-hover md:p-10"
+  >
+    <p
+      class="font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.3em] text-[#F3C00D]/60"
+    >
+      {b2b.eyebrow}
+    </p>
+    <h3
+      class="mt-2 font-[family-name:var(--font-heading)] text-[1.15rem] font-normal tracking-wide text-white"
+    >
+      {b2b.heading}
+    </h3>
+    <div class="mt-3 h-px w-8 bg-[#F3C00D]/20"></div>
+    <ul class="mt-6 space-y-3">
+      {
+        b2b.items.map((item) => (
+          <li class="flex items-start gap-3 font-[family-name:var(--font-body)] text-[13px] leading-relaxed text-white/55">
+            <span class="mt-2 h-px w-4 shrink-0 bg-[#F3C00D]/40" />
+            {item}
+          </li>
+        ))
+      }
+    </ul>
+    <a
+      href={b2b.cta.url}
+      class="mt-8 inline-block rounded-[3px] border border-[#F3C00D]/30 px-6 py-3 font-[family-name:var(--font-ui)] text-[12px] font-semibold text-[#F3C00D]/80 transition-all duration-300 hover:border-[#F3C00D]/60 hover:bg-[#F3C00D]/10"
+    >
+      {b2b.cta.label}
+    </a>
+  </div>
+
+  {/* B2C Column */}
+  <div
+    class="rounded-[2px] border border-white/10 bg-white/[0.06] p-8 backdrop-blur-sm frosted-hover md:p-10"
+  >
+    <p
+      class="font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.3em] text-[#F3C00D]/60"
+    >
+      {b2c.eyebrow}
+    </p>
+    <h3
+      class="mt-2 font-[family-name:var(--font-heading)] text-[1.15rem] font-normal tracking-wide text-white"
+    >
+      {b2c.heading}
+    </h3>
+    <div class="mt-3 h-px w-8 bg-[#F3C00D]/20"></div>
+    <ul class="mt-6 space-y-3">
+      {
+        b2c.items.map((item) => (
+          <li class="flex items-start gap-3 font-[family-name:var(--font-body)] text-[13px] leading-relaxed text-white/55">
+            <span class="mt-2 h-px w-4 shrink-0 bg-[#F3C00D]/40" />
+            {item}
+          </li>
+        ))
+      }
+    </ul>
+    <a
+      href={b2c.cta.url}
+      class="mt-8 inline-block rounded-[3px] bg-leaf-green px-6 py-3 font-[family-name:var(--font-ui)] text-[12px] font-semibold text-white transition-all duration-300 hover:bg-grass-green hover:shadow-lg hover:shadow-leaf-green/25"
+    >
+      {b2c.cta.label}
+    </a>
+  </div>
+</div>

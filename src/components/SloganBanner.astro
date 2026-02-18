@@ -1,0 +1,53 @@
+---
+/**
+ * SloganBanner — Full-width brand statement with optional botanical background.
+ * Large display typography, gold decorative lines.
+ */
+import BotanicalSection from "./BotanicalSection.astro";
+
+interface Props {
+  slogan: string;
+  description?: string;
+  image?: string;
+}
+
+const { slogan, description, image } = Astro.props;
+---
+
+{
+  image ? (
+    <BotanicalSection
+      image={image}
+      alt="Botanical background"
+      overlay="from-charcoal/90 via-charcoal/70 to-charcoal/60"
+    >
+      <div class="reveal-on-scroll mx-auto max-w-3xl px-6 text-center lg:px-12">
+        <div class="mx-auto h-px w-12 bg-gradient-to-r from-transparent via-[#F3C00D]/50 to-transparent" />
+        <p class="mt-8 font-[family-name:var(--font-display)] text-[clamp(1.75rem,4vw,3rem)] font-normal leading-tight text-white">
+          {slogan}
+        </p>
+        <div class="mx-auto mt-8 h-px w-12 bg-gradient-to-r from-transparent via-[#F3C00D]/50 to-transparent" />
+        {description && (
+          <p class="mx-auto mt-8 max-w-xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-white/50">
+            {description}
+          </p>
+        )}
+      </div>
+    </BotanicalSection>
+  ) : (
+    <section class="surface-dark grain relative py-20 md:py-28">
+      <div class="reveal-on-scroll relative z-10 mx-auto max-w-3xl px-6 text-center lg:px-12">
+        <div class="mx-auto h-px w-12 bg-gradient-to-r from-transparent via-[#F3C00D]/50 to-transparent" />
+        <p class="mt-8 font-[family-name:var(--font-display)] text-[clamp(1.75rem,4vw,3rem)] font-normal leading-tight text-white">
+          {slogan}
+        </p>
+        <div class="mx-auto mt-8 h-px w-12 bg-gradient-to-r from-transparent via-[#F3C00D]/50 to-transparent" />
+        {description && (
+          <p class="mx-auto mt-8 max-w-xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-white/50">
+            {description}
+          </p>
+        )}
+      </div>
+    </section>
+  )
+}
