@@ -60,15 +60,22 @@ const pages = defineCollection({
         )
         .optional(),
       background: z
-        .object({
-          type: z.enum(["image", "video"]),
-          url: z.string().optional(),
-          stream: z.string().optional(),
-          alt: z.string().optional(),
-          caption: z.string().optional(),
-          width: z.number().optional(),
-          height: z.number().optional(),
-        })
+        .discriminatedUnion("type", [
+          z.object({
+            type: z.literal("image"),
+            url: z.string(),
+            alt: z.string(),
+            width: z.number().optional(),
+            height: z.number().optional(),
+          }),
+          z.object({
+            type: z.literal("video"),
+            stream: z.string(),
+            caption: z.string().optional(),
+            width: z.number().optional(),
+            height: z.number().optional(),
+          }),
+        ])
         .optional(),
     }),
   }),

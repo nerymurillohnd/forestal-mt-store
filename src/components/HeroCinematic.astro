@@ -10,15 +10,21 @@ interface CTA {
   url: string;
 }
 
+interface HeroBackground {
+  type: "image" | "video";
+  /** Image URL — accepts both `src` (component) and `url` (frontmatter) */
+  src?: string;
+  url?: string;
+  /** Stream video ID — accepts both `streamId` (component) and `stream` (frontmatter) */
+  streamId?: string;
+  stream?: string;
+  alt?: string;
+  caption?: string;
+}
+
 interface Props {
   height?: "100dvh" | "80vh" | "60vh";
-  background: {
-    type: "image" | "video";
-    src?: string;
-    streamId?: string;
-    alt?: string;
-    caption?: string;
-  };
+  background: HeroBackground;
   eyebrow?: string;
   title: string;
   subtitle?: string;
@@ -31,7 +37,7 @@ interface Props {
 
 const {
   height = "80vh",
-  background,
+  background: rawBg,
   eyebrow,
   title,
   subtitle,
@@ -40,6 +46,15 @@ const {
   catalogAccent,
   scrollIndicator = false,
 } = Astro.props;
+
+// Normalize frontmatter field names to component field names
+const background = {
+  type: rawBg.type,
+  src: rawBg.src ?? rawBg.url,
+  streamId: rawBg.streamId ?? rawBg.stream,
+  alt: rawBg.alt,
+  caption: rawBg.caption,
+};
 
 const overlayClass = catalogAccent ? `overlay-${catalogAccent}` : "";
 ---

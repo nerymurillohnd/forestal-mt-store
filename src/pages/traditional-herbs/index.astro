@@ -399,11 +399,7 @@ const sustainability = [
   }
   <HeroCinematic
     height="80vh"
-    background={{
-      type: "video",
-      streamId: data.hero.background?.stream,
-      caption: data.hero.background?.caption,
-    }}
+    background={data.hero.background}
     catalogAccent="herbs"
     eyebrow={data.hero.eyebrow}
     title={data.hero.title.replace(/\n/g, "<br />")}

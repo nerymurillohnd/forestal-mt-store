@@ -88,18 +88,11 @@ const commitments = [
   }
   <HeroCinematic
     height="100dvh"
-    background={{
-      type: "image",
-      src: "https://cdn.forestal-mt.com/pages/home/hero.jpg",
-      alt: "Honduran rainforest canopy",
-    }}
-    eyebrow="Exporting Nature Without Borders"
-    title="Batana Oil, Honey\n& Herbs from Honduras"
-    description="Family-owned Honduran exporter of Batana Oil, Jimerito stingless bee honey, and wildcrafted traditional herbs. Sourced directly from indigenous communities."
-    ctas={[
-      { label: "Shop Now", url: "/products/" },
-      { label: "Wholesale", url: "/wholesale/" },
-    ]}
+    background={data.hero.background}
+    eyebrow={data.hero.eyebrow}
+    title={data.hero.title}
+    description={data.hero.description}
+    ctas={data.hero.ctas}
     scrollIndicator={true}
   />
 

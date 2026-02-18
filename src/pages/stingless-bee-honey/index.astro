@@ -156,11 +156,7 @@ const originMetadata = Object.entries(origin).map(([key, value]) => ({
   }
   <HeroCinematic
     height="80vh"
-    background={{
-      type: "video",
-      streamId: data.hero.background?.stream,
-      caption: data.hero.background?.caption,
-    }}
+    background={data.hero.background}
     catalogAccent="honey"
     eyebrow={data.hero.eyebrow}
     title={data.hero.title}
