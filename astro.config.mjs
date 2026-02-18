@@ -8,6 +8,9 @@ import tailwindcss from "@tailwindcss/vite";
 import mdx from "@astrojs/mdx";
 import icon from "astro-icon";
 
+import sentry from "@sentry/astro";
+import spotlightjs from "@spotlightjs/astro";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://forestal-mt.com",
@@ -22,7 +25,7 @@ export default defineConfig({
     service: passthroughImageService(),
   },
 
-  integrations: [preact(), sitemap(), mdx(), icon()],
+  integrations: [preact(), sitemap(), mdx(), icon(), sentry(), spotlightjs()],
 
   vite: {
     plugins: [tailwindcss()],
