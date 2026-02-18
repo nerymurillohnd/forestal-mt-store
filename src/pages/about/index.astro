@@ -183,20 +183,43 @@ const leadership = [
   {/* ── 2. BREADCRUMB ── */}
   <Breadcrumb pageName={data.pageName} />
 
-  {/* ── 3. WHO WE ARE — family photo, side by side ── */}
+  {/* ── 3. WHO WE ARE — family photo (full, uncropped) + text ── */}
   <section class="surface-warm py-20">
-    <SplitEditorial
-      eyebrow="Who We Are"
-      heading="A Family Business,<br />Rooted in Honduras"
-      image={`${R2_ABOUT}/murillo-tejada-family.jpg`}
-      imageAlt="The Murillo Tejada family — founders of Forestal MT"
-      direction="left"
-      paragraphs={[
-        "We're <strong>Forestal Murillo Tejada</strong> — a family-owned company from San Francisco de la Paz, Olancho, Honduras. We source, craft, and export natural products that come from the land and the people who have worked it for generations.",
-        "Batana Oil from La Mosquitia. Stingless bee honey from ancestral log hives. Wildcrafted herbs from cloud forests. <strong>46 products, 132 SKUs</strong> — all with a clear chain of origin, from forest to your door.",
-        "We work directly with indigenous Miskito communities and rural producers. No brokers. No middlemen. Just honest relationships built over years of working together.",
-      ]}
-    />
+    <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 lg:grid-cols-[2fr_1fr] lg:gap-12 lg:px-12">
+      {/* Image — 2/3 width, natural aspect ratio, no cropping */}
+      <div class="overflow-hidden rounded-[2px]">
+        <img
+          src={`${R2_ABOUT}/murillo-tejada-family.jpg`}
+          alt="The Murillo Tejada family — founders of Forestal MT"
+          class="h-auto w-full"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="absolute inset-0 rounded-[2px] ring-1 ring-inset ring-[#F3C00D]/10"></div>
+      </div>
+
+      {/* Text — 1/3 width */}
+      <div class="reveal-on-scroll">
+        <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-gold-dark">
+          Who We Are
+        </p>
+        <h2
+          class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-charcoal"
+        >
+          A Family Business,<br />Rooted in Honduras
+        </h2>
+        <hr class="gold-rule-left" />
+        <p class="mt-8 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70">
+          We're <strong class="font-semibold text-[#333]/85">Forestal Murillo Tejada</strong> — a family-owned company from San Francisco de la Paz, Olancho, Honduras. We source, craft, and export natural products that come from the land and the people who have worked it for generations.
+        </p>
+        <p class="mt-4 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70">
+          Batana Oil from La Mosquitia. Stingless bee honey from ancestral log hives. Wildcrafted herbs from cloud forests. <strong class="font-semibold text-[#333]/85">46 products, 132 SKUs</strong> — all with a clear chain of origin.
+        </p>
+        <p class="mt-4 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70">
+          No brokers. No middlemen. Just honest relationships built over years of working together.
+        </p>
+      </div>
+    </div>
   </section>
 
   {/* ── 4. TRUST MARQUEE ── */}
@@ -316,11 +339,7 @@ const leadership = [
   </section>
 
   {/* ── 9. HOW DO WE SELL ── */}
-  <BotanicalSection
-    image={`${R2_ABOUT}/ethnobotanical-collections.jpg`}
-    alt="Forestal MT product display"
-    overlay="from-charcoal/92 via-charcoal/80 to-charcoal/92"
-  >
+  <section class="grain bg-charcoal py-20">
     <div class="mx-auto max-w-5xl px-6 lg:px-12">
       <SectionHeader eyebrow="How We Sell" heading="Two Channels, Same Quality" variant="dark" />
       <div class="mt-14">
@@ -354,7 +373,7 @@ const leadership = [
         </p>
       </div>
     </div>
-  </BotanicalSection>
+  </section>
 
   {/* ── 10. OUR VALUES — compact grid ── */}
   <section class="surface-parchment py-16">
