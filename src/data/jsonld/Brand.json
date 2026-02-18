@@ -1,0 +1,23 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Brand",
+  "@id": "https://forestal-mt.com/#brand",
+
+  "name": "Forestal MT",
+  "alternateName": "Forestal MT Honduras",
+  "description": "Premium ethnobotanical brand from Honduras specializing in authentic Batana Oil, Stingless Bee Honey (Jimerito), and Traditional Wildcrafted Herbs. Sourced directly from indigenous Miskito communities in La Mosquitia and beekeeping families in Olancho — not a reseller, but the direct link between ancestral knowledge and the global market.",
+  "slogan": "Exporting Nature Without Borders",
+  "url": "https://forestal-mt.com/",
+
+  "logo": { "@id": "https://forestal-mt.com/#logo" },
+  "image": { "@id": "https://forestal-mt.com/#logo" },
+
+  "owner": { "@id": "https://forestal-mt.com/#organization" },
+
+  "sameAs": [
+    "https://www.linkedin.com/company/forestalmt",
+    "https://www.instagram.com/forestalmt.hn",
+    "https://www.facebook.com/forestalmt.hn",
+    "https://www.tiktok.com/@forestalmt.hn"
+  ]
+}

@@ -1,0 +1,462 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://forestal-mt.com/#organization",
+
+  "name": "Forestal Murillo Tejada S. de R.L.",
+  "alternateName": "Forestal MT",
+  "legalName": "Forestal Murillo Tejada Sociedad de Responsabilidad Limitada de Capital Variable",
+  "description": "Forestal MT is a Honduras-based exporter, supplier, and brand specializing in premium ethnobotanical products and natural raw materials. Founded in 2020, we operate a dual business model serving B2B wholesale buyers with bulk ingredients and private label services, as well as B2C direct-to-consumer sales through our e-commerce platform. Our flagship products include authentic Batana Oil sourced directly from Miskito indigenous communities in La Mosquitia, wildcrafted Stingless Bee Honey (Jimerito) from native forests of Olancho, and 41 varieties of Traditional Wildcrafted Herbs from forests, mountains, rivers, and valleys across Honduras and the Caribbean. Unlike resellers, we establish long-term partnerships with native communities and indigenous peoples of Honduras, ensuring fair compensation, sustainable harvesting practices, and origin-authenticity. We offer comprehensive export services including global shipping via DHL Express, export documentation, private label manufacturing, custom packaging, and end-to-end logistics support. Our portfolio spans 46 products available in 132 individual presentations, serving customers worldwide in North America, South America, Europe, Middle East, Africa, Asia, and Oceania.",
+  "url": "https://forestal-mt.com/",
+  "mainEntityOfPage": "https://forestal-mt.com/",
+  "logo": {
+    "@type": "ImageObject",
+    "@id": "https://forestal-mt.com/#logo",
+    "url": "https://forestal-mt.com/logo.png",
+    "contentUrl": "https://forestal-mt.com/logo.png",
+    "width": 500,
+    "height": 500,
+    "encodingFormat": "image/png",
+    "caption": "Forestal MT Honduras - Official Logo"
+  },
+  "image": {
+    "@id": "https://forestal-mt.com/#logo"
+  },
+  "slogan": "Exporting Nature Without Borders",
+  "sameAs": [
+    "https://www.linkedin.com/company/forestalmt",
+    "https://www.instagram.com/forestalmt.hn",
+    "https://www.facebook.com/forestalmt.hn",
+    "https://www.tiktok.com/@forestalmt.hn"
+  ],
+
+  "telephone": "+504-9277-4192",
+  "email": "admin@forestal-mt.com",
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+504-9277-4192",
+      "contactType": "customer service",
+      "email": "admin@forestal-mt.com",
+      "name": "Administration",
+      "description": "Honduras-based team ready to connect for general inquiries, partnerships, and business coordination.",
+      "availableLanguage": ["English", "Spanish"],
+      "hoursAvailable": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "08:00",
+        "closes": "17:00"
+      }
+    },
+    {
+      "@type": "ContactPoint",
+      "telephone": "+504-9699-7635",
+      "contactType": "customer service",
+      "url": "https://wa.me/50496997635",
+      "name": "WhatsApp Business",
+      "description": "Fast coordination for wholesale inquiries, customer support, and partnerships.",
+      "availableLanguage": ["English", "Spanish"],
+      "hoursAvailable": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "08:00",
+        "closes": "17:00"
+      }
+    },
+    {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "email": "sales@forestal-mt.com",
+      "name": "Sales & Wholesale",
+      "description": "Direct contact for B2B inquiries, bulk ingredients, wholesale orders, and partnership opportunities.",
+      "availableLanguage": ["English", "Spanish"],
+      "hoursAvailable": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "08:00",
+        "closes": "17:00"
+      }
+    },
+    {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "support@forestal-mt.com",
+      "name": "Customer Support",
+      "description": "Customer support, export documentation, and order assistance. Worldwide support.",
+      "availableLanguage": ["English", "Spanish"],
+      "hoursAvailable": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "08:00",
+        "closes": "17:00"
+      }
+    }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "@id": "https://forestal-mt.com/#address",
+    "streetAddress": "Barrio Arriba",
+    "addressLocality": "San Francisco de la Paz",
+    "addressRegion": "Olancho",
+    "postalCode": "16000",
+    "addressCountry": "HN"
+  },
+  "legalAddress": {
+    "@type": "PostalAddress",
+    "streetAddress": "Residencial Lomas de Santa Lucia",
+    "addressLocality": "Santa Lucia",
+    "addressRegion": "Francisco Morazan",
+    "postalCode": "04023",
+    "addressCountry": "HN"
+  },
+  "location": {
+    "@type": "Place",
+    "name": "San Francisco de la Paz, Olancho, Honduras",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 14.8751623,
+      "longitude": -86.1828047
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "17:00"
+      }
+    ]
+  },
+
+  "founder": [
+    {
+      "@type": "Person",
+      "name": "Nery Roberto Murillo Montalvan",
+      "gender": "Male",
+      "jobTitle": "General Manager",
+      "description": "General Manager and Legal Representative of Forestal Murillo Tejada S. de R.L. Founding partner overseeing general administration and strategic direction of the company.",
+      "worksFor": { "@id": "https://forestal-mt.com/#organization" },
+      "nationality": { "@type": "Country", "name": "Honduras" },
+      "knowsLanguage": ["Spanish"],
+      "sameAs": [
+        "https://www.facebook.com/nery.murillo.490883"
+      ]
+    },
+    {
+      "@type": "Person",
+      "name": "Lucy Maira Tejada Flores",
+      "gender": "Female",
+      "nationality": { "@type": "Country", "name": "Honduras" },
+      "knowsLanguage": ["Spanish"],
+      "sameAs": [
+        "https://www.facebook.com/lucymayra.tejada"
+      ]
+    },
+    {
+      "@type": "Person",
+      "name": "Jackeline Grissell Murillo Tejada",
+      "gender": "Female",
+      "nationality": { "@type": "Country", "name": "Honduras" },
+      "knowsLanguage": ["Spanish", "English"],
+      "alumniOf": [
+        {
+          "@type": "EducationalOrganization",
+          "name": "Del Campo School",
+          "url": "https://www.delcampo.education/"
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "UNICAH",
+          "url": "https://www.unicah.edu/"
+        }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/jackiemurillogt"
+      ]
+    },
+    {
+      "@type": "Person",
+      "name": "Nery Samuel Murillo Tejada",
+      "gender": "Male",
+      "jobTitle": "Operations, Exports, and Sales Manager",
+      "description": "Honduran entrepreneur and investor. Partner and COO of Forestal Murillo Tejada S. de R.L., specializing in the export of natural products and raw botanical ingredients. Business development and management of personal and associated service ventures beyond Forestal MT.",
+      "email": "nerymurillohnd@gmail.com",
+      "worksFor": { "@id": "https://forestal-mt.com/#organization" },
+      "nationality": { "@type": "Country", "name": "Honduras" },
+      "birthPlace": {
+        "@type": "Place",
+        "name": "Comayaguela, M.D.C., Francisco Morazan, Honduras"
+      },
+      "knowsLanguage": ["Spanish", "English"],
+      "knowsAbout": [
+        "Ethnobotanical Products Export",
+        "Batana Oil",
+        "Stingless Bee Honey",
+        "Natural Raw Materials Sourcing",
+        "International Trade and Logistics",
+        "Business Development"
+      ],
+      "alumniOf": [
+        {
+          "@type": "EducationalOrganization",
+          "name": "International School Honduras",
+          "url": "https://internationalschool.hn/"
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "UNITEC",
+          "url": "https://www.unitec.edu/"
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Universidad Latina de Costa Rica",
+          "url": "https://www.ulatina.ac.cr/"
+        }
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/nerymurillohn/",
+        "https://www.instagram.com/nerymurillohn/",
+        "https://www.tiktok.com/@nerymurillohn",
+        "https://www.facebook.com/nerymurillohn"
+      ]
+    },
+    {
+      "@type": "Person",
+      "name": "Nery Roberto Murillo Tejada",
+      "gender": "Male",
+      "nationality": { "@type": "Country", "name": "Honduras" },
+      "knowsLanguage": ["Spanish", "English"],
+      "sameAs": [
+        "https://www.facebook.com/roberth.murillo.tejada"
+      ]
+    },
+    {
+      "@type": "Person",
+      "name": "Nery Alfredo Murillo Tejada",
+      "gender": "Male",
+      "nationality": { "@type": "Country", "name": "Honduras" },
+      "knowsLanguage": ["Spanish", "English"]
+    }
+  ],
+  "employee": [
+    {
+      "@type": "Person",
+      "name": "Nery Roberto Murillo Montalvan",
+      "gender": "Male",
+      "jobTitle": "General Manager",
+      "description": "General Manager and Legal Representative of Forestal Murillo Tejada S. de R.L. Founding partner overseeing general administration and strategic direction of the company.",
+      "worksFor": { "@id": "https://forestal-mt.com/#organization" },
+      "nationality": { "@type": "Country", "name": "Honduras" },
+      "knowsLanguage": ["Spanish"],
+      "sameAs": [
+        "https://www.facebook.com/nery.murillo.490883"
+      ]
+    },
+    {
+      "@type": "Person",
+      "name": "Nery Samuel Murillo Tejada",
+      "gender": "Male",
+      "jobTitle": "Operations, Exports, and Sales Manager",
+      "description": "Honduran entrepreneur and investor. Partner and COO of Forestal Murillo Tejada S. de R.L., specializing in the export of natural products and raw botanical ingredients. Business development and management of personal and associated service ventures beyond Forestal MT.",
+      "email": "nerymurillohnd@gmail.com",
+      "worksFor": { "@id": "https://forestal-mt.com/#organization" },
+      "nationality": { "@type": "Country", "name": "Honduras" },
+      "birthPlace": {
+        "@type": "Place",
+        "name": "Comayaguela, M.D.C., Francisco Morazan, Honduras"
+      },
+      "knowsLanguage": ["Spanish", "English"],
+      "knowsAbout": [
+        "Ethnobotanical Products Export",
+        "Batana Oil",
+        "Stingless Bee Honey",
+        "Natural Raw Materials Sourcing",
+        "International Trade and Logistics",
+        "Business Development"
+      ],
+      "alumniOf": [
+        {
+          "@type": "EducationalOrganization",
+          "name": "International School Honduras",
+          "url": "https://internationalschool.hn/"
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "UNITEC",
+          "url": "https://www.unitec.edu/"
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Universidad Latina de Costa Rica",
+          "url": "https://www.ulatina.ac.cr/"
+        }
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/nerymurillohn/",
+        "https://www.instagram.com/nerymurillohn/",
+        "https://www.tiktok.com/@nerymurillohn",
+        "https://www.facebook.com/nerymurillohn"
+      ]
+    }
+  ],
+  "legalRepresentative": {
+    "@type": "Person",
+    "name": "Nery Roberto Murillo Montalvan"
+  },
+
+  "foundingDate": "2020-08-19",
+  "foundingLocation": {
+    "@type": "Place",
+    "name": "Santa Lucia, Francisco Morazan, Honduras",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Residencial Lomas de Santa Lucia",
+      "addressLocality": "Santa Lucia",
+      "addressRegion": "Francisco Morazan",
+      "postalCode": "04023",
+      "addressCountry": "HN"
+    }
+  },
+  "taxID": "08019009246972",
+  "naics": "424490",
+  "isicV4": "4620",
+  "numberOfEmployees": {
+    "@type": "QuantitativeValue",
+    "minValue": 11,
+    "maxValue": 49
+  },
+  "knowsLanguage": ["English", "Spanish"],
+  "areaServed": [
+    "Worldwide",
+    "North America",
+    "South America",
+    "Latin America and the Caribbean",
+    "Europe",
+    "Middle East",
+    "Africa",
+    "Asia",
+    "Oceania"
+  ],
+  "keywords": [
+    "batana oil supplier",
+    "batana oil seller honduras",
+    "melipona honey seller",
+    "soursop leaves supplier",
+    "cat's claw supplier",
+    "premium ethnobotanicals",
+    "pure unrefined batana oil",
+    "raw stingless bee honey",
+    "wildcrafted shade-dried herbs",
+    "honduras natural products exporter",
+    "private label ethnobotanicals",
+    "wholesale botanical ingredients",
+    "b2b natural raw materials",
+    "direct sourcing honduras",
+    "authentic origin botanicals",
+    "sustainable ethnobotanical export"
+  ],
+  "knowsAbout": [
+    "Batana Oil",
+    "Honduran Batana Oil",
+    "Batana Oil from La Mosquitia",
+    "Miskito Batana Oil",
+    "Stingless Bee Honey",
+    "Jimerito Honey",
+    "Mayan Bee Honey",
+    "Traditional Herbal Medicine",
+    "Wildcrafted Botanicals",
+    "Wildcrafted Herbs Central America",
+    "Shade-Dried Herbs",
+    "Kalawalla",
+    "Miskito Indigenous Knowledge",
+    "Mayan Beekeeping Traditions",
+    "DAP Incoterms Shipping",
+    "Elaeis oleifera",
+    "Tetragonisca angustula",
+    "Meliponini"
+  ],
+
+  "companyRegistration": {
+    "@type": "Certification",
+    "name": "Matricula Mercantil",
+    "identifier": "2510521",
+    "issuedBy": {
+      "@type": "Organization",
+      "name": "Registro Mercantil de Francisco Morazan"
+    }
+  },
+  "hasCertification": [
+    {
+      "@type": "Certification",
+      "name": "Numero de Inscripcion",
+      "identifier": "63302",
+      "issuedBy": {
+        "@type": "Organization",
+        "name": "Registro Mercantil de Francisco Morazan"
+      }
+    },
+    {
+      "@type": "Certification",
+      "name": "Numero de Presentacion",
+      "identifier": "1010412",
+      "issuedBy": {
+        "@type": "Organization",
+        "name": "Registro Mercantil de Francisco Morazan"
+      }
+    },
+    {
+      "@type": "Certification",
+      "name": "Tax ID (RTN)",
+      "identifier": "08019009246972",
+      "issuedBy": {
+        "@type": "Organization",
+        "name": "SAR (Servicio de Administracion de Rentas), Honduras"
+      }
+    }
+  ],
+  "memberOf": [
+    {
+      "@type": "Organization",
+      "name": "Camara de Comercio e Industria de Tegucigalpa",
+      "alternateName": "CCIT"
+    }
+  ],
+
+  "brand": {
+    "@type": "Brand",
+    "@id": "https://forestal-mt.com/#brand",
+    "name": "Forestal MT",
+    "slogan": "Exporting Nature Without Borders",
+    "logo": { "@id": "https://forestal-mt.com/#logo" },
+    "url": "https://forestal-mt.com/"
+  },
+  "acceptedPaymentMethod": [
+    "http://purl.org/goodrelations/v1#ByBankTransferInAdvance",
+    "http://purl.org/goodrelations/v1#ByInvoice",
+    "http://purl.org/goodrelations/v1#Cash",
+    "http://purl.org/goodrelations/v1#PaymentMethodCreditCard",
+    "MoneyGram",
+    "Western Union"
+  ],
+  "hasMerchantReturnPolicy": {
+    "@type": "MerchantReturnPolicy",
+    "@id": "https://forestal-mt.com/#return-policy",
+    "name": "30-Day Return Policy",
+    "merchantReturnLink": "https://forestal-mt.com/shipping/",
+    "applicableCountry": "HN",
+    "returnPolicyCountry": "HN",
+    "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+    "merchantReturnDays": 30,
+    "returnMethod": "https://schema.org/ReturnByMail",
+    "returnFees": "https://schema.org/FreeReturn",
+    "description": "Returns accepted within 30 days of delivery for damage, defects, shipping errors, or unopened packaging. Wholesale orders are non-returnable once dispatched unless agreed in writing."
+  },
+
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "@id": "https://forestal-mt.com/#rating",
+    "ratingValue": "5.0",
+    "reviewCount": 6,
+    "bestRating": "5",
+    "worstRating": "1"
+  }
+}

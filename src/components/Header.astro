@@ -1,0 +1,107 @@
+---
+import logoSvg from "../assets/logos/logo.svg";
+
+const navLinks = [
+  { label: "Batana Oil", href: "/batana-oil/" },
+  { label: "Honey", href: "/stingless-bee-honey/" },
+  { label: "Herbs", href: "/traditional-herbs/" },
+  { label: "About", href: "/about/" },
+  { label: "Wholesale", href: "/wholesale/" },
+  { label: "Contact", href: "/contact/" },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header
+  class="sticky top-0 z-20 border-b border-mint bg-white/95 backdrop-blur-sm"
+>
+  <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-8">
+    <!-- Logo -->
+    <a href="/" class="flex shrink-0 items-center gap-2">
+      <img
+        src={logoSvg.src}
+        alt="Forestal MT"
+        width="40"
+        height="40"
+        class="h-10 w-10"
+      />
+      <span class="hidden font-[family-name:var(--font-heading)] text-lg font-semibold text-leaf-green sm:inline">
+        Forestal MT
+      </span>
+    </a>
+
+    <!-- Desktop navigation -->
+    <ul class="hidden items-center gap-6 font-[family-name:var(--font-ui)] text-sm lg:flex">
+      {
+        navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class:list={[
+                "transition-colors hover:text-leaf-green",
+                currentPath === link.href
+                  ? "font-semibold text-leaf-green"
+                  : "text-graphite",
+              ]}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <!-- Mobile menu button -->
+    <button
+      type="button"
+      class="rounded-md p-2 text-graphite lg:hidden"
+      aria-label="Open menu"
+      id="mobile-menu-btn"
+    >
+      <svg
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden border-t border-mint lg:hidden">
+    <ul class="space-y-1 px-4 py-3 font-[family-name:var(--font-ui)] text-sm">
+      {
+        navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class:list={[
+                "block rounded-md px-3 py-2 transition-colors hover:bg-mint",
+                currentPath === link.href
+                  ? "font-semibold text-leaf-green"
+                  : "text-graphite",
+              ]}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById("mobile-menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  btn?.addEventListener("click", () => {
+    menu?.classList.toggle("hidden");
+  });
+</script>

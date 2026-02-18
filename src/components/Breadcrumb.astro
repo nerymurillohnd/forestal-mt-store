@@ -1,0 +1,22 @@
+---
+interface Props {
+  pageName: string;
+}
+
+const { pageName } = Astro.props;
+---
+
+<nav
+  aria-label="Breadcrumb"
+  class="mx-auto max-w-7xl px-4 py-3 font-[family-name:var(--font-ui)] text-xs text-graphite/60 lg:px-8"
+>
+  <ol class="flex items-center gap-1.5">
+    <li>
+      <a href="/" class="transition-colors hover:text-leaf-green">Home</a>
+    </li>
+    <li aria-hidden="true" class="select-none">/</li>
+    <li>
+      <span class="text-graphite" aria-current="page">{pageName}</span>
+    </li>
+  </ol>
+</nav>

@@ -1,0 +1,322 @@
+---
+# ============================================================================
+# ROUTING
+# ============================================================================
+slug: disclaimer
+pageName: Disclaimer & Health
+canonicalUrl: https://forestal-mt.com/disclaimer/
+rendering: SSG
+
+# ============================================================================
+# SEO
+# ============================================================================
+title: Health & Use Disclaimers
+description:
+  Important disclaimers on traditional use, non-medical claims, and regulatory compliance for Forestal MT Batana
+  Oil, honey, and herbal products.
+
+# ============================================================================
+# OPEN GRAPH
+# ============================================================================
+og:
+  title: "Health & Use Disclaimers"
+  description: Important disclaimers on traditional use, non-medical claims, and regulatory compliance for Forestal MT Batana Oil, honey, and herbal products.
+  image:
+    url: https://cdn.forestal-mt.com/pages/disclaimer/og.jpg
+    alt: Forestal MT health and use disclaimers
+    width: 1200
+    height: 630
+twitter:
+  card: summary_large_image
+
+# ============================================================================
+# SCHEMAS
+# ============================================================================
+schemas:
+  - type: Organization
+    id: 'https://forestal-mt.com/#organization'
+    mode: compact
+  - type: Brand
+    id: 'https://forestal-mt.com/#brand'
+    mode: compact
+  - type: WebPage
+    id: 'https://forestal-mt.com/disclaimer/#page'
+  - type: BreadcrumbList
+    id: 'https://forestal-mt.com/disclaimer/#breadcrumb'
+
+# ============================================================================
+# HERO
+# ============================================================================
+hero:
+  eyebrow: 'IMPORTANT INFORMATION'
+  title: 'Health & Use Disclaimers'
+  subtitle: 'TRADITIONAL KNOWLEDGE • TRANSPARENCY • COMPLIANCE'
+  description: >-
+    Read important disclaimers on traditional use, non-medical claims, and regulatory compliance for Forestal MT
+    natural products.
+---
+
+## Traditional Use and Cultural Context
+
+References to traditional uses, ancestral practices, cultural knowledge, or historical applications of ethnobotanical products are provided solely as cultural and educational context.
+
+Such references do not constitute medical, therapeutic, nutritional, or health advice, nor are they intended to diagnose, treat, cure, or prevent any disease.
+
+Our products are based on traditional uses and ethnobotanical knowledge from indigenous communities in Honduras. The information provided on our website reflects historical and traditional applications of these natural products passed down through generations.
+
+Traditional use does not establish that our products are safe or effective for any medical condition. The claims made about traditional uses are based on historical practices and are provided for informational purposes only.
+
+---
+
+## No Medical or Health Claims
+
+**Forestal MT products are not medicines, drugs, or medical treatments.**
+
+Statements regarding botanicals, oils, honey, or other products have not been evaluated by medical or regulatory authorities such as the FDA (United States), EMA (European Union), or equivalent agencies.
+
+**FDA Disclaimer:** These statements have not been evaluated by the Food and Drug Administration. Our products are not intended to diagnose, treat, cure, or prevent any disease.
+
+Results from using our products may vary from person to person. The experiences shared by customers or described in product descriptions are not guaranteed outcomes. Individual factors including skin type, hair type, diet, overall health, and lifestyle can affect results.
+
+---
+
+## Healthcare Professional Consultation
+
+**We strongly recommend that you consult with a qualified healthcare professional before using any of our products, especially if you:**
+
+- Are pregnant or nursing
+- Have any medical conditions (chronic illness, autoimmune disorders, metabolic conditions)
+- Are taking prescription medications or supplements
+- Are planning to use products on children or elderly individuals
+- Have a history of allergies or skin sensitivities
+- Are undergoing medical treatment or have recently had surgery
+
+Your healthcare provider can advise you on potential interactions, contraindications, or risks specific to your individual health situation.
+
+---
+
+## Product Safety and Allergy Information
+
+Our products contain natural ingredients that may cause allergic reactions in some individuals.
+
+### Before First Use
+
+**Patch Test Recommended:**
+
+1. Apply a small amount of product to a discrete area of skin (inner forearm or behind ear)
+2. Wait 24-48 hours to check for any reaction
+3. If you experience redness, itching, swelling, or irritation, do not use the product
+
+**Read Ingredient Lists Carefully:**
+
+Review the complete ingredient list for any known allergens before purchase or use.
+
+**Common potential allergens in our products include:**
+
+- Palm-derived oils (Batana Oil from _Elaeis oleifera_)
+- Bee products (stingless bee honey)
+- Various botanical ingredients (herbs, plant extracts, essential oils)
+
+### If an Adverse Reaction Occurs
+
+**Discontinue use immediately if you experience:**
+
+- Skin irritation, redness, itching, or rash
+- Swelling or hives
+- Difficulty breathing or respiratory distress
+- Any other unusual symptoms
+
+**Seek medical attention if:**
+
+- Symptoms are severe or persistent
+- You experience signs of anaphylaxis (difficulty breathing, rapid pulse, dizziness)
+- Symptoms worsen after discontinuing use
+
+### External Use Guidelines
+
+Unless specifically indicated otherwise on product labeling:
+
+- **Topical products are for external use only**
+- Avoid contact with eyes and mucous membranes
+- In case of accidental eye contact, rinse thoroughly with water and seek medical attention if irritation persists
+- In case of accidental ingestion, contact a poison control center or seek immediate medical attention
+
+**Traditional Herbs:** Some herbs are traditionally prepared for internal consumption (teas, infusions). Follow preparation instructions carefully and consult healthcare professionals for guidance on internal use.
+
+**Stingless Bee Honey:** Intended for consumption and traditional topical applications. Not recommended for infants under 12 months old (standard honey safety guideline).
+
+---
+
+## Product Variability
+
+Due to the natural and traditional nature of our products, **variations in color, aroma, texture, and appearance may occur between batches**.
+
+Such variations are inherent to:
+
+- Wildcrafted and forest-harvested materials
+- Artisanal and traditional processing methods
+- Origin-sourced products from specific ecosystems
+- Seasonal and environmental factors affecting plant chemistry
+
+**These variations do not constitute defects** and reflect the authentic, unrefined nature of our ethnobotanical products.
+
+---
+
+## Storage and Handling
+
+For product safety, quality preservation, and maximum shelf life:
+
+### General Storage Guidelines
+
+- Store products in a cool, dark place away from direct sunlight
+- Keep containers tightly sealed when not in use
+- Avoid exposure to excessive heat or humidity
+- Keep out of reach of children and pets
+- Do not use products past their recommended shelf life or expiration date
+
+### Product-Specific Storage
+
+- **Batana Oil:** Store at room temperature. May solidify in cool conditions — this is normal behavior and does not affect quality.
+- **Stingless Bee Honey:** Keep sealed in an airtight container. Higher moisture content than common honey makes proper sealing essential.
+- **Traditional Herbs:** Store in airtight containers in a dry environment. Avoid moisture contamination to preserve potency.
+
+### Contamination Prevention
+
+- Do not introduce water or foreign substances into product containers
+- Use clean, dry hands or utensils when handling products
+- Discard products that show signs of contamination (mold, unusual odor, discoloration)
+
+---
+
+## Regulatory and Compliance Responsibility
+
+**Regulations governing botanicals, herbal products, food items, cosmetics, and natural ingredients vary significantly by country, region, and market.**
+
+### Customer and Partner Responsibility
+
+Customers, distributors, importers, and business partners are responsible for ensuring compliance with all applicable local, regional, and international laws, including:
+
+- Product classification (cosmetic, food, supplement, herbal medicine, etc.)
+- Labeling requirements and mandatory warnings
+- Marketing claims and advertising restrictions
+- Import/export documentation and permits
+- Good Manufacturing Practices (GMP) or equivalent standards
+- Registration, notification, or approval requirements
+
+### What Forestal MT Provides
+
+- Origin documentation (certificates of origin, export documentation)
+- Export support for international shipments
+- Product specifications and technical data sheets
+- Traceability documentation where applicable
+
+### What Forestal MT Does Not Provide
+
+- Guarantee of regulatory approval in any destination market
+- Legal or regulatory consulting services
+- Assumption of responsibility for compliance in customer jurisdictions
+- Warranty that products meet specific regulatory classifications
+
+Customers and partners must independently verify product suitability and regulatory compliance in their target markets.
+
+---
+
+## Wholesale and Professional Use Disclaimer
+
+**For wholesale, bulk, and professional buyers:**
+
+### Independent Verification Required
+
+- **Product suitability:** Verify compatibility with your intended application
+- **Formulation compatibility:** Test products in your formulations before commercial use
+- **Regulatory compliance:** Ensure compliance with regulations in your market
+- **Labeling and claims:** Develop compliant product labels and marketing materials
+- **Quality control:** Implement appropriate testing and quality assurance protocols
+
+### Scope of Forestal MT Responsibility
+
+Forestal MT provides origin-authentic, traceable ingredients but **does not assume responsibility for:**
+
+- How products are formulated or processed by third parties
+- Marketing claims or representations made by distributors or retailers
+- Product applications outside traditional ethnobotanical contexts
+- End-user safety or efficacy in third-party formulations
+- Compliance with local regulations in destination markets
+
+### Professional Guidance
+
+Wholesale and professional buyers should:
+
+- Consult regulatory experts in their jurisdiction
+- Work with qualified formulators for product development
+- Conduct appropriate stability and safety testing
+- Obtain necessary licenses, permits, or certifications
+- Implement proper product liability insurance
+
+---
+
+## External Links and Third-Party Content
+
+The Forestal MT website may contain links to third-party websites, platforms, or resources (educational content, research citations, partner organizations, social media platforms).
+
+**Forestal MT is not responsible for** the content, accuracy, or practices of external sites; privacy policies or data handling of third-party platforms; products or services offered by external entities; or the availability or functionality of external links.
+
+**Forestal MT does not endorse** any third-party products, services, or content unless explicitly stated.
+
+Users access external links at their own discretion and risk. We recommend reviewing the terms of service and privacy policies of any external sites you visit.
+
+---
+
+## Limitation of Liability
+
+**To the maximum extent permitted by law, Forestal Murillo Tejada S. de R.L. shall not be liable for any direct, indirect, incidental, consequential, special, exemplary, or punitive damages arising from:**
+
+- Use or misuse of our products
+- Reliance on website content or information provided
+- Inability to use products or access website services
+- Allergic reactions, adverse effects, or health complications
+- Product variability or natural characteristics
+- Regulatory non-compliance in customer jurisdictions
+- Third-party actions or omissions
+- Errors, omissions, or inaccuracies in website content
+
+**Use of our products and reliance on website content is at your own discretion and risk.**
+
+Users are responsible for ensuring safe handling and appropriate use of products, conducting patch tests and reading ingredient lists, consulting healthcare professionals when appropriate, compliance with all applicable regulations in their jurisdiction, and proper storage and handling of products.
+
+Some jurisdictions do not allow the exclusion or limitation of certain warranties or liabilities. In such cases, the above limitations may not apply in full, and liability shall be limited to the maximum extent permitted by applicable law.
+
+---
+
+## Changes to This Disclaimer
+
+Forestal MT reserves the right to modify, update, or replace this Disclaimer at any time without prior notice.
+
+Updates will be posted on this page with an updated "Effective Date" at the top of the document. Continued use of the website or products after changes are posted constitutes acceptance of the revised Disclaimer.
+
+We encourage users to review this Disclaimer periodically. Material changes may be announced via website notification or email to registered customers.
+
+---
+
+## Questions or Concerns?
+
+If you have questions about product safety, suitability, regulatory compliance, or the contents of this Disclaimer, please contact us before making a purchase or using our products:
+
+**General Inquiries:** support@forestal-mt.com
+**Wholesale and Business Partnerships:** sales@forestal-mt.com
+
+**Company Information:**
+Forestal Murillo Tejada S. de R.L.
+San Francisco de la Paz, Olancho, Honduras
+
+**Website:** [forestal-mt.com](https://forestal-mt.com)
+
+---
+
+## General Information Disclaimer
+
+The information provided on the Forestal MT website is for general informational, educational, and commercial purposes only.
+
+Forestal Murillo Tejada S. de R.L. ("Forestal MT") makes no representations or warranties regarding the completeness, accuracy, or reliability of any information presented.
+
+**See also:** [Terms and Conditions](https://forestal-mt.com/terms/) | [Privacy Policy](https://forestal-mt.com/privacy/) | [Shipping and Returns](https://forestal-mt.com/shipping/)

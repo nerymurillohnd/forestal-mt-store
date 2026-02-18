@@ -1,0 +1,33 @@
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "@id": "https://forestal-mt.com/traditional-herbs/#hero-video",
+  "name": "Traditional Herbs - Wildcrafted & Shade-Dried",
+  "description": "A curated apothecary of ethnobotanical wisdom preserved for millennia by indigenous cultures of Central America and the Caribbean.",
+  "url": "https://forestal-mt.com/traditional-herbs/",
+  "identifier": "7dc57c8cc048bb7a7ac5e5f2aefb1eb0",
+  "duration": "PT20S",
+  "uploadDate": "2026-01-27T16:17:53Z",
+  "encodingFormat": "video/mp4",
+  "contentSize": "63MB",
+  "width": 3200,
+  "height": 1792,
+  "inLanguage": ["en", "es"],
+  "contentUrl": "https://customer-8w5s9dekjdinwesc.cloudflarestream.com/7dc57c8cc048bb7a7ac5e5f2aefb1eb0/manifest/video.m3u8",
+  "embedUrl": "https://customer-8w5s9dekjdinwesc.cloudflarestream.com/7dc57c8cc048bb7a7ac5e5f2aefb1eb0/iframe",
+  "thumbnailUrl": "https://customer-8w5s9dekjdinwesc.cloudflarestream.com/7dc57c8cc048bb7a7ac5e5f2aefb1eb0/thumbnails/thumbnail.jpg",
+  "thumbnail": {
+    "@type": "ImageObject",
+    "@id": "https://forestal-mt.com/traditional-herbs/#hero-video-thumbnail",
+    "url": "https://customer-8w5s9dekjdinwesc.cloudflarestream.com/7dc57c8cc048bb7a7ac5e5f2aefb1eb0/thumbnails/thumbnail.jpg",
+    "contentUrl": "https://customer-8w5s9dekjdinwesc.cloudflarestream.com/7dc57c8cc048bb7a7ac5e5f2aefb1eb0/thumbnails/thumbnail.jpg",
+    "width": 640,
+    "height": 358,
+    "encodingFormat": "image/jpeg"
+  },
+  "publisher": { "@id": "https://forestal-mt.com/#organization" },
+  "creator": { "@id": "https://forestal-mt.com/#organization" },
+  "isFamilyFriendly": true,
+  "isAccessibleForFree": true,
+  "requiresSubscription": false
+}

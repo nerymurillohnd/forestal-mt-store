@@ -1,0 +1,39 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://forestal-mt.com/#website",
+
+  "name": "Forestal MT",
+  "alternateName": "Forestal MT Honduras",
+  "description": "Official website of Forestal MT — Honduras-based exporter of premium ethnobotanical products. Shop authentic Batana Oil, Stingless Bee Honey (Jimerito), and 41 varieties of Traditional Wildcrafted Herbs sourced directly from indigenous communities.",
+  "url": "https://forestal-mt.com/",
+  "inLanguage": ["en", "es"],
+  "publisher": { "@id": "https://forestal-mt.com/#organization" },
+  "copyrightHolder": { "@id": "https://forestal-mt.com/#organization" },
+  "copyrightYear": "2020",
+  "image": { "@id": "https://forestal-mt.com/#logo" },
+  "mainEntityOfPage": "https://forestal-mt.com/",
+  "keywords": [
+    "buy batana oil online",
+    "authentic batana oil from honduras",
+    "stingless bee honey for sale",
+    "jimerito honey online",
+    "wildcrafted herbs shop",
+    "honduran natural products",
+    "batana oil hair treatment",
+    "organic batana oil direct from source",
+    "traditional herbs from honduras",
+    "forestal mt shop"
+  ],
+  "isAccessibleForFree": true,
+  "isFamilyFriendly": true,
+
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://forestal-mt.com/products/?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+}

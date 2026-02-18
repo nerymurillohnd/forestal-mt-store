@@ -1,0 +1,106 @@
+---
+const year = new Date().getFullYear();
+
+const catalogLinks = [
+  { label: "Batana Oil", href: "/batana-oil/" },
+  { label: "Stingless Bee Honey", href: "/stingless-bee-honey/" },
+  { label: "Traditional Herbs", href: "/traditional-herbs/" },
+];
+
+const companyLinks = [
+  { label: "About Us", href: "/about/" },
+  { label: "Wholesale", href: "/wholesale/" },
+  { label: "Contact", href: "/contact/" },
+];
+
+const legalLinks = [
+  { label: "Terms & Conditions", href: "/terms/" },
+  { label: "Privacy Policy", href: "/privacy/" },
+  { label: "Disclaimer", href: "/disclaimer/" },
+  { label: "Shipping Policy", href: "/shipping/" },
+];
+---
+
+<footer class="border-t border-mint bg-seasalt">
+  <div class="mx-auto max-w-7xl px-4 py-12 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      <!-- Brand -->
+      <div>
+        <p class="font-[family-name:var(--font-heading)] text-lg font-semibold text-leaf-green">
+          Forestal MT
+        </p>
+        <p class="mt-2 font-[family-name:var(--font-body)] text-sm text-graphite/70">
+          Premium ethnobotanical products sourced directly from indigenous
+          communities in Honduras.
+        </p>
+      </div>
+
+      <!-- Catalogs -->
+      <div>
+        <h3 class="font-[family-name:var(--font-heading)] text-sm font-semibold uppercase tracking-wider text-graphite">
+          Collections
+        </h3>
+        <ul class="mt-3 space-y-2 font-[family-name:var(--font-ui)] text-sm">
+          {
+            catalogLinks.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="text-graphite/70 transition-colors hover:text-leaf-green"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <h3 class="font-[family-name:var(--font-heading)] text-sm font-semibold uppercase tracking-wider text-graphite">
+          Company
+        </h3>
+        <ul class="mt-3 space-y-2 font-[family-name:var(--font-ui)] text-sm">
+          {
+            companyLinks.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="text-graphite/70 transition-colors hover:text-leaf-green"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- Legal -->
+      <div>
+        <h3 class="font-[family-name:var(--font-heading)] text-sm font-semibold uppercase tracking-wider text-graphite">
+          Legal
+        </h3>
+        <ul class="mt-3 space-y-2 font-[family-name:var(--font-ui)] text-sm">
+          {
+            legalLinks.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="text-graphite/70 transition-colors hover:text-leaf-green"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-10 border-t border-mint pt-6 text-center font-[family-name:var(--font-ui)] text-xs text-graphite/50">
+      <p>&copy; {year} Forestal Murillo Tejada S. de R.L. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,64 @@
+---
+# ============================================================================
+# ROUTING
+# ============================================================================
+slug: community/faqs
+pageName: FAQs
+canonicalUrl: https://forestal-mt.com/community/faqs/
+rendering: SSG
+
+# ============================================================================
+# SEO
+# ============================================================================
+title: FAQs - Batana Oil, Honey & Herbs Questions
+description:
+  Get answers about Batana Oil, stingless bee honey, and traditional herbs. Shipping info, wholesale ordering,
+  product authenticity, and handling guidelines.
+
+# ============================================================================
+# OPEN GRAPH
+# ============================================================================
+og:
+  title: "FAQs - Batana Oil, Honey & Herbs Questions"
+  description: Get answers about Batana Oil, stingless bee honey, and traditional herbs. Shipping info, wholesale ordering, product authenticity, and handling guidelines.
+  image:
+    url: https://cdn.forestal-mt.com/pages/community/faqs/og.jpg
+    alt: Forestal MT frequently asked questions about Batana Oil, honey, herbs, and ordering
+    width: 1200
+    height: 630
+twitter:
+  card: summary_large_image
+
+# ============================================================================
+# SCHEMAS
+# ============================================================================
+schemas:
+  - type: Organization
+    id: 'https://forestal-mt.com/#organization'
+    mode: compact
+  - type: Brand
+    id: 'https://forestal-mt.com/#brand'
+    mode: compact
+  - type: FAQPage
+    id: 'https://forestal-mt.com/community/faqs/#page'
+  - type: ImageObject
+    id: 'https://forestal-mt.com/community/faqs/#og-image'
+  - type: BreadcrumbList
+    id: 'https://forestal-mt.com/community/faqs/#breadcrumb'
+
+# ============================================================================
+# HERO
+# ============================================================================
+hero:
+  eyebrow: 'ANSWERS FROM ORIGIN'
+  title: 'Answers Rooted in Origin'
+  subtitle: 'PRODUCTS • SHIPPING • WHOLESALE'
+  description: >-
+    Get clear answers on Batana Oil, stingless bee honey, and traditional herbs, plus shipping, wholesale ordering,
+    authenticity, and product handling.
+  ctas:
+    - label: 'Contact for Wholesale'
+      url: /contact/
+    - label: 'Explore Our Products'
+      url: /products/
+---

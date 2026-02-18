@@ -1,0 +1,273 @@
+---
+# ============================================================================
+# ROUTING
+# ============================================================================
+slug: contact
+pageName: Contact
+canonicalUrl: https://forestal-mt.com/contact/
+rendering: SSG
+
+# ============================================================================
+# SEO
+# ============================================================================
+title: Contact Us | Wholesale Inquiries, B2B & Export Support
+description: Contact Forestal MT for wholesale inquiries, customer support, export documentation, or partnerships. Based in Honduras, serving clients worldwide.
+seo:
+  tags:
+    - Contact Forestal MT
+    - Wholesale inquiries
+    - B2B partnerships
+    - Customer support
+    - Export documentation
+    - Honduras exporter
+    - Direct contact
+
+# ============================================================================
+# OPEN GRAPH
+# ============================================================================
+og:
+  title: Contact Us | Wholesale Inquiries, B2B & Export Support
+  description: Contact Forestal MT for wholesale inquiries, customer support, export documentation, or partnerships. Based in Honduras, serving clients worldwide.
+  image:
+    url: https://cdn.forestal-mt.com/pages/contact/og.jpg
+    alt: Contact Forestal MT — wholesale inquiries, customer support, and partnership opportunities
+    width: 1200
+    height: 630
+twitter:
+  card: 'summary_large_image'
+
+# ============================================================================
+# SCHEMAS
+# ============================================================================
+schemas:
+  - type: Organization
+    id: 'https://forestal-mt.com/#organization'
+    mode: compact
+  - type: Brand
+    id: 'https://forestal-mt.com/#brand'
+    mode: compact
+  - type: ContactPage
+    id: 'https://forestal-mt.com/contact/#page'
+  - type: ImageObject
+    id: 'https://forestal-mt.com/contact/#hero-image'
+  - type: ImageObject
+    id: 'https://forestal-mt.com/contact/#og-image'
+  - type: BreadcrumbList
+    id: 'https://forestal-mt.com/contact/#breadcrumb'
+
+# ============================================================================
+# HERO
+# ============================================================================
+media: image
+hero:
+  eyebrow: CONTACT & PARTNER
+  title: |
+    Get in Touch
+    With Forestal MT
+  subtitle: WE'D LOVE TO HEAR FROM YOU
+  description: Whether you're exploring bulk ingredients, need customer support, or want to build a partnership, our Honduras-based team is ready to connect with you.
+  ctas:
+    - label: Start a Conversation
+      url: https://wa.me/50496997635
+    - label: Schedule a Call
+      url: https://forestal-mt.com/contact/#contact-form
+  background:
+    type: image
+    url: https://cdn.forestal-mt.com/pages/contact/hero.jpg
+    alt: Forestal MT team ready to assist with wholesale inquiries, customer support, and partnership opportunities
+    width: 1920
+    height: 1080
+---
+
+## Direct Contact for Wholesale, Support, and Partnerships
+
+Whether you are exploring Batana Oil for a new haircare line, evaluating stingless bee honey for wellness products, or sourcing wildcrafted herbs for formulations, this is where you can connect directly with Forestal MT.
+
+In a market often diluted by unsubstantiated claims, Forestal MT provides a **verifiable chain of authenticity from forest to customer**. We operate as origin custodians, ensuring products are defined by traceable origin, cultural stewardship, and proven quality.
+
+---
+
+## How to Reach Us
+
+Share your project, questions, or requirements with the core team. Typical details that help us route and respond accurately:
+
+- **Full Name**
+- **Email Address**
+- **Phone or WhatsApp** (optional but faster for coordination)
+- **Inquiry Type:**
+  - Product Information
+  - Customer Support
+  - Wholesale & Bulk
+  - Partnership
+  - Other
+- **Message:** Brand, market, products of interest, volumes, timelines
+
+**Response Time:** We aim to respond within 1-2 business days, depending on volume and time zones.
+
+---
+
+## Contact Information
+
+### Email
+
+**General Inquiries, Wholesale, Bulk Orders & Sales:**
+sales@forestal-mt.com
+
+**Customer Support & Documentation:**
+support@forestal-mt.com
+
+**Available:** Monday-Friday, 8:00 AM - 5:00 PM (Honduras Time / CST)
+
+**WhatsApp:** Text or call, business hours Monday-Friday, Honduran time zone
+
+### Business Address
+
+**Forestal Murillo Tejada S. de R.L.**
+Barrio Arriba
+San Francisco de la Paz, Olancho
+Honduras 16102
+
+**Note:** This is our registered business address for legal correspondence, export documentation, and official communications. For shipment coordination, specific warehouse addresses may be provided during order processing.
+
+---
+
+## Social Media Channels
+
+Follow us for updates, behind-the-scenes content, product launches, and origin stories:
+
+**Facebook:** [@forestalmt.hn](https://facebook.com/forestalmt.hn)
+**Instagram:** [@forestalmt.hn](https://instagram.com/forestalmt.hn)
+**TikTok:** [@forestalmt.hn](https://tiktok.com/@forestalmt.hn)
+**LinkedIn:** [Forestal MT](https://linkedin.com/company/forestalmt)
+
+---
+
+## Business Hours
+
+**Monday - Friday:** 8:00 AM - 5:00 PM (Honduras Time / CST)
+
+**Saturday:** 8:00 AM - 12:00 PM
+
+**Sunday:** Closed
+
+**Response times may vary during Honduran public holidays.**
+
+---
+
+## Contact Form Structure
+
+For inquiries via our website contact form, please provide:
+
+- **Name** (required)
+- **Email** (required)
+- **Phone or WhatsApp** (optional — faster coordination)
+- **Subject** — Select one:
+  - General Inquiry
+  - Product Question
+  - Wholesale Inquiry
+  - Order Support
+  - Partnership
+  - Documentation Request
+  - Other
+- **Message** (required) — Describe your project, questions, or requirements. Include:
+  - Brand or company name (if applicable)
+  - Target market or destination country
+  - Products of interest (Batana Oil, Stingless Bee Honey, Traditional Herbs)
+  - Approximate volumes or order size (for wholesale inquiries)
+  - Timeline or urgency
+  - Specific certifications or documentation needed
+
+---
+
+## Contact FAQs
+
+### What are your typical response times?
+
+Most inquiries receive a reply within **1-2 business days**. Time-sensitive cases move faster when phone or WhatsApp details are included.
+
+**Standard Response (24-48 Hours):**
+
+- General product inquiries
+- Customer support requests
+- Wholesale applications and quotes
+- Documentation requests
+
+### How should I contact you for wholesale or bulk orders?
+
+Select **"Wholesale & Bulk"** as the inquiry type and include:
+
+- Products of interest (Batana Oil, Stingless Bee Honey, Traditional Herbs)
+- Approximate volumes or order value
+- Destination country
+- Needed documentation (COA, MSDS, phytosanitary certificates, etc.)
+- Timeline for first order
+
+**Direct Contact:** sales@forestal-mt.com or WhatsApp +504 9699 7635
+
+**See Also:** [Wholesale Program](https://forestal-mt.com/wholesale/) for detailed MOQs, pricing tiers, and partnership benefits
+
+### Do you provide live chat support?
+
+Primary channels are **email, WhatsApp, and phone**. If live chat is active on the site, it connects to the same export and support team.
+
+**Best for Real-Time Communication:**
+
+- WhatsApp: +504 9699 7635 (text or call, business hours)
+- Phone: +504 9277 4192 (call during business hours)
+
+### How do shipping and delivery work?
+
+**Typical Shipments:** DHL Express under **DAP (Delivered at Place)** terms
+
+**Large Volume:** Maritime options available upon negotiation and bulk quantity.
+
+**Lead Times:**
+
+- DHL Express: 3-7 business days
+- Sea Freight (Maritime): varies by destination country
+
+### Can I speak with someone directly?
+
+Yes. Call directly or request a call window in your message with your time zone and availability.
+
+**For Immediate Calls:**
+
+- Best availability: Monday-Friday, 9:00 AM - 4:00 PM (Honduras Time / CST)
+- After hours: Leave voicemail or WhatsApp message with callback request
+
+**For Scheduled Calls:**
+
+- Email your preferred date/time/topic to sales@forestal-mt.com
+- We'll confirm availability within 24 hours and send a calendar invite
+
+### What if I need a custom solution?
+
+Describe your needs in detail:
+
+- **Target Market:** Country, regulatory environment, import requirements
+- **Product Category:** Cosmetics, dietary supplements, food, botanical materials
+- **Expected Volumes:** Monthly or annual order estimates
+- **Timelines:** Product launch date, sampling phase, first order deadline
+- **Specific Needs:** Custom formulations, private label, OEM manufacturing, specific formats or packaging
+
+**We will respond with:**
+
+- Feasibility assessment
+- Timeline estimate
+- Cost range (if applicable)
+- Next steps (sampling, technical review, contract discussion)
+
+**Contact:** sales@forestal-mt.com or support@forestal-mt.com for custom solutions
+
+---
+
+## Still Have Questions?
+
+Send us a message with your goals and timeline, and we will connect you with the right team member.
+
+**Quick Links:**
+
+- [Wholesale Program](https://forestal-mt.com/wholesale/) — Partnership benefits, MOQs, pricing tiers
+- [Products](https://forestal-mt.com/products/) — Batana Oil, Stingless Bee Honey, Traditional Herbs
+- [Shipping & Returns](https://forestal-mt.com/shipping/) — Delivery times, customs, return policy
+- [FAQs](https://forestal-mt.com/community/faqs/) — Frequently asked questions about products and ordering

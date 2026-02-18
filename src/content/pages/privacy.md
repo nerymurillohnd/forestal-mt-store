@@ -1,0 +1,320 @@
+---
+# ============================================================================
+# ROUTING
+# ============================================================================
+slug: privacy
+pageName: Privacy Policy
+canonicalUrl: https://forestal-mt.com/privacy/
+rendering: SSG
+
+# ============================================================================
+# SEO
+# ============================================================================
+title: Privacy Policy
+description:
+  How Forestal MT collects, uses, and protects your personal information. Applies to shopping, inquiries, wholesale
+  accounts, and all site communications.
+
+# ============================================================================
+# OPEN GRAPH
+# ============================================================================
+og:
+  title: Privacy Policy
+  description: How Forestal MT collects, uses, and protects your personal information. Applies to shopping, inquiries, wholesale accounts, and all site communications.
+  image:
+    url: https://cdn.forestal-mt.com/pages/privacy/og.jpg
+    alt: Forestal MT privacy policy
+    width: 1200
+    height: 630
+twitter:
+  card: summary_large_image
+
+# ============================================================================
+# SCHEMAS
+# ============================================================================
+schemas:
+  - type: Organization
+    id: 'https://forestal-mt.com/#organization'
+    mode: compact
+  - type: Brand
+    id: 'https://forestal-mt.com/#brand'
+    mode: compact
+  - type: WebPage
+    id: 'https://forestal-mt.com/privacy/#page'
+  - type: BreadcrumbList
+    id: 'https://forestal-mt.com/privacy/#breadcrumb'
+
+# ============================================================================
+# HERO
+# ============================================================================
+hero:
+  eyebrow: 'YOUR DATA, RESPECTED'
+  title: 'Privacy Policy'
+  subtitle: 'TRANSPARENCY • TRUST • RESPONSIBILITY'
+  description: >-
+    Learn how Forestal MT collects, uses, and protects personal information for secure shopping, inquiries, and
+    communications.
+---
+
+## How We Use Your Information
+
+We use your personal information for the following legitimate business purposes:
+
+### Order Processing and Fulfillment
+
+- Processing and completing your orders
+- Arranging shipping and delivery via logistics providers (e.g., DHL Express)
+- Sending order confirmations, tracking updates, and delivery notifications
+- Handling returns, exchanges, or refunds
+
+### Customer Support and Communication
+
+- Responding to inquiries, questions, and support requests
+- Providing product information and recommendations
+- Resolving issues or complaints
+- Following up on abandoned shopping carts
+
+### Wholesale and Business Services
+
+- Processing wholesale quotations and bulk order requests
+- Providing export documentation (certificates of origin, phytosanitary certificates, commercial invoices)
+- Coordinating international shipping and customs clearance
+- Managing business partnerships and distributor relationships
+
+---
+
+## Cookies and Tracking Technologies
+
+Our website uses cookies and similar technologies to enhance your browsing experience and collect usage data.
+
+### Types of Cookies We Use
+
+**Essential Cookies:**
+Required for basic website functionality (shopping cart, checkout, login sessions). These cannot be disabled without affecting site usability.
+
+**Analytics Cookies:**
+Help us understand how visitors interact with our website (page views, traffic sources, popular content). Used to improve performance and user experience.
+
+**Functional Cookies:**
+Remember your preferences (language, currency, region) and enhance convenience.
+
+**Marketing Cookies (Optional):**
+Used to deliver relevant advertisements and track campaign effectiveness. These require your consent.
+
+### Managing Cookies
+
+You can control or disable cookies through your browser settings:
+
+- **Chrome:** Settings > Privacy and Security > Cookies and other site data
+- **Firefox:** Settings > Privacy and Security > Cookies and Site Data
+- **Safari:** Preferences > Privacy > Manage Website Data
+- **Edge:** Settings > Cookies and site permissions
+
+Disabling certain cookies may limit website functionality or features.
+
+### Third-Party Analytics
+
+We may use third-party analytics services (such as Google Analytics) to collect and analyze usage data. These services have their own privacy policies governing data collection and use.
+
+---
+
+## Sharing of Information
+
+**Forestal MT does not sell, rent, or trade your personal information to third parties for marketing purposes.**
+
+We may share your information only when necessary with trusted third parties who assist us in operating our business:
+
+### Service Providers
+
+**Shipping and Logistics:**
+DHL Express, local couriers, freight forwarders (for order delivery and tracking)
+
+**Payment Processors:**
+Banco Atlantida, third-party payment gateways (for secure transaction processing)
+
+**Website and Technology Providers:**
+Web hosting services, email service providers, customer relationship management systems
+
+**Professional Services:**
+Accountants, lawyers, export consultants (for compliance and advisory services)
+
+### Regulatory and Legal Authorities
+
+We may disclose information when required by law or legal process:
+
+- Customs and export control authorities
+- Tax authorities and government agencies
+- Law enforcement in response to valid legal requests
+- Courts or tribunals in legal proceedings
+
+### Business Transfers
+
+In the event of a merger, acquisition, sale of assets, or bankruptcy, your personal information may be transferred to a successor entity. You will be notified of any such change via email or website notice.
+
+### With Your Consent
+
+We may share your information with other third parties when you have provided explicit consent.
+
+---
+
+## Data Security
+
+We take the security of your personal information seriously and implement reasonable administrative, technical, and physical measures to protect against unauthorized access, loss, misuse, alteration, or destruction.
+
+### Technical Safeguards
+
+- SSL/TLS encryption for all data transmission between your browser and our servers
+- Secure storage of payment information via PCI-DSS compliant payment processors (we do not store complete payment card details on our servers)
+- Firewalls and intrusion detection systems
+- Regular security assessments and vulnerability scans
+
+### Administrative Safeguards
+
+- Limited employee access to personal data on a need-to-know basis
+- Confidentiality agreements and employee training on data protection
+- Incident response procedures for data breaches
+
+### Physical Safeguards
+
+- Secure facilities with restricted access
+- Protection of servers and hardware infrastructure
+
+### Limitations
+
+While we strive to protect your information, no system can guarantee absolute security. Internet transmission is not 100% secure, and we cannot ensure or warrant the security of any information you transmit to us. You acknowledge and accept this inherent risk when using our services.
+
+In the event of a data breach affecting your personal information, we will notify you as required by applicable law.
+
+---
+
+## Data Retention
+
+We retain your personal information for as long as necessary to fulfill the purposes for which it was collected and to comply with legal, regulatory, tax, and accounting obligations.
+
+### Retention Periods
+
+**Active Customer Accounts:**
+Retained for the duration of your account activity and for a reasonable period afterward to facilitate future transactions and support.
+
+**Order and Transaction Records:**
+Retained for at least 7 years to comply with tax, accounting, and export documentation requirements.
+
+**Marketing Communications:**
+Retained until you opt out or unsubscribe, or until we determine the information is no longer relevant.
+
+**Inactive Accounts:**
+Personal information in inactive accounts (no activity for 3+ years) may be anonymized or deleted unless retention is required by law.
+
+**Legal Holds:**
+Information subject to ongoing legal disputes, investigations, or regulatory inquiries will be retained until the matter is resolved.
+
+### Deletion Requests
+
+You may request deletion of your personal information at any time (see "Contact Us" section below). However, we may retain certain information where required by law or for legitimate business purposes (e.g., fraud prevention, dispute resolution, contract enforcement).
+
+---
+
+## Children's Privacy
+
+Our website and services are not intended for children under the age of 13 (or the applicable age of digital consent in your jurisdiction).
+
+**We do not knowingly collect personal information from children under 13.**
+
+If you are a parent or guardian and believe that your child has provided personal information to us, please contact us immediately. We will take steps to delete such information from our systems.
+
+---
+
+## Third-Party Links
+
+Our website may contain links to third-party websites, platforms, social media pages, or resources operated by entities other than Forestal MT.
+
+**Forestal MT is not responsible for the privacy practices, content, or security of external sites.**
+
+We encourage you to review the privacy policies and terms of service of any third-party services you access through our website. Your interactions with third-party sites are governed by their own policies, not this Privacy Policy.
+
+Third-party services we may link to or integrate with include social media platforms (Facebook, Instagram, WhatsApp Business), payment processors and financial institutions, shipping carriers and tracking portals, and educational resources and research citations.
+
+We do not endorse or assume responsibility for third-party content, products, or services unless explicitly stated.
+
+---
+
+## Contact Us
+
+For privacy-related questions, requests, or concerns:
+
+**General Privacy Inquiries:**
+support@forestal-mt.com
+
+**Wholesale and Business Privacy Matters:**
+sales@forestal-mt.com
+
+**Data Protection Requests (Access, Deletion, Correction):**
+support@forestal-mt.com
+
+**Mailing Address:**
+Forestal Murillo Tejada S. de R.L.
+Barrio Arriba
+San Francisco de la Paz, Olancho
+Honduras 16102
+
+**Website:**
+[forestal-mt.com](https://forestal-mt.com)
+
+**Response Time:**
+We will respond to privacy inquiries within 30 days of receipt. For complex requests, we may extend this period and will notify you of any delay.
+
+---
+
+## Information We Collect
+
+We collect information that you provide directly to us and information that is automatically collected when you use our website or services.
+
+### Personal Information You Provide
+
+When you make a purchase, create an account, submit an inquiry, request a quote, or contact us, we may collect:
+
+**Individual Customer Information:**
+
+- Full name
+- Email address
+- Phone number
+- Shipping address
+- Billing address
+- Payment information (processed securely by third-party payment processors)
+
+**Business Customer Information (Wholesale/B2B):**
+
+- Company name and business information
+- Business address and country
+- Market or industry sector
+- Tax identification or business registration numbers (for export documentation)
+- Role or title within organization
+
+**Order and Transaction Information:**
+
+- Product selections and quantities
+- Order history and transaction records
+- Shipping preferences and delivery instructions
+- Special requests or custom requirements
+
+**Communications:**
+
+- Messages sent via website contact forms
+- Email correspondence
+- WhatsApp messages and chat history
+- Phone call records and voicemail transcripts (when applicable)
+- Customer support inquiries and feedback
+
+### Automatically Collected Information
+
+When you visit our website, we automatically collect certain technical information through cookies, web beacons, and similar technologies:
+
+- IP address and approximate geographic location
+- Browser type and version
+- Operating system and device information
+- Pages visited, time spent on pages, and navigation paths
+- Referring website or source
+- Date and time of access
+- Language preferences
+
+**See also:** [Terms and Conditions](https://forestal-mt.com/terms/) | [Disclaimer](https://forestal-mt.com/disclaimer/) | [Shipping and Returns](https://forestal-mt.com/shipping/)

@@ -1,0 +1,53 @@
+{
+  "@context": "https://schema.org",
+  "@type": "OnlineStore",
+  "@id": "https://forestal-mt.com/#online-store",
+
+  "name": "Forestal MT Shop",
+  "description": "Official online store of Forestal MT. Shop premium ethnobotanical products sourced directly from indigenous communities in Honduras — authentic Batana Oil, Stingless Bee Honey (Jimerito), and 41 varieties of Traditional Wildcrafted Herbs. 46 products available in 132 individual presentations with worldwide shipping via DHL Express.",
+  "url": "https://forestal-mt.com/products/",
+  "address": {
+    "@type": "PostalAddress",
+    "@id": "https://forestal-mt.com/#address",
+    "streetAddress": "Barrio Arriba",
+    "addressLocality": "San Francisco de la Paz",
+    "addressRegion": "Olancho",
+    "postalCode": "16000",
+    "addressCountry": "HN"
+  },
+  "image": { "@id": "https://forestal-mt.com/#logo" },
+  "slogan": "Exporting Nature Without Borders",
+
+  "parentOrganization": { "@id": "https://forestal-mt.com/#organization" },
+  "brand": { "@id": "https://forestal-mt.com/#brand" },
+  "hasMerchantReturnPolicy": { "@id": "https://forestal-mt.com/#return-policy" },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "@id": "https://forestal-mt.com/#catalog",
+    "name": "Forestal MT Products",
+    "numberOfItems": 46,
+    "itemListElement": [
+      {
+        "@type": "OfferCatalog",
+        "@id": "https://forestal-mt.com/batana-oil/#catalog",
+        "name": "Batana Oil",
+        "url": "https://forestal-mt.com/batana-oil/",
+        "numberOfItems": 4
+      },
+      {
+        "@type": "OfferCatalog",
+        "@id": "https://forestal-mt.com/stingless-bee-honey/#catalog",
+        "name": "Stingless Bee Honey",
+        "url": "https://forestal-mt.com/stingless-bee-honey/",
+        "numberOfItems": 1
+      },
+      {
+        "@type": "OfferCatalog",
+        "@id": "https://forestal-mt.com/traditional-herbs/#catalog",
+        "name": "Traditional Herbs",
+        "url": "https://forestal-mt.com/traditional-herbs/",
+        "numberOfItems": 41
+      }
+    ]
+  }
+}

@@ -1,0 +1,430 @@
+---
+# ============================================================================
+# ROUTING
+# ============================================================================
+slug: traditional-herbs
+pageName: Traditional Herbs
+canonicalUrl: https://forestal-mt.com/traditional-herbs/
+rendering: SSG
+
+# ============================================================================
+# SEO
+# ============================================================================
+title: Traditional Herbs | 41 Wildcrafted Botanicals from Honduras
+description: 41 wildcrafted botanicals from Honduras. Shade-dried, vacuum-sealed, food-grade. Herbal teas, tinctures, extracts, formulations. Retail and wholesale worldwide.
+seo:
+  tags:
+    - Traditional Herbs
+    - Wildcrafted botanicals
+    - Honduras herbs
+    - ethnobotanical
+    - shade-dried
+    - indigenous sourcing
+    - wholesale herbs
+
+# ============================================================================
+# OPEN GRAPH
+# ============================================================================
+og:
+  title: Traditional Herbs | 41 Wildcrafted Botanicals from Honduras
+  description: 41 wildcrafted botanicals from Honduras. Shade-dried, vacuum-sealed, food-grade. Herbal teas, tinctures, extracts, formulations. Retail and wholesale worldwide.
+  image:
+    url: https://cdn.forestal-mt.com/pages/traditional-herbs/og.jpg
+    alt: Traditional Herbs collection — 41 wildcrafted, shade-dried botanicals from Honduras
+    width: 1200
+    height: 630
+twitter:
+  card: 'summary_large_image'
+
+# ============================================================================
+# SCHEMAS
+# ============================================================================
+schemas:
+  - type: Organization
+    id: 'https://forestal-mt.com/#organization'
+    mode: compact
+  - type: Brand
+    id: 'https://forestal-mt.com/#brand'
+    mode: compact
+  - type: AboutPage
+    id: 'https://forestal-mt.com/traditional-herbs/#page'
+  - type: OfferCatalog
+    id: 'https://forestal-mt.com/traditional-herbs/#catalog'
+  - type: VideoObject
+    id: 'https://forestal-mt.com/traditional-herbs/#hero-video'
+  - type: ImageObject
+    id: 'https://forestal-mt.com/traditional-herbs/#og-image'
+  - type: BreadcrumbList
+    id: 'https://forestal-mt.com/traditional-herbs/#breadcrumb'
+
+# ============================================================================
+# HERO
+# ============================================================================
+media: video
+hero:
+  eyebrow: SACRED WISDOM ROOTED IN NATURE
+  title: |
+    Traditional Herbs
+    Wildcrafted & Shade-Dried
+  subtitle: A TRIBUTE TO DR. SEBI'S LEGACY
+  description: A curated apothecary of ethnobotanical wisdom preserved for millennia by indigenous cultures of Central America and the Caribbean.
+  ctas:
+    - label: View All Herbs
+      url: https://forestal-mt.com/products/
+    - label: Partner for Wholesale
+      url: https://forestal-mt.com/wholesale/
+  background:
+    type: video
+    stream: 7dc57c8cc048bb7a7ac5e5f2aefb1eb0
+    caption: Traditional Herbs — wildcrafted botanicals from Honduras
+    width: 3200
+    height: 1792
+---
+
+## 41 Wildcrafted Varieties from Honduran Landscapes
+
+A living archive of ethnobotanical wisdom accumulated across millennia by indigenous cultures of Central America and the Caribbean — preserved through wildcrafted, shade-dried plants sourced directly from the landscapes where they have always grown.
+
+---
+
+## The Traditional Herbs Collection
+
+Honduras sits at a unique ecological crossroads between North America, South America, and the Caribbean. Cloud forests, tropical lowlands, river corridors, and coastal ecosystems converge here to create extraordinary botanical diversity. The plants that grow in these landscapes — native and long-naturalized — have never been treated as commodities. They are integral to cultural identity, daily life, and ancestral practice.
+
+Forestal MT's Traditional Herbs Collection reflects the wisdom of healers, midwives, herbalists, and indigenous knowledge keepers who have stewarded this botanical understanding for centuries. Every herb is gathered from native ecosystems where it has been recognized and respected for generations:
+
+- Cultural and ceremonial significance
+- Household and community applications
+- Ancestral knowledge systems
+- Nutritional and wellness traditions
+
+We bridge this deep-rooted heritage with modern demand — offering wildcrafted, shade-dried herbs sourced directly from origin landscapes and communities. Never commoditized. Never disconnected from place.
+
+---
+
+## Rooted in Place and Practice
+
+Our sourcing model prioritizes what matters:
+
+- **Origin authenticity:** Every herb carries a verifiable connection to its native ecosystem
+- **Cultural continuity:** Working with communities who maintain traditional knowledge
+- **Ecological balance:** Sustainable harvesting that protects biodiversity
+- **Transparent documentation:** Full traceability from harvest site to delivery
+
+By working directly with local harvesters in Olancho and La Mosquitia, we help preserve both botanical diversity and the cultural heritage that has protected it for generations.
+
+- **Origin:** Olancho and La Mosquitia, Honduras
+- **Source:** Native and long-naturalized medicinal plants
+- **Heritage:** Indigenous and mestizo ethnobotanical traditions
+- **Character:** Hand-picked at peak maturity, shade-dried to preserve natural properties
+
+---
+
+## How We Work: Wildcrafted and Shade-Dried
+
+Each herb follows a careful, origin-grounded process designed to maintain its natural character while respecting the ecosystems it comes from.
+
+### Gathered From Where They Grow
+
+Every plant is collected in its natural habitat — no farms, no synthetic inputs. Sourced from biodiverse regions aligned with ancestral gathering sites, by people who know these plants by name, season, and place.
+
+### Harvested With Care
+
+- Handpicked at the right stage of maturity, often in early morning after the dew has dried
+- Only abundant species collected; root systems preserved when possible
+- Harvest sites rotated to maintain ecosystem health
+- Only a small portion of any plant population is taken
+
+### From Harvest to Storage
+
+**Sorting and cleaning:** As herbs are picked, unwanted debris — dirt, dead leaves, other plant matter — is removed by hand. Plants are sorted by type, and sturdier stems are separated from delicate leaves and flowers.
+
+**Bundling or spreading:** Delicate herbs with stems are tied in small, loose bundles and hung upside down. Roots, bark, and loose leaves are spread in a single thin layer on ventilated drying beds. This supports consistent airflow around each piece.
+
+**Natural shade drying:** Bundles and beds are placed in cool, dry, well-ventilated spaces protected from direct sunlight, strong wind, and pests. This slow, indirect drying prevents the breakdown of heat-sensitive volatile oils — preserving aroma, color, and the herbs' botanical profile.
+
+**Final processing and storage:** Once fully dry and brittle, herbs are taken down and any remaining stems or debris removed. Dried botanicals are stored in airtight containers away from light and moisture. Leaves are kept whole until use to help preserve their natural volatile compounds.
+
+---
+
+## Our Herbs
+
+**41 varieties, all wildcrafted in Honduras.** Each herb carries its local name, its traditional context, and the care of the people who gathered it.
+
+### Gumbo Limbo Leaves
+
+**SKU:** FMT-TH-AL · _Mulato, Indio Desnudo_
+Shade-dried leaves traditionally used in tea and wellness rituals. A forest tree deeply woven into Central American folk herbalism.
+
+### Bay Leaves
+
+**SKU:** FMT-TH-BY · _Hojas de Laurel_
+Aromatic and potent. Used across kitchens and herbal traditions alike — shade-dried to preserve their characteristic fragrance.
+
+### Bitter Melon
+
+**SKU:** FMT-TH-CA · _Cundeamor_
+A traditional herb valued for its role in digestive wellness and blood sugar balance. Known for its distinctive bitter character.
+
+### Blessed Thistle
+
+**SKU:** FMT-TH-HT · _Cardo Santo_
+A classic herbal bitter. Traditionally reached for to support digestion and gentle detoxification.
+
+### Cassia Pods
+
+**SKU:** FMT-TH-CF · _Cana Fistula_
+Long used in traditional herbalism as a gentle digestive cleanser. The pods carry a naturally sweet pulp.
+
+### Cat's Claw
+
+**SKU:** FMT-TH-CC · _Una de Gato_
+One of the Amazon and Central American region's most respected herbs. Traditionally valued for immune support and joint comfort.
+
+### Cocolmeca Root
+
+**SKU:** FMT-TH-CR · _Cuculmeca_
+A traditional energy tonic and blood-supporting root. Shade-dried for potency and used in decoctions across Honduras.
+
+### Contribo
+
+**SKU:** FMT-TH-CT
+A wildcrafted bitter tonic, traditionally used for digestive support and cleansing. Respected in Honduran folk herbalism for its strength.
+
+### Cow's Foot Leaves
+
+**SKU:** FMT-TH-CW · _Pata de Vaca_
+Named for the shape of its leaves. A traditional tea herb valued for blood sugar balance and metabolic support.
+
+### Dragon's Blood Bark
+
+**SKU:** FMT-TH-DB · _Sangre de Grado_
+Known for its deep red resin. Traditionally used for wound care and digestive comfort — one of the most distinctive botanicals in the collection.
+
+### Duck Flower
+
+**SKU:** FMT-TH-DF
+A traditional cleansing herb with growing popularity. Used in digestive reset rituals, shade-dried to preserve its potent character.
+
+### Eucalyptus Leaves
+
+**SKU:** FMT-TH-EU · _Hojas de Eucalipto_
+Familiar and aromatic. Traditionally used for respiratory comfort, steam inhalation, and seasonal wellness support.
+
+### Guaco Leaves
+
+**SKU:** FMT-TH-GU
+A respected respiratory herb in Central American traditions. Used for bronchial comfort and immune wellness during seasonal changes.
+
+### Guava Leaves
+
+**SKU:** FMT-TH-GL · _Hojas de Guayaba_
+One of the most widely used traditional teas in Honduras. Valued for digestive wellness and as a comforting daily brew.
+
+### Gumbo Limbo Bark
+
+**SKU:** FMT-TH-GLB · _Mulato, Indio Desnudo_
+The bark of the same tree whose leaves open this collection. Traditionally valued for skin comfort and soothing applications.
+
+### Amaranth Greens
+
+**SKU:** FMT-TH-BL · _Bledo_
+A nutrient-dense traditional green, rich in minerals and antioxidants. Shade-dried and used in both culinary and wellness preparations.
+
+### Hibiscus Flowers
+
+**SKU:** FMT-TH-HF · _Flor de Jamaica_
+Vibrant, tart, and deeply refreshing. One of the world's most beloved herbal teas — rich in antioxidants and naturally beautiful.
+
+### Kalawalla Root
+
+**SKU:** FMT-TH-KR · _Calaguala_
+A fern root with a long history in Central American herbalism. Traditionally valued for skin wellness and immune modulation.
+
+### Leaf of Life
+
+**SKU:** FMT-TH-LV · _Kalanchoe, Hoja de Vida_
+Named for its remarkable resilience — new plants grow from fallen leaves. Traditionally used for respiratory comfort and wound care.
+
+### Lemongrass
+
+**SKU:** FMT-TH-LG · _Zacate de Limon_
+Aromatic and calming. A staple herbal tea across Central America, valued for digestion, relaxation, and immune support.
+
+### Linden
+
+**SKU:** FMT-TH-TL · _Tilia_
+A calming classic. Traditionally brewed for stress relief, sleep support, and gentle relaxation — one of the gentlest herbs in the collection.
+
+### Mango Leaves
+
+**SKU:** FMT-TH-ML · _Hojas de Mango_
+Often overlooked, yet traditionally valued as a tea for blood sugar support and antioxidant benefit. Shade-dried whole.
+
+### Moringa Leaves
+
+**SKU:** FMT-TH-MO
+Known worldwide as a nutritional powerhouse. Rich in vitamins, minerals, and plant protein — shade-dried to preserve maximum nutrition.
+
+### Muicle
+
+**SKU:** FMT-TH-MU
+A traditional herb in Mesoamerican herbalism, valued as a blood tonic and for supporting women's wellness.
+
+### Neem Leaves
+
+**SKU:** FMT-TH-NM
+A potent botanical with a long global history. Traditionally used for skin health, detoxification, and its natural antibacterial properties.
+
+### Nettle Leaves
+
+**SKU:** FMT-TH-NL · _Ortiga_
+Mineral-rich and deeply nourishing. A traditional tea herb valued for allergy comfort, joint health, and hair vitality.
+
+### Palo Guaco
+
+**SKU:** FMT-TH-PG
+A traditional respiratory support herb for bronchial comfort and immune wellness. Wildcrafted and shade-dried.
+
+### Palo Santo
+
+**SKU:** FMT-TH-PS
+Sacred wood used for spiritual cleansing, aromatherapy, and meditation. Sustainably harvested sticks with a warm, grounding fragrance.
+
+### Pau D'Arco Bark
+
+**SKU:** FMT-TH-PC · _Lapacho_
+One of the most studied traditional barks in the Americas. Valued for immune support and its antifungal properties.
+
+### Pine Needles
+
+**SKU:** FMT-TH-PN · _Hojas de Pino_
+A vitamin C-rich herbal tea with a clean, forest-fresh taste. Traditionally used for respiratory health and immune support.
+
+### Plantain Leaf
+
+**SKU:** FMT-TH-PL · _Llanten_
+A gentle, soothing herb used across cultures. Traditionally valued for wound care, respiratory comfort, and digestive wellness.
+
+### Possum Grape
+
+**SKU:** FMT-TH-CI · _Cissus_
+A traditional herb for bone and joint health. Used in folk herbalism for fracture recovery and tendon support.
+
+### Quassia — Bitter Wood
+
+**SKU:** FMT-TH-HG · _Hombre Grande_
+One of the most intensely bitter woods in the tropics. Traditionally used as a digestive bitter and for parasite cleansing.
+
+### Sarsaparilla
+
+**SKU:** FMT-TH-SR · _Zarzaparrilla_
+A traditional blood-purifying root valued for skin health and hormonal balance. Deeply rooted in Central American folk herbalism.
+
+### Sensitive Plant
+
+**SKU:** FMT-TH-DO · _Dormilona_
+Named for its leaves that fold when touched. A traditional calming herb used for anxiety relief and nervous system support.
+
+### Snake Plant
+
+**SKU:** FMT-TH-SN · _Lengua de Suegra_
+A traditional respiratory herb used for lung health and immune support. Shade-dried to preserve its character.
+
+### Soursop Leaves
+
+**SKU:** FMT-TH-SL · _Guanabana_
+One of the most popular herbal teas in the Caribbean and Central America. Traditionally valued for immune support and relaxation.
+
+### Stonebreaker
+
+**SKU:** FMT-TH-SP · _Chanca Piedra_
+The name says it all. A traditional herb for kidney and urinary health, long used in folk herbalism across Latin America.
+
+### Taro Leaf
+
+**SKU:** FMT-TH-MA · _Malanga_
+A nutritious traditional green used in soups and herbal preparations. Shade-dried and valued for both culinary and wellness uses.
+
+### Thuja — Cedar Leaves
+
+**SKU:** FMT-TH-CD
+An aromatic evergreen herb. Traditionally used for respiratory support and immune wellness, with a clean, forest-fresh character.
+
+### Trumpet Tree Leaves
+
+**SKU:** FMT-TH-TT · _Guarumo_
+A distinctive tree found across Honduran forests. Traditionally used as a tea for blood sugar balance and prostate health.
+
+---
+
+## Traditional Applications
+
+Across Central American herbalism, these plants serve a wide range of cultural and everyday purposes:
+
+- Aromatic and botanical preparations
+- Infusions and decoctions following traditional practices
+- Culinary, ritual, and artisanal uses
+- Natural lifestyle and botanical craft
+- General wellness traditions passed down through communities
+
+_All descriptions reflect traditional uses and cultural associations, not therapeutic claims._
+
+### Available Formats
+
+**Whole · Chopped · Cut · Cubed · Crushed**
+
+These formats support traditional herbal preparations, botanical product development, and specialty retail.
+
+---
+
+## Protecting What We Harvest
+
+As ecosystem pressures grow across Central America, Forestal MT promotes stewardship through every step of our work:
+
+- **Sustainable wild-harvesting:** Rotation of sites, selective collection, and population monitoring
+- **Fair compensation:** Economic support for indigenous and rural communities who share their knowledge and labor
+- **Habitat protection:** Making forest preservation economically viable through value creation
+- **Cultural respect:** Direct partnerships with herbalists, healers, and traditional practitioners
+
+This collection highlights Honduras' extraordinary ethnobotanical wealth — and the traditions that protect it.
+
+---
+
+## Who This Collection Serves
+
+- Herbalists and apothecaries
+- Natural lifestyle and wellness brands
+- Botanical formulators and extract producers
+- Tea makers and specialty retailers
+- Retailers seeking traceable, wildcrafted ingredients
+- Consumers who value cultural heritage and nature-based traditions
+
+---
+
+## Wholesale and Global Supply
+
+Forestal MT supports **wholesale orders**, **bulk ingredients**, and **international distribution** for brands, formulators, and manufacturers worldwide.
+
+### We Ship Everywhere
+
+Our export-ready processes serve partners across **North America, Central and South America, Europe, Asia**, and beyond.
+
+### Private Label Available
+
+Custom private label solutions tailored to your brand and market — from bulk herbs for formulation to finished, shelf-ready products under your own label.
+
+[Contact Us for Wholesale](https://forestal-mt.com/wholesale/)
+
+---
+
+> **For traditional use only.** These products are not medical treatments and are not intended to diagnose, treat, cure, or prevent any disease.
+
+---
+
+## Explore Our Other Collections
+
+- [Batana Oil](https://forestal-mt.com/batana-oil/) — Ancestral Miskito Elixir
+- [Stingless Bee Honey](https://forestal-mt.com/stingless-bee-honey/) — The Maya Heritage
+
+[Back to All Products](https://forestal-mt.com/products/)

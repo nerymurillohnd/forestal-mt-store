@@ -1,0 +1,66 @@
+---
+# ============================================================================
+# ROUTING
+# ============================================================================
+slug: community/testimonials
+pageName: Testimonials
+canonicalUrl: https://forestal-mt.com/community/testimonials/
+rendering: SSG
+
+# ============================================================================
+# SEO
+# ============================================================================
+title: Customer Reviews & Testimonials
+description:
+  Read verified customer reviews for Forestal MT Batana Oil, stingless bee honey, and traditional herbs. Real experiences
+  from retail and wholesale buyers.
+
+# ============================================================================
+# OPEN GRAPH
+# ============================================================================
+og:
+  title: "Customer Reviews & Testimonials"
+  description: Read verified customer reviews for Forestal MT Batana Oil, stingless bee honey, and traditional herbs. Real experiences from retail and wholesale buyers.
+  image:
+    url: https://cdn.forestal-mt.com/pages/community/testimonials/og.jpg
+    alt: Forestal MT customer reviews and testimonials for Batana Oil, honey, and herbs
+    width: 1200
+    height: 630
+twitter:
+  card: summary_large_image
+
+# ============================================================================
+# SCHEMAS
+# ============================================================================
+schemas:
+  - type: Organization
+    id: 'https://forestal-mt.com/#organization'
+    mode: compact
+  - type: Brand
+    id: 'https://forestal-mt.com/#brand'
+    mode: compact
+  - type: WebPage
+    id: 'https://forestal-mt.com/community/testimonials/#page'
+  - type: ImageObject
+    id: 'https://forestal-mt.com/community/testimonials/#og-image'
+  - type: Review
+    id: 'https://forestal-mt.com/community/testimonials/#reviews'
+  - type: BreadcrumbList
+    id: 'https://forestal-mt.com/community/testimonials/#breadcrumb'
+
+# ============================================================================
+# HERO
+# ============================================================================
+hero:
+  eyebrow: 'THEY SAID IT BETTER THAN US'
+  title: 'Reviews & Testimonials'
+  subtitle: 'CUSTOMERS • BRANDS • DISTRIBUTORS'
+  description: >-
+    Read verified customer reviews and testimonials for Forestal MT products, including Batana Oil, stingless bee
+    honey, and traditional herbs.
+  ctas:
+    - label: 'Shop Now'
+      url: /products/
+    - label: 'Quote for Wholesale'
+      url: /wholesale/
+---

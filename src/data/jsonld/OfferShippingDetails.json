@@ -1,0 +1,409 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "OfferShippingDetails",
+    "@id": "https://forestal-mt.com/#shipping-us",
+    "shippingDestination": {
+      "@type": "DefinedRegion",
+      "addressCountry": "US"
+    },
+    "deliveryTime": {
+      "@type": "ShippingDeliveryTime",
+      "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 1,
+        "maxValue": 2,
+        "unitCode": "d"
+      },
+      "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 3,
+        "maxValue": 5,
+        "unitCode": "d"
+      }
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "OfferShippingDetails",
+    "@id": "https://forestal-mt.com/#shipping-ca",
+    "shippingDestination": {
+      "@type": "DefinedRegion",
+      "addressCountry": "CA"
+    },
+    "deliveryTime": {
+      "@type": "ShippingDeliveryTime",
+      "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 1,
+        "maxValue": 2,
+        "unitCode": "d"
+      },
+      "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 4,
+        "maxValue": 7,
+        "unitCode": "d"
+      }
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "OfferShippingDetails",
+    "@id": "https://forestal-mt.com/#shipping-latam-caribbean",
+    "shippingDestination": [
+      { "@type": "DefinedRegion", "addressCountry": "MX" },
+      { "@type": "DefinedRegion", "addressCountry": "GT" },
+      { "@type": "DefinedRegion", "addressCountry": "SV" },
+      { "@type": "DefinedRegion", "addressCountry": "HN" },
+      { "@type": "DefinedRegion", "addressCountry": "NI" },
+      { "@type": "DefinedRegion", "addressCountry": "CR" },
+      { "@type": "DefinedRegion", "addressCountry": "PA" },
+      { "@type": "DefinedRegion", "addressCountry": "BZ" },
+      { "@type": "DefinedRegion", "addressCountry": "CO" },
+      { "@type": "DefinedRegion", "addressCountry": "VE" },
+      { "@type": "DefinedRegion", "addressCountry": "EC" },
+      { "@type": "DefinedRegion", "addressCountry": "PE" },
+      { "@type": "DefinedRegion", "addressCountry": "BR" },
+      { "@type": "DefinedRegion", "addressCountry": "AR" },
+      { "@type": "DefinedRegion", "addressCountry": "CL" },
+      { "@type": "DefinedRegion", "addressCountry": "UY" },
+      { "@type": "DefinedRegion", "addressCountry": "PY" },
+      { "@type": "DefinedRegion", "addressCountry": "BO" },
+      { "@type": "DefinedRegion", "addressCountry": "GY" },
+      { "@type": "DefinedRegion", "addressCountry": "SR" },
+      { "@type": "DefinedRegion", "addressCountry": "GF" },
+      { "@type": "DefinedRegion", "addressCountry": "CU" },
+      { "@type": "DefinedRegion", "addressCountry": "DO" },
+      { "@type": "DefinedRegion", "addressCountry": "PR" },
+      { "@type": "DefinedRegion", "addressCountry": "JM" },
+      { "@type": "DefinedRegion", "addressCountry": "HT" },
+      { "@type": "DefinedRegion", "addressCountry": "TT" },
+      { "@type": "DefinedRegion", "addressCountry": "BB" },
+      { "@type": "DefinedRegion", "addressCountry": "BS" },
+      { "@type": "DefinedRegion", "addressCountry": "LC" },
+      { "@type": "DefinedRegion", "addressCountry": "GD" },
+      { "@type": "DefinedRegion", "addressCountry": "VC" },
+      { "@type": "DefinedRegion", "addressCountry": "AG" },
+      { "@type": "DefinedRegion", "addressCountry": "DM" },
+      { "@type": "DefinedRegion", "addressCountry": "KN" },
+      { "@type": "DefinedRegion", "addressCountry": "AW" },
+      { "@type": "DefinedRegion", "addressCountry": "CW" },
+      { "@type": "DefinedRegion", "addressCountry": "KY" },
+      { "@type": "DefinedRegion", "addressCountry": "TC" },
+      { "@type": "DefinedRegion", "addressCountry": "VG" },
+      { "@type": "DefinedRegion", "addressCountry": "VI" }
+    ],
+    "deliveryTime": {
+      "@type": "ShippingDeliveryTime",
+      "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 1,
+        "maxValue": 2,
+        "unitCode": "d"
+      },
+      "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 4,
+        "maxValue": 7,
+        "unitCode": "d"
+      }
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "OfferShippingDetails",
+    "@id": "https://forestal-mt.com/#shipping-europe",
+    "shippingDestination": [
+      { "@type": "DefinedRegion", "addressCountry": "GB" },
+      { "@type": "DefinedRegion", "addressCountry": "DE" },
+      { "@type": "DefinedRegion", "addressCountry": "FR" },
+      { "@type": "DefinedRegion", "addressCountry": "ES" },
+      { "@type": "DefinedRegion", "addressCountry": "IT" },
+      { "@type": "DefinedRegion", "addressCountry": "NL" },
+      { "@type": "DefinedRegion", "addressCountry": "SE" },
+      { "@type": "DefinedRegion", "addressCountry": "NO" },
+      { "@type": "DefinedRegion", "addressCountry": "DK" },
+      { "@type": "DefinedRegion", "addressCountry": "FI" },
+      { "@type": "DefinedRegion", "addressCountry": "BE" },
+      { "@type": "DefinedRegion", "addressCountry": "AT" },
+      { "@type": "DefinedRegion", "addressCountry": "CH" },
+      { "@type": "DefinedRegion", "addressCountry": "PT" },
+      { "@type": "DefinedRegion", "addressCountry": "IE" },
+      { "@type": "DefinedRegion", "addressCountry": "PL" },
+      { "@type": "DefinedRegion", "addressCountry": "CZ" },
+      { "@type": "DefinedRegion", "addressCountry": "RO" },
+      { "@type": "DefinedRegion", "addressCountry": "GR" },
+      { "@type": "DefinedRegion", "addressCountry": "HU" },
+      { "@type": "DefinedRegion", "addressCountry": "SK" },
+      { "@type": "DefinedRegion", "addressCountry": "HR" },
+      { "@type": "DefinedRegion", "addressCountry": "BG" },
+      { "@type": "DefinedRegion", "addressCountry": "SI" },
+      { "@type": "DefinedRegion", "addressCountry": "LT" },
+      { "@type": "DefinedRegion", "addressCountry": "LV" },
+      { "@type": "DefinedRegion", "addressCountry": "EE" },
+      { "@type": "DefinedRegion", "addressCountry": "CY" },
+      { "@type": "DefinedRegion", "addressCountry": "MT" },
+      { "@type": "DefinedRegion", "addressCountry": "LU" },
+      { "@type": "DefinedRegion", "addressCountry": "IS" },
+      { "@type": "DefinedRegion", "addressCountry": "AL" },
+      { "@type": "DefinedRegion", "addressCountry": "RS" },
+      { "@type": "DefinedRegion", "addressCountry": "BA" },
+      { "@type": "DefinedRegion", "addressCountry": "ME" },
+      { "@type": "DefinedRegion", "addressCountry": "MK" },
+      { "@type": "DefinedRegion", "addressCountry": "MD" },
+      { "@type": "DefinedRegion", "addressCountry": "UA" },
+      { "@type": "DefinedRegion", "addressCountry": "BY" },
+      { "@type": "DefinedRegion", "addressCountry": "GE" },
+      { "@type": "DefinedRegion", "addressCountry": "AM" },
+      { "@type": "DefinedRegion", "addressCountry": "AZ" },
+      { "@type": "DefinedRegion", "addressCountry": "TR" },
+      { "@type": "DefinedRegion", "addressCountry": "RU" },
+      { "@type": "DefinedRegion", "addressCountry": "MC" },
+      { "@type": "DefinedRegion", "addressCountry": "AD" },
+      { "@type": "DefinedRegion", "addressCountry": "LI" },
+      { "@type": "DefinedRegion", "addressCountry": "XK" }
+    ],
+    "deliveryTime": {
+      "@type": "ShippingDeliveryTime",
+      "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 1,
+        "maxValue": 2,
+        "unitCode": "d"
+      },
+      "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 5,
+        "maxValue": 9,
+        "unitCode": "d"
+      }
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "OfferShippingDetails",
+    "@id": "https://forestal-mt.com/#shipping-middle-east",
+    "shippingDestination": [
+      { "@type": "DefinedRegion", "addressCountry": "AE" },
+      { "@type": "DefinedRegion", "addressCountry": "SA" },
+      { "@type": "DefinedRegion", "addressCountry": "IL" },
+      { "@type": "DefinedRegion", "addressCountry": "QA" },
+      { "@type": "DefinedRegion", "addressCountry": "KW" },
+      { "@type": "DefinedRegion", "addressCountry": "OM" },
+      { "@type": "DefinedRegion", "addressCountry": "BH" },
+      { "@type": "DefinedRegion", "addressCountry": "JO" },
+      { "@type": "DefinedRegion", "addressCountry": "LB" },
+      { "@type": "DefinedRegion", "addressCountry": "IQ" },
+      { "@type": "DefinedRegion", "addressCountry": "IR" },
+      { "@type": "DefinedRegion", "addressCountry": "YE" },
+      { "@type": "DefinedRegion", "addressCountry": "SY" },
+      { "@type": "DefinedRegion", "addressCountry": "PS" },
+      { "@type": "DefinedRegion", "addressCountry": "CY" }
+    ],
+    "deliveryTime": {
+      "@type": "ShippingDeliveryTime",
+      "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 1,
+        "maxValue": 2,
+        "unitCode": "d"
+      },
+      "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 5,
+        "maxValue": 8,
+        "unitCode": "d"
+      }
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "OfferShippingDetails",
+    "@id": "https://forestal-mt.com/#shipping-africa",
+    "shippingDestination": [
+      { "@type": "DefinedRegion", "addressCountry": "ZA" },
+      { "@type": "DefinedRegion", "addressCountry": "NG" },
+      { "@type": "DefinedRegion", "addressCountry": "KE" },
+      { "@type": "DefinedRegion", "addressCountry": "GH" },
+      { "@type": "DefinedRegion", "addressCountry": "TZ" },
+      { "@type": "DefinedRegion", "addressCountry": "ET" },
+      { "@type": "DefinedRegion", "addressCountry": "EG" },
+      { "@type": "DefinedRegion", "addressCountry": "MA" },
+      { "@type": "DefinedRegion", "addressCountry": "CI" },
+      { "@type": "DefinedRegion", "addressCountry": "SN" },
+      { "@type": "DefinedRegion", "addressCountry": "CM" },
+      { "@type": "DefinedRegion", "addressCountry": "DZ" },
+      { "@type": "DefinedRegion", "addressCountry": "TN" },
+      { "@type": "DefinedRegion", "addressCountry": "LY" },
+      { "@type": "DefinedRegion", "addressCountry": "AO" },
+      { "@type": "DefinedRegion", "addressCountry": "MZ" },
+      { "@type": "DefinedRegion", "addressCountry": "MG" },
+      { "@type": "DefinedRegion", "addressCountry": "UG" },
+      { "@type": "DefinedRegion", "addressCountry": "ZM" },
+      { "@type": "DefinedRegion", "addressCountry": "ZW" },
+      { "@type": "DefinedRegion", "addressCountry": "BW" },
+      { "@type": "DefinedRegion", "addressCountry": "NA" },
+      { "@type": "DefinedRegion", "addressCountry": "RW" },
+      { "@type": "DefinedRegion", "addressCountry": "MU" },
+      { "@type": "DefinedRegion", "addressCountry": "SC" },
+      { "@type": "DefinedRegion", "addressCountry": "CV" },
+      { "@type": "DefinedRegion", "addressCountry": "GA" },
+      { "@type": "DefinedRegion", "addressCountry": "CG" },
+      { "@type": "DefinedRegion", "addressCountry": "CD" },
+      { "@type": "DefinedRegion", "addressCountry": "ML" },
+      { "@type": "DefinedRegion", "addressCountry": "BF" },
+      { "@type": "DefinedRegion", "addressCountry": "NE" },
+      { "@type": "DefinedRegion", "addressCountry": "TD" },
+      { "@type": "DefinedRegion", "addressCountry": "SD" },
+      { "@type": "DefinedRegion", "addressCountry": "SO" },
+      { "@type": "DefinedRegion", "addressCountry": "DJ" },
+      { "@type": "DefinedRegion", "addressCountry": "ER" },
+      { "@type": "DefinedRegion", "addressCountry": "MW" },
+      { "@type": "DefinedRegion", "addressCountry": "LS" },
+      { "@type": "DefinedRegion", "addressCountry": "SZ" },
+      { "@type": "DefinedRegion", "addressCountry": "GM" },
+      { "@type": "DefinedRegion", "addressCountry": "GW" },
+      { "@type": "DefinedRegion", "addressCountry": "SL" },
+      { "@type": "DefinedRegion", "addressCountry": "LR" },
+      { "@type": "DefinedRegion", "addressCountry": "TG" },
+      { "@type": "DefinedRegion", "addressCountry": "BJ" },
+      { "@type": "DefinedRegion", "addressCountry": "GQ" },
+      { "@type": "DefinedRegion", "addressCountry": "BI" },
+      { "@type": "DefinedRegion", "addressCountry": "CF" },
+      { "@type": "DefinedRegion", "addressCountry": "SS" },
+      { "@type": "DefinedRegion", "addressCountry": "ST" },
+      { "@type": "DefinedRegion", "addressCountry": "KM" },
+      { "@type": "DefinedRegion", "addressCountry": "RE" }
+    ],
+    "deliveryTime": {
+      "@type": "ShippingDeliveryTime",
+      "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 1,
+        "maxValue": 2,
+        "unitCode": "d"
+      },
+      "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 6,
+        "maxValue": 10,
+        "unitCode": "d"
+      }
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "OfferShippingDetails",
+    "@id": "https://forestal-mt.com/#shipping-asia",
+    "shippingDestination": [
+      { "@type": "DefinedRegion", "addressCountry": "CN" },
+      { "@type": "DefinedRegion", "addressCountry": "JP" },
+      { "@type": "DefinedRegion", "addressCountry": "KR" },
+      { "@type": "DefinedRegion", "addressCountry": "IN" },
+      { "@type": "DefinedRegion", "addressCountry": "ID" },
+      { "@type": "DefinedRegion", "addressCountry": "TH" },
+      { "@type": "DefinedRegion", "addressCountry": "VN" },
+      { "@type": "DefinedRegion", "addressCountry": "MY" },
+      { "@type": "DefinedRegion", "addressCountry": "SG" },
+      { "@type": "DefinedRegion", "addressCountry": "PH" },
+      { "@type": "DefinedRegion", "addressCountry": "PK" },
+      { "@type": "DefinedRegion", "addressCountry": "BD" },
+      { "@type": "DefinedRegion", "addressCountry": "LK" },
+      { "@type": "DefinedRegion", "addressCountry": "MM" },
+      { "@type": "DefinedRegion", "addressCountry": "KH" },
+      { "@type": "DefinedRegion", "addressCountry": "LA" },
+      { "@type": "DefinedRegion", "addressCountry": "NP" },
+      { "@type": "DefinedRegion", "addressCountry": "MN" },
+      { "@type": "DefinedRegion", "addressCountry": "KZ" },
+      { "@type": "DefinedRegion", "addressCountry": "UZ" },
+      { "@type": "DefinedRegion", "addressCountry": "TM" },
+      { "@type": "DefinedRegion", "addressCountry": "KG" },
+      { "@type": "DefinedRegion", "addressCountry": "TJ" },
+      { "@type": "DefinedRegion", "addressCountry": "AF" },
+      { "@type": "DefinedRegion", "addressCountry": "HK" },
+      { "@type": "DefinedRegion", "addressCountry": "TW" },
+      { "@type": "DefinedRegion", "addressCountry": "MO" },
+      { "@type": "DefinedRegion", "addressCountry": "BN" },
+      { "@type": "DefinedRegion", "addressCountry": "TL" },
+      { "@type": "DefinedRegion", "addressCountry": "MV" },
+      { "@type": "DefinedRegion", "addressCountry": "BT" }
+    ],
+    "deliveryTime": {
+      "@type": "ShippingDeliveryTime",
+      "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 1,
+        "maxValue": 2,
+        "unitCode": "d"
+      },
+      "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 5,
+        "maxValue": 9,
+        "unitCode": "d"
+      }
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "OfferShippingDetails",
+    "@id": "https://forestal-mt.com/#shipping-oceania",
+    "shippingDestination": [
+      { "@type": "DefinedRegion", "addressCountry": "AU" },
+      { "@type": "DefinedRegion", "addressCountry": "NZ" },
+      { "@type": "DefinedRegion", "addressCountry": "FJ" },
+      { "@type": "DefinedRegion", "addressCountry": "PG" },
+      { "@type": "DefinedRegion", "addressCountry": "WS" },
+      { "@type": "DefinedRegion", "addressCountry": "TO" },
+      { "@type": "DefinedRegion", "addressCountry": "VU" },
+      { "@type": "DefinedRegion", "addressCountry": "SB" },
+      { "@type": "DefinedRegion", "addressCountry": "NC" },
+      { "@type": "DefinedRegion", "addressCountry": "PF" },
+      { "@type": "DefinedRegion", "addressCountry": "GU" },
+      { "@type": "DefinedRegion", "addressCountry": "KI" },
+      { "@type": "DefinedRegion", "addressCountry": "FM" },
+      { "@type": "DefinedRegion", "addressCountry": "MH" },
+      { "@type": "DefinedRegion", "addressCountry": "PW" }
+    ],
+    "deliveryTime": {
+      "@type": "ShippingDeliveryTime",
+      "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 1,
+        "maxValue": 2,
+        "unitCode": "d"
+      },
+      "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 6,
+        "maxValue": 10,
+        "unitCode": "d"
+      }
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "OfferShippingDetails",
+    "@id": "https://forestal-mt.com/#shipping-worldwide",
+    "shippingDestination": {
+      "@type": "DefinedRegion",
+      "addressCountry": "Worldwide"
+    },
+    "deliveryTime": {
+      "@type": "ShippingDeliveryTime",
+      "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 1,
+        "maxValue": 2,
+        "unitCode": "d"
+      },
+      "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 4,
+        "maxValue": 10,
+        "unitCode": "d"
+      }
+    }
+  }
+]

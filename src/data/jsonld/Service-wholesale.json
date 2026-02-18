@@ -1,0 +1,97 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://forestal-mt.com/#service-wholesale-supply",
+    "name": "Wholesale Bulk Supply",
+    "description": "Bulk ethnobotanical ingredients sourced directly from indigenous communities in Honduras. We supply wholesale quantities of Batana Oil, Stingless Bee Honey (Jimerito), and 41 varieties of Traditional Wildcrafted Herbs to businesses worldwide. Minimum order quantities available with volume pricing.",
+    "serviceType": "Wholesale Supply",
+    "category": "Wholesale Distribution",
+    "provider": { "@id": "https://forestal-mt.com/#organization" },
+    "brand": { "@id": "https://forestal-mt.com/#brand" },
+    "areaServed": "Worldwide",
+    "audience": {
+      "@type": "BusinessAudience",
+      "audienceType": "B2B",
+      "name": "Wholesale buyers, distributors, retailers, and manufacturers"
+    },
+    "availableChannel": {
+      "@type": "ServiceChannel",
+      "serviceUrl": "https://forestal-mt.com/wholesale/",
+      "servicePhone": "+504-9277-4192",
+      "availableLanguage": ["English", "Spanish"]
+    },
+    "hasOfferCatalog": { "@id": "https://forestal-mt.com/#catalog" },
+    "termsOfService": "https://forestal-mt.com/wholesale/"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://forestal-mt.com/#service-private-label",
+    "name": "Private Label Manufacturing",
+    "description": "Launch your own brand with Forestal MT as your source. We provide private label services for Batana Oil, Stingless Bee Honey, and Traditional Herbs — your branding on our premium, origin-authenticated products. Includes custom labeling, formulation guidance, and regulatory compliance support.",
+    "serviceType": "Private Label Manufacturing",
+    "category": "Contract Manufacturing",
+    "provider": { "@id": "https://forestal-mt.com/#organization" },
+    "brand": { "@id": "https://forestal-mt.com/#brand" },
+    "areaServed": "Worldwide",
+    "audience": {
+      "@type": "BusinessAudience",
+      "audienceType": "B2B",
+      "name": "Brand owners, beauty brands, health product companies, and entrepreneurs"
+    },
+    "availableChannel": {
+      "@type": "ServiceChannel",
+      "serviceUrl": "https://forestal-mt.com/wholesale/",
+      "servicePhone": "+504-9277-4192",
+      "availableLanguage": ["English", "Spanish"]
+    },
+    "hasOfferCatalog": { "@id": "https://forestal-mt.com/#catalog" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://forestal-mt.com/#service-custom-packaging",
+    "name": "Custom Packaging",
+    "description": "Tailored packaging solutions for wholesale and private label orders. Options include custom bottle sizes, labeling, box design, bundle kits, and branded packaging materials. We work with your specifications to deliver shelf-ready products.",
+    "serviceType": "Custom Packaging",
+    "category": "Packaging Services",
+    "provider": { "@id": "https://forestal-mt.com/#organization" },
+    "brand": { "@id": "https://forestal-mt.com/#brand" },
+    "areaServed": "Worldwide",
+    "audience": {
+      "@type": "BusinessAudience",
+      "audienceType": "B2B",
+      "name": "Retailers, distributors, and brand owners requiring custom presentation"
+    },
+    "availableChannel": {
+      "@type": "ServiceChannel",
+      "serviceUrl": "https://forestal-mt.com/wholesale/",
+      "servicePhone": "+504-9277-4192",
+      "availableLanguage": ["English", "Spanish"]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://forestal-mt.com/#service-export-logistics",
+    "name": "Export Documentation & Logistics",
+    "description": "End-to-end export services from Honduras to your destination worldwide. Includes commercial invoices, packing lists, certificates of origin, phytosanitary certificates, and customs documentation. Shipping via DHL Express with DAP (Delivered at Place) Incoterms — we handle logistics so you receive your order door-to-door.",
+    "serviceType": "Export Logistics",
+    "category": "International Trade Services",
+    "provider": { "@id": "https://forestal-mt.com/#organization" },
+    "brand": { "@id": "https://forestal-mt.com/#brand" },
+    "areaServed": "Worldwide",
+    "audience": {
+      "@type": "BusinessAudience",
+      "audienceType": "B2B",
+      "name": "International buyers, importers, and distributors"
+    },
+    "availableChannel": {
+      "@type": "ServiceChannel",
+      "serviceUrl": "https://forestal-mt.com/wholesale/",
+      "servicePhone": "+504-9277-4192",
+      "availableLanguage": ["English", "Spanish"]
+    }
+  }
+]

@@ -1,0 +1,33 @@
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "@id": "https://forestal-mt.com/#hero-video",
+  "name": "Batana Oil, Honey & Herbs from Honduras",
+  "description": "Family-owned Honduran exporter of Batana Oil, Jimerito stingless bee honey, and wildcrafted traditional herbs. Sourced directly from indigenous communities. Wholesale and retail worldwide.",
+  "url": "https://forestal-mt.com/",
+  "identifier": "2baff6ee682afbfae617fd25ed2b0209",
+  "duration": "PT23S",
+  "uploadDate": "2026-02-06T12:18:54Z",
+  "encodingFormat": "video/mp4",
+  "contentSize": "110MB",
+  "width": 3200,
+  "height": 1792,
+  "inLanguage": ["en", "es"],
+  "contentUrl": "https://customer-8w5s9dekjdinwesc.cloudflarestream.com/2baff6ee682afbfae617fd25ed2b0209/manifest/video.m3u8",
+  "embedUrl": "https://customer-8w5s9dekjdinwesc.cloudflarestream.com/2baff6ee682afbfae617fd25ed2b0209/iframe",
+  "thumbnailUrl": "https://customer-8w5s9dekjdinwesc.cloudflarestream.com/2baff6ee682afbfae617fd25ed2b0209/thumbnails/thumbnail.jpg",
+  "thumbnail": {
+    "@type": "ImageObject",
+    "@id": "https://forestal-mt.com/#hero-video-thumbnail",
+    "url": "https://customer-8w5s9dekjdinwesc.cloudflarestream.com/2baff6ee682afbfae617fd25ed2b0209/thumbnails/thumbnail.jpg",
+    "contentUrl": "https://customer-8w5s9dekjdinwesc.cloudflarestream.com/2baff6ee682afbfae617fd25ed2b0209/thumbnails/thumbnail.jpg",
+    "width": 640,
+    "height": 358,
+    "encodingFormat": "image/jpeg"
+  },
+  "publisher": { "@id": "https://forestal-mt.com/#organization" },
+  "creator": { "@id": "https://forestal-mt.com/#organization" },
+  "isFamilyFriendly": true,
+  "isAccessibleForFree": true,
+  "requiresSubscription": false
+}

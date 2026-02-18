@@ -1,0 +1,64 @@
+---
+# ============================================================================
+# ROUTING
+# ============================================================================
+slug: community/blog
+pageName: Blog
+canonicalUrl: https://forestal-mt.com/community/blog-stories/
+rendering: SSG
+
+# ============================================================================
+# SEO
+# ============================================================================
+title: Blog - Honduras Botanicals & Traditions
+description:
+  Articles on Honduran botanicals, indigenous knowledge, sustainable harvesting, Batana Oil science, and the journey
+  from forest to global marketplace.
+
+# ============================================================================
+# OPEN GRAPH
+# ============================================================================
+og:
+  title: "Blog - Honduras Botanicals & Traditions"
+  description: Articles on Honduran botanicals, indigenous knowledge, sustainable harvesting, Batana Oil science, and the journey from forest to global marketplace.
+  image:
+    url: https://cdn.forestal-mt.com/pages/community/blog-stories/og.jpg
+    alt: Forestal MT blog — articles on Honduran botanicals, indigenous knowledge, and origin stories
+    width: 1200
+    height: 630
+twitter:
+  card: summary_large_image
+
+# ============================================================================
+# SCHEMAS
+# ============================================================================
+schemas:
+  - type: Organization
+    id: 'https://forestal-mt.com/#organization'
+    mode: compact
+  - type: Brand
+    id: 'https://forestal-mt.com/#brand'
+    mode: compact
+  - type: Blog
+    id: 'https://forestal-mt.com/community/blog-stories/#page'
+  - type: ImageObject
+    id: 'https://forestal-mt.com/community/blog-stories/#og-image'
+  - type: BreadcrumbList
+    id: 'https://forestal-mt.com/community/blog-stories/#breadcrumb'
+
+# ============================================================================
+# HERO
+# ============================================================================
+hero:
+  eyebrow: 'STORIES FROM THE SOURCE'
+  title: 'Blog & Stories'
+  subtitle: 'ORIGIN • PEOPLE • PROCESS'
+  description: >-
+    Explore articles on Honduran botanicals, indigenous knowledge, sustainable harvesting, and the journey from origin
+    to global markets.
+  ctas:
+    - label: 'Contact Us'
+      url: /contact/
+    - label: 'Shop Products'
+      url: /products/
+---

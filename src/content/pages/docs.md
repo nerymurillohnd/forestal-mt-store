@@ -1,0 +1,64 @@
+---
+# ============================================================================
+# ROUTING
+# ============================================================================
+slug: community/docs
+pageName: Documentation
+canonicalUrl: https://forestal-mt.com/community/docs/
+rendering: SSG
+
+# ============================================================================
+# SEO
+# ============================================================================
+title: TDS & SDS Documentation - Product Data Sheets
+description:
+  Download Technical Data Sheets and Safety Data Sheets for Forestal MT products. Built for importers, distributors,
+  and regulatory compliance needs.
+
+# ============================================================================
+# OPEN GRAPH
+# ============================================================================
+og:
+  title: "TDS & SDS Documentation - Product Data Sheets"
+  description: Download Technical Data Sheets and Safety Data Sheets for Forestal MT products. Built for importers, distributors, and regulatory compliance needs.
+  image:
+    url: https://cdn.forestal-mt.com/pages/community/docs/og.jpg
+    alt: Forestal MT technical and safety documentation — TDS and SDS for B2B partners
+    width: 1200
+    height: 630
+twitter:
+  card: summary_large_image
+
+# ============================================================================
+# SCHEMAS
+# ============================================================================
+schemas:
+  - type: Organization
+    id: 'https://forestal-mt.com/#organization'
+    mode: compact
+  - type: Brand
+    id: 'https://forestal-mt.com/#brand'
+    mode: compact
+  - type: WebPage
+    id: 'https://forestal-mt.com/community/docs/#page'
+  - type: ImageObject
+    id: 'https://forestal-mt.com/community/docs/#og-image'
+  - type: BreadcrumbList
+    id: 'https://forestal-mt.com/community/docs/#breadcrumb'
+
+# ============================================================================
+# HERO
+# ============================================================================
+hero:
+  eyebrow: 'COMPLIANCE SHEETS FOR B2B PARTNERS'
+  title: 'Documentation & Compliance'
+  subtitle: 'TECHNICAL & SAFETY DATA'
+  description: >-
+    Download Technical Data Sheets (TDS) and Safety Data Sheets (SDS) for Forestal MT products. Built for importers,
+    distributors, and compliance needs.
+  ctas:
+    - label: 'Request Access'
+      url: /wholesale/
+    - label: 'Contact for Access'
+      url: /contact/
+---

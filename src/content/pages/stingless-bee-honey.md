@@ -1,0 +1,248 @@
+---
+# ============================================================================
+# ROUTING
+# ============================================================================
+slug: stingless-bee-honey
+pageName: Stingless Bee Honey
+canonicalUrl: https://forestal-mt.com/stingless-bee-honey/
+rendering: SSG
+
+# ============================================================================
+# SEO
+# ============================================================================
+title: Stingless Bee Honey | Raw Jimerito from Honduras (Tetragonisca angustula)
+description: Raw, unfiltered Jimerito stingless bee honey from Honduras. Tetragonisca angustula (Meliponini) honey rooted in Mayan tradition. Retail and wholesale worldwide.
+seo:
+  tags:
+    - Stingless Bee Honey
+    - Jimerito honey
+    - Tetragonisca angustula
+    - Meliponini
+    - raw honey
+    - Mayan tradition
+    - Honduras
+    - wholesale honey
+
+# ============================================================================
+# OPEN GRAPH
+# ============================================================================
+og:
+  title: Stingless Bee Honey | Raw Jimerito from Honduras
+  description: Raw, unfiltered Jimerito stingless bee honey from Honduras. Rooted in Mayan tradition. Retail and wholesale worldwide.
+  image:
+    url: https://cdn.forestal-mt.com/pages/stingless-bee-honey/og.jpg
+    alt: Stingless Bee Honey collection — raw Jimerito from Tetragonisca angustula bees in Honduras
+    width: 1200
+    height: 630
+twitter:
+  card: 'summary_large_image'
+
+# ============================================================================
+# SCHEMAS
+# ============================================================================
+schemas:
+  - type: Organization
+    id: 'https://forestal-mt.com/#organization'
+    mode: compact
+  - type: Brand
+    id: 'https://forestal-mt.com/#brand'
+    mode: compact
+  - type: AboutPage
+    id: 'https://forestal-mt.com/stingless-bee-honey/#page'
+  - type: OfferCatalog
+    id: 'https://forestal-mt.com/stingless-bee-honey/#catalog'
+  - type: VideoObject
+    id: 'https://forestal-mt.com/stingless-bee-honey/#hero-video'
+  - type: ImageObject
+    id: 'https://forestal-mt.com/stingless-bee-honey/#og-image'
+  - type: BreadcrumbList
+    id: 'https://forestal-mt.com/stingless-bee-honey/#breadcrumb'
+
+# ============================================================================
+# HERO
+# ============================================================================
+media: video
+hero:
+  eyebrow: THE MAYA HERITAGE
+  title: |
+    Stingless Bee Honey
+    Raw & Traditional
+  subtitle: MAYAN GIFT FROM THE JIMERITO BEES
+  description: Raw, traditional, and wild-harvested Jimerito stingless bee honey from Olancho, Honduras. Tetragonisca angustula Meliponini nectar rooted in Mayan tradition.
+  ctas:
+    - label: Shop Jimerito
+      url: https://forestal-mt.com/products/
+    - label: Contact for Wholesale
+      url: https://forestal-mt.com/wholesale/
+  background:
+    type: video
+    stream: d26fac9cccc86e666b136d952c1ea413
+    caption: Stingless Bee Honey — hero video
+    width: 3200
+    height: 1792
+---
+
+## The Stingless Bee Honey Collection
+
+For over 3,000 years, communities across Mesoamerica have shared a quiet, sacred relationship with stingless bees — tending them, learning from them, and treasuring the rare honey they produce. In Honduras, that tradition lives on.
+
+Known locally as Jimerito honey, this small-batch honey comes from the native stingless bee _Tetragonisca angustula_, harvested from wild log hives deep in Honduran forests. It tastes nothing like the honey most people know — naturally tangy, lighter in texture, and carrying centuries of cultural meaning in every drop.
+
+Forestal MT's Stingless Bee Honey Collection protects this heritage. Every jar is traceable, responsibly sourced, and rooted in the same forest ecosystems and community practices that have kept this tradition alive for millennia.
+
+---
+
+## A Heritage Older Than History
+
+In Mayan cosmology, stingless bees were far more than insects. They were guardians of knowledge and symbols of harmony. The Jimerito bee, called **ko'olel kaab** — "royal lady" — in the Mayan language, held ceremonial, household, and communal significance that touched every part of daily life:
+
+- A ceremonial and spiritual element in rituals and offerings
+- A medium of exchange between communities
+- A household staple woven into daily traditions
+- A vessel of ancestral knowledge passed across generations
+
+Today, Forestal MT partners with indigenous and rural beekeepers who maintain traditional log hives — hollowed tree trunks — within biodiverse forest landscapes. These methods preserve both the bees' natural behavior and the integrity of the honey itself.
+
+- **Origin:** Honduran rainforests
+- **Source:** Native Meliponini bees (_Tetragonisca angustula_)
+- **Heritage:** Maya traditional medicine and ceremony
+- **Character:** Naturally tangy, more liquid texture, small-batch harvest
+
+---
+
+## Our Product
+
+### Jimerito — Raw & Traditional
+
+**SKU:** FMT-SBH-JM
+
+Wild-harvested Jimerito honey from Honduran forests. Revered by Mayan cultures as a symbol of the sun's spirit, this honey is kept raw and handled gently to preserve everything that makes it special.
+
+Jimerito honey is typically more liquid than standard honey, with a naturally tangy, complex flavor. Because it is never heated or filtered, careful sealed storage is important to protect its natural character.
+
+---
+
+## How It's Made: Raw & Traditional
+
+Forestal MT proudly honors the Mayan people, whose pioneering teachings have illuminated the path to genuine well-being through nature's gifts. Guided by their legacy, we deliver this treasure as **_The Maya Heritage_** — blending ancient traditions with the modern pursuit of holistic wellness.
+
+### From Hive to Jar
+
+1. **Harvest selection:** Careful selection of honey chambers from wild log hives of _Tetragonisca angustula_
+2. **Gentle extraction:** Local harvesters use traditional methods to remove the honey while protecting the colony
+3. **Simple straining:** The honey is lightly strained to remove larger pieces of wax
+4. **Natural resting:** The honey is allowed to rest, keeping its natural texture intact
+5. **Sealed storage:** Stored in sealed containers — traditionally gourds or glass jars — to protect its living character
+
+Every step reflects centuries of practice: patience over speed, care over volume.
+
+---
+
+## What Makes This Honey Different
+
+### It's Not the Honey You're Used To
+
+Most people know honey from the European honey bee (_Apis mellifera_). Stingless bee honey is a different experience entirely:
+
+- **Naturally tangy:** A sweet-and-sour taste, not just sweet. Many people find it surprising and refreshing.
+- **More liquid:** Thinner and more fluid than common honey — this is normal, not a flaw.
+- **Used in smaller amounts:** Often enjoyed by the spoonful, mixed into warm drinks, or as part of traditional comfort routines rather than spread on toast.
+- **More delicate to store:** Higher natural moisture means it can ferment if not kept sealed and clean.
+- **Harvested from small honey pots:** Instead of large combs, it comes from tiny honey chambers inside the hive — which is why gentle handling matters so much.
+
+Stingless bee honey is best understood as its own traditional category, not a variation of common honey.
+
+### A Taste Shaped by the Forest
+
+In Mayan and Central American traditions, this honey is appreciated for qualities you won't find in any supermarket aisle:
+
+- A distinctive, naturally tangy sweetness
+- A lighter, more fluid texture that feels fresh and lively
+- Strong ties to ritual, ceremony, and household traditions
+- A deep connection to forest landscapes and community stewardship
+
+---
+
+## Stingless Bee Honey Around the World
+
+Stingless bee honey is collected across the tropics — from Honduras to Southeast Asia, where it's often called "kelulut" or "trigona" honey. Each region produces honeys with distinct aromas and flavors shaped by local species and landscapes.
+
+### Why Jimerito Honey Stands Apart
+
+Within this broader world, Jimerito honey has a character all its own:
+
+- **Wild log hives in native forests:** Collected from biodiverse Honduran landscapes, not commodity-style production
+- **Small-batch, careful harvest:** Gathered by local collectors using traditional methods that respect each colony
+- **A bright, tangy character:** Known for a naturally fresh taste and lighter texture
+- **Heritage and stewardship:** Rooted in Maya and Central American traditions, tied to community knowledge and forest care
+
+---
+
+## Traditional Properties and Uses
+
+People have turned to stingless bee honey for centuries — not as medicine, but as part of the rhythms of daily life and seasonal care.
+
+### Everyday Wellness
+
+In Mayan and Central American traditions, this honey has long been appreciated for its rich character and the way people associate it with everyday well-being. A spoonful in the morning, a drop in warm tea — small rituals that connect you to something ancient.
+
+### Seasonal Comfort
+
+Often used during seasonal changes as part of routines intended to support the body's natural defenses and overall resilience.
+
+### Eye Comfort Traditions
+
+In some communities, stingless bee honey has been traditionally associated with gentle eye comfort. Traditions and preparation methods vary widely — this is cultural context, not medical guidance.
+
+### Skin Comfort
+
+Traditionally used in topical rituals to soothe the skin, support a fresh feel, and comfort minor irritation.
+
+### Respiratory and Throat Comfort
+
+Long valued in Central American traditions for throat and airway comfort, and for supporting general wellness during seasonal changes.
+
+> **Note:** These descriptions reflect traditional, cultural, and emerging scientific perspectives. Stingless bee honey is not a medical product and is not intended to diagnose, treat, cure, or prevent any disease.
+
+---
+
+## Community and Forest Care
+
+Forestal MT supports local collectors in native regions of Honduras who harvest stingless bee honey from wild log hives in forested areas. By working through artisanal, traditional practices that respect the bees and the surrounding forest, we help preserve the ecosystem and keep this heritage alive.
+
+Choosing Forestal MT means investing in heritage preservation, community partnerships, and responsible sourcing grounded in traditional knowledge.
+
+---
+
+## Who This Collection Serves
+
+- Heritage-driven and story-based product lines
+- Brands seeking authentic, origin-linked ingredients
+- Apothecaries and herbal-focused retailers
+- Natural product and botanical lifestyle brands
+- Consumers drawn to ancestral craftsmanship and rare honeys
+
+---
+
+## Wholesale and Global Supply
+
+Forestal MT supports **wholesale orders**, **bulk supply**, and **international distribution** for brands, formulators, and specialty retailers worldwide.
+
+### We Ship Everywhere
+
+Our export-ready processes serve partners across **North America, Central and South America, Europe, Asia**, and beyond.
+
+### Private Label Available
+
+Custom private label solutions tailored to your brand and market — from bulk honey for formulation to finished, shelf-ready products under your own label.
+
+[Contact Us for Wholesale](https://forestal-mt.com/wholesale/)
+
+---
+
+## Explore Our Other Collections
+
+- [Batana Oil](https://forestal-mt.com/batana-oil/) — Ancestral Miskito Elixir
+- [Traditional Herbs](https://forestal-mt.com/traditional-herbs/) — Sacred Wisdom Rooted in Nature
+
+[Back to All Products](https://forestal-mt.com/products/)

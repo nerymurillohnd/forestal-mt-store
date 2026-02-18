@@ -1,0 +1,349 @@
+---
+# ============================================================================
+# ROUTING
+# ============================================================================
+slug: shipping
+pageName: Shipping & Returns
+canonicalUrl: https://forestal-mt.com/shipping/
+rendering: SSG
+
+# ============================================================================
+# SEO
+# ============================================================================
+title: Shipping & Returns - DHL Worldwide
+description:
+  Forestal MT ships worldwide via DHL Express from Honduras. Processing times, tracking, duties and taxes (DAP),
+  return policy, and damage support details.
+
+# ============================================================================
+# OPEN GRAPH
+# ============================================================================
+og:
+  title: "Shipping & Returns - DHL Worldwide"
+  description: Forestal MT ships worldwide via DHL Express from Honduras. Processing times, tracking, duties and taxes (DAP), return policy, and damage support details.
+  image:
+    url: https://cdn.forestal-mt.com/pages/shipping/og.jpg
+    alt: Forestal MT shipping and returns — DHL Express worldwide delivery from Honduras
+    width: 1200
+    height: 630
+twitter:
+  card: summary_large_image
+
+# ============================================================================
+# SCHEMAS
+# ============================================================================
+schemas:
+  - type: Organization
+    id: 'https://forestal-mt.com/#organization'
+    mode: compact
+  - type: Brand
+    id: 'https://forestal-mt.com/#brand'
+    mode: compact
+  - type: WebPage
+    id: 'https://forestal-mt.com/shipping/#page'
+  - type: BreadcrumbList
+    id: 'https://forestal-mt.com/shipping/#breadcrumb'
+
+# ============================================================================
+# HERO
+# ============================================================================
+hero:
+  eyebrow: 'WORLDWIDE DELIVERY'
+  title: 'Shipping, Replacement & Return Policy'
+  subtitle: 'DHL EXPRESS • EXPORT-READY • ORIGIN-TRUE FROM HONDURAS'
+  description: >-
+    Shipping and returns policy for Forestal MT orders: DHL Express worldwide delivery, processing times, tracking,
+    duties and taxes, returns, and damage support.
+---
+
+## Where We Ship
+
+### Worldwide Shipping
+
+We ship to destinations across:
+
+- **North America** — United States, Canada, Mexico
+- **Central and South America** — LATAM
+- **Europe** — EU and non-EU countries
+- **Asia** — Subject to carrier coverage
+- **Australia**
+
+Shipping is subject to DHL Express coverage and local import regulations. Some products may have destination-specific restrictions depending on local rules (see "Shipping Restrictions" below).
+
+### Delivery Address Accuracy
+
+**Please ensure your shipping address, email, and phone number are correct at checkout.**
+
+DHL Express requires a phone number for delivery coordination. Incorrect or incomplete addresses may result in delivery delays, returned packages, or additional fees.
+
+---
+
+## Order Processing Time
+
+Orders are prepared and packed at our facility in Honduras. Processing time depends on order volume, product type, and inventory readiness.
+
+**Retail Orders:**
+Typically processed within **1-3 business days** after payment verification. You will receive a confirmation email once your order ships.
+
+**Wholesale and Bulk Orders:**
+Processing timelines are confirmed during quotation and documentation alignment. Larger orders may require additional preparation time for export documentation (certificates of origin, phytosanitary certificates, MSDS, etc.).
+
+Weekends and Honduran public holidays may affect processing times.
+
+---
+
+## Shipping Method and Tracking
+
+All eligible orders ship via **DHL Express** with full tracking capability. DHL provides door-to-door service to most countries worldwide.
+
+### Tracking Your Order
+
+Once your order ships, you will receive a confirmation email with a **DHL tracking number**. Track your shipment at:
+
+- **DHL Website:** [dhl.com/express/tracking](https://www.dhl.com/en/express/tracking.html)
+- **DHL Mobile App:** Available on iOS and Android
+
+Tracking updates may take several hours to appear after label creation. Delivery attempts, signature requirements, and local handoff rules may vary by country.
+
+---
+
+## Estimated Delivery Times
+
+| Region                        | Estimated Time      |
+| ----------------------------- | ------------------- |
+| United States and Canada      | 5-7 business days   |
+| Central America and Caribbean | 3-5 business days   |
+| Europe                        | 7-10 business days  |
+| Asia Pacific                  | 10-14 business days |
+| Rest of World                 | 10-14 business days |
+
+Delivery times are estimates and may vary due to customs processing, unforeseen delays, or destination-specific factors. Forestal MT is not responsible for delays caused by customs authorities, natural disasters, or carrier disruptions beyond our control.
+
+---
+
+## Shipping Costs
+
+Shipping costs are calculated at checkout based on:
+
+- Delivery destination (country and region)
+- Order weight and dimensions
+- Shipping service level (DHL Express)
+
+We strive to offer competitive shipping rates through our DHL partnership. For wholesale orders, shipping costs are confirmed during quotation.
+
+---
+
+## Duties, Taxes, and Customs
+
+**International shipments may be subject to import duties, taxes, brokerage fees, and customs inspections** based on destination-country rules.
+
+### Shipping Terms (DAP Incoterms)
+
+All shipments are made under **DAP (Delivered at Place)** Incoterms:
+
+- **Forestal MT responsibility:** Shipping costs and delivery to your address
+- **Customer responsibility:** Import duties, taxes, customs fees, and any additional local charges
+
+Customs fees vary by country and product classification. DHL or local customs authorities will contact you regarding any charges before final delivery.
+
+### Customs Clearance
+
+Customs processing times vary widely by country and are outside our control. If DHL or customs requires additional information or documentation, **respond promptly to avoid extra delays or storage fees**.
+
+Forestal MT **cannot guarantee customs clearance times** and is **not responsible for delays caused by customs authorities**.
+
+### Documentation for Import (Wholesale and B2B)
+
+If you need specific documentation for commercial import, **request it before shipment** so we can prepare and include it with your order.
+
+Common export documents we provide:
+
+- Certificate of Origin (COO)
+- Phytosanitary Certificates (where applicable)
+- Material Safety Data Sheets (MSDS)
+- Certificate of Analysis (COA) for specific products
+- Commercial Invoice with HS codes
+
+---
+
+## Address Issues, Delivery Attempts, and Returns to Sender
+
+### Failed Delivery or Incorrect Address
+
+If a shipment is returned to us due to incorrect or incomplete address, failed delivery attempts, refusal to pay duties or taxes, or customer rejection:
+
+**We offer two options:**
+
+1. **Reship the order:** Additional shipping fees apply (calculated based on destination)
+2. **Refund:** Product cost minus original shipping/handling and any return fees charged by the carrier
+
+### How to Avoid Delivery Issues
+
+- Ensure your phone number is reachable and monitor DHL tracking after dispatch
+- Respond promptly to DHL or customs contact attempts
+- Confirm your address is complete and accurate at checkout
+- Be aware of potential duties and taxes for your destination
+
+---
+
+## Returns Policy (Retail Orders)
+
+Because our products are **natural, origin-sourced, and often sealed for hygiene and safety**, returns are handled carefully.
+
+### Return Window
+
+We accept returns within **30 days of delivery**. Products must be **unopened and in their original condition** to qualify.
+
+### Return Conditions
+
+Returns may be accepted when:
+
+- The item arrives damaged, defective, or incorrect, **OR**
+- The item is unopened and in original condition (case-by-case approval required)
+
+To be eligible, items must be:
+
+- Unopened and unused
+- In original packaging with all seals intact
+- Returned within 30 days of delivery
+- Accompanied by proof of purchase (order number, invoice, or receipt)
+
+### Non-Returnable Items
+
+The following are **not eligible for return**:
+
+- Opened or used products (for safety and hygiene reasons)
+- Products without original packaging or with damaged packaging
+- Items returned after 30 days of delivery
+- Clearance, sale, or discounted items (unless defective or incorrect)
+
+### How to Initiate a Return
+
+1. **Contact us within 30 days of delivery** at support@forestal-mt.com with your order number, reason for return, and photos if applicable (damaged, defective, or incorrect items)
+
+2. **Receive return authorization.** If approved, we will provide return shipping instructions.
+
+3. **Ship the item back to us.** Return shipping costs are the customer's responsibility unless the issue was caused by Forestal MT (wrong item, verified defect, or confirmed shipping damage). Use a trackable shipping method and retain proof of shipment.
+
+4. **Refund processing.** Refunds are issued within **5-7 business days** after we receive and inspect the returned item.
+
+### Refund Method
+
+Approved refunds are issued to the **original payment method** or as **store credit**, depending on your preference and the payment method used.
+
+**Shipping fees are generally non-refundable** unless the issue was caused by Forestal MT.
+
+---
+
+## Damaged, Leaking, or Missing Items
+
+If your package arrives damaged, leaking, or with missing items, **contact us immediately**.
+
+### What to Do (Within 48 Hours of Delivery)
+
+1. **Take clear photos** of the outer shipping box (showing damage), inner packaging materials, product labels and seals, and the damaged or leaking items
+
+2. **Keep all packaging materials** (box, bubble wrap, inserts) for inspection or carrier claim
+
+3. **Email us** at support@forestal-mt.com with your order number and description of the issue
+
+### Resolution Options
+
+We will review your case and offer one of the following:
+
+- **Replacement:** A new unit of the damaged or missing item
+- **Partial refund:** If replacement is not desired or the item is out of stock
+- **Reshipment:** A complete new order (for severe damage or multiple missing items)
+
+Resolution depends on product availability, carrier claim outcome, and the nature of the issue.
+
+---
+
+## Wholesale and Bulk Orders
+
+Wholesale and bulk orders follow **dedicated terms confirmed during quotation**, including:
+
+- Minimum Order Quantities (MOQs)
+- Export documentation requirements
+- Shipping mode (air freight, sea freight, or express courier)
+- Payment terms and timelines
+- Delivery schedules
+
+### Wholesale Returns
+
+Due to the nature of bulk trade and export documentation workflows, **wholesale orders are typically not returnable once shipped**, except in cases of:
+
+- **Verified damage:** Documented product damage upon receipt
+- **Shipment error:** Wrong product or quantity sent by Forestal MT
+
+For wholesale return inquiries, contact sales@forestal-mt.com with order details and supporting documentation.
+
+[Wholesale Program](https://forestal-mt.com/wholesale/)
+
+---
+
+## Shipping and Returns FAQs
+
+### Do you ship worldwide with DHL Express?
+
+Yes. DHL Express is our primary courier for international retail shipments and many small-to-medium wholesale consignments, subject to destination coverage and product category rules.
+
+### How do I track my order?
+
+After dispatch, you will receive an email with a DHL tracking number. Track your shipment at [dhl.com/express/tracking](https://www.dhl.com/en/express/tracking.html). Tracking updates may take several hours to appear after label creation.
+
+### Who pays duties and taxes?
+
+Shipments are sent under **DAP (Delivered at Place)** terms. The **buyer is responsible** for import duties, taxes, and local fees based on destination-country rules. DHL or local customs will contact you regarding any charges.
+
+### What if my package is delayed in customs?
+
+Customs processing times vary and are outside our control. If DHL or customs requires additional information, respond promptly to avoid extra delays or storage fees. Forestal MT cannot expedite customs clearance but can provide necessary documentation to support the process.
+
+### What if my order arrives damaged?
+
+Contact us **within 48 hours of delivery** at support@forestal-mt.com with photos of the box, packaging, and product. We will review and offer a replacement, reshipment, or refund as appropriate.
+
+### Can I return an opened product?
+
+Opened items are **generally not returnable** for safety and hygiene reasons. If there is a verified quality issue (contamination, defect, incorrect contents), contact us within 7 days of delivery and we will evaluate on a case-by-case basis.
+
+### How long does refund processing take?
+
+Approved refunds are processed within **5-7 business days** after we receive and inspect the returned item. Refunds are issued to the original payment method. Bank processing times may vary.
+
+### Can I change my shipping address after ordering?
+
+If your order has not yet shipped, contact us immediately at support@forestal-mt.com to request an address change. Once dispatched, address changes must be coordinated directly with DHL Express (contact information will be in your tracking email).
+
+### What happens if no one is home to receive the delivery?
+
+DHL will typically make **2-3 delivery attempts** and leave a notification card with instructions. You may be able to arrange redelivery, pickup at a DHL service point, or authorize delivery without signature (depending on local DHL policies). If all delivery attempts fail, the package may be returned to sender (see "Address Issues" section above).
+
+---
+
+## Need Help With a Shipment?
+
+For order support, returns, documentation questions, or wholesale logistics:
+
+**General Inquiries and Retail Orders:** support@forestal-mt.com
+**Wholesale and Business Orders:** sales@forestal-mt.com
+**WhatsApp:** +504 9699 7635
+
+**Mailing Address:**
+Forestal Murillo Tejada S. de R.L.
+Barrio Arriba
+San Francisco de la Paz, Olancho
+Honduras 16102
+
+We respond to inquiries within 24-48 hours during business days (Monday-Friday, Honduras time zone). For urgent shipping issues, use WhatsApp for faster response.
+
+---
+
+## Shipping Overview
+
+Forestal MT ships origin-true ethnobotanicals from Honduras to customers worldwide. Our primary courier is **DHL Express** for fast, trackable, and reliable delivery.
+
+Shipping availability, transit times, and import requirements can vary by destination. If you have special delivery needs or are ordering for commercial import, [contact our team](https://forestal-mt.com/contact/) before purchasing.
+
+**See also:** [Terms and Conditions](https://forestal-mt.com/terms/) | [Privacy Policy](https://forestal-mt.com/privacy/) | [Disclaimer](https://forestal-mt.com/disclaimer/)

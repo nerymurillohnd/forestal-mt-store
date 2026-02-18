@@ -1,0 +1,442 @@
+---
+# ============================================================================
+# ROUTING
+# ============================================================================
+slug: terms
+pageName: Terms & Conditions
+canonicalUrl: https://forestal-mt.com/terms/
+rendering: SSG
+
+# ============================================================================
+# SEO
+# ============================================================================
+title: Terms & Conditions
+description:
+  Terms and conditions for Forestal MT website use, product purchases, wholesale services, and international orders.
+  Read before placing your order.
+
+# ============================================================================
+# OPEN GRAPH
+# ============================================================================
+og:
+  title: "Terms & Conditions"
+  description: Terms and conditions for Forestal MT website use, product purchases, wholesale services, and international orders. Read before placing your order.
+  image:
+    url: https://cdn.forestal-mt.com/pages/terms/og.jpg
+    alt: Forestal MT terms and conditions
+    width: 1200
+    height: 630
+twitter:
+  card: summary_large_image
+
+# ============================================================================
+# SCHEMAS
+# ============================================================================
+schemas:
+  - type: Organization
+    id: 'https://forestal-mt.com/#organization'
+    mode: compact
+  - type: Brand
+    id: 'https://forestal-mt.com/#brand'
+    mode: compact
+  - type: WebPage
+    id: 'https://forestal-mt.com/terms/#page'
+  - type: BreadcrumbList
+    id: 'https://forestal-mt.com/terms/#breadcrumb'
+
+# ============================================================================
+# HERO
+# ============================================================================
+hero:
+  eyebrow: 'LEGAL & TRANSPARENCY'
+  title: 'Terms & Conditions'
+  subtitle: 'CLEAR • FAIR • ORIGIN-TRUE TRADE'
+  description: >-
+    Review the terms governing Forestal MT website use, product purchases, wholesale services, and international
+    orders.
+---
+
+## 1. Eligibility and Use of Website
+
+### Eligibility
+
+You must be at least 18 years of age (or the age of majority in your jurisdiction) to use our website and services. By using our website, you represent and warrant that you meet this requirement.
+
+### Permitted Use
+
+You agree to use this website for lawful purposes only and in a manner that does not:
+
+- Infringe the rights of others or restrict their use of the site
+- Violate any applicable local, national, or international laws or regulations
+- Transmit or distribute harmful, offensive, or unlawful content
+- Attempt to gain unauthorized access to our systems, servers, or networks
+- Interfere with or disrupt the website, services, or connected servers
+- Use automated systems, bots, or software to extract, scrape, or harvest data from the website
+- Impersonate any person or entity, or misrepresent your affiliation with any person or entity
+- Engage in fraudulent activity, including providing false or misleading information
+
+### Right to Restrict Access
+
+We reserve the right to restrict, suspend, or terminate access to the website or services at any time, without notice, if we suspect misuse, fraud, unlawful activity, or violation of these Terms.
+
+---
+
+## 2. Products and Information Accuracy
+
+### Product Offering
+
+Forestal MT offers **ethnobotanical products** rooted in traditional knowledge and cultural practices, including:
+
+- **Batana Oil** from La Mosquitia
+- **Stingless Bee Honey** from Honduran forests
+- **Traditional Herbs** wildcrafted from Olancho and La Mosquitia
+
+### Natural Product Variability
+
+While we strive to provide accurate product descriptions, images, and information, **natural products may vary** in appearance, color, aroma, texture, and other characteristics due to:
+
+- Origin-specific factors (soil, climate, ecosystem)
+- Seasonality and harvest timing
+- Traditional processing methods
+- Wildcrafted and artisanal nature of sourcing
+
+Such variations are inherent to authentic, unrefined ethnobotanical products and **do not constitute defects or grounds for return** unless the product is damaged or significantly misrepresented.
+
+### Information Purpose
+
+Product information is provided for **educational and commercial purposes only** and does not constitute medical, therapeutic, or health advice.
+
+---
+
+## 3. Traditional Use and No Medical Claims
+
+### No Medical Claims
+
+**Our products are not intended to diagnose, treat, cure, or prevent any disease.**
+
+Statements regarding traditional uses, ancestral practices, cultural knowledge, or historical applications are presented as **cultural context only** and must not be interpreted as therapeutic, medical, or health claims.
+
+### Customer Responsibility
+
+Customers are responsible for:
+
+- Consulting with qualified healthcare professionals before using products
+- Complying with local regulations regarding product use, classification, labeling, and marketing
+- Ensuring products are suitable for their intended use or application
+- Conducting appropriate testing or evaluation for commercial formulations
+
+Forestal MT provides origin-authentic ingredients and makes no warranties regarding suitability for specific medical, therapeutic, or regulatory purposes.
+
+---
+
+## 4. Orders, Pricing, and Payment
+
+### Pricing
+
+All prices are displayed in **US Dollars (USD)** unless otherwise stated at checkout or confirmed during quotation for wholesale orders.
+
+Forestal MT reserves the right to:
+
+- Update pricing at any time without prior notice
+- Correct pricing errors or inaccuracies on the website
+- Adjust prices based on currency fluctuations, supply costs, or market conditions
+
+### Order Acceptance
+
+By placing an order, you are making an **offer to purchase products**. All orders are **subject to acceptance and availability**.
+
+Forestal MT reserves the right to:
+
+- Cancel or refuse orders due to product unavailability, pricing errors, or suspected fraud
+- Request additional information or verification before accepting an order
+- Limit order quantities for retail or wholesale purchases
+
+You will receive an **order confirmation email** once your order is accepted. Until you receive this confirmation, your order is not finalized.
+
+### Payment Methods
+
+**Retail Orders (B2C):**
+
+- Bank Transfer (Banco Atlantida, Honduras)
+- Western Union
+- MoneyGram
+- International Wire Transfer (SWIFT)
+
+**Wholesale Orders (B2B):**
+
+- Payment terms are confirmed during quotation and may include advance payment, letter of credit, or other arrangements depending on order size and destination.
+
+Orders will be processed upon **receipt and verification of payment**. Payment verification may take 1-3 business days depending on the method used.
+
+### Wholesale and Bulk Orders
+
+Wholesale and bulk orders are governed by **dedicated terms agreed upon during quotation and documentation alignment**, including:
+
+- Minimum Order Quantities (MOQs)
+- Payment terms and schedules
+- Export documentation requirements
+- Shipping mode and delivery schedules
+- Product specifications and quality standards
+
+Wholesale orders may require **advance payment or deposit** before production or shipment.
+
+---
+
+## 5. Shipping and Delivery
+
+Shipping is handled in accordance with our [Shipping and Returns Policy](https://forestal-mt.com/shipping/).
+
+### Shipping Method
+
+**Retail orders** typically ship via **DHL Express** for fast, trackable international delivery.
+
+**Wholesale orders** may ship via air freight, sea freight, or express courier depending on order size and destination.
+
+### Delivery Times
+
+Delivery times are **estimates only** and are **not guaranteed**. Actual delivery may be delayed due to:
+
+- Customs inspections and processing
+- Import permit requirements
+- Carrier delays or disruptions
+- Weather, natural disasters, or other force majeure events
+- Incorrect or incomplete shipping information provided by customer
+
+Forestal MT is **not responsible for delays** caused by factors beyond our reasonable control.
+
+---
+
+## 6. Duties, Taxes, and Import Responsibility
+
+### Shipping Terms (DAP Incoterms)
+
+Unless otherwise agreed in writing, all shipments are sent under **DAP (Delivered At Place)** Incoterms. This means:
+
+- **Forestal MT responsibility:** Shipping costs and delivery to your address
+- **Customer responsibility:** All applicable import duties, taxes, customs fees, brokerage charges, and compliance with destination-country regulations
+
+### Customs Clearance
+
+**The buyer is responsible for customs clearance** in the destination country, including:
+
+- Providing necessary import permits or licenses
+- Paying all duties, taxes, and fees assessed by customs authorities
+- Complying with destination-country regulations for product classification, labeling, and import restrictions
+
+Forestal MT will provide standard export documentation (commercial invoice, packing list, certificate of origin where applicable) to support customs clearance, but **cannot guarantee approval** by destination-country authorities.
+
+### Import Compliance
+
+Customers are responsible for ensuring that products can be legally imported into their destination country. Some products may be subject to restrictions based on:
+
+- Product category (food, cosmetic, supplement, botanical material)
+- Destination-country regulations
+- Permit or registration requirements
+
+If you are unsure whether a product can be imported to your country, **please contact us before ordering** or consult with local customs or import authorities.
+
+---
+
+## 7. Returns, Refunds, and Cancellations
+
+Returns, refunds, and cancellations are governed by our [Shipping and Returns Policy](https://forestal-mt.com/shipping/).
+
+### Return Window
+
+We accept returns within **30 days of delivery** for unopened products in original condition, subject to approval.
+
+Due to the nature of **natural, origin-sourced, and hygienically sealed products**, returns are limited and evaluated case by case.
+
+### Non-Returnable Items
+
+The following items are **not eligible for return**:
+
+- Opened or used products
+- Products without original packaging or damaged packaging
+- Items returned after 30 days of delivery
+- Clearance, sale, or discounted items (unless defective or incorrect)
+
+### Wholesale Order Cancellations
+
+**Wholesale orders are typically non-cancellable and non-returnable** once production, packing, documentation, or shipment has begun.
+
+If cancellation is necessary, contact sales@forestal-mt.com immediately. Cancellation fees may apply depending on order status and work already completed.
+
+### Refund Processing
+
+Approved refunds are processed within **5-7 business days** after returned items are received and inspected. Refunds are issued to the original payment method or as store credit, depending on your preference and payment method used.
+
+**Shipping fees are generally non-refundable** unless the issue was caused by Forestal MT (wrong item, verified defect, or confirmed shipping damage).
+
+---
+
+## 8. Intellectual Property
+
+### Ownership
+
+All content on this website — including but not limited to text, images, videos, logos, graphics, branding, product descriptions, and software — is the **exclusive property of Forestal MT or its licensors** and is protected by intellectual property laws, including copyright, trademark, and trade dress laws.
+
+### Restrictions
+
+You may **not**, without prior written permission from Forestal MT:
+
+- Reproduce, copy, or distribute any content from this website
+- Use our content for commercial purposes or resale
+- Modify, adapt, or create derivative works from our content
+- Use our trademarks, logos, or branding in any manner
+- Frame or embed our website content on third-party websites
+- Extract data through automated scraping, harvesting, or data mining tools
+
+### Limited License
+
+We grant you a **limited, non-exclusive, non-transferable license** to access and use the website for personal, non-commercial purposes in accordance with these Terms. This license does not include any rights to download, copy, or redistribute website content.
+
+### Trademark Notice
+
+"Forestal MT", "Forestal Murillo Tejada", and associated logos are trademarks of Forestal Murillo Tejada S. de R.L. and may not be used without permission.
+
+---
+
+## 9. Limitation of Liability
+
+### No Consequential Damages
+
+**To the fullest extent permitted by law, Forestal Murillo Tejada S. de R.L. shall not be liable for any indirect, incidental, special, consequential, exemplary, or punitive damages** arising from:
+
+- Use of or inability to use our website or services
+- Purchase or use of products
+- Delays in shipping or customs clearance
+- Product variability or natural characteristics
+- Reliance on website content or product information
+- Unauthorized access to or alteration of your data
+- Third-party conduct or content on the website
+
+This includes, without limitation, damages for lost profits, revenue, business opportunities, loss of data, business interruption, personal injury, emotional distress, or regulatory non-compliance in destination markets.
+
+### Maximum Liability
+
+**Our total liability for any claim arising from your use of our website, products, or services shall not exceed the amount paid by you for the specific order or product giving rise to the claim.**
+
+In no event shall our aggregate liability exceed the total amount paid by you to Forestal MT in the 12 months preceding the claim.
+
+### Jurisdictional Limitations
+
+Some jurisdictions do not allow the exclusion or limitation of certain warranties, damages, or liabilities. In such cases, the above limitations may not apply in full, and liability shall be limited to the maximum extent permitted by applicable law.
+
+### Assumption of Risk
+
+You acknowledge and accept that:
+
+- Internet transmission is not 100% secure or error-free
+- Natural products may have inherent variability
+- International shipping involves customs and regulatory risk
+- Traditional use information does not guarantee safety or efficacy
+
+**Use of our website, products, and services is at your own risk.**
+
+---
+
+## 10. Indemnification
+
+You agree to **indemnify, defend, and hold harmless** Forestal Murillo Tejada S. de R.L., its officers, directors, employees, agents, and affiliates from and against any and all claims, liabilities, damages, losses, costs, expenses, or fees (including reasonable attorneys' fees) arising from:
+
+- Your use or misuse of the website or services
+- Your violation of these Terms or any applicable laws or regulations
+- Your violation of any rights of any third party
+- Your negligence or willful misconduct
+- Non-compliance with destination-country regulations or import requirements
+- Unauthorized use of our trademarks, content, or intellectual property
+- False or misleading information provided in connection with an order
+- Product liability claims arising from your resale, distribution, or formulation of our products
+
+This indemnification obligation survives termination of these Terms and your use of the website.
+
+---
+
+## 11. Third-Party Services
+
+### Integration of Third-Party Providers
+
+Our website and business operations may integrate or rely on **third-party services**, including but not limited to:
+
+- Payment processors (Banco Atlantida, Western Union, MoneyGram, international wire transfer services)
+- Logistics and shipping providers (DHL Express, freight forwarders, customs brokers)
+- Analytics and tracking tools
+- Web hosting and infrastructure providers
+- Email and communication services
+
+### Third-Party Terms
+
+Use of third-party services through or in connection with our website may be subject to **separate terms, conditions, and privacy policies** established by those third parties.
+
+Forestal MT is **not responsible for** the terms, policies, practices, performance, availability, reliability, accuracy, or security of third-party services, nor for any fees, charges, disputes, or interruptions arising from them.
+
+### No Endorsement
+
+Inclusion of third-party services does not constitute endorsement, recommendation, or warranty of those services. We encourage you to review the terms and privacy policies of any third-party services you use.
+
+---
+
+## 12. Governing Law and Dispute Resolution
+
+### Governing Law
+
+These Terms shall be **governed by and construed in accordance with the laws of the Republic of Honduras**, without regard to conflict-of-law principles.
+
+### Jurisdiction
+
+**Any disputes arising under these Terms or your use of our website or services shall be subject to the exclusive jurisdiction of the courts of Honduras.**
+
+By using our website or services, you consent to the jurisdiction and venue of such courts and waive any objection to jurisdiction or venue on the basis of inconvenient forum.
+
+### Alternative Dispute Resolution
+
+Before initiating formal legal proceedings, parties agree to attempt to resolve disputes through good-faith negotiation. If negotiation is unsuccessful, parties may agree to mediation or arbitration as an alternative to litigation.
+
+---
+
+## 13. Changes to These Terms
+
+Forestal MT reserves the right to **modify, update, or replace these Terms at any time** without prior notice.
+
+### Notification of Changes
+
+Changes will be posted on this page with an updated "Effective Date" at the top of the document. For material changes that significantly affect your rights or obligations, we may provide additional notice via email, website banner, or announcement on our homepage.
+
+### Acceptance of Revised Terms
+
+**Continued use of the website or services after changes are posted constitutes acceptance of the revised Terms.**
+
+If you do not agree to the updated Terms, you must discontinue use of the website and services immediately. We encourage you to review these Terms periodically to stay informed of any updates.
+
+---
+
+## Introduction
+
+These Terms apply to your use of the Forestal MT website (forestal-mt.com) and services operated by **Forestal Murillo Tejada S. de R.L.** ("Forestal MT", "we", "our", or "us"), based in Honduras.
+
+**By accessing our website, submitting inquiries, or placing an order, you agree to be bound by these Terms.**
+
+If you do not agree to these Terms, please do not use our website or services.
+
+## 14. General Provisions
+
+### Entire Agreement
+
+These Terms, together with our [Privacy Policy](https://forestal-mt.com/privacy/), [Disclaimer](https://forestal-mt.com/disclaimer/), and [Shipping and Returns Policy](https://forestal-mt.com/shipping/), constitute the **entire agreement** between you and Forestal MT regarding your use of the website and services, and supersede all prior agreements, understandings, or representations.
+
+### Severability
+
+If any provision of these Terms is found to be invalid, illegal, or unenforceable by a court of competent jurisdiction, the remaining provisions shall continue in full force and effect.
+
+### Waiver
+
+Failure by Forestal MT to enforce any provision of these Terms shall not constitute a waiver of that provision or our right to enforce it in the future.
+
+### Assignment
+
+You may not assign or transfer your rights or obligations under these Terms without our prior written consent. Forestal MT may assign or transfer these Terms in connection with a merger, acquisition, sale of assets, or other business transaction.
+
+### Force Majeure
+
+Forestal MT shall not be liable for any failure or delay in performance due to circumstances beyond our reasonable control, including but not limited to natural disasters, pandemics, public health emergencies, acts of war, terrorism, civil unrest, government actions, trade restrictions, embargoes, labor disputes, strikes, supply chain disruptions, carrier delays, customs disruptions, or shipping restrictions.

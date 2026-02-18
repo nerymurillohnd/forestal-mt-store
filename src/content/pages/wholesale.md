@@ -1,0 +1,252 @@
+---
+# ============================================================================
+# ROUTING
+# ============================================================================
+slug: wholesale
+pageName: Wholesale
+canonicalUrl: https://forestal-mt.com/wholesale/
+rendering: SSG
+
+# ============================================================================
+# SEO
+# ============================================================================
+title: Wholesale and Bulk Supplier | Batana Oil, Honey & Wild Herbs
+description: Partner with the source. Wholesale Batana Oil, stingless bee honey, and herbs from Honduras. Private label, bulk pricing, export docs, and worldwide shipping.
+seo:
+  tags:
+    - Wholesale ethnobotanicals
+    - Bulk supply Honduras
+    - Private label botanicals
+    - B2B partnerships
+    - Export-ready ingredients
+    - Wholesale pricing
+    - Direct from origin
+
+# ============================================================================
+# OPEN GRAPH
+# ============================================================================
+og:
+  title: Wholesale and Bulk Supplier | Batana Oil, Honey & Wild Herbs
+  description: Partner with the source. Wholesale Batana Oil, stingless bee honey, and herbs from Honduras. Private label, bulk pricing, export docs, and worldwide shipping.
+  image:
+    url: https://cdn.forestal-mt.com/pages/wholesale/og.jpg
+    alt: Forestal MT wholesale and bulk ethnobotanical supply from Honduras — export-ready products
+    width: 1200
+    height: 630
+twitter:
+  card: 'summary_large_image'
+
+# ============================================================================
+# SCHEMAS
+# ============================================================================
+schemas:
+  - type: Organization
+    id: 'https://forestal-mt.com/#organization'
+    mode: compact
+  - type: Brand
+    id: 'https://forestal-mt.com/#brand'
+    mode: compact
+  - type: WebPage
+    id: 'https://forestal-mt.com/wholesale/#page'
+  - type: Service
+    id: 'https://forestal-mt.com/wholesale/#service'
+  - type: ImageObject
+    id: 'https://forestal-mt.com/wholesale/#hero-image'
+  - type: ImageObject
+    id: 'https://forestal-mt.com/wholesale/#og-image'
+  - type: BreadcrumbList
+    id: 'https://forestal-mt.com/wholesale/#breadcrumb'
+
+# ============================================================================
+# HERO
+# ============================================================================
+media: image
+hero:
+  eyebrow: ORIGIN-TRUE ETHNOBOTANICALS AT SCALE
+  title: |
+    Global Wholesale
+    & Bulk Supply
+  subtitle: PARTNER WITH THE SOURCE
+  description: From startups to distributors, access authentic Batana Oil, Jimerito Honey, and Wild Herbs with export-ready documentation and private label available.
+  ctas:
+    - label: Request a Quote
+      url: https://forestal-mt.com/contact/
+    - label: View Documentation
+      url: https://forestal-mt.com/community/docs/
+  background:
+    type: image
+    url: https://cdn.forestal-mt.com/pages/wholesale/hero.jpg
+    alt: Forestal MT wholesale and bulk ethnobotanical supply from Honduras — export-ready products
+    width: 1920
+    height: 1080
+---
+
+## Partner With the Source
+
+Forestal MT offers wholesale and bulk ethnobotanical supply directly from Honduras for brands, formulators, and distributors who require origin-true ingredients and reliable export workflows. From Batana Oil to stingless bee honey and traditional herbs, every shipment is anchored in traceable origin, cultural stewardship, and verifiable quality.
+
+Whether you're a startup building your first product line, a small business expanding into natural ingredients, or an international distributor sourcing at scale — we supply directly, with clear origin information and all the documentation you need for smooth global shipping.
+
+---
+
+## Our Wholesale Collections
+
+### Batana Oil — Ancestral Miskito Elixir
+
+Wild-harvested _Elaeis oleifera_ kernel oil from the rainforests of La Mosquitia. Pure, unrefined, and crafted through ancestral Miskito methods. Ideal for high-end personal care, wellness, and treatment-focused product lines.
+
+[Explore Batana Oil](https://forestal-mt.com/batana-oil/)
+
+### Stingless Bee Honey — The Maya Heritage
+
+Raw and unfiltered honey from _Tetragonisca angustula_ (Jimerito). Harvested from traditional log hives in native forests. Suitable for wellness brands, apothecaries, and heritage-driven honey offerings.
+
+[Explore Stingless Bee Honey](https://forestal-mt.com/stingless-bee-honey/)
+
+### Traditional Herbs — Sacred Wisdom Rooted in Nature
+
+41 wildcrafted botanical varieties from Honduran cloud forests, lowlands, and coastal ecosystems. Shade-dried to preserve natural color, aroma, and plant integrity. Ideal for herbalists, formulators, and natural lifestyle manufacturers.
+
+[Explore Traditional Herbs](https://forestal-mt.com/traditional-herbs/)
+
+Each collection is supported by documentation for export, quality control, and regulatory compliance in key markets.
+
+---
+
+## Forest-to-Customer Authenticity
+
+Every product follows an origin-true system designed to protect cultural continuity and ensure verifiable sourcing:
+
+### Wild Harvest
+
+Botanicals sourced in native ecosystems by indigenous artisans and community partners — gathered where they have always grown.
+
+### Ancestral Processing
+
+Traditional, origin-based methods maintain natural integrity without industrial shortcuts. The same care that has defined these products for generations.
+
+### Origin Verification
+
+Documentation linking each material to its harvesting ecosystem and community. You know where it came from, who gathered it, and how it was processed.
+
+### Export Preparation
+
+Packaging, labeling, and customs documentation completed at origin for compliant international shipment.
+
+### Direct Delivery
+
+Export without intermediaries, preserving complete traceability from forest to your facility.
+
+---
+
+## Proven Global Export Operations
+
+Forestal MT ships to **North America, Central and South America, Europe, and Asia**. We handle compliance, customs documentation, and logistics coordination for every wholesale partner.
+
+**Export documentation includes:**
+
+- Commercial invoices with HS codes
+- Certificates of origin
+- Export licenses (where applicable)
+- Quality documentation and COAs upon request
+
+---
+
+## Shipping Options
+
+### DHL Express (DAP Terms)
+
+- Global express delivery with full tracking
+- Duties and taxes paid by the buyer at destination
+- Ideal for retail-ready, wholesale, and mid-volume orders
+- Typical delivery: 3-7 business days
+
+### Maritime Freight
+
+- Suitable for pallets and containers
+- Optimized for cost efficiency on large volumes
+- Export documentation completed by Forestal MT
+- Delivery times vary by destination
+
+---
+
+## Wholesale Customization
+
+We adapt supply to your operational needs:
+
+- Custom herb cuts and sizes
+- Bulk packaging (bags, drums, jugs)
+- Retail-ready formats (pouches, bottles, jars)
+- Destination-specific paperwork and labeling
+
+Tell us your requirements — we align the supply chain to your specifications.
+
+---
+
+## Private Label
+
+### Your Brand, Our Botanicals
+
+Forestal MT provides private-label-ready ethnobotanicals for brands seeking authentic, origin-based ingredients under their own label.
+
+**What you receive:**
+
+- Pure, origin-verified botanicals ready for your branding
+- Flexible order sizes from small batch to large volume
+- Bulk or retail-ready packaging formats
+- Full documentation package included
+- Support with regulatory paperwork for your market
+
+**Important:** We supply ready-to-brand product inputs sourced directly from Honduras. Formulations, if needed, are handled on your side.
+
+---
+
+## Volume-Based Pricing
+
+Wholesale pricing is customized based on:
+
+- Product type and collection
+- Volume ordered
+- Packaging format
+- Shipping method
+- Destination country
+
+Request a quote and we will structure pricing to support your margins and growth strategy.
+
+---
+
+## Wholesale Inquiry Form
+
+Interested in wholesale, bulk supply, or private label? Share your details and we will respond with pricing, logistics options, and next steps.
+
+**Form fields:**
+
+- **Name** (required)
+- **Company** (optional)
+- **Email** (required)
+- **Phone** (required)
+- **Country** (required)
+- **Message / Additional Notes** — Include products of interest, approximate volumes, packaging needs, timeline, and any specific documentation requirements
+
+---
+
+## Ready to Partner?
+
+Bring authentic Honduran ethnobotanicals to your market with a supplier who honors origin, culture, and transparency. Let's build your next product line.
+
+**Contact:**
+
+- **Email:** sales@forestal-mt.com
+- **WhatsApp:** +504 9699 7635
+
+[Get in Touch](https://forestal-mt.com/contact/)
+
+---
+
+## Explore Our Collections
+
+- [Batana Oil](https://forestal-mt.com/batana-oil/) — Ancestral Miskito Elixir
+- [Stingless Bee Honey](https://forestal-mt.com/stingless-bee-honey/) — The Maya Heritage
+- [Traditional Herbs](https://forestal-mt.com/traditional-herbs/) — Sacred Wisdom Rooted in Nature
+
+[Back to All Products](https://forestal-mt.com/products/)

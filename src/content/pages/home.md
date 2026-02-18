@@ -1,0 +1,161 @@
+---
+# ============================================================================
+# ROUTING
+# ============================================================================
+slug: /
+pageName: Home
+canonicalUrl: https://forestal-mt.com/
+rendering: SSG
+
+# ============================================================================
+# SEO
+# ============================================================================
+title: Batana Oil, Honey & Herbs from Honduras
+description:
+  Pure Batana Oil, Jimerito stingless bee honey, and 41 wildcrafted herbs from Honduras. Sourced from indigenous
+  communities. Retail and wholesale worldwide.
+
+# ============================================================================
+# OPEN GRAPH
+# ============================================================================
+og:
+  title: "Batana Oil, Honey & Herbs from Honduras"
+  description: Pure Batana Oil, Jimerito stingless bee honey, and 41 wildcrafted herbs from Honduras. Sourced from indigenous communities. Retail and wholesale worldwide.
+  image:
+    url: https://cdn.forestal-mt.com/pages/home/og.jpg
+    alt: Forestal MT homepage — Batana Oil, Stingless Bee Honey, and Traditional Herbs from Honduras
+    width: 1200
+    height: 630
+twitter:
+  card: summary_large_image
+
+# ============================================================================
+# SCHEMAS
+# ============================================================================
+schemas:
+  - type: WebSite
+    id: 'https://forestal-mt.com/#website'
+  - type: Organization
+    id: 'https://forestal-mt.com/#organization'
+  - type: Brand
+    id: 'https://forestal-mt.com/#brand'
+  - type: SearchAction
+    id: 'https://forestal-mt.com/#search-action'
+  - type: VideoObject
+    id: 'https://forestal-mt.com/#hero-video'
+  - type: ImageObject
+    id: 'https://forestal-mt.com/#og-image'
+
+# ============================================================================
+# HERO
+# ============================================================================
+media: video
+hero:
+  title: 'Batana Oil, Honey & Herbs from Honduras'
+  description: >-
+    Family-owned Honduran exporter of Batana Oil, Jimerito stingless bee honey, and wildcrafted traditional herbs.
+    Sourced directly from indigenous communities. Wholesale and retail worldwide.
+  ctas:
+    - label: 'Shop Now'
+      url: /products/
+    - label: 'Wholesale'
+      url: /wholesale/
+---
+
+## Product Collections
+
+### Batana Oil — Ancestral Miskito Elixir
+
+The miracle oil from La Mosquitia, Honduras. For generations, the Miskito people have relied on batana oil to nourish hair and restore skin — a living tradition now available worldwide.
+
+[Explore Batana Oil](https://forestal-mt.com/batana-oil/)
+
+### Stingless Bee Honey — The Maya Heritage
+
+Rare honey harvested from native Meliponini bees deep in the Honduran rainforest. Prized for centuries for its unique medicinal properties and delicate, complex flavor unlike any conventional honey.
+
+[Explore Stingless Bee Honey](https://forestal-mt.com/stingless-bee-honey/)
+
+### Traditional Herbs — Sacred Wisdom Rooted in Nature
+
+Authentic Honduran medicinal plants, ethically wildcrafted and prepared following ancestral methods passed down through generations of traditional healers.
+
+[Explore Traditional Herbs](https://forestal-mt.com/traditional-herbs/)
+
+---
+
+## Featured Products
+
+Curated selections from our three collections — handpicked for potency, purity, and tradition.
+
+[View All Products](https://forestal-mt.com/products/)
+
+---
+
+## Our Story
+
+From the heart of Honduras to your home. We bring you nature's finest treasures — sustainably harvested and traditionally prepared by the communities who have safeguarded them for centuries.
+
+**Our Mission:** To share the natural treasures of Honduras with the world while supporting local communities and preserving the traditional knowledge that makes these products extraordinary.
+
+[Learn More About Us](https://forestal-mt.com/about/)
+
+---
+
+## Why Forestal MT
+
+### Ethically Sourced
+
+Direct partnerships with indigenous and rural communities in Honduras. No middlemen — fair compensation that reaches the hands that harvest.
+
+### Authentic Origin
+
+Every product traces back to its source. Made in Honduras with verifiable provenance, traditional preparation methods, and genuine cultural heritage.
+
+### Worldwide Shipping
+
+DHL Express international delivery to your door. Carefully packaged to preserve natural properties from origin to destination.
+
+---
+
+## Our Commitment
+
+### Quality Guaranteed
+
+Every product is carefully harvested, processed, and packaged to preserve its natural properties. From wildcrafted herbs to cold-pressed oils — no shortcuts, no adulterants.
+
+### Community Impact
+
+Your purchase directly supports rural and indigenous communities across Honduras. We invest in fair wages, sustainable livelihoods, and the preservation of traditional knowledge.
+
+### Sustainable Practices
+
+Responsible harvesting that protects natural resources for future generations. We take only what the land can replenish, guided by the same principles the Miskito and Maya have followed for centuries.
+
+---
+
+## What Our Customers Say
+
+<!-- Testimonials — content pending customer quotes -->
+
+---
+
+## Stay Connected
+
+New harvests, limited editions, and stories from the Honduran rainforest — delivered to your inbox.
+
+**Subscribe to receive:**
+
+- New product and seasonal harvest announcements
+- Exclusive offers for subscribers
+- Behind-the-scenes stories from our sourcing communities
+- Traditional knowledge and ethnobotanical insights
+
+---
+
+## Explore
+
+- [Shop All Products](https://forestal-mt.com/products/)
+- [About Forestal MT](https://forestal-mt.com/about/)
+- [Wholesale Inquiries](https://forestal-mt.com/wholesale/)
+- [Contact Us](https://forestal-mt.com/contact/)

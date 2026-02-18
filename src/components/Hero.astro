@@ -1,0 +1,121 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+  description?: string;
+  body?: string;
+  ctas?: Array<{
+    label: string;
+    url: string;
+  }>;
+  background?: {
+    type: "image" | "video";
+    url?: string;
+    stream?: string;
+    alt?: string;
+    caption?: string;
+    width?: number;
+    height?: number;
+  };
+}
+
+const { eyebrow, title, subtitle, description, body, ctas, background } =
+  Astro.props;
+
+const hasBackground = background?.url || background?.stream;
+---
+
+<section
+  class:list={[
+    "relative flex min-h-[60vh] items-center overflow-hidden",
+    hasBackground ? "text-white" : "bg-seasalt text-graphite",
+  ]}
+>
+  {/* Background image */}
+  {
+    background?.type === "image" && background.url && (
+      <div class="absolute inset-0">
+        <img
+          src={background.url}
+          alt={background.alt ?? ""}
+          width={background.width}
+          height={background.height}
+          class="h-full w-full object-cover"
+          loading="eager"
+        />
+        <div class="absolute inset-0 bg-graphite/60" />
+      </div>
+    )
+  }
+
+  {/* Background video via Cloudflare Stream */}
+  {
+    background?.type === "video" && background.stream && (
+      <div class="absolute inset-0">
+        <iframe
+          src={`https://customer-8w5s9dekjdinwesc.cloudflarestream.com/${background.stream}/iframe?muted=true&autoplay=true&loop=true&controls=false`}
+          class="h-full w-full object-cover"
+          allow="autoplay; fullscreen"
+          loading="lazy"
+          title={background.caption ?? "Hero video"}
+          style="border:none; pointer-events:none;"
+        />
+        <div class="absolute inset-0 bg-graphite/50" />
+      </div>
+    )
+  }
+
+  <div class="relative z-10 mx-auto max-w-7xl px-4 py-20 lg:px-8 lg:py-28">
+    {
+      eyebrow && (
+        <p class="mb-4 font-[family-name:var(--font-heading)] text-xs font-normal uppercase tracking-[0.2em]">
+          {eyebrow}
+        </p>
+      )
+    }
+
+    <h1
+      class="max-w-3xl font-[family-name:var(--font-display)] text-4xl font-normal leading-tight md:text-5xl lg:text-6xl"
+      set:html={title.replace(/\n/g, "<br />")}
+    />
+
+    {
+      subtitle && (
+        <p class="mt-3 font-[family-name:var(--font-heading)] text-sm font-normal uppercase tracking-[0.15em] opacity-80">
+          {subtitle}
+        </p>
+      )
+    }
+
+    {
+      (description || body) && (
+        <p class="mt-6 max-w-2xl font-[family-name:var(--font-body)] text-base leading-relaxed md:text-lg">
+          {description ?? body}
+        </p>
+      )
+    }
+
+    {
+      ctas && ctas.length > 0 && (
+        <div class="mt-8 flex flex-wrap gap-4">
+          {ctas.map((cta, i) => (
+            <a
+              href={cta.url}
+              class:list={[
+                "inline-block rounded-lg px-6 py-3 font-[family-name:var(--font-ui)] text-sm font-semibold transition-colors",
+                i === 0
+                  ? "bg-leaf-green text-white hover:bg-grass-green"
+                  : hasBackground
+                    ? "border border-white/30 text-white hover:bg-white/10"
+                    : "border border-leaf-green text-leaf-green hover:bg-leaf-green hover:text-white",
+              ]}
+            >
+              {cta.label}
+            </a>
+          ))}
+        </div>
+      )
+    }
+  </div>
+</section>

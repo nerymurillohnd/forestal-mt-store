@@ -1,0 +1,27 @@
+---
+import { Font } from "astro:assets";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <Font cssVariable="--font-display" preload />
+    <Font cssVariable="--font-heading" preload />
+    <Font cssVariable="--font-body" preload />
+    <Font cssVariable="--font-ui" preload />
+    <slot name="head" />
+  </head>
+  <body
+    class="flex min-h-dvh flex-col bg-white font-[family-name:var(--font-body)] text-graphite antialiased"
+  >
+    <Header />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
