@@ -185,7 +185,7 @@ const posterSrc = hasVideo ? getStreamPoster(background.stream, 1920, 1080) : nu
 
 <script>
   document.addEventListener("astro:page-load", () => {
-    const video = document.getElementById("hero-video");
+    const video = document.getElementById("hero-video") as HTMLVideoElement | null;
     if (!video) return;
     const src = video.dataset.hls;
     if (!src) return;
@@ -193,8 +193,8 @@ const posterSrc = hasVideo ? getStreamPoster(background.stream, 1920, 1080) : nu
     if (video.canPlayType("application/vnd.apple.mpegurl")) {
       video.src = src;
     } else {
-      import("hls.js/dist/hls.light.min.js").then((mod) => {
-        const Hls = mod.default || mod;
+      import("hls.js").then((mod) => {
+        const Hls = mod.default;
         if (!Hls.isSupported()) return;
         const hls = new Hls({ enableWorker: false });
         hls.loadSource(src);
