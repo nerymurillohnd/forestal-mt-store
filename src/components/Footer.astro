@@ -26,10 +26,10 @@ const policyLinks = [
 ];
 
 const socialLinks = [
-  { label: "Facebook",  href: "#", icon: "fa6-brands:facebook" },
-  { label: "Instagram", href: "#", icon: "fa6-brands:instagram" },
-  { label: "TikTok",    href: "#", icon: "fa6-brands:tiktok" },
-  { label: "LinkedIn",  href: "#", icon: "fa6-brands:linkedin-in" },
+  { label: "Facebook",  href: "https://www.facebook.com/forestalmt.hn",       icon: "fa6-brands:facebook" },
+  { label: "Instagram", href: "https://www.instagram.com/forestalmt.hn",      icon: "fa6-brands:instagram" },
+  { label: "TikTok",    href: "https://www.tiktok.com/@forestalmt.hn",        icon: "fa6-brands:tiktok" },
+  { label: "LinkedIn",  href: "https://www.linkedin.com/company/forestalmt",  icon: "fa6-brands:linkedin-in" },
 ];
 ---
 
@@ -120,6 +120,8 @@ const socialLinks = [
           {socialLinks.map((social) => (
             <a
               href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label={social.label}
               class="flex min-h-[44px] items-center gap-2 text-white/60 transition-colors hover:text-white lg:min-h-0"
             >
