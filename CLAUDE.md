@@ -277,7 +277,7 @@ All URLs end with `/`. Enforced via `trailingSlash: "always"`. No exceptions.
 - Keep SEO and OG `title`/`description` in sync in frontmatter
 - Use `cdn.forestal-mt.com` for all image URLs
 - Use trailing slashes on ALL URLs
-- Run `pnpm build` + `pnpm lint` before commit
+- Run `pnpm format && pnpm lint && pnpm build` before every commit — all three are CI gates
 - Use `.surface-warm`, `.surface-parchment`, `.surface-dark` for section backgrounds
 - Use `.stagger-children` on grids, `.reveal-on-scroll` on individual elements
 - Use `font-[family-name:var(--font-heading)]` pattern (not `font-cinzel` etc.)
