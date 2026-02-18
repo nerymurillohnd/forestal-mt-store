@@ -155,6 +155,33 @@ Full schema in `src/content.config.ts`. Glob loader accepts `**/*.{md,mdx}`.
 
 ---
 
+## Sentry Observability
+
+**Two-package split — mandatory for Cloudflare Pages:**
+
+| Layer | Package | File |
+|-------|---------|------|
+| Client (browser) | `@sentry/astro` | `sentry.client.config.js` |
+| Server (CF Workers) | `@sentry/cloudflare` | `functions/_middleware.js` |
+| Build (source maps) | `@sentry/astro` plugin | `astro.config.mjs` |
+
+- **DO NOT** use `@sentry/node` or `sentry.server.config.js` — Node SDK is incompatible with CF Workers V8 isolates
+- `wrangler.toml` MUST have `nodejs_compat` flag for `@sentry/cloudflare` to work
+- `@spotlightjs/astro` for local dev debugging overlay
+
+### SSR Migration Checklist (WHEN output changes to "hybrid"/"server")
+
+When product pages go SSR with D1 queries, these steps are **MANDATORY**:
+
+1. Uncomment `Sentry.d1Integration(context.env.DB)` in `functions/_middleware.js`
+2. Uncomment D1/KV bindings in `wrangler.toml`
+3. Bind D1/KV/R2 in Cloudflare Pages dashboard (prod + preview)
+4. Change `output: "static"` to `"hybrid"` in `astro.config.mjs`
+5. Verify `nodejs_compat` flag is active in CF Pages dashboard settings
+6. Test with `pnpm preview` (uses wrangler with local bindings)
+
+---
+
 ## Placeholder Image Strategy
 
 - **Real from day 1:** OG images, hero images, hero videos (from R2 / Cloudflare Stream)
