@@ -15,6 +15,7 @@
 ## Task 1: Data Layer + Logo Import
 
 **Files:**
+
 - Modify: `src/components/Footer.astro` (frontmatter section only)
 
 **Step 1: Replace the entire frontmatter block**
@@ -29,24 +30,24 @@ import logoLight from "../assets/logos/logo-light.png";
 const year = new Date().getFullYear();
 
 const quickLinks = [
-  { label: "About Us",  href: "/about/" },
+  { label: "About Us", href: "/about/" },
   { label: "Wholesale", href: "/wholesale/" },
-  { label: "Shop",      href: "/" },       // placeholder — future /products/
-  { label: "Contact",   href: "/contact/" },
+  { label: "Shop", href: "/" }, // placeholder — future /products/
+  { label: "Contact", href: "/contact/" },
 ];
 
 const exploreLinks = [
-  { label: "Batana Oil",    href: "/batana-oil/" },
+  { label: "Batana Oil", href: "/batana-oil/" },
   { label: "Jimerito Honey", href: "/stingless-bee-honey/" },
-  { label: "Wild Herbs",    href: "/traditional-herbs/" },
-  { label: "FAQs",          href: "/" },   // placeholder — future /community/faqs/
+  { label: "Wild Herbs", href: "/traditional-herbs/" },
+  { label: "FAQs", href: "/" }, // placeholder — future /community/faqs/
 ];
 
 const policyLinks = [
-  { label: "Terms & Conditions",  href: "/terms/" },
-  { label: "Privacy Policy",      href: "/privacy/" },
-  { label: "Shipping & Returns",  href: "/shipping/" },
-  { label: "Documents",           href: "/" },  // placeholder
+  { label: "Terms & Conditions", href: "/terms/" },
+  { label: "Privacy Policy", href: "/privacy/" },
+  { label: "Shipping & Returns", href: "/shipping/" },
+  { label: "Documents", href: "/" }, // placeholder
 ];
 
 const socialLinks = [
@@ -84,6 +85,7 @@ Expected: No type errors. If there are import path errors, verify `logo-light.pn
 ## Task 2: Main Grid — 5-Column Structure
 
 **Files:**
+
 - Modify: `src/components/Footer.astro` (template section)
 
 **Step 1: Replace the entire HTML template**
@@ -93,101 +95,110 @@ Delete everything from `<footer` to the end of the file. Replace with:
 ```astro
 <footer class="surface-dark grain relative" role="contentinfo">
   <div class="mx-auto max-w-7xl px-4 py-16 lg:px-8">
-
     <!-- 5-column grid: Logo (2fr) + 4 link columns (1fr each) -->
-    <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr_1fr] lg:gap-12">
-
+    <div
+      class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr_1fr] lg:gap-12"
+    >
       <!-- Col 1: Logo (wide) -->
       <div class="flex items-start sm:col-span-2 lg:col-span-1">
         <a href="/" aria-label="Forestal MT — Home">
-          <Image
-            src={logoLight}
-            alt="Forestal MT"
-            width={160}
-            class="h-auto w-40"
-          />
+          <Image src={logoLight} alt="Forestal MT" width={160} class="h-auto w-40" />
         </a>
       </div>
 
       <!-- Col 2: Quick Links -->
       <div>
-        <h3 class="font-[family-name:var(--font-heading)] text-xs font-semibold uppercase tracking-widest text-gold">
+        <h3
+          class="font-[family-name:var(--font-heading)] text-xs font-semibold uppercase tracking-widest text-gold"
+        >
           Quick Links
         </h3>
         <ul class="mt-4 space-y-3">
-          {quickLinks.map((link) => (
-            <li>
-              <a
-                href={link.href}
-                class="link-draw font-[family-name:var(--font-ui)] text-sm text-white/60 transition-colors hover:text-white"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
+          {
+            quickLinks.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="link-draw font-[family-name:var(--font-ui)] text-sm text-white/60 transition-colors hover:text-white"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
         </ul>
       </div>
 
       <!-- Col 3: Explore -->
       <div>
-        <h3 class="font-[family-name:var(--font-heading)] text-xs font-semibold uppercase tracking-widest text-gold">
+        <h3
+          class="font-[family-name:var(--font-heading)] text-xs font-semibold uppercase tracking-widest text-gold"
+        >
           Explore
         </h3>
         <ul class="mt-4 space-y-3">
-          {exploreLinks.map((link) => (
-            <li>
-              <a
-                href={link.href}
-                class="link-draw font-[family-name:var(--font-ui)] text-sm text-white/60 transition-colors hover:text-white"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
+          {
+            exploreLinks.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="link-draw font-[family-name:var(--font-ui)] text-sm text-white/60 transition-colors hover:text-white"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
         </ul>
       </div>
 
       <!-- Col 4: Docs & Policies -->
       <div>
-        <h3 class="font-[family-name:var(--font-heading)] text-xs font-semibold uppercase tracking-widest text-gold">
+        <h3
+          class="font-[family-name:var(--font-heading)] text-xs font-semibold uppercase tracking-widest text-gold"
+        >
           Docs & Policies
         </h3>
         <ul class="mt-4 space-y-3">
-          {policyLinks.map((link) => (
-            <li>
-              <a
-                href={link.href}
-                class="link-draw font-[family-name:var(--font-ui)] text-sm text-white/60 transition-colors hover:text-white"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
+          {
+            policyLinks.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="link-draw font-[family-name:var(--font-ui)] text-sm text-white/60 transition-colors hover:text-white"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
         </ul>
       </div>
 
       <!-- Col 5: Follow Us -->
       <div>
-        <h3 class="font-[family-name:var(--font-heading)] text-xs font-semibold uppercase tracking-widest text-gold">
+        <h3
+          class="font-[family-name:var(--font-heading)] text-xs font-semibold uppercase tracking-widest text-gold"
+        >
           Follow Us
         </h3>
         <div class="mt-4 grid grid-cols-2 gap-3">
-          {socialLinks.map((social) => (
-            <a
-              href={social.href}
-              aria-label={social.label}
-              class="flex items-center gap-2 text-white/60 transition-colors hover:text-white"
-            >
-              <Fragment set:html={social.icon} />
-              <span class="font-[family-name:var(--font-ui)] text-xs">{social.label}</span>
-            </a>
-          ))}
+          {
+            socialLinks.map((social) => (
+              <a
+                href={social.href}
+                aria-label={social.label}
+                class="flex items-center gap-2 text-white/60 transition-colors hover:text-white"
+              >
+                <Fragment set:html={social.icon} />
+                <span class="font-[family-name:var(--font-ui)] text-xs">{social.label}</span>
+              </a>
+            ))
+          }
         </div>
       </div>
-
     </div>
     <!-- END grid -->
-
   </div>
 </footer>
 ```
@@ -202,6 +213,7 @@ Expected: Build completes without errors. If Image import fails, check that `@as
 ## Task 3: Tagline Divider
 
 **Files:**
+
 - Modify: `src/components/Footer.astro` — add inside `<div class="mx-auto...">` after the grid `</div>`
 
 **Step 1: Add the tagline section**
@@ -209,22 +221,26 @@ Expected: Build completes without errors. If Image import fails, check that `@as
 After the closing `</div>` of the 5-column grid, and before the closing `</div>` of `mx-auto max-w-7xl`, insert:
 
 ```astro
-    <!-- Tagline divider -->
-    <div class="flex items-center gap-6 py-10">
-      <div
-        class="h-px flex-1"
-        style="background: linear-gradient(90deg, transparent, rgba(161,133,0,0.5), transparent);"
-        aria-hidden="true"
-      ></div>
-      <p class="shrink-0 font-[family-name:var(--font-display)] text-lg italic text-white/75 sm:text-xl">
-        Exporting Nature Without Borders
-      </p>
-      <div
-        class="h-px flex-1"
-        style="background: linear-gradient(90deg, transparent, rgba(161,133,0,0.5), transparent);"
-        aria-hidden="true"
-      ></div>
-    </div>
+<!-- Tagline divider -->
+<div class="flex items-center gap-6 py-10">
+  <div
+    class="h-px flex-1"
+    style="background: linear-gradient(90deg, transparent, rgba(161,133,0,0.5), transparent);"
+    aria-hidden="true"
+  >
+  </div>
+  <p
+    class="shrink-0 font-[family-name:var(--font-display)] text-lg italic text-white/75 sm:text-xl"
+  >
+    Exporting Nature Without Borders
+  </p>
+  <div
+    class="h-px flex-1"
+    style="background: linear-gradient(90deg, transparent, rgba(161,133,0,0.5), transparent);"
+    aria-hidden="true"
+  >
+  </div>
+</div>
 ```
 
 **Note:** Using inline `style` for the gradient because `.gold-rule` in global.css has a fixed `max-width: 4rem` and `margin: auto` — it doesn't expand to fill available space. The inline gradient matches the same gold-dark color token (`#A18500` → `rgba(161,133,0)`).
@@ -239,6 +255,7 @@ Expected: Clean build.
 ## Task 4: Bottom Bar
 
 **Files:**
+
 - Modify: `src/components/Footer.astro` — add after the tagline divider, still inside `mx-auto max-w-7xl`
 
 **Step 1: Add the bottom bar**
@@ -246,44 +263,52 @@ Expected: Clean build.
 After the tagline divider `</div>`, insert before the closing `</div>` of the main container:
 
 ```astro
-    <!-- Bottom bar -->
-    <div class="flex flex-col items-center gap-4 border-t border-white/10 pt-6 sm:flex-row sm:justify-between">
+<!-- Bottom bar -->
+<div
+  class="flex flex-col items-center gap-4 border-t border-white/10 pt-6 sm:flex-row sm:justify-between"
+>
+  <!-- Left: Payment pills -->
+  <div class="flex flex-wrap items-center gap-2" aria-label="Accepted payment methods">
+    <!-- Visa -->
+    <span
+      class="inline-flex items-center rounded-sm bg-[#1434CB] px-2 py-0.5 text-[10px] font-bold text-white"
+    >
+      VISA
+    </span>
+    <!-- Mastercard -->
+    <span
+      class="inline-flex items-center rounded-sm bg-[#EB001B] px-2 py-0.5 text-[10px] font-bold text-white"
+    >
+      MC
+    </span>
+    <!-- Moneygram -->
+    <span
+      class="inline-flex items-center rounded-sm bg-[#EE3124] px-2 py-0.5 text-[10px] font-bold text-white"
+    >
+      Moneygram
+    </span>
+    <!-- Western Union -->
+    <span
+      class="inline-flex items-center rounded-sm bg-[#FFD700] px-2 py-0.5 text-[10px] font-bold text-black"
+    >
+      WU
+    </span>
+    <!-- Banco Atlántida -->
+    <span
+      class="inline-flex items-center rounded-sm bg-[#004A97] px-2 py-0.5 text-[10px] font-bold text-white"
+    >
+      Atlántida
+    </span>
+  </div>
 
-      <!-- Left: Payment pills -->
-      <div class="flex flex-wrap items-center gap-2" aria-label="Accepted payment methods">
-        <!-- Visa -->
-        <span class="inline-flex items-center rounded-sm bg-[#1434CB] px-2 py-0.5 text-[10px] font-bold text-white">
-          VISA
-        </span>
-        <!-- Mastercard -->
-        <span class="inline-flex items-center rounded-sm bg-[#EB001B] px-2 py-0.5 text-[10px] font-bold text-white">
-          MC
-        </span>
-        <!-- Moneygram -->
-        <span class="inline-flex items-center rounded-sm bg-[#EE3124] px-2 py-0.5 text-[10px] font-bold text-white">
-          Moneygram
-        </span>
-        <!-- Western Union -->
-        <span class="inline-flex items-center rounded-sm bg-[#FFD700] px-2 py-0.5 text-[10px] font-bold text-black">
-          WU
-        </span>
-        <!-- Banco Atlántida -->
-        <span class="inline-flex items-center rounded-sm bg-[#004A97] px-2 py-0.5 text-[10px] font-bold text-white">
-          Atlántida
-        </span>
-      </div>
+  <!-- Center: Copyright -->
+  <p class="font-[family-name:var(--font-ui)] text-xs text-white/40">
+    &copy; {year} Forestal Murillo Tejada S. de R.L. | All rights reserved.
+  </p>
 
-      <!-- Center: Copyright -->
-      <p class="font-[family-name:var(--font-ui)] text-xs text-white/40">
-        &copy; {year} Forestal Murillo Tejada S. de R.L. | All rights reserved.
-      </p>
-
-      <!-- Right: Location -->
-      <p class="font-[family-name:var(--font-ui)] text-xs text-white/40">
-        Olancho, Honduras
-      </p>
-
-    </div>
+  <!-- Right: Location -->
+  <p class="font-[family-name:var(--font-ui)] text-xs text-white/40">Olancho, Honduras</p>
+</div>
 ```
 
 **Step 2: Build and verify**
@@ -296,6 +321,7 @@ Expected: Clean build. The year should render as `2026`.
 ## Task 5: Back-to-Top Button
 
 **Files:**
+
 - Modify: `src/components/Footer.astro` — add after the closing `</footer>` tag
 
 **Step 1: Add the floating button + script**
@@ -322,7 +348,7 @@ After `</footer>`, append:
     class="h-5 w-5"
     aria-hidden="true"
   >
-    <path d="M18 15l-6-6-6 6" />
+    <path d="M18 15l-6-6-6 6"></path>
   </svg>
 </button>
 
@@ -331,9 +357,7 @@ After `</footer>`, append:
     const btn = document.getElementById("back-to-top");
     if (!btn) return;
 
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     function updateVisibility() {
       const visible = window.scrollY > 300;
@@ -363,6 +387,7 @@ Expected: Clean build, no errors.
 ## Task 6: Mobile Touch Targets
 
 **Files:**
+
 - Modify: `src/components/Footer.astro` — add `min-h-[44px]` to link items on mobile
 
 **Step 1: Update each link `<a>` in the 4 link columns**
@@ -375,18 +400,19 @@ Change every link `<a class="link-draw font-... text-sm text-white/60 transition
 <a
   href={link.href}
   class="link-draw flex min-h-[44px] items-center font-[family-name:var(--font-ui)] text-sm text-white/60 transition-colors hover:text-white lg:min-h-0"
->
+></a>
 ```
 
 The `lg:min-h-0` resets the touch-target height on desktop (where hover is available and precise clicks are standard).
 
 Apply the same to social link `<a>` elements in Follow Us:
+
 ```astro
 <a
   href={social.href}
   aria-label={social.label}
   class="flex min-h-[44px] items-center gap-2 text-white/60 transition-colors hover:text-white lg:min-h-0"
->
+></a>
 ```
 
 **Step 2: Final build**

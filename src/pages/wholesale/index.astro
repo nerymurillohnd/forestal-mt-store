@@ -9,7 +9,6 @@ import Head from "../../components/Head.astro";
 import Breadcrumb from "../../components/Breadcrumb.astro";
 import HeroCinematic from "../../components/HeroCinematic.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
-import GoldTopCard from "../../components/GoldTopCard.astro";
 import ProcessFlow from "../../components/ProcessFlow.astro";
 import CollectionNav from "../../components/CollectionNav.astro";
 import TrustMarquee from "../../components/TrustMarquee.astro";
@@ -23,21 +22,24 @@ const collections = [
   {
     title: "Batana Oil",
     eyebrow: "Ancestral Miskito Elixir",
-    description: "Wild-harvested Elaeis oleifera kernel oil from La Mosquitia. Pure, unrefined, and crafted through ancestral Miskito methods. Ideal for high-end personal care and treatment-focused product lines.",
+    description:
+      "Wild-harvested Elaeis oleifera kernel oil from La Mosquitia. Pure, unrefined, and crafted through ancestral Miskito methods. Ideal for high-end personal care and treatment-focused product lines.",
     href: "/batana-oil/",
     image: "https://cdn.forestal-mt.com/pages/batana-oil/hero.jpg",
   },
   {
     title: "Stingless Bee Honey",
     eyebrow: "The Maya Heritage",
-    description: "Raw and unfiltered honey from Tetragonisca angustula (Jimerito). Harvested from traditional log hives in native forests. Suitable for wellness brands and heritage-driven honey offerings.",
+    description:
+      "Raw and unfiltered honey from Tetragonisca angustula (Jimerito). Harvested from traditional log hives in native forests. Suitable for wellness brands and heritage-driven honey offerings.",
     href: "/stingless-bee-honey/",
     image: "https://cdn.forestal-mt.com/pages/stingless-bee-honey/hero.jpg",
   },
   {
     title: "Traditional Herbs",
     eyebrow: "Sacred Wisdom Rooted in Nature",
-    description: "41 wildcrafted botanical varieties from Honduran cloud forests, lowlands, and coastal ecosystems. Shade-dried to preserve natural color, aroma, and plant integrity.",
+    description:
+      "41 wildcrafted botanical varieties from Honduran cloud forests, lowlands, and coastal ecosystems. Shade-dried to preserve natural color, aroma, and plant integrity.",
     href: "/traditional-herbs/",
     image: "https://cdn.forestal-mt.com/pages/traditional-herbs/hero.jpg",
   },
@@ -47,27 +49,32 @@ const processSteps = [
   {
     number: "01",
     title: "Wild Harvest",
-    description: "Botanicals sourced in native ecosystems by indigenous artisans and community partners — gathered where they have always grown.",
+    description:
+      "Botanicals sourced in native ecosystems by indigenous artisans and community partners — gathered where they have always grown.",
   },
   {
     number: "02",
     title: "Ancestral Processing",
-    description: "Traditional, origin-based methods maintain natural integrity without industrial shortcuts. The same care that has defined these products for generations.",
+    description:
+      "Traditional, origin-based methods maintain natural integrity without industrial shortcuts. The same care that has defined these products for generations.",
   },
   {
     number: "03",
     title: "Origin Verification",
-    description: "Documentation linking each material to its harvesting ecosystem and community. You know where it came from, who gathered it, and how it was processed.",
+    description:
+      "Documentation linking each material to its harvesting ecosystem and community. You know where it came from, who gathered it, and how it was processed.",
   },
   {
     number: "04",
     title: "Export Preparation",
-    description: "Packaging, labeling, and customs documentation completed at origin for compliant international shipment.",
+    description:
+      "Packaging, labeling, and customs documentation completed at origin for compliant international shipment.",
   },
   {
     number: "05",
     title: "Direct Delivery",
-    description: "Export without intermediaries, preserving complete traceability from forest to your facility.",
+    description:
+      "Export without intermediaries, preserving complete traceability from forest to your facility.",
   },
 ];
 
@@ -123,12 +130,14 @@ const pricingFactors = [
     schemas={data.schemas}
   />
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       HERO — HeroCinematic, 60vh, image background
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <HeroCinematic
     height="60vh"
-    background={{ type: "image", src: data.hero.background.url, alt: data.hero.background.alt }}
+    background={{ type: "image", src: data.hero.background?.url, alt: data.hero.background?.alt }}
     eyebrow={data.hero.eyebrow}
     title={data.hero.title}
     subtitle={data.hero.subtitle}
@@ -138,131 +147,182 @@ const pricingFactors = [
 
   <Breadcrumb pageName={data.pageName} />
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       INTRO — "Partner With the Source" centered narrative
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <section class="surface-warm py-24">
     <div class="mx-auto max-w-3xl px-6 text-center lg:px-12">
       <SectionHeader eyebrow="Direct From Origin" heading="Partner With the Source" />
-      <p class="reveal-on-scroll mt-8 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70">
-        Forestal MT offers wholesale and bulk ethnobotanical supply directly from Honduras for brands, formulators, and distributors who require origin-true ingredients and reliable export workflows. From Batana Oil to stingless bee honey and traditional herbs, every shipment is anchored in traceable origin, cultural stewardship, and verifiable quality.
+      <p
+        class="reveal-on-scroll mt-8 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70"
+      >
+        Forestal MT offers wholesale and bulk ethnobotanical supply directly from Honduras for
+        brands, formulators, and distributors who require origin-true ingredients and reliable
+        export workflows. From Batana Oil to stingless bee honey and traditional herbs, every
+        shipment is anchored in traceable origin, cultural stewardship, and verifiable quality.
       </p>
-      <p class="reveal-on-scroll mt-4 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70">
-        Whether you're a startup building your first product line, a small business expanding into natural ingredients, or an international distributor sourcing at scale — we supply directly, with clear origin information and all the documentation you need for smooth global shipping.
+      <p
+        class="reveal-on-scroll mt-4 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70"
+      >
+        Whether you're a startup building your first product line, a small business expanding into
+        natural ingredients, or an international distributor sourcing at scale — we supply directly,
+        with clear origin information and all the documentation you need for smooth global shipping.
       </p>
     </div>
   </section>
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       TRUST MARQUEE
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <TrustMarquee />
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       COLLECTIONS PREVIEW — 3 mini-cards with image
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <section class="surface-parchment py-24">
     <div class="mx-auto max-w-7xl px-6 lg:px-12">
       <SectionHeader eyebrow="Our Wholesale Collections" heading="Three Collections, One Origin" />
 
       <div class="stagger-children mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
-        {collections.map((col) => (
-          <a href={col.href} class="card-hover group overflow-hidden bg-white shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
-            <div class="relative aspect-[16/9] overflow-hidden">
-              <img
-                src={col.image}
-                alt={col.title}
-                class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                loading="lazy"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-[#111]/50 to-transparent"></div>
-            </div>
-            <div class="border-t-[3px] border-[#F3C00D]/50 p-8">
-              <p class="font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.35em] text-[#A18500]">
-                {col.eyebrow}
-              </p>
-              <h3 class="mt-2 font-[family-name:var(--font-heading)] text-[1.05rem] font-normal text-[#333]">
-                {col.title}
-              </h3>
-              <div class="mt-3 h-px w-8 bg-[#F3C00D]/30"></div>
-              <p class="mt-4 font-[family-name:var(--font-body)] text-[13px] leading-[1.85] text-[#333]/60">
-                {col.description}
-              </p>
-              <span class="mt-5 inline-flex items-center gap-1.5 font-[family-name:var(--font-ui)] text-[11px] font-semibold uppercase tracking-[0.15em] text-[#206D03] transition-colors group-hover:text-[#54B006]">
-                Explore Collection
-                <svg class="h-3 w-3 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                </svg>
-              </span>
-            </div>
-          </a>
-        ))}
+        {
+          collections.map((col) => (
+            <a
+              href={col.href}
+              class="card-hover group overflow-hidden bg-white shadow-[0_1px_3px_rgba(0,0,0,0.04)]"
+            >
+              <div class="relative aspect-[16/9] overflow-hidden">
+                <img
+                  src={col.image}
+                  alt={col.title}
+                  class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                  loading="lazy"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-[#111]/50 to-transparent" />
+              </div>
+              <div class="border-t-[3px] border-[#F3C00D]/50 p-8">
+                <p class="font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.35em] text-[#A18500]">
+                  {col.eyebrow}
+                </p>
+                <h3 class="mt-2 font-[family-name:var(--font-heading)] text-[1.05rem] font-normal text-[#333]">
+                  {col.title}
+                </h3>
+                <div class="mt-3 h-px w-8 bg-[#F3C00D]/30" />
+                <p class="mt-4 font-[family-name:var(--font-body)] text-[13px] leading-[1.85] text-[#333]/60">
+                  {col.description}
+                </p>
+                <span class="mt-5 inline-flex items-center gap-1.5 font-[family-name:var(--font-ui)] text-[11px] font-semibold uppercase tracking-[0.15em] text-[#206D03] transition-colors group-hover:text-[#54B006]">
+                  Explore Collection
+                  <svg
+                    class="h-3 w-3 transition-transform duration-300 group-hover:translate-x-1"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </a>
+          ))
+        }
       </div>
     </div>
   </section>
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       FOREST-TO-CUSTOMER — ProcessFlow horizontal connected steps
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <ProcessFlow
     eyebrow="Origin-True System"
     heading="Forest-to-Customer Authenticity"
     steps={processSteps}
   />
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       SHIPPING — 2 cards side by side
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <section class="surface-warm py-24">
     <div class="mx-auto max-w-5xl px-6 lg:px-12">
       <SectionHeader eyebrow="Proven Global Export Operations" heading="Shipping Options" />
 
       <div class="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2">
-        {shippingOptions.map((opt) => (
-          <div class="card-hover border-t-[3px] border-[#F3C00D]/50 bg-white p-10 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
-            <p class="font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.3em] text-[#A18500]">
-              {opt.tag}
-            </p>
-            <h3 class="mt-3 font-[family-name:var(--font-heading)] text-[1.05rem] font-normal tracking-wide text-[#333]">
-              {opt.title}
-            </h3>
-            <div class="mt-3 h-px w-8 bg-[#F3C00D]/30"></div>
-            <ul class="mt-5 space-y-3">
-              {opt.details.map((detail) => (
-                <li class="flex items-start gap-2.5 font-[family-name:var(--font-body)] text-[13px] leading-relaxed text-[#333]/65">
-                  <span class="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-[#206D03]/50" />
-                  {detail}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        {
+          shippingOptions.map((opt) => (
+            <div class="card-hover border-t-[3px] border-[#F3C00D]/50 bg-white p-10 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
+              <p class="font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.3em] text-[#A18500]">
+                {opt.tag}
+              </p>
+              <h3 class="mt-3 font-[family-name:var(--font-heading)] text-[1.05rem] font-normal tracking-wide text-[#333]">
+                {opt.title}
+              </h3>
+              <div class="mt-3 h-px w-8 bg-[#F3C00D]/30" />
+              <ul class="mt-5 space-y-3">
+                {opt.details.map((detail) => (
+                  <li class="flex items-start gap-2.5 font-[family-name:var(--font-body)] text-[13px] leading-relaxed text-[#333]/65">
+                    <span class="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-[#206D03]/50" />
+                    {detail}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
       </div>
 
       <p class="mt-8 text-center font-[family-name:var(--font-body)] text-[13px] text-[#333]/60">
-        Export documentation includes commercial invoices with HS codes, certificates of origin, export licenses, and COAs upon request.
+        Export documentation includes commercial invoices with HS codes, certificates of origin,
+        export licenses, and COAs upon request.
       </p>
     </div>
   </section>
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       PRIVATE LABEL — Asymmetric split, parallax image
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <section class="accent-batana py-24">
-    <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 lg:grid-cols-[1fr_1.15fr] lg:px-12">
+    <div
+      class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 lg:grid-cols-[1fr_1.15fr] lg:px-12"
+    >
       <div class="reveal-on-scroll">
-        <SectionHeader eyebrow="Private Label" heading="Your Brand,<br />Our Botanicals" align="left" />
-        <p class="mt-8 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70">
-          Forestal MT provides private-label-ready ethnobotanicals for brands seeking authentic, origin-based ingredients under their own label. We supply ready-to-brand product inputs sourced directly from Honduras.
+        <SectionHeader
+          eyebrow="Private Label"
+          heading="Your Brand,<br />Our Botanicals"
+          align="left"
+        />
+        <p
+          class="mt-8 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70"
+        >
+          Forestal MT provides private-label-ready ethnobotanicals for brands seeking authentic,
+          origin-based ingredients under their own label. We supply ready-to-brand product inputs
+          sourced directly from Honduras.
         </p>
 
         <ul class="mt-8 space-y-3">
-          {privateLabelBenefits.map((benefit) => (
-            <li class="flex items-center gap-3 font-[family-name:var(--font-body)] text-[14px] text-[#333]/70">
-              <span class="h-px w-4 bg-[#F3C00D]/40" />
-              {benefit}
-            </li>
-          ))}
+          {
+            privateLabelBenefits.map((benefit) => (
+              <li class="flex items-center gap-3 font-[family-name:var(--font-body)] text-[14px] text-[#333]/70">
+                <span class="h-px w-4 bg-[#F3C00D]/40" />
+                {benefit}
+              </li>
+            ))
+          }
         </ul>
       </div>
 
@@ -278,40 +338,52 @@ const pricingFactors = [
     </div>
   </section>
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       PRICING — Brief section
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <section class="surface-warm py-24">
     <div class="mx-auto max-w-3xl px-6 text-center lg:px-12">
       <SectionHeader eyebrow="Tailored to Your Needs" heading="Volume-Based Pricing" />
       <p class="mt-8 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70">
-        Wholesale pricing is customized based on your requirements. Request a quote and we will structure pricing to support your margins and growth strategy.
+        Wholesale pricing is customized based on your requirements. Request a quote and we will
+        structure pricing to support your margins and growth strategy.
       </p>
 
       <div class="mx-auto mt-10 flex max-w-md flex-wrap justify-center gap-3">
-        {pricingFactors.map((factor) => (
-          <span class="tag-hover-light rounded-[2px] border border-[#D6E8D3] bg-white px-4 py-2 font-[family-name:var(--font-ui)] text-[11px] text-[#333]/60">
-            {factor}
-          </span>
-        ))}
+        {
+          pricingFactors.map((factor) => (
+            <span class="tag-hover-light rounded-[2px] border border-[#D6E8D3] bg-white px-4 py-2 font-[family-name:var(--font-ui)] text-[11px] text-[#333]/60">
+              {factor}
+            </span>
+          ))
+        }
       </div>
     </div>
   </section>
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       WHOLESALE INQUIRY FORM
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <section class="surface-parchment py-24">
     <div class="mx-auto max-w-2xl px-6 lg:px-12">
       <SectionHeader eyebrow="Get Started" heading="Wholesale Inquiry" />
-      <p class="mt-6 text-center font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70">
+      <p
+        class="mt-6 text-center font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70"
+      >
         Share your details and we will respond with pricing, logistics options, and next steps.
       </p>
 
       <form class="mt-12 space-y-6" onsubmit="return false;">
         {/* Name */}
         <div>
-          <label for="ws-name" class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]">
+          <label
+            for="ws-name"
+            class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]"
+          >
             Name <span class="text-[#A18500]">*</span>
           </label>
           <input
@@ -326,7 +398,10 @@ const pricingFactors = [
 
         {/* Company */}
         <div>
-          <label for="ws-company" class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]">
+          <label
+            for="ws-company"
+            class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]"
+          >
             Company <span class="text-[#333]/40 normal-case tracking-normal">(optional)</span>
           </label>
           <input
@@ -340,7 +415,10 @@ const pricingFactors = [
 
         {/* Email */}
         <div>
-          <label for="ws-email" class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]">
+          <label
+            for="ws-email"
+            class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]"
+          >
             Email <span class="text-[#A18500]">*</span>
           </label>
           <input
@@ -355,7 +433,10 @@ const pricingFactors = [
 
         {/* Phone */}
         <div>
-          <label for="ws-phone" class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]">
+          <label
+            for="ws-phone"
+            class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]"
+          >
             Phone <span class="text-[#A18500]">*</span>
           </label>
           <input
@@ -370,7 +451,10 @@ const pricingFactors = [
 
         {/* Country */}
         <div>
-          <label for="ws-country" class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]">
+          <label
+            for="ws-country"
+            class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]"
+          >
             Country <span class="text-[#A18500]">*</span>
           </label>
           <input
@@ -385,7 +469,10 @@ const pricingFactors = [
 
         {/* Message */}
         <div>
-          <label for="ws-message" class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]">
+          <label
+            for="ws-message"
+            class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]"
+          >
             Message <span class="text-[#A18500]">*</span>
           </label>
           <textarea
@@ -409,36 +496,69 @@ const pricingFactors = [
     </div>
   </section>
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       CONTACT INFO — Bottom section with email + WhatsApp
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <section class="surface-dark grain relative overflow-hidden py-24">
     <div class="reveal-on-scroll relative z-10 mx-auto max-w-3xl px-6 text-center lg:px-12">
-      <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80">
+      <p
+        class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80"
+      >
         Ready to Partner?
       </p>
-      <h2 class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-white">
+      <h2
+        class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-white"
+      >
         Let's Build Your Next Product Line
       </h2>
       <hr class="gold-rule" />
-      <p class="mx-auto mt-8 max-w-xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-white/50">
-        Bring authentic Honduran ethnobotanicals to your market with a supplier who honors origin, culture, and transparency.
+      <p
+        class="mx-auto mt-8 max-w-xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-white/50"
+      >
+        Bring authentic Honduran ethnobotanicals to your market with a supplier who honors origin,
+        culture, and transparency.
       </p>
 
       <div class="mt-10 flex flex-col items-center justify-center gap-6 sm:flex-row sm:gap-12">
-        <a href="mailto:sales@forestal-mt.com" class="group flex items-center gap-3 transition-colors">
-          <svg class="h-5 w-5 text-[#F3C00D]/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+        <a
+          href="mailto:sales@forestal-mt.com"
+          class="group flex items-center gap-3 transition-colors"
+        >
+          <svg
+            class="h-5 w-5 text-[#F3C00D]/60"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
+            ></path>
           </svg>
-          <span class="font-[family-name:var(--font-ui)] text-[14px] text-white/70 transition-colors group-hover:text-white">
+          <span
+            class="font-[family-name:var(--font-ui)] text-[14px] text-white/70 transition-colors group-hover:text-white"
+          >
             sales@forestal-mt.com
           </span>
         </a>
-        <a href="https://wa.me/50496997635" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-3 transition-colors">
+        <a
+          href="https://wa.me/50496997635"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group flex items-center gap-3 transition-colors"
+        >
           <svg class="h-5 w-5 text-[#F3C00D]/60" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"
+            ></path>
           </svg>
-          <span class="font-[family-name:var(--font-ui)] text-[14px] text-white/70 transition-colors group-hover:text-white">
+          <span
+            class="font-[family-name:var(--font-ui)] text-[14px] text-white/70 transition-colors group-hover:text-white"
+          >
             +504 9699 7635
           </span>
         </a>
@@ -453,8 +573,10 @@ const pricingFactors = [
     </div>
   </section>
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       COLLECTIONS NAV
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <CollectionNav exclude="wholesale" />
 </BaseLayout>

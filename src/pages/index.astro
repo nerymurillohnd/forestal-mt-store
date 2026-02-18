@@ -81,18 +81,24 @@ const commitments = [
     schemas={data.schemas}
   />
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       HERO — Full viewport cinematic component
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <HeroCinematic
     height="100dvh"
-    background={{ type: 'image', src: 'https://cdn.forestal-mt.com/pages/home/hero.jpg', alt: 'Honduran rainforest canopy' }}
+    background={{
+      type: "image",
+      src: "https://cdn.forestal-mt.com/pages/home/hero.jpg",
+      alt: "Honduran rainforest canopy",
+    }}
     eyebrow="Exporting Nature Without Borders"
     title="Batana Oil, Honey\n& Herbs from Honduras"
     description="Family-owned Honduran exporter of Batana Oil, Jimerito stingless bee honey, and wildcrafted traditional herbs. Sourced directly from indigenous communities."
     ctas={[
-      { label: 'Shop Now', url: '/products/' },
-      { label: 'Wholesale', url: '/wholesale/' },
+      { label: "Shop Now", url: "/products/" },
+      { label: "Wholesale", url: "/wholesale/" },
     ]}
     scrollIndicator={true}
   />
@@ -100,18 +106,19 @@ const commitments = [
   {/* ── Trust marquee after hero ── */}
   <TrustMarquee />
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       COLLECTIONS — Bento grid editorial cards
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <section class="surface-warm relative py-28">
     <div class="mx-auto max-w-7xl px-6 lg:px-12">
-      <SectionHeader
-        eyebrow="Our Collections"
-        heading="Three Traditions, One Origin"
-      />
+      <SectionHeader eyebrow="Our Collections" heading="Three Traditions, One Origin" />
 
       {/* Bento grid: first card spans 2 rows on large screens */}
-      <div class="reveal-on-scroll mt-20 grid grid-cols-1 gap-4 lg:grid-cols-[1.3fr_1fr] lg:grid-rows-[1fr_1fr]">
+      <div
+        class="reveal-on-scroll mt-20 grid grid-cols-1 gap-4 lg:grid-cols-[1.3fr_1fr] lg:grid-rows-[1fr_1fr]"
+      >
         {
           collections.map((col, i) => (
             <a
@@ -166,23 +173,30 @@ const commitments = [
     </div>
   </section>
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       THE SOURCE — Interactive Honduras map (OriginPulse island)
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <section class="surface-dark grain relative overflow-hidden py-28">
     <div class="reveal-on-scroll relative z-10 mx-auto max-w-4xl px-6 text-center lg:px-12">
-      <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80">
+      <p
+        class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80"
+      >
         Why Forestal MT
       </p>
-      <h2 class="mt-6 font-[family-name:var(--font-display)] text-[clamp(2rem,4.5vw,3.25rem)] font-normal leading-[1.15] text-white">
+      <h2
+        class="mt-6 font-[family-name:var(--font-display)] text-[clamp(2rem,4.5vw,3.25rem)] font-normal leading-[1.15] text-white"
+      >
         We Are the Source.<br />Not a Middleman.
       </h2>
       <hr class="gold-rule" />
-      <p class="mx-auto mt-8 max-w-2xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-white/55">
-        Most suppliers resell from unknown origins. We source directly from
-        indigenous communities in Honduras who craft these products using
-        ancestral methods. No brokers. No traders. Full traceability from forest
-        to your door.
+      <p
+        class="mx-auto mt-8 max-w-2xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-white/55"
+      >
+        Most suppliers resell from unknown origins. We source directly from indigenous communities
+        in Honduras who craft these products using ancestral methods. No brokers. No traders. Full
+        traceability from forest to your door.
       </p>
     </div>
 
@@ -191,13 +205,12 @@ const commitments = [
     </div>
   </section>
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       OUR STORY — Warm editorial with asymmetric image
-  ═══════════════════════════════════════════════════════════════ */}
-  <section
-    class="py-28"
-    style="background-color: color-mix(in srgb, #E6D8B1 10%, #F8F8F0);"
-  >
+  ═══════════════════════════════════════════════════════════════ */
+  }
+  <section class="py-28" style="background-color: color-mix(in srgb, #E6D8B1 10%, #F8F8F0);">
     <div
       class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 lg:grid-cols-[1fr_1.15fr] lg:px-12"
     >
@@ -217,20 +230,17 @@ const commitments = [
         <p
           class="mt-8 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70"
         >
-          We bring you nature's finest treasures — sustainably harvested and
-          traditionally prepared by the communities who have safeguarded them for
-          centuries. From the forests of Olancho to La Mosquitia's coastline,
-          every product carries a clear, honest story.
+          We bring you nature's finest treasures — sustainably harvested and traditionally prepared
+          by the communities who have safeguarded them for centuries. From the forests of Olancho to
+          La Mosquitia's coastline, every product carries a clear, honest story.
         </p>
 
-        <blockquote
-          class="mt-8 border-l-[2px] border-[#F3C00D]/50 pl-6"
-        >
+        <blockquote class="mt-8 border-l-[2px] border-[#F3C00D]/50 pl-6">
           <p
             class="font-[family-name:var(--font-display)] text-[1.2rem] italic leading-relaxed text-[#333]/80"
           >
-            To share the natural treasures of Honduras with the world while
-            supporting local communities and preserving traditional knowledge.
+            To share the natural treasures of Honduras with the world while supporting local
+            communities and preserving traditional knowledge.
           </p>
         </blockquote>
 
@@ -262,30 +272,22 @@ const commitments = [
           class="h-full w-full object-cover"
           loading="lazy"
         />
-        <div
-          class="absolute inset-0 rounded-[2px] ring-1 ring-inset ring-[#F3C00D]/10"
-        >
-        </div>
+        <div class="absolute inset-0 rounded-[2px] ring-1 ring-inset ring-[#F3C00D]/10"></div>
       </div>
     </div>
   </section>
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       COMMITMENT — GoldTopCard components with stagger
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <section class="surface-warm py-28">
     <div class="mx-auto max-w-7xl px-6 lg:px-12">
-      <SectionHeader
-        eyebrow="Our Promise"
-        heading="Heritage You Can Verify"
-      />
+      <SectionHeader eyebrow="Our Promise" heading="Heritage You Can Verify" />
 
       <div class="reveal-on-scroll stagger-children mt-20 grid grid-cols-1 gap-6 md:grid-cols-3">
-        {
-          commitments.map((item) => (
-            <GoldTopCard heading={item.title} body={item.description} />
-          ))
-        }
+        {commitments.map((item) => <GoldTopCard heading={item.title} body={item.description} />)}
       </div>
     </div>
   </section>
@@ -293,9 +295,11 @@ const commitments = [
   {/* ── Trust marquee before newsletter ── */}
   <TrustMarquee variant="dark" />
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       NEWSLETTER — Forest green CTA with grain
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <section class="grain relative overflow-hidden bg-[#206D03] py-24">
     <div class="reveal-on-scroll relative z-10 mx-auto max-w-2xl px-6 text-center">
       <h2
@@ -303,11 +307,9 @@ const commitments = [
       >
         Stay Connected
       </h2>
-      <p
-        class="mt-4 font-[family-name:var(--font-body)] text-[14px] leading-relaxed text-white/65"
-      >
-        New harvests, limited editions, and stories from the Honduran rainforest
-        — delivered to your inbox.
+      <p class="mt-4 font-[family-name:var(--font-body)] text-[14px] leading-relaxed text-white/65">
+        New harvests, limited editions, and stories from the Honduran rainforest — delivered to your
+        inbox.
       </p>
 
       <form class="mt-10 flex flex-col gap-3 sm:flex-row">

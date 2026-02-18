@@ -137,9 +137,7 @@
       "worksFor": { "@id": "https://forestal-mt.com/#organization" },
       "nationality": { "@type": "Country", "name": "Honduras" },
       "knowsLanguage": ["Spanish"],
-      "sameAs": [
-        "https://www.facebook.com/nery.murillo.490883"
-      ]
+      "sameAs": ["https://www.facebook.com/nery.murillo.490883"]
     },
     {
       "@type": "Person",
@@ -147,9 +145,7 @@
       "gender": "Female",
       "nationality": { "@type": "Country", "name": "Honduras" },
       "knowsLanguage": ["Spanish"],
-      "sameAs": [
-        "https://www.facebook.com/lucymayra.tejada"
-      ]
+      "sameAs": ["https://www.facebook.com/lucymayra.tejada"]
     },
     {
       "@type": "Person",
@@ -169,9 +165,7 @@
           "url": "https://www.unicah.edu/"
         }
       ],
-      "sameAs": [
-        "https://www.facebook.com/jackiemurillogt"
-      ]
+      "sameAs": ["https://www.facebook.com/jackiemurillogt"]
     },
     {
       "@type": "Person",
@@ -225,9 +219,7 @@
       "gender": "Male",
       "nationality": { "@type": "Country", "name": "Honduras" },
       "knowsLanguage": ["Spanish", "English"],
-      "sameAs": [
-        "https://www.facebook.com/roberth.murillo.tejada"
-      ]
+      "sameAs": ["https://www.facebook.com/roberth.murillo.tejada"]
     },
     {
       "@type": "Person",
@@ -247,9 +239,7 @@
       "worksFor": { "@id": "https://forestal-mt.com/#organization" },
       "nationality": { "@type": "Country", "name": "Honduras" },
       "knowsLanguage": ["Spanish"],
-      "sameAs": [
-        "https://www.facebook.com/nery.murillo.490883"
-      ]
+      "sameAs": ["https://www.facebook.com/nery.murillo.490883"]
     },
     {
       "@type": "Person",

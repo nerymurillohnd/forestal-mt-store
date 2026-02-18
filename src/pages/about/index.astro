@@ -146,12 +146,14 @@ const impacts = [
     schemas={data.schemas}
   />
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       HERO — HeroCinematic component, 80vh image background
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <HeroCinematic
     height="80vh"
-    background={{ type: "image", src: data.hero.background.url, alt: data.hero.background.alt }}
+    background={{ type: "image", src: data.hero.background?.url, alt: data.hero.background?.alt }}
     eyebrow={data.hero.eyebrow}
     title={data.hero.title}
     subtitle={data.hero.subtitle}
@@ -161,29 +163,46 @@ const impacts = [
 
   <Breadcrumb pageName={data.pageName} />
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       WHO WE ARE — Centered intro narrative
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <section class="surface-warm py-24">
     <div class="mx-auto max-w-3xl px-6 text-center lg:px-12">
       <SectionHeader eyebrow="Who We Are" heading="Rooted in Honduras,<br />Serving the World" />
-      <p class="reveal-on-scroll mt-8 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70">
-        Forestal Murillo Tejada S. de R.L. is a <strong class="font-semibold text-[#333]/85">100% family-owned Honduran ethnobotanical exporter</strong> based in San Francisco de la Paz, Olancho. Rooted in ancestral knowledge and long-term care for the land, we source, craft, and export origin-true botanicals through direct partnerships with indigenous communities.
+      <p
+        class="reveal-on-scroll mt-8 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70"
+      >
+        Forestal Murillo Tejada S. de R.L. is a <strong class="font-semibold text-[#333]/85"
+          >100% family-owned Honduran ethnobotanical exporter</strong
+        > based in San Francisco de la Paz, Olancho. Rooted in ancestral knowledge and long-term care
+        for the land, we source, craft, and export origin-true botanicals through direct partnerships
+        with indigenous communities.
       </p>
-      <p class="reveal-on-scroll mt-4 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70">
-        From Olancho, one of Honduras' most biodiverse regions, we export artisanal, wild-harvested botanicals to partners and consumers across <strong class="font-semibold text-[#333]/85">North America, Central and South America, Europe, and Asia</strong>.
+      <p
+        class="reveal-on-scroll mt-4 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70"
+      >
+        From Olancho, one of Honduras' most biodiverse regions, we export artisanal, wild-harvested
+        botanicals to partners and consumers across <strong class="font-semibold text-[#333]/85"
+          >North America, Central and South America, Europe, and Asia</strong
+        >.
       </p>
     </div>
   </section>
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       TRUST MARQUEE — Between intro and Mission/Vision
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <TrustMarquee />
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       MISSION / VISION / PROMISE — GoldTopCard on parchment bg
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <section class="surface-parchment py-24">
     <div class="mx-auto max-w-7xl px-6 lg:px-12">
       <SectionHeader eyebrow="What Drives Us" heading="Mission, Vision, and Promise" />
@@ -211,69 +230,109 @@ const impacts = [
     </div>
   </section>
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       WE ARE THE SOURCE — Dark statement section
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <section class="surface-dark grain relative overflow-hidden py-24">
     <div class="relative z-10 mx-auto max-w-4xl px-6 text-center lg:px-12">
-      <SectionHeader eyebrow="What Sets Us Apart" heading="We Are the Source.<br />Not a Middleman." variant="dark" />
-      <p class="reveal-on-scroll mx-auto mt-8 max-w-2xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-white/55">
-        Most suppliers resell from unknown origins. We source directly from indigenous communities in Honduras who craft these products using ancestral methods. No brokers. No traders. No intermediaries.
+      <SectionHeader
+        eyebrow="What Sets Us Apart"
+        heading="We Are the Source.<br />Not a Middleman."
+        variant="dark"
+      />
+      <p
+        class="reveal-on-scroll mx-auto mt-8 max-w-2xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-white/55"
+      >
+        Most suppliers resell from unknown origins. We source directly from indigenous communities
+        in Honduras who craft these products using ancestral methods. No brokers. No traders. No
+        intermediaries.
       </p>
-      <p class="reveal-on-scroll mx-auto mt-4 max-w-2xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-white/55">
-        You get Batana Oil from <em>Elaeis oleifera</em> palms in La Mosquitia, Jimerito honey from ancestral log hives, and wildcrafted herbs from native territories — with <strong class="font-semibold text-white/75">full traceability from forest to your door</strong>.
+      <p
+        class="reveal-on-scroll mx-auto mt-4 max-w-2xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-white/55"
+      >
+        You get Batana Oil from <em>Elaeis oleifera</em> palms in La Mosquitia, Jimerito honey from ancestral
+        log hives, and wildcrafted herbs from native territories — with <strong
+          class="font-semibold text-white/75">full traceability from forest to your door</strong
+        >.
       </p>
-      <p class="reveal-on-scroll mx-auto mt-6 max-w-2xl font-[family-name:var(--font-body)] text-[14px] leading-[1.85] text-white/40">
-        The difference is control, authenticity, and trust — from people who know the forest, the harvesters, and every step of the process.
+      <p
+        class="reveal-on-scroll mx-auto mt-6 max-w-2xl font-[family-name:var(--font-body)] text-[14px] leading-[1.85] text-white/40"
+      >
+        The difference is control, authenticity, and trust — from people who know the forest, the
+        harvesters, and every step of the process.
       </p>
     </div>
   </section>
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       TIMELINE — Vertical company history (gold separator from above)
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <section class="relative overflow-hidden border-t border-[#F3C00D]/10 bg-charcoal py-24">
     <div class="relative z-10 mx-auto max-w-5xl px-6 lg:px-12">
-      <SectionHeader eyebrow="Our Journey" heading="From Forest Stewardship<br />to Global Ambassador" variant="dark" />
+      <SectionHeader
+        eyebrow="Our Journey"
+        heading="From Forest Stewardship<br />to Global Ambassador"
+        variant="dark"
+      />
 
       {/* Timeline */}
       <div class="relative mt-20">
         {/* Vertical line */}
-        <div class="absolute left-[7.5rem] top-0 hidden h-full w-px bg-gradient-to-b from-[#F3C00D]/40 via-[#F3C00D]/20 to-transparent md:block"></div>
-        <div class="absolute left-4 top-0 h-full w-px bg-gradient-to-b from-[#F3C00D]/40 via-[#F3C00D]/20 to-transparent md:hidden"></div>
+        <div
+          class="absolute left-[7.5rem] top-0 hidden h-full w-px bg-gradient-to-b from-[#F3C00D]/40 via-[#F3C00D]/20 to-transparent md:block"
+        >
+        </div>
+        <div
+          class="absolute left-4 top-0 h-full w-px bg-gradient-to-b from-[#F3C00D]/40 via-[#F3C00D]/20 to-transparent md:hidden"
+        >
+        </div>
 
         <div class="space-y-16 md:space-y-12">
-          {timeline.map((milestone, index) => (
-            <div class="relative grid grid-cols-1 gap-4 md:grid-cols-[7.5rem_1fr] md:gap-8">
-              {/* Year — left side */}
-              <div class="pl-10 md:pl-0 md:text-right">
-                <span class="font-[family-name:var(--font-display)] text-[clamp(1.5rem,2.5vw,2rem)] leading-none text-[#F3C00D]">
-                  {milestone.year}
-                </span>
-              </div>
+          {
+            timeline.map((milestone) => (
+              <div class="relative grid grid-cols-1 gap-4 md:grid-cols-[7.5rem_1fr] md:gap-8">
+                {/* Year — left side */}
+                <div class="pl-10 md:pl-0 md:text-right">
+                  <span class="font-[family-name:var(--font-display)] text-[clamp(1.5rem,2.5vw,2rem)] leading-none text-[#F3C00D]">
+                    {milestone.year}
+                  </span>
+                </div>
 
-              {/* Gold dot marker */}
-              <div class="absolute left-4 top-[0.35rem] hidden h-2.5 w-2.5 rounded-full border-2 border-[#F3C00D] bg-charcoal md:left-[6.85rem] md:block"></div>
-              <div class="absolute left-[0.7rem] top-[0.35rem] h-2.5 w-2.5 rounded-full border-2 border-[#F3C00D] bg-charcoal md:hidden"></div>
+                {/* Gold dot marker */}
+                <div class="absolute left-4 top-[0.35rem] hidden h-2.5 w-2.5 rounded-full border-2 border-[#F3C00D] bg-charcoal md:left-[6.85rem] md:block" />
+                <div class="absolute left-[0.7rem] top-[0.35rem] h-2.5 w-2.5 rounded-full border-2 border-[#F3C00D] bg-charcoal md:hidden" />
 
-              {/* Content — right side */}
-              <div class="pl-10 md:pl-8">
-                <h3 class="font-[family-name:var(--font-heading)] text-[1.05rem] font-normal tracking-wide text-white">
-                  {milestone.title}
-                </h3>
-                <p class="mt-3 max-w-xl font-[family-name:var(--font-body)] text-[13px] leading-[1.85] text-white/50">
-                  {milestone.description}
-                </p>
+                {/* Content — right side */}
+                <div class="pl-10 md:pl-8">
+                  <h3 class="font-[family-name:var(--font-heading)] text-[1.05rem] font-normal tracking-wide text-white">
+                    {milestone.title}
+                  </h3>
+                  <p class="mt-3 max-w-xl font-[family-name:var(--font-body)] text-[13px] leading-[1.85] text-white/50">
+                    {milestone.description}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+          }
         </div>
 
         {/* Terminal dot */}
         <div class="relative mt-12 md:ml-[7.5rem] md:pl-8">
-          <div class="absolute left-4 top-1/2 hidden h-3 w-3 -translate-y-1/2 rounded-full bg-[#F3C00D]/40 md:left-[-0.65rem] md:block"></div>
-          <div class="absolute left-[0.55rem] top-1/2 h-3 w-3 -translate-y-1/2 rounded-full bg-[#F3C00D]/40 md:hidden"></div>
-          <p class="pl-10 font-[family-name:var(--font-body)] text-[13px] italic text-white/30 md:pl-0">
+          <div
+            class="absolute left-4 top-1/2 hidden h-3 w-3 -translate-y-1/2 rounded-full bg-[#F3C00D]/40 md:left-[-0.65rem] md:block"
+          >
+          </div>
+          <div
+            class="absolute left-[0.55rem] top-1/2 h-3 w-3 -translate-y-1/2 rounded-full bg-[#F3C00D]/40 md:hidden"
+          >
+          </div>
+          <p
+            class="pl-10 font-[family-name:var(--font-body)] text-[13px] italic text-white/30 md:pl-0"
+          >
             The journey continues...
           </p>
         </div>
@@ -281,80 +340,105 @@ const impacts = [
     </div>
   </section>
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       COLLECTIONS — 3 editorial portrait cards
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <section class="surface-warm py-24">
     <div class="mx-auto max-w-7xl px-6 lg:px-12">
       <SectionHeader eyebrow="Our Collections" heading="Three Traditions, One Origin" />
 
       <div class="stagger-children mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {collections.map((col) => (
-          <a
-            href={col.href}
-            class="group relative flex aspect-[3/4] flex-col justify-end overflow-hidden rounded-[2px] shadow-sm transition-shadow duration-500 hover:shadow-xl"
-          >
-            <img
-              src={col.image}
-              alt={col.title}
-              class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-              loading="lazy"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-[#111]/85 via-[#111]/25 to-transparent transition-opacity duration-500" />
+        {
+          collections.map((col) => (
+            <a
+              href={col.href}
+              class="group relative flex aspect-[3/4] flex-col justify-end overflow-hidden rounded-[2px] shadow-sm transition-shadow duration-500 hover:shadow-xl"
+            >
+              <img
+                src={col.image}
+                alt={col.title}
+                class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#111]/85 via-[#111]/25 to-transparent transition-opacity duration-500" />
 
-            <div class="relative z-10 p-8 pb-10">
-              <p class="font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80">
-                {col.eyebrow}
-              </p>
-              <h3 class="mt-2.5 font-[family-name:var(--font-display)] text-[1.65rem] leading-tight text-white">
-                {col.title}
-              </h3>
-              <p class="mt-1 font-[family-name:var(--font-heading)] text-[10px] font-normal uppercase tracking-[0.2em] text-white/50">
-                {col.tag}
-              </p>
-              <p class="mt-4 max-w-xs font-[family-name:var(--font-body)] text-[13px] leading-relaxed text-white/55 transition-all duration-500 ease-out md:translate-y-3 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100">
-                {col.description}
-              </p>
-              <span class="mt-5 inline-flex items-center gap-1.5 font-[family-name:var(--font-ui)] text-[11px] font-semibold uppercase tracking-[0.15em] text-white/70 transition-all duration-300 group-hover:text-[#F3C00D]">
-                Explore Collection
-                <svg class="h-3 w-3 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                </svg>
-              </span>
-            </div>
-          </a>
-        ))}
+              <div class="relative z-10 p-8 pb-10">
+                <p class="font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80">
+                  {col.eyebrow}
+                </p>
+                <h3 class="mt-2.5 font-[family-name:var(--font-display)] text-[1.65rem] leading-tight text-white">
+                  {col.title}
+                </h3>
+                <p class="mt-1 font-[family-name:var(--font-heading)] text-[10px] font-normal uppercase tracking-[0.2em] text-white/50">
+                  {col.tag}
+                </p>
+                <p class="mt-4 max-w-xs font-[family-name:var(--font-body)] text-[13px] leading-relaxed text-white/55 transition-all duration-500 ease-out md:translate-y-3 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100">
+                  {col.description}
+                </p>
+                <span class="mt-5 inline-flex items-center gap-1.5 font-[family-name:var(--font-ui)] text-[11px] font-semibold uppercase tracking-[0.15em] text-white/70 transition-all duration-300 group-hover:text-[#F3C00D]">
+                  Explore Collection
+                  <svg
+                    class="h-3 w-3 transition-transform duration-300 group-hover:translate-x-1"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </a>
+          ))
+        }
       </div>
     </div>
   </section>
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       VALUES — GoldTopCard grid on parchment
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <section class="surface-parchment py-24">
     <div class="mx-auto max-w-7xl px-6 lg:px-12">
       <SectionHeader eyebrow="What Guides Us" heading="Our Values" />
 
       <div class="stagger-children mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {values.map((value, index) => (
-          <GoldTopCard
-            number={String(index + 1).padStart(2, "0")}
-            heading={value.title}
-            body={value.description}
-          />
-        ))}
+        {
+          values.map((value, index) => (
+            <GoldTopCard
+              number={String(index + 1).padStart(2, "0")}
+              heading={value.title}
+              body={value.description}
+            />
+          ))
+        }
       </div>
     </div>
   </section>
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       OUR LOGO — Accent batana bg with OriginMetadata
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <section class="accent-batana py-24">
     <div class="mx-auto max-w-3xl px-6 text-center lg:px-12">
       <SectionHeader eyebrow="The Symbol" heading="Our Logo" />
-      <p class="reveal-on-scroll mt-8 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70">
-        The <strong class="font-semibold text-[#333]/85">six pine trees</strong> in our emblem stand for family, continuity, and care for the land. The tallest tree represents the founder and the company's backbone. The arrangement reflects the flow from origin to export, showing that every product carries a clear, honest story.
+      <p
+        class="reveal-on-scroll mt-8 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70"
+      >
+        The <strong class="font-semibold text-[#333]/85">six pine trees</strong> in our emblem stand for
+        family, continuity, and care for the land. The tallest tree represents the founder and the company's
+        backbone. The arrangement reflects the flow from origin to export, showing that every product
+        carries a clear, honest story.
       </p>
 
       <div class="mx-auto mt-10 max-w-lg">
@@ -368,48 +452,69 @@ const impacts = [
         />
       </div>
 
-      <p class="reveal-on-scroll mt-8 font-[family-name:var(--font-body)] text-[13px] italic text-[#333]/50">
-        The pine trees also honor our forestry origins — the responsible land management practices that built the discipline, logistics, and compliance foundation for our ethnobotanical exports today.
+      <p
+        class="reveal-on-scroll mt-8 font-[family-name:var(--font-body)] text-[13px] italic text-[#333]/50"
+      >
+        The pine trees also honor our forestry origins — the responsible land management practices
+        that built the discipline, logistics, and compliance foundation for our ethnobotanical
+        exports today.
       </p>
     </div>
   </section>
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       COMMUNITY IMPACT — What We Support
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <section class="surface-warm py-24">
     <div class="mx-auto max-w-4xl px-6 lg:px-12">
       <SectionHeader eyebrow="Every Purchase Matters" heading="Community Impact" />
-      <p class="reveal-on-scroll mt-8 text-center font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70">
-        Every purchase supports rural communities in Honduras. We work directly with local harvesters and producers, providing fair wages and sustainable livelihoods.
+      <p
+        class="reveal-on-scroll mt-8 text-center font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70"
+      >
+        Every purchase supports rural communities in Honduras. We work directly with local
+        harvesters and producers, providing fair wages and sustainable livelihoods.
       </p>
 
       <div class="reveal-on-scroll mt-12">
         <ul class="space-y-5">
-          {impacts.map((item) => (
-            <li class="flex items-start gap-4 font-[family-name:var(--font-body)] text-[14px] leading-relaxed text-[#333]/70">
-              <span class="mt-2 h-px w-5 shrink-0 bg-[#F3C00D]/50"></span>
-              {item}
-            </li>
-          ))}
+          {
+            impacts.map((item) => (
+              <li class="flex items-start gap-4 font-[family-name:var(--font-body)] text-[14px] leading-relaxed text-[#333]/70">
+                <span class="mt-2 h-px w-5 shrink-0 bg-[#F3C00D]/50" />
+                {item}
+              </li>
+            ))
+          }
         </ul>
       </div>
     </div>
   </section>
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       PARTNER CTA — Green section
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <section class="grain relative overflow-hidden bg-[#206D03] py-24">
     <div class="reveal-on-scroll relative z-10 mx-auto max-w-3xl px-6 text-center lg:px-12">
-      <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80">
+      <p
+        class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80"
+      >
         Work With Us
       </p>
-      <h2 class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-white">
+      <h2
+        class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-white"
+      >
         Partner With Us
       </h2>
-      <p class="mx-auto mt-6 max-w-2xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-white/60">
-        Whether you're a formulator seeking traceable ingredients, a brand looking for origin-crafted botanicals, or a distributor expanding your portfolio — Forestal MT delivers direct-from-origin products with proven quality and long-term reliability.
+      <p
+        class="mx-auto mt-6 max-w-2xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-white/60"
+      >
+        Whether you're a formulator seeking traceable ingredients, a brand looking for
+        origin-crafted botanicals, or a distributor expanding your portfolio — Forestal MT delivers
+        direct-from-origin products with proven quality and long-term reliability.
       </p>
       <div class="mt-10 flex flex-wrap justify-center gap-4">
         <a

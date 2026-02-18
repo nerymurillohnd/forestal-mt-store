@@ -54,16 +54,12 @@ export default defineConfig({
             {
               weight: 400,
               style: "normal",
-              src: [
-                "./src/assets/fonts/the-new-elegance/TheNewEleganceRegular/font.woff2",
-              ],
+              src: ["./src/assets/fonts/the-new-elegance/TheNewEleganceRegular/font.woff2"],
             },
             {
               weight: 400,
               style: "italic",
-              src: [
-                "./src/assets/fonts/the-new-elegance/TheNewEleganceCondensedItalic/font.woff2",
-              ],
+              src: ["./src/assets/fonts/the-new-elegance/TheNewEleganceCondensedItalic/font.woff2"],
             },
           ],
         },
@@ -103,23 +99,17 @@ export default defineConfig({
             {
               weight: 400,
               style: "normal",
-              src: [
-                "./src/assets/fonts/libre-baskerville/libre-baskerville-400-normal.woff2",
-              ],
+              src: ["./src/assets/fonts/libre-baskerville/libre-baskerville-400-normal.woff2"],
             },
             {
               weight: 400,
               style: "italic",
-              src: [
-                "./src/assets/fonts/libre-baskerville/libre-baskerville-400-italic.woff2",
-              ],
+              src: ["./src/assets/fonts/libre-baskerville/libre-baskerville-400-italic.woff2"],
             },
             {
               weight: 700,
               style: "normal",
-              src: [
-                "./src/assets/fonts/libre-baskerville/libre-baskerville-700-normal.woff2",
-              ],
+              src: ["./src/assets/fonts/libre-baskerville/libre-baskerville-700-normal.woff2"],
             },
           ],
         },

@@ -77,10 +77,34 @@ const benefits = {
 };
 
 const comparison = [
-  { oil: "Batana Oil", feel: "Rich", best: "Deep nourishment and moisture", works: "Curly, coily, dry, or damaged hair", highlight: true },
-  { oil: "Argan Oil", feel: "Medium", best: "Shine and softness", works: "Hair needing lightweight moisture", highlight: false },
-  { oil: "Coconut Oil", feel: "Medium", best: "Moisture sealing", works: "Dry hair and skin routines", highlight: false },
-  { oil: "Jojoba Oil", feel: "Light", best: "Scalp balance support", works: "Oily scalp, sensitive skin routines", highlight: false },
+  {
+    oil: "Batana Oil",
+    feel: "Rich",
+    best: "Deep nourishment and moisture",
+    works: "Curly, coily, dry, or damaged hair",
+    highlight: true,
+  },
+  {
+    oil: "Argan Oil",
+    feel: "Medium",
+    best: "Shine and softness",
+    works: "Hair needing lightweight moisture",
+    highlight: false,
+  },
+  {
+    oil: "Coconut Oil",
+    feel: "Medium",
+    best: "Moisture sealing",
+    works: "Dry hair and skin routines",
+    highlight: false,
+  },
+  {
+    oil: "Jojoba Oil",
+    feel: "Light",
+    best: "Scalp balance support",
+    works: "Oily scalp, sensitive skin routines",
+    highlight: false,
+  },
 ];
 
 const processes = [
@@ -115,7 +139,7 @@ const origin = {
 };
 
 const originMetadata = Object.entries(origin).map(([key, value]) => ({
-  label: key.replace(/([A-Z])/g, ' $1').trim(),
+  label: key.replace(/([A-Z])/g, " $1").trim(),
   value,
 }));
 ---
@@ -132,12 +156,14 @@ const originMetadata = Object.entries(origin).map(([key, value]) => ({
     schemas={data.schemas}
   />
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       HERO — Video background, cinematic
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <HeroCinematic
     height="80vh"
-    background={{ type: "video", streamId: data.hero.background.stream }}
+    background={{ type: "video", streamId: data.hero.background?.stream }}
     catalogAccent="batana"
     eyebrow={data.hero.eyebrow}
     title={data.hero.title}
@@ -148,28 +174,37 @@ const originMetadata = Object.entries(origin).map(([key, value]) => ({
 
   <Breadcrumb pageName={data.pageName} />
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       INTRO — Collection narrative
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <section class="surface-warm py-24">
     <div class="mx-auto max-w-3xl px-6 text-center lg:px-12">
-      <SectionHeader
-        eyebrow="The Collection"
-        heading="The Batana Oil Collection"
-        align="center"
-      />
-      <p class="reveal-on-scroll mt-8 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70">
-        For generations, the Miskito people of La Mosquitia have been known for their striking, healthy hair. Their secret lives in the rainforest — in the fruit of the American Palm, transformed into a deeply restorative oil through techniques handed down for as long as anyone can remember.
+      <SectionHeader eyebrow="The Collection" heading="The Batana Oil Collection" align="center" />
+      <p
+        class="reveal-on-scroll mt-8 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70"
+      >
+        For generations, the Miskito people of La Mosquitia have been known for their striking,
+        healthy hair. Their secret lives in the rainforest — in the fruit of the American Palm,
+        transformed into a deeply restorative oil through techniques handed down for as long as
+        anyone can remember.
       </p>
-      <p class="reveal-on-scroll mt-4 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70">
-        Every batch begins with wild-harvested palm nuts gathered by Miskito harvesters who know these trees intimately. From harvest to finished product, we protect what makes this oil extraordinary: a true place, a true practice, and a true origin you can trace.
+      <p
+        class="reveal-on-scroll mt-4 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70"
+      >
+        Every batch begins with wild-harvested palm nuts gathered by Miskito harvesters who know
+        these trees intimately. From harvest to finished product, we protect what makes this oil
+        extraordinary: a true place, a true practice, and a true origin you can trace.
       </p>
     </div>
   </section>
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       ORIGIN — OriginChapter asymmetric with amber accent
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <OriginChapter
     eyebrow="A Tradition Worth Knowing"
     heading="Heritage Rooted<br />in the Rainforest"
@@ -177,20 +212,25 @@ const originMetadata = Object.entries(origin).map(([key, value]) => ({
       "Batana Oil is more than an ingredient. It is a heritage carried forward — born from an intimate understanding of the rainforest, the rhythm of the palms, and the skilled hands of communities who have worked this craft for generations.",
       "We collaborate directly with Miskito harvesters who continue these sustainable wild-harvesting practices. No anonymous supply chains. No guesswork about where your oil comes from.",
     ]}
-    image={{ src: "https://cdn.forestal-mt.com/pages/batana-oil/origin.jpg", alt: "Miskito harvesters with Elaeis oleifera palm nuts in La Mosquitia" }}
+    image={{
+      src: "https://cdn.forestal-mt.com/pages/batana-oil/origin.jpg",
+      alt: "Miskito harvesters with Elaeis oleifera palm nuts in La Mosquitia",
+    }}
     metadata={originMetadata}
     catalogAccent="batana"
     direction="image-left"
   />
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       PROCESSING — ProcessFlow horizontal connected steps
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <ProcessFlow
     eyebrow="Two Methods, Both Honored"
     heading="From Palm to Oil"
     steps={processes.map((proc, i) => ({
-      number: String(i + 1).padStart(2, '0'),
+      number: String(i + 1).padStart(2, "0"),
       title: proc.title,
       description: proc.description,
       tag: proc.tag,
@@ -198,109 +238,134 @@ const originMetadata = Object.entries(origin).map(([key, value]) => ({
     footnote="Forestal MT offers both methods — heritage-driven craftsmanship and refined purity. Each with authentic origin and full traceability."
   />
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       PRODUCTS — Specimen cards
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <section class="surface-warm py-24">
     <div class="mx-auto max-w-7xl px-6 lg:px-12">
       <div class="reveal-on-scroll text-center">
-        <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]">
+        <p
+          class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]"
+        >
           Our Products
         </p>
-        <h2 class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-[#333]">
+        <h2
+          class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-[#333]"
+        >
           The Batana Oil Collection
         </h2>
         <hr class="gold-rule" />
       </div>
 
       <div class="stagger-children mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {products.map((product) => (
-          <div class="card-hover group border-t-[3px] border-[#F3C00D]/50 bg-white shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-shadow duration-300 hover:shadow-md">
-            <div class="aspect-square bg-[#F2F2F2] p-6">
-              <img
-                src={product.image}
-                alt={product.name}
-                class="h-full w-full object-contain"
-                loading="lazy"
-              />
+        {
+          products.map((product) => (
+            <div class="card-hover group border-t-[3px] border-[#F3C00D]/50 bg-white shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-shadow duration-300 hover:shadow-md">
+              <div class="aspect-square bg-[#F2F2F2] p-6">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  class="h-full w-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+              <div class="p-6">
+                <p class="font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.2em] text-[#A18500]">
+                  {product.sku}
+                </p>
+                <h3 class="mt-2 font-[family-name:var(--font-heading)] text-[1rem] font-normal text-[#333]">
+                  {product.name}
+                </h3>
+                <p class="mt-0.5 font-[family-name:var(--font-body)] text-[12px] italic text-[#333]/50">
+                  {product.tag}
+                </p>
+                <p class="mt-3 font-[family-name:var(--font-body)] text-[13px] leading-[1.75] text-[#333]/60">
+                  {product.description}
+                </p>
+              </div>
             </div>
-            <div class="p-6">
-              <p class="font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.2em] text-[#A18500]">
-                {product.sku}
-              </p>
-              <h3 class="mt-2 font-[family-name:var(--font-heading)] text-[1rem] font-normal text-[#333]">
-                {product.name}
-              </h3>
-              <p class="mt-0.5 font-[family-name:var(--font-body)] text-[12px] italic text-[#333]/50">
-                {product.tag}
-              </p>
-              <p class="mt-3 font-[family-name:var(--font-body)] text-[13px] leading-[1.75] text-[#333]/60">
-                {product.description}
-              </p>
-            </div>
-          </div>
-        ))}
+          ))
+        }
       </div>
     </div>
   </section>
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       BENEFITS — Hair / Skin / Beard categories
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <section class="accent-batana py-24">
     <div class="mx-auto max-w-7xl px-6 lg:px-12">
       <div class="text-center">
-        <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]">
+        <p
+          class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]"
+        >
           Naturally Rich in Essential Fatty Acids, Antioxidants & Vitamin E
         </p>
-        <h2 class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-[#333]">
+        <h2
+          class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-[#333]"
+        >
           What Batana Oil Does for You
         </h2>
         <hr class="gold-rule" />
       </div>
 
       <div class="stagger-children mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
-        {[
-          { title: "For Your Hair", items: benefits.hair, number: "01" },
-          { title: "For Your Skin", items: benefits.skin, number: "02" },
-          { title: "For Your Beard", items: benefits.beard, number: "03" },
-        ].map((cat) => (
-          <div class="bg-white p-8 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
-            <span class="font-[family-name:var(--font-heading)] text-[13px] text-[#F3C00D]/40">
-              {cat.number}
-            </span>
-            <h3 class="mt-2 font-[family-name:var(--font-heading)] text-[1rem] font-normal text-[#333]">
-              {cat.title}
-            </h3>
-            <div class="mt-3 h-px w-8 bg-[#F3C00D]/30"></div>
-            <ul class="mt-5 space-y-3">
-              {cat.items.map((item) => (
-                <li class="flex items-start gap-2.5 font-[family-name:var(--font-body)] text-[13px] leading-relaxed text-[#333]/65">
-                  <span class="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-[#206D03]/50" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        {
+          [
+            { title: "For Your Hair", items: benefits.hair, number: "01" },
+            { title: "For Your Skin", items: benefits.skin, number: "02" },
+            { title: "For Your Beard", items: benefits.beard, number: "03" },
+          ].map((cat) => (
+            <div class="bg-white p-8 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
+              <span class="font-[family-name:var(--font-heading)] text-[13px] text-[#F3C00D]/40">
+                {cat.number}
+              </span>
+              <h3 class="mt-2 font-[family-name:var(--font-heading)] text-[1rem] font-normal text-[#333]">
+                {cat.title}
+              </h3>
+              <div class="mt-3 h-px w-8 bg-[#F3C00D]/30" />
+              <ul class="mt-5 space-y-3">
+                {cat.items.map((item) => (
+                  <li class="flex items-start gap-2.5 font-[family-name:var(--font-body)] text-[13px] leading-relaxed text-[#333]/65">
+                    <span class="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-[#206D03]/50" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
       </div>
 
-      <p class="mt-8 text-center font-[family-name:var(--font-body)] text-[12px] italic text-[#333]/40">
-        These reflect traditional and cosmetic applications. Batana Oil is not a medical product and is not intended to diagnose, treat, cure, or prevent any disease.
+      <p
+        class="mt-8 text-center font-[family-name:var(--font-body)] text-[12px] italic text-[#333]/40"
+      >
+        These reflect traditional and cosmetic applications. Batana Oil is not a medical product and
+        is not intended to diagnose, treat, cure, or prevent any disease.
       </p>
     </div>
   </section>
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       COMPARISON TABLE
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <section class="surface-warm py-24">
     <div class="mx-auto max-w-5xl px-6 lg:px-12">
       <div class="reveal-on-scroll text-center">
-        <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]">
+        <p
+          class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]"
+        >
           A Natural Choice for Every Hair Type
         </p>
-        <h2 class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-[#333]">
+        <h2
+          class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-[#333]"
+        >
           How Batana Oil Compares
         </h2>
         <hr class="gold-rule" />
@@ -310,93 +375,119 @@ const originMetadata = Object.entries(origin).map(([key, value]) => ({
         <table class="w-full min-w-[600px]">
           <thead>
             <tr>
-              <th class="border-b-2 border-[#D6E8D3] px-4 py-3 text-left font-[family-name:var(--font-heading)] text-[10px] font-semibold uppercase tracking-[0.1em] text-[#333]">
+              <th
+                class="border-b-2 border-[#D6E8D3] px-4 py-3 text-left font-[family-name:var(--font-heading)] text-[10px] font-semibold uppercase tracking-[0.1em] text-[#333]"
+              >
                 Oil
               </th>
-              <th class="border-b-2 border-[#D6E8D3] px-4 py-3 text-left font-[family-name:var(--font-heading)] text-[10px] font-semibold uppercase tracking-[0.1em] text-[#333]">
+              <th
+                class="border-b-2 border-[#D6E8D3] px-4 py-3 text-left font-[family-name:var(--font-heading)] text-[10px] font-semibold uppercase tracking-[0.1em] text-[#333]"
+              >
                 Feel
               </th>
-              <th class="border-b-2 border-[#D6E8D3] px-4 py-3 text-left font-[family-name:var(--font-heading)] text-[10px] font-semibold uppercase tracking-[0.1em] text-[#333]">
+              <th
+                class="border-b-2 border-[#D6E8D3] px-4 py-3 text-left font-[family-name:var(--font-heading)] text-[10px] font-semibold uppercase tracking-[0.1em] text-[#333]"
+              >
                 Best Known For
               </th>
-              <th class="border-b-2 border-[#D6E8D3] px-4 py-3 text-left font-[family-name:var(--font-heading)] text-[10px] font-semibold uppercase tracking-[0.1em] text-[#333]">
+              <th
+                class="border-b-2 border-[#D6E8D3] px-4 py-3 text-left font-[family-name:var(--font-heading)] text-[10px] font-semibold uppercase tracking-[0.1em] text-[#333]"
+              >
                 Works Well On
               </th>
             </tr>
           </thead>
           <tbody>
-            {comparison.map((row) => (
-              <tr class:list={[
-                row.highlight ? "bg-[#206D03]/[0.04]" : "",
-              ]}>
-                <td class:list={[
-                  "border-b border-[#D6E8D3]/50 px-4 py-3.5 font-[family-name:var(--font-ui)] text-[13px]",
-                  row.highlight ? "font-semibold text-[#206D03]" : "text-[#333]/70",
-                ]}>
-                  {row.oil}
-                </td>
-                <td class="border-b border-[#D6E8D3]/50 px-4 py-3.5 font-[family-name:var(--font-ui)] text-[13px] text-[#333]/70">
-                  {row.feel}
-                </td>
-                <td class="border-b border-[#D6E8D3]/50 px-4 py-3.5 font-[family-name:var(--font-body)] text-[13px] text-[#333]/70">
-                  {row.best}
-                </td>
-                <td class="border-b border-[#D6E8D3]/50 px-4 py-3.5 font-[family-name:var(--font-body)] text-[13px] text-[#333]/70">
-                  {row.works}
-                </td>
-              </tr>
-            ))}
+            {
+              comparison.map((row) => (
+                <tr class:list={[row.highlight ? "bg-[#206D03]/[0.04]" : ""]}>
+                  <td
+                    class:list={[
+                      "border-b border-[#D6E8D3]/50 px-4 py-3.5 font-[family-name:var(--font-ui)] text-[13px]",
+                      row.highlight ? "font-semibold text-[#206D03]" : "text-[#333]/70",
+                    ]}
+                  >
+                    {row.oil}
+                  </td>
+                  <td class="border-b border-[#D6E8D3]/50 px-4 py-3.5 font-[family-name:var(--font-ui)] text-[13px] text-[#333]/70">
+                    {row.feel}
+                  </td>
+                  <td class="border-b border-[#D6E8D3]/50 px-4 py-3.5 font-[family-name:var(--font-body)] text-[13px] text-[#333]/70">
+                    {row.best}
+                  </td>
+                  <td class="border-b border-[#D6E8D3]/50 px-4 py-3.5 font-[family-name:var(--font-body)] text-[13px] text-[#333]/70">
+                    {row.works}
+                  </td>
+                </tr>
+              ))
+            }
           </tbody>
         </table>
       </div>
     </div>
   </section>
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       MARKET + QUALITY — Dark statement
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <section class="surface-dark grain relative overflow-hidden py-24">
     <div class="reveal-on-scroll relative z-10 mx-auto max-w-4xl px-6 text-center lg:px-12">
-      <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80">
+      <p
+        class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80"
+      >
         A Growing Global Ingredient
       </p>
-      <h2 class="mt-6 font-[family-name:var(--font-display)] text-[clamp(1.75rem,4vw,2.75rem)] font-normal leading-[1.15] text-white">
+      <h2
+        class="mt-6 font-[family-name:var(--font-display)] text-[clamp(1.75rem,4vw,2.75rem)] font-normal leading-[1.15] text-white"
+      >
         We Don't Compete on Being<br />the Cheapest. We Compete<br />on Being Real.
       </h2>
       <hr class="gold-rule" />
-      <p class="mx-auto mt-8 max-w-2xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-white/50">
-        Batana Oil is gaining international recognition as a premium botanical ingredient. Forestal MT is Honduras' largest supplier — offering a true Miskito, traceable, culturally authentic ingredient. Not a commodity. The real thing.
+      <p
+        class="mx-auto mt-8 max-w-2xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-white/50"
+      >
+        Batana Oil is gaining international recognition as a premium botanical ingredient. Forestal
+        MT is Honduras' largest supplier — offering a true Miskito, traceable, culturally authentic
+        ingredient. Not a commodity. The real thing.
       </p>
     </div>
 
     <div class="relative z-10 mx-auto mt-16 flex max-w-4xl flex-wrap justify-center gap-4 px-6">
-      {[
-        "Clean beauty",
-        "Ancestral ingredients",
-        "Wild-harvested oils",
-        "Textured-hair care",
-        "Men's grooming",
-        "Transparent supply chains",
-      ].map((trend) => (
-        <span class="tag-hover rounded-[2px] border border-white/10 px-4 py-2 font-[family-name:var(--font-ui)] text-[11px] text-white/40">
-          {trend}
-        </span>
-      ))}
+      {
+        [
+          "Clean beauty",
+          "Ancestral ingredients",
+          "Wild-harvested oils",
+          "Textured-hair care",
+          "Men's grooming",
+          "Transparent supply chains",
+        ].map((trend) => (
+          <span class="tag-hover rounded-[2px] border border-white/10 px-4 py-2 font-[family-name:var(--font-ui)] text-[11px] text-white/40">
+            {trend}
+          </span>
+        ))
+      }
     </div>
   </section>
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       AUDIENCE + WHOLESALE CTA
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <AudienceWholesaleSplit
     audienceHeading="Built for Brands<br />That Value Origin"
     audienceItems={audience}
     wholesaleBody="Bulk ingredients, private label solutions, and international distribution. Export-ready from Honduras."
   />
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       TRUST MARQUEE + COLLECTION NAV
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <TrustMarquee variant="dark" />
   <CollectionNav exclude="batana-oil" />
 </BaseLayout>

@@ -11,26 +11,26 @@ interface CTA {
 }
 
 interface Props {
-  height?: '100dvh' | '80vh' | '60vh';
+  height?: "100dvh" | "80vh" | "60vh";
   background: {
-    type: 'image' | 'video';
+    type: "image" | "video";
     src?: string;
     streamId?: string;
     alt?: string;
     caption?: string;
   };
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   subtitle?: string;
-  description: string;
+  description?: string;
   ctas?: CTA[];
-  catalogAccent?: 'batana' | 'honey' | 'herbs';
+  catalogAccent?: "batana" | "honey" | "herbs";
   /** Show scroll indicator (home page only) */
   scrollIndicator?: boolean;
 }
 
 const {
-  height = '80vh',
+  height = "80vh",
   background,
   eyebrow,
   title,
@@ -41,89 +41,114 @@ const {
   scrollIndicator = false,
 } = Astro.props;
 
-const heightClass = height === '100dvh' ? 'h-dvh' : `min-h-[${height}]`;
-const overlayClass = catalogAccent ? `overlay-${catalogAccent}` : '';
+const overlayClass = catalogAccent ? `overlay-${catalogAccent}` : "";
 ---
 
-<section class:list={[
-  "grain relative flex items-end overflow-hidden",
-  height === '100dvh' ? 'h-dvh' : `min-h-[${height}]`,
-  overlayClass,
-]}>
+<section
+  class:list={[
+    "grain relative flex items-end overflow-hidden",
+    height === "100dvh" ? "h-dvh" : `min-h-[${height}]`,
+    overlayClass,
+  ]}
+>
   {/* Background */}
   <div class="absolute inset-0">
-    {background.type === 'video' && background.streamId ? (
-      <iframe
-        src={`https://customer-8w5s9dekjdinwesc.cloudflarestream.com/${background.streamId}/iframe?muted=true&autoplay=true&loop=true&controls=false`}
-        class="h-full w-full scale-110 object-cover"
-        allow="autoplay; fullscreen"
-        loading="eager"
-        title={background.caption ?? 'Hero video'}
-        style="border:none; pointer-events:none;"
-      ></iframe>
-    ) : background.src ? (
-      <img
-        src={background.src}
-        alt={background.alt ?? ''}
-        class="h-full w-full object-cover"
-        loading="eager"
-        decoding="async"
-      />
-    ) : null}
+    {
+      background.type === "video" && background.streamId ? (
+        <iframe
+          src={`https://customer-8w5s9dekjdinwesc.cloudflarestream.com/${background.streamId}/iframe?muted=true&autoplay=true&loop=true&controls=false`}
+          class="h-full w-full scale-110 object-cover"
+          allow="autoplay; fullscreen"
+          loading="eager"
+          title={background.caption ?? "Hero video"}
+          style="border:none; pointer-events:none;"
+        />
+      ) : background.src ? (
+        <img
+          src={background.src}
+          alt={background.alt ?? ""}
+          class="h-full w-full object-cover"
+          loading="eager"
+          decoding="async"
+        />
+      ) : null
+    }
     <div class="absolute inset-0 bg-gradient-to-t from-[#111]/90 via-[#111]/40 to-[#111]/15"></div>
   </div>
 
   {/* Content — hero entrance animation */}
   <div class="hero-entrance relative z-10 mx-auto w-full max-w-7xl px-6 pb-24 lg:px-12">
-    <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/90">
+    <p
+      class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/90"
+    >
       {eyebrow}
     </p>
 
     <h1
       class="mt-4 max-w-3xl font-[family-name:var(--font-display)] text-[clamp(2.5rem,5.5vw,4rem)] font-normal leading-[1.08] text-white"
-      set:html={title.replace(/\n/g, '<br />')}
+      set:html={title.replace(/\n/g, "<br />")}
     />
 
-    {subtitle && (
-      <p class="mt-2 font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.2em] text-white/50">
-        {subtitle}
-      </p>
-    )}
+    {
+      subtitle && (
+        <p class="mt-2 font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.2em] text-white/50">
+          {subtitle}
+        </p>
+      )
+    }
 
     <div class="mt-5 h-px w-20 bg-gradient-to-r from-[#F3C00D]/70 to-transparent"></div>
 
-    <p class="mt-5 max-w-xl font-[family-name:var(--font-body)] text-[15px] leading-relaxed text-white/65">
+    <p
+      class="mt-5 max-w-xl font-[family-name:var(--font-body)] text-[15px] leading-relaxed text-white/65"
+    >
       {description}
     </p>
 
-    {ctas.length > 0 && (
-      <div class="mt-8 flex flex-wrap gap-4">
-        {ctas.map((cta, i) => (
-          <a
-            href={cta.url}
-            class:list={[
-              "inline-block rounded-[3px] px-7 py-3.5 font-[family-name:var(--font-ui)] text-[13px] font-semibold tracking-wide transition-all duration-300",
-              i === 0
-                ? "bg-leaf-green text-white hover:bg-grass-green hover:shadow-lg hover:shadow-leaf-green/25"
-                : "border border-white/25 text-white/90 hover:border-white/50 hover:bg-white/5",
-            ]}
-          >
-            {cta.label}
-          </a>
-        ))}
-      </div>
-    )}
+    {
+      ctas.length > 0 && (
+        <div class="mt-8 flex flex-wrap gap-4">
+          {ctas.map((cta, i) => (
+            <a
+              href={cta.url}
+              class:list={[
+                "inline-block rounded-[3px] px-7 py-3.5 font-[family-name:var(--font-ui)] text-[13px] font-semibold tracking-wide transition-all duration-300",
+                i === 0
+                  ? "bg-leaf-green text-white hover:bg-grass-green hover:shadow-lg hover:shadow-leaf-green/25"
+                  : "border border-white/25 text-white/90 hover:border-white/50 hover:bg-white/5",
+              ]}
+            >
+              {cta.label}
+            </a>
+          ))}
+        </div>
+      )
+    }
   </div>
 
   {/* Scroll indicator */}
-  {scrollIndicator && (
-    <div class="absolute bottom-8 left-1/2 z-10 -translate-x-1/2">
-      <div class="flex flex-col items-center gap-2 text-white/30">
-        <span class="font-[family-name:var(--font-ui)] text-[9px] uppercase tracking-[0.3em]">Scroll</span>
-        <svg class="h-4 w-4 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-          <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 13.5-7.5 7.5m0 0-7.5-7.5M12 21V3" />
-        </svg>
+  {
+    scrollIndicator && (
+      <div class="absolute bottom-8 left-1/2 z-10 -translate-x-1/2">
+        <div class="flex flex-col items-center gap-2 text-white/30">
+          <span class="font-[family-name:var(--font-ui)] text-[9px] uppercase tracking-[0.3em]">
+            Scroll
+          </span>
+          <svg
+            class="h-4 w-4 animate-bounce"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m19.5 13.5-7.5 7.5m0 0-7.5-7.5M12 21V3"
+            />
+          </svg>
+        </div>
       </div>
-    </div>
-  )}
+    )
+  }
 </section>

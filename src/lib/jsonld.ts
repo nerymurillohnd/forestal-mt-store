@@ -41,10 +41,8 @@ const BrandCompact = {
 const videoObjects: Record<string, unknown> = {
   [`${SITE_URL}/#hero-video`]: VideoObjectHomeHero,
   [`${SITE_URL}/batana-oil/#hero-video`]: VideoObjectBatanaOilHero,
-  [`${SITE_URL}/stingless-bee-honey/#hero-video`]:
-    VideoObjectStinglessBeeHoneyHero,
-  [`${SITE_URL}/traditional-herbs/#hero-video`]:
-    VideoObjectTraditionalHerbsHero,
+  [`${SITE_URL}/stingless-bee-honey/#hero-video`]: VideoObjectStinglessBeeHoneyHero,
+  [`${SITE_URL}/traditional-herbs/#hero-video`]: VideoObjectTraditionalHerbsHero,
 };
 
 interface SchemaRef {
@@ -56,10 +54,7 @@ interface SchemaRef {
 /**
  * Build a BreadcrumbList schema for a page.
  */
-function buildBreadcrumb(
-  pageName: string,
-  canonicalUrl: string,
-): Record<string, unknown> {
+function buildBreadcrumb(pageName: string, canonicalUrl: string): Record<string, unknown> {
   const items: Record<string, unknown>[] = [
     {
       "@type": "ListItem",
@@ -158,9 +153,7 @@ function resolveSchema(
 
     case "Service": {
       if (!Array.isArray(ServiceWholesale)) return null;
-      const match = (ServiceWholesale as Record<string, unknown>[]).find(
-        (s) => s["@id"] === id,
-      );
+      const match = (ServiceWholesale as Record<string, unknown>[]).find((s) => s["@id"] === id);
       return match ?? null;
     }
 
@@ -196,9 +189,7 @@ export function buildPageGraph(
 
     // Service-wholesale returns an array of 4 Service nodes
     if (Array.isArray(node)) {
-      graph.push(
-        ...node.map((n) => stripContext(n as Record<string, unknown>)),
-      );
+      graph.push(...node.map((n) => stripContext(n as Record<string, unknown>)));
     } else {
       graph.push(stripContext(node as Record<string, unknown>));
     }

@@ -3,7 +3,7 @@
  * Preact island (client:visible) showing where products come from.
  * Pulsing dots on La Mosquitia + Olancho with tooltip cards on hover/tap.
  */
-import { useState } from 'preact/hooks';
+import { useState } from "preact/hooks";
 
 interface OriginPoint {
   id: string;
@@ -17,31 +17,26 @@ interface OriginPoint {
 
 const origins: OriginPoint[] = [
   {
-    id: 'mosquitia',
-    name: 'La Mosquitia',
-    region: 'Gracias a Dios',
-    product: 'Batana Oil',
-    community: 'Miskito',
+    id: "mosquitia",
+    name: "La Mosquitia",
+    region: "Gracias a Dios",
+    product: "Batana Oil",
+    community: "Miskito",
     cx: 78,
     cy: 32,
   },
   {
-    id: 'olancho',
-    name: 'Olancho',
-    region: 'Olancho Department',
-    product: 'Herbs & Honey',
-    community: 'Mestizo & Maya',
+    id: "olancho",
+    name: "Olancho",
+    region: "Olancho Department",
+    product: "Herbs & Honey",
+    community: "Mestizo & Maya",
     cx: 58,
     cy: 48,
   },
 ];
 
-const destinations = [
-  'North America',
-  'Europe',
-  'Asia',
-  'Oceania',
-];
+const destinations = ["North America", "Europe", "Asia", "Oceania"];
 
 export default function OriginPulseIsland() {
   const [active, setActive] = useState<string | null>(null);
@@ -81,7 +76,10 @@ export default function OriginPulseIsland() {
                 stroke="rgba(243, 192, 13, 0.4)"
                 stroke-width="0.3"
                 class="animate-ping"
-                style={{ animationDuration: '2.5s', transformOrigin: `${origin.cx}px ${origin.cy}px` }}
+                style={{
+                  animationDuration: "2.5s",
+                  transformOrigin: `${origin.cx}px ${origin.cy}px`,
+                }}
               />
               {/* Solid dot */}
               <circle
@@ -114,32 +112,31 @@ export default function OriginPulseIsland() {
           <div
             key={origin.id}
             class={`absolute z-20 transition-all duration-300 ${
-              active === origin.id ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'
+              active === origin.id
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-2 pointer-events-none"
             }`}
             style={{
               left: `${origin.cx}%`,
               top: `${origin.cy + 8}%`,
-              transform: 'translateX(-50%)',
+              transform: "translateX(-50%)",
             }}
           >
             <div class="rounded-[2px] border border-white/10 bg-charcoal/95 px-5 py-4 backdrop-blur-md shadow-xl min-w-[180px]">
               <p
                 class="text-[9px] font-normal uppercase tracking-[0.3em] text-gold/80"
-                style={{ fontFamily: 'var(--font-heading)' }}
+                style={{ fontFamily: "var(--font-heading)" }}
               >
                 {origin.region}
               </p>
               <p
                 class="mt-1 text-[1rem] font-normal text-white"
-                style={{ fontFamily: 'var(--font-heading)' }}
+                style={{ fontFamily: "var(--font-heading)" }}
               >
                 {origin.product}
               </p>
               <div class="mt-2 h-px w-6 bg-gold/20"></div>
-              <p
-                class="mt-2 text-[12px] text-white/50"
-                style={{ fontFamily: 'var(--font-body)' }}
-              >
+              <p class="mt-2 text-[12px] text-white/50" style={{ fontFamily: "var(--font-body)" }}>
                 {origin.community} communities
               </p>
             </div>
@@ -153,7 +150,7 @@ export default function OriginPulseIsland() {
           <span
             key={dest}
             class="flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-white/30"
-            style={{ fontFamily: 'var(--font-ui)' }}
+            style={{ fontFamily: "var(--font-ui)" }}
           >
             {i > 0 && <span class="text-gold/20">&#9992;</span>}
             {dest}
@@ -164,9 +161,24 @@ export default function OriginPulseIsland() {
       {/* Origin cards */}
       <div class="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-3">
         {[
-          { title: 'Batana Oil', region: 'La Mosquitia', community: 'Miskito', href: '/batana-oil/' },
-          { title: 'Jimerito Honey', region: 'Olancho', community: 'Maya Heritage', href: '/stingless-bee-honey/' },
-          { title: '41 Herbs', region: 'Olancho & Beyond', community: 'Mestizo', href: '/traditional-herbs/' },
+          {
+            title: "Batana Oil",
+            region: "La Mosquitia",
+            community: "Miskito",
+            href: "/batana-oil/",
+          },
+          {
+            title: "Jimerito Honey",
+            region: "Olancho",
+            community: "Maya Heritage",
+            href: "/stingless-bee-honey/",
+          },
+          {
+            title: "41 Herbs",
+            region: "Olancho & Beyond",
+            community: "Mestizo",
+            href: "/traditional-herbs/",
+          },
         ].map((card) => (
           <a
             key={card.title}
@@ -175,20 +187,17 @@ export default function OriginPulseIsland() {
           >
             <p
               class="text-[9px] font-normal uppercase tracking-[0.3em] text-gold/60"
-              style={{ fontFamily: 'var(--font-heading)' }}
+              style={{ fontFamily: "var(--font-heading)" }}
             >
               {card.community}
             </p>
             <p
               class="mt-2 text-[1rem] font-normal text-white transition-colors group-hover:text-gold"
-              style={{ fontFamily: 'var(--font-heading)' }}
+              style={{ fontFamily: "var(--font-heading)" }}
             >
               {card.title}
             </p>
-            <p
-              class="mt-1 text-[12px] text-white/40"
-              style={{ fontFamily: 'var(--font-body)' }}
-            >
+            <p class="mt-1 text-[12px] text-white/40" style={{ fontFamily: "var(--font-body)" }}>
               {card.region}
             </p>
           </a>

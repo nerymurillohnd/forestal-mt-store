@@ -6,10 +6,7 @@
   "orientation": "portrait",
   "scope": "/",
   "start_url": "/",
-  "categories": [
-    "shopping",
-    "health"
-  ],
+  "categories": ["shopping", "health"],
   "theme_color": "#FFFFFF",
   "background_color": "#FFFFFF",
   "icons": [

@@ -74,12 +74,7 @@ export function getStreamPoster(
  * @param width    - gif width (default 480)
  * @param fps      - frames per second (default 8)
  */
-export function getStreamAnimatedThumb(
-  uid: string,
-  duration = 4,
-  width = 480,
-  fps = 8,
-): string {
+export function getStreamAnimatedThumb(uid: string, duration = 4, width = 480, fps = 8): string {
   return `https://${STREAM}/${uid}/thumbnails/thumbnail.gif?duration=${duration}s&width=${width}&fps=${fps}`;
 }
 

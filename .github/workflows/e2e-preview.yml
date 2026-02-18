@@ -1,0 +1,33 @@
+name: E2E Preview
+
+on:
+  deployment_status:
+
+jobs:
+  e2e-preview:
+    name: E2E on Preview
+    if: >
+      github.event.deployment_status.state == 'success' &&
+      github.event.deployment_status.environment == 'Preview'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Install Playwright
+        run: pnpm exec playwright install chromium --with-deps
+      - name: Run E2E against preview
+        run: pnpm test:e2e
+        env:
+          PLAYWRIGHT_BASE_URL: ${{ github.event.deployment_status.target_url }}
+      - name: Upload test report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-preview-report
+          path: playwright-report/
+          retention-days: 7

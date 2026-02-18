@@ -13,20 +13,14 @@ const navLinks = [
 const currentPath = Astro.url.pathname;
 ---
 
-<header
-  class="sticky top-0 z-20 border-b border-mint bg-white/95 backdrop-blur-sm"
->
+<header class="sticky top-0 z-20 border-b border-mint bg-white/95 backdrop-blur-sm">
   <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-8">
     <!-- Logo -->
     <a href="/" class="flex shrink-0 items-center gap-2">
-      <img
-        src={logoSvg.src}
-        alt="Forestal MT"
-        width="40"
-        height="40"
-        class="h-10 w-10"
-      />
-      <span class="hidden font-[family-name:var(--font-heading)] text-lg font-semibold text-leaf-green sm:inline">
+      <img src={logoSvg.src} alt="Forestal MT" width="40" height="40" class="h-10 w-10" />
+      <span
+        class="hidden font-[family-name:var(--font-heading)] text-lg font-semibold text-leaf-green sm:inline"
+      >
         Forestal MT
       </span>
     </a>
@@ -40,9 +34,7 @@ const currentPath = Astro.url.pathname;
               href={link.href}
               class:list={[
                 "transition-colors hover:text-leaf-green",
-                currentPath === link.href
-                  ? "font-semibold text-leaf-green"
-                  : "text-graphite",
+                currentPath === link.href ? "font-semibold text-leaf-green" : "text-graphite",
               ]}
             >
               {link.label}
@@ -59,13 +51,7 @@ const currentPath = Astro.url.pathname;
       aria-label="Open menu"
       id="mobile-menu-btn"
     >
-      <svg
-        class="h-6 w-6"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="currentColor"
-      >
+      <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
         <path
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -84,9 +70,7 @@ const currentPath = Astro.url.pathname;
               href={link.href}
               class:list={[
                 "block rounded-md px-3 py-2 transition-colors hover:bg-mint",
-                currentPath === link.href
-                  ? "font-semibold text-leaf-green"
-                  : "text-graphite",
+                currentPath === link.href ? "font-semibold text-leaf-green" : "text-graphite",
               ]}
             >
               {link.label}

@@ -2,30 +2,30 @@
 
 @theme {
   /* Brand colors — dominant */
-  --color-leaf-green: #206D03;
-  --color-grass-green: #54B006;
-  --color-gold: #F3C00D;
-  --color-gold-dark: #A18500;
+  --color-leaf-green: #206d03;
+  --color-grass-green: #54b006;
+  --color-gold: #f3c00d;
+  --color-gold-dark: #a18500;
 
   /* Surface & neutral colors */
   --color-graphite: #333333;
   --color-charcoal: #1a1a1a;
-  --color-warm-sand: #E6D8B1;
-  --color-parchment: #F5F0E8;
-  --color-mint: #D6E8D3;
-  --color-soft-silver: #F2F2F2;
-  --color-seasalt: #F8F8F0;
+  --color-warm-sand: #e6d8b1;
+  --color-parchment: #f5f0e8;
+  --color-mint: #d6e8d3;
+  --color-soft-silver: #f2f2f2;
+  --color-seasalt: #f8f8f0;
 
   /* Catalog accent colors */
-  --color-deep-amber: #8B5E34;
-  --color-honey-gold: #D4A017;
-  --color-forest-shadow: #0D3B00;
+  --color-deep-amber: #8b5e34;
+  --color-honey-gold: #d4a017;
+  --color-forest-shadow: #0d3b00;
 
   /* Semantic colors */
-  --color-error: #DC2626;
-  --color-warning: #D97706;
-  --color-success: #16A34A;
-  --color-info: #2563EB;
+  --color-error: #dc2626;
+  --color-warning: #d97706;
+  --color-success: #16a34a;
+  --color-info: #2563eb;
 
   /* Font families — mapped from Astro experimental fonts */
   --font-sans: var(--font-ui);
@@ -73,7 +73,8 @@
     }
   }
 
-  ul, ol {
+  ul,
+  ol {
     margin-bottom: 1.25rem;
     padding-left: 1.5rem;
   }
@@ -146,7 +147,7 @@
    Usage: add class "grain" to a `position: relative` container
 ═══════════════════════════════════════════════════════════════════ */
 .grain::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   z-index: 1;
@@ -172,7 +173,11 @@
   height: 1px;
   width: 4rem;
   margin: 1.25rem 0;
-  background: linear-gradient(90deg, color-mix(in srgb, var(--color-gold) 50%, transparent), transparent);
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--color-gold) 50%, transparent),
+    transparent
+  );
 }
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -180,63 +185,99 @@
 ═══════════════════════════════════════════════════════════════════ */
 .surface-warm {
   background:
-    radial-gradient(ellipse at 30% 0%, color-mix(in srgb, var(--color-warm-sand) 8%, transparent) 0%, transparent 60%),
+    radial-gradient(
+      ellipse at 30% 0%,
+      color-mix(in srgb, var(--color-warm-sand) 8%, transparent) 0%,
+      transparent 60%
+    ),
     var(--color-seasalt);
 }
 
 .surface-dark {
   background:
-    radial-gradient(ellipse at 70% 100%, color-mix(in srgb, var(--color-deep-amber) 4%, transparent) 0%, transparent 50%),
+    radial-gradient(
+      ellipse at 70% 100%,
+      color-mix(in srgb, var(--color-deep-amber) 4%, transparent) 0%,
+      transparent 50%
+    ),
     var(--color-charcoal);
 }
 
 .surface-parchment {
   background:
-    radial-gradient(ellipse at 50% 0%, color-mix(in srgb, var(--color-warm-sand) 12%, transparent) 0%, transparent 60%),
+    radial-gradient(
+      ellipse at 50% 0%,
+      color-mix(in srgb, var(--color-warm-sand) 12%, transparent) 0%,
+      transparent 60%
+    ),
     var(--color-parchment);
 }
 
 /* Catalog-specific accent washes */
 .accent-batana {
   background:
-    radial-gradient(ellipse at 30% 20%, color-mix(in srgb, var(--color-deep-amber) 6%, transparent) 0%, transparent 50%),
+    radial-gradient(
+      ellipse at 30% 20%,
+      color-mix(in srgb, var(--color-deep-amber) 6%, transparent) 0%,
+      transparent 50%
+    ),
     var(--color-seasalt);
 }
 
 .accent-honey {
   background:
-    radial-gradient(ellipse at 30% 20%, color-mix(in srgb, var(--color-honey-gold) 6%, transparent) 0%, transparent 50%),
+    radial-gradient(
+      ellipse at 30% 20%,
+      color-mix(in srgb, var(--color-honey-gold) 6%, transparent) 0%,
+      transparent 50%
+    ),
     var(--color-seasalt);
 }
 
 .accent-herbs {
   background:
-    radial-gradient(ellipse at 30% 20%, color-mix(in srgb, var(--color-forest-shadow) 4%, transparent) 0%, transparent 50%),
+    radial-gradient(
+      ellipse at 30% 20%,
+      color-mix(in srgb, var(--color-forest-shadow) 4%, transparent) 0%,
+      transparent 50%
+    ),
     var(--color-seasalt);
 }
 
 /* Dark catalog accent overlays (hero gradient tints) */
 .overlay-batana::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 50% 80%, color-mix(in srgb, var(--color-deep-amber) 15%, transparent) 0%, transparent 60%);
+  background: radial-gradient(
+    ellipse at 50% 80%,
+    color-mix(in srgb, var(--color-deep-amber) 15%, transparent) 0%,
+    transparent 60%
+  );
   pointer-events: none;
 }
 
 .overlay-honey::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 50% 80%, color-mix(in srgb, var(--color-honey-gold) 12%, transparent) 0%, transparent 60%);
+  background: radial-gradient(
+    ellipse at 50% 80%,
+    color-mix(in srgb, var(--color-honey-gold) 12%, transparent) 0%,
+    transparent 60%
+  );
   pointer-events: none;
 }
 
 .overlay-herbs::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 50% 80%, color-mix(in srgb, var(--color-forest-shadow) 12%, transparent) 0%, transparent 60%);
+  background: radial-gradient(
+    ellipse at 50% 80%,
+    color-mix(in srgb, var(--color-forest-shadow) 12%, transparent) 0%,
+    transparent 60%
+  );
   pointer-events: none;
 }
 
@@ -265,18 +306,36 @@
 
 /* Keyframes */
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(32px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes scale-in {
-  from { opacity: 0; transform: scale(0.95); }
-  to   { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @keyframes hero-reveal {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Scroll-driven animations — only in supporting browsers */
@@ -298,19 +357,33 @@
     animation-timeline: view();
     animation-range: entry 0% entry 35%;
   }
-  .stagger-children > *:nth-child(1) { animation-delay: 0ms; }
-  .stagger-children > *:nth-child(2) { animation-delay: 80ms; }
-  .stagger-children > *:nth-child(3) { animation-delay: 160ms; }
-  .stagger-children > *:nth-child(4) { animation-delay: 240ms; }
-  .stagger-children > *:nth-child(5) { animation-delay: 320ms; }
-  .stagger-children > *:nth-child(6) { animation-delay: 400ms; }
+  .stagger-children > *:nth-child(1) {
+    animation-delay: 0ms;
+  }
+  .stagger-children > *:nth-child(2) {
+    animation-delay: 80ms;
+  }
+  .stagger-children > *:nth-child(3) {
+    animation-delay: 160ms;
+  }
+  .stagger-children > *:nth-child(4) {
+    animation-delay: 240ms;
+  }
+  .stagger-children > *:nth-child(5) {
+    animation-delay: 320ms;
+  }
+  .stagger-children > *:nth-child(6) {
+    animation-delay: 400ms;
+  }
 }
 
 /* IntersectionObserver fallback classes (applied via JS) */
 .reveal-on-scroll {
   opacity: 0;
   transform: translateY(32px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
 }
 
 .reveal-on-scroll.is-visible {
@@ -321,7 +394,9 @@
 .reveal-scale-on-scroll {
   opacity: 0;
   transform: scale(0.95);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
 }
 
 .reveal-scale-on-scroll.is-visible {
@@ -337,12 +412,24 @@
   transform: translateY(20px);
   animation: hero-reveal 600ms ease-out forwards;
 }
-.hero-entrance > *:nth-child(1) { animation-delay: 200ms; }
-.hero-entrance > *:nth-child(2) { animation-delay: 400ms; }
-.hero-entrance > *:nth-child(3) { animation-delay: 550ms; }
-.hero-entrance > *:nth-child(4) { animation-delay: 700ms; }
-.hero-entrance > *:nth-child(5) { animation-delay: 850ms; }
-.hero-entrance > *:nth-child(6) { animation-delay: 1000ms; }
+.hero-entrance > *:nth-child(1) {
+  animation-delay: 200ms;
+}
+.hero-entrance > *:nth-child(2) {
+  animation-delay: 400ms;
+}
+.hero-entrance > *:nth-child(3) {
+  animation-delay: 550ms;
+}
+.hero-entrance > *:nth-child(4) {
+  animation-delay: 700ms;
+}
+.hero-entrance > *:nth-child(5) {
+  animation-delay: 850ms;
+}
+.hero-entrance > *:nth-child(6) {
+  animation-delay: 1000ms;
+}
 
 /* ═══════════════════════════════════════════════════════════════════
    Parallax — subtle CSS-only depth on split-section images
@@ -357,16 +444,24 @@
 }
 
 @keyframes parallax-shift {
-  from { transform: translateY(-5%); }
-  to   { transform: translateY(5%); }
+  from {
+    transform: translateY(-5%);
+  }
+  to {
+    transform: translateY(5%);
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════════
    Infinite marquee — trust bar / brand pillars
 ═══════════════════════════════════════════════════════════════════ */
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .marquee-track {
@@ -421,7 +516,9 @@
 
 /* Card lift + shadow bloom on hover */
 .card-hover {
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
 .card-hover:hover {
@@ -431,7 +528,9 @@
 
 /* Frosted card hover (dark) */
 .frosted-hover {
-  transition: border-color 0.3s ease, background-color 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    background-color 0.3s ease;
 }
 
 .frosted-hover:hover {
@@ -441,7 +540,9 @@
 
 /* CTA button glow */
 .cta-glow {
-  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  transition:
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
 }
 
 .cta-glow:hover {
@@ -450,7 +551,9 @@
 
 /* Tag pill hover */
 .tag-hover {
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .tag-hover:hover {
@@ -474,13 +577,14 @@
 }
 
 .process-line::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 2rem;
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg,
+  background: linear-gradient(
+    90deg,
     color-mix(in srgb, var(--color-gold) 20%, transparent),
     color-mix(in srgb, var(--color-gold) 40%, transparent),
     color-mix(in srgb, var(--color-gold) 20%, transparent)
@@ -492,7 +596,8 @@
    Origin pulse animation — map pulsing dots
 ═══════════════════════════════════════════════════════════════════ */
 @keyframes origin-pulse {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 0 0 rgba(243, 192, 13, 0.5);
   }
   50% {

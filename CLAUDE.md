@@ -10,25 +10,25 @@ The `forestal-mt-suite` repository (`~/projects/forestal-mt-suite/`) is the **si
 
 ### Specification Documents (read from the suite repo)
 
-| File | What It Defines |
-|------|----------------|
-| `SITE_TECHNICAL_SPEC.md` | Full stack, rendering model, URL policy, asset management, fonts, CI/CD, pnpm, Playwright |
-| `UI_DESIGN_SPEC.md` | Preact islands, Tailwind CSS 4+, design tokens, color palette, component patterns, accessibility |
-| `SEO_STRUCTURED_DATA_SPEC.md` | JSON-LD architecture, `@graph` builder, schema.org types, meta tags, OG cards, E-E-A-T signals |
-| `SITE_URL_MANIFEST.md` | Complete URL inventory with routing patterns |
-| `FORESTAL_MT_PROFILE.md` | Company profile, product catalog overview, brand context |
+| File                          | What It Defines                                                                                  |
+| ----------------------------- | ------------------------------------------------------------------------------------------------ |
+| `SITE_TECHNICAL_SPEC.md`      | Full stack, rendering model, URL policy, asset management, fonts, CI/CD, pnpm, Playwright        |
+| `UI_DESIGN_SPEC.md`           | Preact islands, Tailwind CSS 4+, design tokens, color palette, component patterns, accessibility |
+| `SEO_STRUCTURED_DATA_SPEC.md` | JSON-LD architecture, `@graph` builder, schema.org types, meta tags, OG cards, E-E-A-T signals   |
+| `SITE_URL_MANIFEST.md`        | Complete URL inventory with routing patterns                                                     |
+| `FORESTAL_MT_PROFILE.md`      | Company profile, product catalog overview, brand context                                         |
 
 **Read these specs before any architectural decision.** Path: `~/projects/forestal-mt-suite/{filename}`.
 
 ### Suite Files Consumed by This Project
 
-| Suite Path | Project Path | Purpose |
-|-----------|-------------|---------|
-| `pages/*.mdx` (17 files) | `src/content/pages/*.mdx` | Page content (frontmatter + body) |
-| `structured-data/jsonld/*.json` (10 static schemas) | `src/data/jsonld/` | JSON-LD nodes for `@graph` injection |
-| `logos-and-favicons/favicon*`, `apple-touch-icon*`, `android-chrome-*`, `mstile-*`, `safari-pinned-tab.svg`, `yandex-*`, `manifest.webmanifest`, `browserconfig.xml` (19 files) | `public/` | Favicons and web manifests |
-| `logos-and-favicons/logo*` (5 files) | `src/assets/logos/` | Brand logos (processed by Astro) |
-| `fonts/{family}/*.woff2` (13 files) | `src/assets/fonts/{family}/` | Self-hosted web fonts |
+| Suite Path                                                                                                                                                                      | Project Path                 | Purpose                              |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- | ------------------------------------ |
+| `pages/*.mdx` (17 files)                                                                                                                                                        | `src/content/pages/*.mdx`    | Page content (frontmatter + body)    |
+| `structured-data/jsonld/*.json` (10 static schemas)                                                                                                                             | `src/data/jsonld/`           | JSON-LD nodes for `@graph` injection |
+| `logos-and-favicons/favicon*`, `apple-touch-icon*`, `android-chrome-*`, `mstile-*`, `safari-pinned-tab.svg`, `yandex-*`, `manifest.webmanifest`, `browserconfig.xml` (19 files) | `public/`                    | Favicons and web manifests           |
+| `logos-and-favicons/logo*` (5 files)                                                                                                                                            | `src/assets/logos/`          | Brand logos (processed by Astro)     |
+| `fonts/{family}/*.woff2` (13 files)                                                                                                                                             | `src/assets/fonts/{family}/` | Self-hosted web fonts                |
 
 **Copy command pattern:** `cp ~/projects/forestal-mt-suite/{source} {project-target}`
 
@@ -38,22 +38,22 @@ Files are copied AS-IS. Never modified by this project. If the suite updates a f
 
 ## Stack
 
-| Layer | Technology | Key Detail |
-|-------|-----------|-----------|
-| Framework | Astro 5.7+ | Islands Architecture, `static` output mode |
-| Content | MDX | `@astrojs/mdx` — component imports in content files |
-| UI framework | Preact | `@astrojs/preact` — interactive islands only |
-| CSS | Tailwind CSS 4+ | `@tailwindcss/vite` plugin (NOT `@astrojs/tailwind`, NOT PostCSS) |
-| SSR adapter | `@astrojs/cloudflare` | `platformProxy: { enabled: true }` for local D1/KV/R2 |
-| Package manager | pnpm 10+ standalone | `"packageManager": "pnpm@10.29.3"` in package.json |
-| Hosting | Cloudflare Pages | Project: `forestal-mt-store` |
-| Database | Cloudflare D1 | Binding: `DB` → `fmt-products-database` |
-| Object storage | Cloudflare R2 | Binding: `R2` → `assets` bucket, CDN: `cdn.forestal-mt.com` |
-| Sessions | Cloudflare KV | Binding: `SESSION` → namespace `SESSION` |
-| E2E testing | Playwright | `@playwright/test` + `@axe-core/playwright` |
-| Icons | astro-icon | `@iconify-json/fa6-brands` (social), `@iconify-json/logos` (payment brands) |
-| Observability | Sentry | `@sentry/astro` (client) + `@sentry/cloudflare` (server) + `@spotlightjs/astro` (dev) |
-| Performance | Lighthouse CI | `@lhci/cli`, GitHub App integration |
+| Layer           | Technology            | Key Detail                                                                            |
+| --------------- | --------------------- | ------------------------------------------------------------------------------------- |
+| Framework       | Astro 5.7+            | Islands Architecture, `static` output mode                                            |
+| Content         | MDX                   | `@astrojs/mdx` — component imports in content files                                   |
+| UI framework    | Preact                | `@astrojs/preact` — interactive islands only                                          |
+| CSS             | Tailwind CSS 4+       | `@tailwindcss/vite` plugin (NOT `@astrojs/tailwind`, NOT PostCSS)                     |
+| SSR adapter     | `@astrojs/cloudflare` | `platformProxy: { enabled: true }` for local D1/KV/R2                                 |
+| Package manager | pnpm 10+ standalone   | `"packageManager": "pnpm@10.29.3"` in package.json                                    |
+| Hosting         | Cloudflare Pages      | Project: `forestal-mt-store`                                                          |
+| Database        | Cloudflare D1         | Binding: `DB` → `fmt-products-database`                                               |
+| Object storage  | Cloudflare R2         | Binding: `R2` → `assets` bucket, CDN: `cdn.forestal-mt.com`                           |
+| Sessions        | Cloudflare KV         | Binding: `SESSION` → namespace `SESSION`                                              |
+| E2E testing     | Playwright            | `@playwright/test` + `@axe-core/playwright`                                           |
+| Icons           | astro-icon            | `@iconify-json/fa6-brands` (social), `@iconify-json/logos` (payment brands)           |
+| Observability   | Sentry                | `@sentry/astro` (client) + `@sentry/cloudflare` (server) + `@spotlightjs/astro` (dev) |
+| Performance     | Lighthouse CI         | `@lhci/cli`, GitHub App integration                                                   |
 
 ### Tailwind CSS 4 Setup
 
@@ -71,20 +71,20 @@ Tailwind 4 does NOT use `tailwind.config.mjs` or PostCSS. Config via `@tailwindc
 
 ### Rendering Model
 
-| Type | Pages | Data Source |
-|------|-------|-----------|
-| **SSG** (static) | Home, About, Contact, Wholesale, 3 Catalogs, Legal pages | Content Collections (`pages/*.mdx`) |
-| **SSR** (dynamic) | Shop (`/products/`), PDPs (`/products/{handler}/`) | D1 database queries |
-| **Authenticated** | Account (`/account/*`), Admin (`/admin/*`) | KV sessions + D1 |
+| Type              | Pages                                                    | Data Source                         |
+| ----------------- | -------------------------------------------------------- | ----------------------------------- |
+| **SSG** (static)  | Home, About, Contact, Wholesale, 3 Catalogs, Legal pages | Content Collections (`pages/*.mdx`) |
+| **SSR** (dynamic) | Shop (`/products/`), PDPs (`/products/{handler}/`)       | D1 database queries                 |
+| **Authenticated** | Account (`/account/*`), Admin (`/admin/*`)               | KV sessions + D1                    |
 
 ### Islands Architecture
 
 Static HTML shell. Interactive components hydrated on demand via Preact.
 
-| Directive | When | Use For |
-|-----------|------|---------|
-| `client:load` | Immediately | Cart icon, variant selector |
-| `client:idle` | After main thread idle | Search autocomplete, filters |
+| Directive        | When                    | Use For                      |
+| ---------------- | ----------------------- | ---------------------------- |
+| `client:load`    | Immediately             | Cart icon, variant selector  |
+| `client:idle`    | After main thread idle  | Search autocomplete, filters |
 | `client:visible` | When scrolled into view | Accordions, image zoom, maps |
 
 ### Images
@@ -99,12 +99,12 @@ ALL images served from R2 via `cdn.forestal-mt.com`. The ONLY images in `public/
 
 Self-hosted via Astro experimental Fonts API (`fontProviders.local()`). 4 families, 13 woff2 files. Source in `src/assets/fonts/`. See `SITE_TECHNICAL_SPEC.md` section 5 for full configuration.
 
-| Family | CSS Variable | Role |
-|--------|-------------|------|
-| The New Elegance | `--font-display` | Hero headlines (H1) |
-| Cinzel | `--font-heading` | Section headings (H2+), eyebrow text |
-| Libre Baskerville | `--font-body` | Body text, editorial content |
-| Open Sans | `--font-ui` | UI: navigation, buttons, forms, labels |
+| Family            | CSS Variable     | Role                                   |
+| ----------------- | ---------------- | -------------------------------------- |
+| The New Elegance  | `--font-display` | Hero headlines (H1)                    |
+| Cinzel            | `--font-heading` | Section headings (H2+), eyebrow text   |
+| Libre Baskerville | `--font-body`    | Body text, editorial content           |
+| Open Sans         | `--font-ui`      | UI: navigation, buttons, forms, labels |
 
 ### URL Policy
 
@@ -116,20 +116,20 @@ ALL URLs end with `/`. Configured via `trailingSlash: "always"`. No exceptions.
 
 **Build these pages ONLY:**
 
-| # | Page | URL | Priority |
-|---|------|-----|----------|
-| 1 | Home | `/` | Core |
-| 2 | About | `/about/` | Core |
-| 3 | Batana Oil | `/batana-oil/` | Core |
-| 4 | Stingless Bee Honey | `/stingless-bee-honey/` | Core |
-| 5 | Traditional Herbs | `/traditional-herbs/` | Core |
-| 6 | Contact | `/contact/` | Core |
-| 7 | Wholesale | `/wholesale/` | Core |
-| 8 | Terms | `/terms/` | Legal |
-| 9 | Privacy | `/privacy/` | Legal |
-| 10 | Disclaimer | `/disclaimer/` | Legal |
-| 11 | Shipping | `/shipping/` | Legal |
-| 12 | 404 | N/A | Utility |
+| #   | Page                | URL                     | Priority |
+| --- | ------------------- | ----------------------- | -------- |
+| 1   | Home                | `/`                     | Core     |
+| 2   | About               | `/about/`               | Core     |
+| 3   | Batana Oil          | `/batana-oil/`          | Core     |
+| 4   | Stingless Bee Honey | `/stingless-bee-honey/` | Core     |
+| 5   | Traditional Herbs   | `/traditional-herbs/`   | Core     |
+| 6   | Contact             | `/contact/`             | Core     |
+| 7   | Wholesale           | `/wholesale/`           | Core     |
+| 8   | Terms               | `/terms/`               | Legal    |
+| 9   | Privacy             | `/privacy/`             | Legal    |
+| 10  | Disclaimer          | `/disclaimer/`          | Legal    |
+| 11  | Shipping            | `/shipping/`            | Legal    |
+| 12  | 404                 | N/A                     | Utility  |
 
 ### NOT in MVP (post-launch)
 
@@ -161,11 +161,11 @@ Full schema in `src/content.config.ts`. Glob loader accepts `**/*.{md,mdx}`.
 
 **Two-package split — mandatory for Cloudflare Pages:**
 
-| Layer | Package | File |
-|-------|---------|------|
-| Client (browser) | `@sentry/astro` | `sentry.client.config.js` |
-| Server (CF Workers) | `@sentry/cloudflare` | `functions/_middleware.js` |
-| Build (source maps) | `@sentry/astro` plugin | `astro.config.mjs` |
+| Layer               | Package                | File                       |
+| ------------------- | ---------------------- | -------------------------- |
+| Client (browser)    | `@sentry/astro`        | `sentry.client.config.js`  |
+| Server (CF Workers) | `@sentry/cloudflare`   | `functions/_middleware.js` |
+| Build (source maps) | `@sentry/astro` plugin | `astro.config.mjs`         |
 
 - **DO NOT** use `@sentry/node` or `sentry.server.config.js` — Node SDK is incompatible with CF Workers V8 isolates
 - `wrangler.toml` MUST have `nodejs_compat` flag for `@sentry/cloudflare` to work
@@ -245,22 +245,24 @@ pnpm check            # Astro type checking
 
 ## Cloudflare Bindings
 
-| Binding | Type | Name | Runtime Access |
-|---------|------|------|---------------|
-| `DB` | D1 | `fmt-products-database` | `locals.runtime.env.DB` |
-| `R2` | R2 Bucket | `assets` | `locals.runtime.env.R2` |
-| `SESSION` | KV | `SESSION` | `locals.runtime.env.SESSION` |
+| Binding   | Type      | Name                    | Runtime Access               |
+| --------- | --------- | ----------------------- | ---------------------------- |
+| `DB`      | D1        | `fmt-products-database` | `locals.runtime.env.DB`      |
+| `R2`      | R2 Bucket | `assets`                | `locals.runtime.env.R2`      |
+| `SESSION` | KV        | `SESSION`               | `locals.runtime.env.SESSION` |
 
 These are configured in Cloudflare Pages dashboard and `wrangler.toml`. Not needed for MVP SSG pages, but the adapter should be configured from the start.
 
 ### Cloudflare Pages API
 
 `wrangler.toml` only affects local `pnpm preview`. Production/preview settings MUST be set via dashboard or API:
+
 ```bash
 curl -X PATCH "https://api.cloudflare.com/client/v4/accounts/{ACCOUNT_ID}/pages/projects/forestal-mt-store" \
   -H "Authorization: Bearer {API_TOKEN}" -H "Content-Type: application/json" \
   -d '{"deployment_configs":{"production":{...},"preview":{...}}}'
 ```
+
 **Dashboard state (2026-02-18):** `nodejs_compat` SET, `SENTRY_AUTH_TOKEN` SET, R2 bound. D1/KV pending (post-MVP).
 
 ---

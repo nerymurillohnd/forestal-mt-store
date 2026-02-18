@@ -28,13 +28,13 @@ Replace the current minimal footer (light bg, no logo, no social, no payment ico
 
 Grid: `grid-cols-[2fr_1fr_1fr_1fr_1fr] gap-12`
 
-| Col | Content |
-|-----|---------|
-| 1 (wide) | `logo-light.png` — max-w-[160px], no text below |
-| 2 | **Quick Links** — About, Wholesale, Shop, Contact |
-| 3 | **Explore** — Batana Oil, Jimerito Honey, Wild Herbs, FAQs |
-| 4 | **Docs & Policies** — Terms, Privacy, Shipping & Returns, Documents |
-| 5 | **Follow Us** — social icons in 2×2 grid (FB, Instagram, TikTok, LinkedIn) |
+| Col      | Content                                                                    |
+| -------- | -------------------------------------------------------------------------- |
+| 1 (wide) | `logo-light.png` — max-w-[160px], no text below                            |
+| 2        | **Quick Links** — About, Wholesale, Shop, Contact                          |
+| 3        | **Explore** — Batana Oil, Jimerito Honey, Wild Herbs, FAQs                 |
+| 4        | **Docs & Policies** — Terms, Privacy, Shipping & Returns, Documents        |
+| 5        | **Follow Us** — social icons in 2×2 grid (FB, Instagram, TikTok, LinkedIn) |
 
 ---
 
@@ -66,26 +66,30 @@ Three-column flex (`justify-between items-center`), `border-t border-white/10 pt
 
 **Left — Payment Icons (5 total):**
 
-| Brand | Implementation |
-|-------|---------------|
-| Visa | Inline SVG — blue wordmark on white rounded pill |
-| Mastercard | Inline SVG — overlapping red/orange circles |
-| Moneygram | Text pill — `bg-[#EE3124]` red, white text "Moneygram" |
-| Western Union | Text pill — `bg-[#FFD700]` yellow, black text "WU" |
+| Brand           | Implementation                                          |
+| --------------- | ------------------------------------------------------- |
+| Visa            | Inline SVG — blue wordmark on white rounded pill        |
+| Mastercard      | Inline SVG — overlapping red/orange circles             |
+| Moneygram       | Text pill — `bg-[#EE3124]` red, white text "Moneygram"  |
+| Western Union   | Text pill — `bg-[#FFD700]` yellow, black text "WU"      |
 | Banco Atlántida | Text pill — `bg-[#004A97]` blue, white text "Atlántida" |
 
 All pills: `rounded-sm h-5 px-2 text-[10px] font-bold`
 
 **Center — Copyright:**
+
 ```
 © 2026 Forestal Murillo Tejada S. de R.L. | All rights reserved.
 ```
+
 `text-xs font-ui text-white/40`
 
 **Right — Location:**
+
 ```
 Olancho, Honduras
 ```
+
 `text-xs font-ui text-white/40`
 
 ---
@@ -107,12 +111,12 @@ Olancho, Honduras
 
 Placeholder `href="#"` — real URLs to be added when accounts are confirmed.
 
-| Platform | Icon | Notes |
-|----------|------|-------|
-| Facebook | Meta "f" SVG | 20×20 |
+| Platform  | Icon               | Notes |
+| --------- | ------------------ | ----- |
+| Facebook  | Meta "f" SVG       | 20×20 |
 | Instagram | Camera outline SVG | 20×20 |
-| TikTok | TikTok note SVG | 20×20 |
-| LinkedIn | "in" SVG | 20×20 |
+| TikTok    | TikTok note SVG    | 20×20 |
+| LinkedIn  | "in" SVG           | 20×20 |
 
 Hover: `text-white/60` → `text-white`, with `transition-colors`
 
@@ -121,6 +125,7 @@ Hover: `text-white/60` → `text-white`, with `transition-colors`
 ## Placeholder Links
 
 Links without MVP pages use `href="/"` until pages are built:
+
 - Shop → `/` (future: `/products/`)
 - FAQs → `/` (future: `/community/faqs/`)
 - Documents → `/` (future: `/documents/`)
@@ -140,8 +145,8 @@ Links without MVP pages use `href="/"` until pages are built:
 
 ## Files to Modify
 
-| File | Action |
-|------|--------|
+| File                          | Action                             |
+| ----------------------------- | ---------------------------------- |
 | `src/components/Footer.astro` | Full replacement of current footer |
 
 No other files need changes.

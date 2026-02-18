@@ -14,13 +14,13 @@ interface Props {
 }
 
 const {
-  audienceEyebrow = 'Who This Collection Serves',
+  audienceEyebrow = "Who This Collection Serves",
   audienceHeading,
   audienceItems,
-  wholesaleEyebrow = 'Wholesale & Global Supply',
-  wholesaleHeading = 'Partner With the Source',
+  wholesaleEyebrow = "Wholesale & Global Supply",
+  wholesaleHeading = "Partner With the Source",
   wholesaleBody,
-  wholesaleCta = 'Request a Quote',
+  wholesaleCta = "Request a Quote",
 } = Astro.props;
 ---
 
@@ -29,7 +29,9 @@ const {
     <div class="grid grid-cols-1 gap-16 lg:grid-cols-2">
       {/* Audience */}
       <div class="reveal-on-scroll">
-        <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-gold-dark">
+        <p
+          class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-gold-dark"
+        >
           {audienceEyebrow}
         </p>
         <h2
@@ -38,24 +40,34 @@ const {
         />
         <hr class="gold-rule-left" />
         <ul class="mt-8 space-y-3">
-          {audienceItems.map((item) => (
-            <li class="flex items-center gap-3 font-[family-name:var(--font-body)] text-[14px] text-charcoal/70">
-              <span class="h-px w-4 bg-[#F3C00D]/40" />
-              {item}
-            </li>
-          ))}
+          {
+            audienceItems.map((item) => (
+              <li class="flex items-center gap-3 font-[family-name:var(--font-body)] text-[14px] text-charcoal/70">
+                <span class="h-px w-4 bg-[#F3C00D]/40" />
+                {item}
+              </li>
+            ))
+          }
         </ul>
       </div>
 
       {/* Wholesale CTA */}
-      <div class="flex flex-col justify-center rounded-[2px] bg-leaf-green p-12 text-center reveal-on-scroll">
-        <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80">
+      <div
+        class="flex flex-col justify-center rounded-[2px] bg-leaf-green p-12 text-center reveal-on-scroll"
+      >
+        <p
+          class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80"
+        >
           {wholesaleEyebrow}
         </p>
-        <h3 class="mt-4 font-[family-name:var(--font-display)] text-[1.5rem] font-normal text-white">
+        <h3
+          class="mt-4 font-[family-name:var(--font-display)] text-[1.5rem] font-normal text-white"
+        >
           {wholesaleHeading}
         </h3>
-        <p class="mt-4 font-[family-name:var(--font-body)] text-[13px] leading-relaxed text-white/60">
+        <p
+          class="mt-4 font-[family-name:var(--font-body)] text-[13px] leading-relaxed text-white/60"
+        >
           {wholesaleBody}
         </p>
         <a

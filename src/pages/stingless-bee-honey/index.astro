@@ -132,7 +132,7 @@ const audience = [
 ];
 
 const originMetadata = Object.entries(origin).map(([key, value]) => ({
-  label: key.replace(/([A-Z])/g, ' $1').trim(),
+  label: key.replace(/([A-Z])/g, " $1").trim(),
   value,
 }));
 ---
@@ -149,12 +149,18 @@ const originMetadata = Object.entries(origin).map(([key, value]) => ({
     schemas={data.schemas}
   />
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       HERO — Video background, cinematic
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <HeroCinematic
     height="80vh"
-    background={{ type: "video", streamId: data.hero.background.stream, caption: data.hero.background.caption }}
+    background={{
+      type: "video",
+      streamId: data.hero.background?.stream,
+      caption: data.hero.background?.caption,
+    }}
     catalogAccent="honey"
     eyebrow={data.hero.eyebrow}
     title={data.hero.title}
@@ -165,58 +171,85 @@ const originMetadata = Object.entries(origin).map(([key, value]) => ({
 
   <Breadcrumb pageName={data.pageName} />
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       INTRO — Collection narrative
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <section class="surface-warm py-24">
     <div class="mx-auto max-w-3xl px-6 text-center lg:px-12">
       <SectionHeader eyebrow="The Collection" heading="The Stingless Bee Honey Collection" />
-      <p class="reveal-on-scroll mt-8 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70">
-        For over 3,000 years, communities across Mesoamerica have shared a quiet, sacred relationship with stingless bees — tending them, learning from them, and treasuring the rare honey they produce. In Honduras, that tradition lives on.
+      <p
+        class="reveal-on-scroll mt-8 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70"
+      >
+        For over 3,000 years, communities across Mesoamerica have shared a quiet, sacred
+        relationship with stingless bees — tending them, learning from them, and treasuring the rare
+        honey they produce. In Honduras, that tradition lives on.
       </p>
-      <p class="reveal-on-scroll mt-4 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70">
-        Known locally as Jimerito honey, this small-batch honey comes from the native stingless bee <em>Tetragonisca angustula</em>, harvested from wild log hives deep in Honduran forests. It tastes nothing like the honey most people know — naturally tangy, lighter in texture, and carrying centuries of cultural meaning in every drop.
+      <p
+        class="reveal-on-scroll mt-4 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70"
+      >
+        Known locally as Jimerito honey, this small-batch honey comes from the native stingless bee <em
+          >Tetragonisca angustula</em
+        >, harvested from wild log hives deep in Honduran forests. It tastes nothing like the honey
+        most people know — naturally tangy, lighter in texture, and carrying centuries of cultural
+        meaning in every drop.
       </p>
-      <p class="reveal-on-scroll mt-4 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70">
-        Forestal MT's Stingless Bee Honey Collection protects this heritage. Every jar is traceable, responsibly sourced, and rooted in the same forest ecosystems and community practices that have kept this tradition alive for millennia.
+      <p
+        class="reveal-on-scroll mt-4 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70"
+      >
+        Forestal MT's Stingless Bee Honey Collection protects this heritage. Every jar is traceable,
+        responsibly sourced, and rooted in the same forest ecosystems and community practices that
+        have kept this tradition alive for millennia.
       </p>
     </div>
   </section>
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       HERITAGE — OriginChapter asymmetric with golden accent
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <OriginChapter
-    eyebrow="Ko'olel Kaab — &quot;Royal Lady&quot;"
+    eyebrow='Ko&apos;olel Kaab — "Royal Lady"'
     heading="A Heritage Older<br />Than History"
     paragraphs={[
-      "In Mayan cosmology, stingless bees were far more than insects. They were guardians of knowledge and symbols of harmony. The Jimerito bee, called ko'olel kaab — \"royal lady\" — in the Mayan language, held ceremonial, household, and communal significance.",
+      'In Mayan cosmology, stingless bees were far more than insects. They were guardians of knowledge and symbols of harmony. The Jimerito bee, called ko\'olel kaab — "royal lady" — in the Mayan language, held ceremonial, household, and communal significance.',
       "Today, Forestal MT partners with indigenous and rural beekeepers who maintain traditional log hives — hollowed tree trunks — within biodiverse forest landscapes. These methods preserve both the bees' natural behavior and the integrity of the honey itself.",
     ]}
-    image={{ src: "https://cdn.forestal-mt.com/pages/stingless-bee-honey/heritage.jpg", alt: "Traditional log hive of Tetragonisca angustula stingless bees in Honduran forest" }}
+    image={{
+      src: "https://cdn.forestal-mt.com/pages/stingless-bee-honey/heritage.jpg",
+      alt: "Traditional log hive of Tetragonisca angustula stingless bees in Honduran forest",
+    }}
     metadata={originMetadata}
     catalogAccent="honey"
     direction="image-left"
   >
     <ul class="mt-6 space-y-3">
-      {mayaSignificance.map((item) => (
-        <li class="flex items-start gap-2.5 font-[family-name:var(--font-body)] text-[13px] leading-relaxed text-charcoal/65">
-          <span class="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-leaf-green/50" />
-          {item}
-        </li>
-      ))}
+      {
+        mayaSignificance.map((item) => (
+          <li class="flex items-start gap-2.5 font-[family-name:var(--font-body)] text-[13px] leading-relaxed text-charcoal/65">
+            <span class="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-leaf-green/50" />
+            {item}
+          </li>
+        ))
+      }
     </ul>
   </OriginChapter>
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       PRODUCT — Single product card (Jimerito Raw & Traditional)
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <section class="surface-warm py-24">
     <div class="mx-auto max-w-7xl px-6 lg:px-12">
       <SectionHeader eyebrow="Our Product" heading="The Stingless Bee Honey Collection" />
 
       <div class="reveal-scale-on-scroll mx-auto mt-16 max-w-2xl">
-        <div class="card-hover group border-t-[3px] border-[#F3C00D]/50 bg-white shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-shadow duration-300 hover:shadow-md">
+        <div
+          class="card-hover group border-t-[3px] border-[#F3C00D]/50 bg-white shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-shadow duration-300 hover:shadow-md"
+        >
           <div class="aspect-[16/10] bg-[#F2F2F2] p-10">
             <img
               src="https://cdn.forestal-mt.com/products/stingless-bee-honey/jimerito-raw-traditional.png"
@@ -226,21 +259,32 @@ const originMetadata = Object.entries(origin).map(([key, value]) => ({
             />
           </div>
           <div class="p-10 text-center">
-            <p class="font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.2em] text-[#A18500]">
+            <p
+              class="font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.2em] text-[#A18500]"
+            >
               FMT-SBH-JM
             </p>
-            <h3 class="mt-3 font-[family-name:var(--font-heading)] text-[1.25rem] font-normal text-[#333]">
+            <h3
+              class="mt-3 font-[family-name:var(--font-heading)] text-[1.25rem] font-normal text-[#333]"
+            >
               Jimerito — Raw & Traditional
             </h3>
             <p class="mt-1 font-[family-name:var(--font-body)] text-[13px] italic text-[#333]/50">
               Wild-Harvested Stingless Bee Honey
             </p>
             <div class="mx-auto mt-4 h-px w-12 bg-[#F3C00D]/30"></div>
-            <p class="mx-auto mt-5 max-w-lg font-[family-name:var(--font-body)] text-[14px] leading-[1.85] text-[#333]/65">
-              Wild-harvested Jimerito honey from Honduran forests. Revered by Mayan cultures as a symbol of the sun's spirit, this honey is kept raw and handled gently to preserve everything that makes it special.
+            <p
+              class="mx-auto mt-5 max-w-lg font-[family-name:var(--font-body)] text-[14px] leading-[1.85] text-[#333]/65"
+            >
+              Wild-harvested Jimerito honey from Honduran forests. Revered by Mayan cultures as a
+              symbol of the sun's spirit, this honey is kept raw and handled gently to preserve
+              everything that makes it special.
             </p>
-            <p class="mx-auto mt-3 max-w-lg font-[family-name:var(--font-body)] text-[13px] leading-[1.85] text-[#333]/55">
-              Typically more liquid than standard honey, with a naturally tangy, complex flavor. Never heated or filtered — careful sealed storage protects its natural character.
+            <p
+              class="mx-auto mt-3 max-w-lg font-[family-name:var(--font-body)] text-[13px] leading-[1.85] text-[#333]/55"
+            >
+              Typically more liquid than standard honey, with a naturally tangy, complex flavor.
+              Never heated or filtered — careful sealed storage protects its natural character.
             </p>
           </div>
         </div>
@@ -248,9 +292,11 @@ const originMetadata = Object.entries(origin).map(([key, value]) => ({
     </div>
   </section>
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       PROCESS — ProcessFlow horizontal connected steps
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <ProcessFlow
     eyebrow="Raw & Traditional"
     heading="How It's Made: From Hive to Jar"
@@ -263,115 +309,157 @@ const originMetadata = Object.entries(origin).map(([key, value]) => ({
     footnote="Every step reflects centuries of practice: patience over speed, care over volume."
   />
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       DIFFERENCE — What makes this honey different
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <section class="surface-warm py-24">
     <div class="mx-auto max-w-7xl px-6 lg:px-12">
-      <SectionHeader eyebrow="It's Not the Honey You're Used To" heading="What Makes This Honey Different" />
+      <SectionHeader
+        eyebrow="It's Not the Honey You're Used To"
+        heading="What Makes This Honey Different"
+      />
 
       <div class="stagger-children mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {differences.map((diff, i) => (
-          <GoldTopCard
-            number={String(i + 1).padStart(2, "0")}
-            heading={diff.title}
-            body={diff.description}
-          />
-        ))}
+        {
+          differences.map((diff, i) => (
+            <GoldTopCard
+              number={String(i + 1).padStart(2, "0")}
+              heading={diff.title}
+              body={diff.description}
+            />
+          ))
+        }
       </div>
 
-      <p class="mt-8 text-center font-[family-name:var(--font-body)] text-[13px] italic text-[#333]/45">
-        Stingless bee honey is best understood as its own traditional category, not a variation of common honey.
+      <p
+        class="mt-8 text-center font-[family-name:var(--font-body)] text-[13px] italic text-[#333]/45"
+      >
+        Stingless bee honey is best understood as its own traditional category, not a variation of
+        common honey.
       </p>
     </div>
   </section>
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       TRADITIONAL USES — Benefit cards
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <section class="accent-honey py-24">
     <div class="mx-auto max-w-7xl px-6 lg:px-12">
       <div class="text-center">
-        <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]">
+        <p
+          class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]"
+        >
           Centuries of Traditional Knowledge
         </p>
-        <h2 class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-[#333]">
+        <h2
+          class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-[#333]"
+        >
           Traditional Properties and Uses
         </h2>
         <hr class="gold-rule" />
       </div>
 
       <div class="stagger-children mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {traditionalUses.map((use, i) => (
-          <div class="bg-white p-8 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
-            <span class="font-[family-name:var(--font-heading)] text-[13px] text-[#F3C00D]/40">
-              {String(i + 1).padStart(2, "0")}
-            </span>
-            <h3 class="mt-2 font-[family-name:var(--font-heading)] text-[1rem] font-normal text-[#333]">
-              {use.title}
-            </h3>
-            <div class="mt-3 h-px w-8 bg-[#F3C00D]/30"></div>
-            <p class="mt-4 font-[family-name:var(--font-body)] text-[13px] leading-[1.85] text-[#333]/60">
-              {use.description}
-            </p>
-          </div>
-        ))}
+        {
+          traditionalUses.map((use, i) => (
+            <div class="bg-white p-8 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
+              <span class="font-[family-name:var(--font-heading)] text-[13px] text-[#F3C00D]/40">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 class="mt-2 font-[family-name:var(--font-heading)] text-[1rem] font-normal text-[#333]">
+                {use.title}
+              </h3>
+              <div class="mt-3 h-px w-8 bg-[#F3C00D]/30" />
+              <p class="mt-4 font-[family-name:var(--font-body)] text-[13px] leading-[1.85] text-[#333]/60">
+                {use.description}
+              </p>
+            </div>
+          ))
+        }
       </div>
 
-      <p class="mt-8 text-center font-[family-name:var(--font-body)] text-[12px] italic text-[#333]/40">
-        These descriptions reflect traditional, cultural, and emerging scientific perspectives. Stingless bee honey is not a medical product and is not intended to diagnose, treat, cure, or prevent any disease.
+      <p
+        class="mt-8 text-center font-[family-name:var(--font-body)] text-[12px] italic text-[#333]/40"
+      >
+        These descriptions reflect traditional, cultural, and emerging scientific perspectives.
+        Stingless bee honey is not a medical product and is not intended to diagnose, treat, cure,
+        or prevent any disease.
       </p>
     </div>
   </section>
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       COMMUNITY — Dark statement section
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <section class="surface-dark grain relative overflow-hidden py-24">
     <div class="relative z-10 mx-auto max-w-4xl px-6 text-center lg:px-12">
-      <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80">
+      <p
+        class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80"
+      >
         Community & Forest Care
       </p>
-      <h2 class="mt-6 font-[family-name:var(--font-display)] text-[clamp(1.75rem,4vw,2.75rem)] font-normal leading-[1.15] text-white">
+      <h2
+        class="mt-6 font-[family-name:var(--font-display)] text-[clamp(1.75rem,4vw,2.75rem)] font-normal leading-[1.15] text-white"
+      >
         Choosing This Honey Means<br />Investing in Heritage
       </h2>
       <hr class="gold-rule" />
-      <p class="reveal-on-scroll mx-auto mt-8 max-w-2xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-white/50">
-        Forestal MT supports local collectors in native regions of Honduras who harvest stingless bee honey from wild log hives in forested areas. By working through artisanal, traditional practices that respect the bees and the surrounding forest, we help preserve the ecosystem and keep this heritage alive.
+      <p
+        class="reveal-on-scroll mx-auto mt-8 max-w-2xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-white/50"
+      >
+        Forestal MT supports local collectors in native regions of Honduras who harvest stingless
+        bee honey from wild log hives in forested areas. By working through artisanal, traditional
+        practices that respect the bees and the surrounding forest, we help preserve the ecosystem
+        and keep this heritage alive.
       </p>
-      <p class="reveal-on-scroll mx-auto mt-4 max-w-2xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-white/50">
-        Choosing Forestal MT means investing in heritage preservation, community partnerships, and responsible sourcing grounded in traditional knowledge.
+      <p
+        class="reveal-on-scroll mx-auto mt-4 max-w-2xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-white/50"
+      >
+        Choosing Forestal MT means investing in heritage preservation, community partnerships, and
+        responsible sourcing grounded in traditional knowledge.
       </p>
     </div>
 
     <div class="relative z-10 mx-auto mt-16 flex max-w-4xl flex-wrap justify-center gap-4 px-6">
-      {[
-        "Heritage preservation",
-        "Community partnerships",
-        "Traditional beekeeping",
-        "Forest ecosystems",
-        "Responsible sourcing",
-        "Cultural stewardship",
-      ].map((tag) => (
-        <span class="tag-hover rounded-[2px] border border-white/10 px-4 py-2 font-[family-name:var(--font-ui)] text-[11px] text-white/40">
-          {tag}
-        </span>
-      ))}
+      {
+        [
+          "Heritage preservation",
+          "Community partnerships",
+          "Traditional beekeeping",
+          "Forest ecosystems",
+          "Responsible sourcing",
+          "Cultural stewardship",
+        ].map((tag) => (
+          <span class="tag-hover rounded-[2px] border border-white/10 px-4 py-2 font-[family-name:var(--font-ui)] text-[11px] text-white/40">
+            {tag}
+          </span>
+        ))
+      }
     </div>
   </section>
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       AUDIENCE + WHOLESALE CTA
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <AudienceWholesaleSplit
     audienceHeading="Built for Brands<br />That Value Heritage"
     audienceItems={audience}
     wholesaleBody="Bulk honey, private label solutions, and international distribution. Export-ready from Honduras to partners worldwide."
   />
 
-  {/* ═══════════════════════════════════════════════════════════════
+  {
+    /* ═══════════════════════════════════════════════════════════════
       TRUST MARQUEE + COLLECTION NAV
-  ═══════════════════════════════════════════════════════════════ */}
+  ═══════════════════════════════════════════════════════════════ */
+  }
   <TrustMarquee variant="dark" />
   <CollectionNav exclude="stingless-bee-honey" />
 </BaseLayout>

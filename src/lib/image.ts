@@ -70,9 +70,7 @@ export function cdnSrcSet(
   widths: number[],
   format: ImageFormat = "auto",
 ): string {
-  return widths
-    .map((w) => `${cdnImage(imageUrl, { w, f: format })} ${w}w`)
-    .join(", ");
+  return widths.map((w) => `${cdnImage(imageUrl, { w, f: format })} ${w}w`).join(", ");
 }
 
 /**
