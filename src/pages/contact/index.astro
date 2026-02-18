@@ -7,6 +7,11 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Head from "../../components/Head.astro";
 import Breadcrumb from "../../components/Breadcrumb.astro";
+import HeroCinematic from "../../components/HeroCinematic.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+import GoldTopCard from "../../components/GoldTopCard.astro";
+import CollectionNav from "../../components/CollectionNav.astro";
+import TrustMarquee from "../../components/TrustMarquee.astro";
 import { getEntry } from "astro:content";
 
 const page = await getEntry("pages", "contact");
@@ -92,72 +97,30 @@ const faqs = [
   />
 
   {/* ═══════════════════════════════════════════════════════════════
-      HERO — Image background, shorter (60vh), bottom-aligned
+      HERO — HeroCinematic, 60vh, image background
   ═══════════════════════════════════════════════════════════════ */}
-  <section class="grain relative flex min-h-[60vh] items-end overflow-hidden">
-    <div class="absolute inset-0">
-      <img
-        src={data.hero.background.url}
-        alt={data.hero.background.alt}
-        class="h-full w-full object-cover"
-        loading="eager"
-        decoding="async"
-      />
-      <div class="absolute inset-0 bg-gradient-to-t from-[#111]/90 via-[#111]/40 to-[#111]/15"></div>
-    </div>
-
-    <div class="relative z-10 mx-auto w-full max-w-7xl px-6 pb-20 lg:px-12">
-      <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/90">
-        {data.hero.eyebrow}
-      </p>
-      <h1 class="mt-4 max-w-3xl font-[family-name:var(--font-display)] text-[clamp(2.5rem,5.5vw,4rem)] font-normal leading-[1.08] text-white"
-        set:html={data.hero.title.replace(/\n/g, "<br />")}
-      />
-      <p class="mt-2 font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.2em] text-white/50">
-        {data.hero.subtitle}
-      </p>
-      <div class="mt-5 h-px w-20 bg-gradient-to-r from-[#F3C00D]/70 to-transparent"></div>
-      <p class="mt-5 max-w-xl font-[family-name:var(--font-body)] text-[15px] leading-relaxed text-white/65">
-        {data.hero.description}
-      </p>
-      <div class="mt-8 flex flex-wrap gap-4">
-        {data.hero.ctas?.map((cta: { label: string; url: string }, i: number) => (
-          <a
-            href={cta.url}
-            class:list={[
-              "inline-block rounded-[3px] px-7 py-3 font-[family-name:var(--font-ui)] text-[13px] font-semibold tracking-wide transition-all duration-300",
-              i === 0
-                ? "bg-[#206D03] text-white hover:bg-[#54B006]"
-                : "border border-white/25 text-white/90 hover:border-white/50 hover:bg-white/5",
-            ]}
-          >
-            {cta.label}
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
+  <HeroCinematic
+    height="60vh"
+    background={{ type: "image", src: data.hero.background.url, alt: data.hero.background.alt }}
+    eyebrow={data.hero.eyebrow}
+    title={data.hero.title}
+    subtitle={data.hero.subtitle}
+    description={data.hero.description}
+    ctas={data.hero.ctas}
+  />
 
   <Breadcrumb pageName={data.pageName} />
 
   {/* ═══════════════════════════════════════════════════════════════
-      CONTACT INFO CARDS — 3 cards on seasalt
+      CONTACT INFO CARDS — 3 cards on surface-warm
   ═══════════════════════════════════════════════════════════════ */}
-  <section class="bg-[#F8F8F0] py-24">
+  <section class="surface-warm py-24">
     <div class="mx-auto max-w-7xl px-6 lg:px-12">
-      <div class="text-center">
-        <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]">
-          Direct Contact
-        </p>
-        <h2 class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-[#333]">
-          How to Reach Us
-        </h2>
-        <hr class="gold-rule" />
-      </div>
+      <SectionHeader eyebrow="Direct Contact" heading="How to Reach Us" />
 
-      <div class="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
+      <div class="stagger-children mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
         {contactCards.map((card) => (
-          <div class="border-t-[3px] border-[#F3C00D]/50 bg-white p-8 shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-shadow duration-300 hover:shadow-md">
+          <div class="card-hover border-t-[3px] border-[#F3C00D]/50 bg-white p-8 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
             {/* Icon area */}
             <div class="flex h-10 w-10 items-center justify-center rounded-full bg-[#206D03]/[0.08]">
               {card.icon === "email" && (
@@ -207,22 +170,19 @@ const faqs = [
   </section>
 
   {/* ═══════════════════════════════════════════════════════════════
-      CONTACT FORM — Warm background, centered
+      TRUST MARQUEE — Between contact cards and form
   ═══════════════════════════════════════════════════════════════ */}
-  <section class="py-24" style="background-color: color-mix(in srgb, #E6D8B1 10%, #F8F8F0);">
+  <TrustMarquee />
+
+  {/* ═══════════════════════════════════════════════════════════════
+      CONTACT FORM — Parchment background, centered
+  ═══════════════════════════════════════════════════════════════ */}
+  <section class="surface-parchment py-24">
     <div class="mx-auto max-w-2xl px-6 lg:px-12">
-      <div class="text-center">
-        <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]">
-          Send Us a Message
-        </p>
-        <h2 class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-[#333]">
-          Start a Conversation
-        </h2>
-        <hr class="gold-rule" />
-        <p class="mt-6 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70">
-          Share your project, questions, or requirements. We aim to respond within 1-2 business days.
-        </p>
-      </div>
+      <SectionHeader eyebrow="Send Us a Message" heading="Start a Conversation" />
+      <p class="mt-6 text-center font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70">
+        Share your project, questions, or requirements. We aim to respond within 1-2 business days.
+      </p>
 
       <form id="contact-form" class="mt-12 space-y-6" onsubmit="return false;">
         {/* Name */}
@@ -314,17 +274,11 @@ const faqs = [
   </section>
 
   {/* ═══════════════════════════════════════════════════════════════
-      BUSINESS HOURS — Centered text on seasalt
+      BUSINESS HOURS — Centered text on surface-warm
   ═══════════════════════════════════════════════════════════════ */}
-  <section class="bg-[#F8F8F0] py-24">
-    <div class="mx-auto max-w-2xl px-6 text-center lg:px-12">
-      <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]">
-        Availability
-      </p>
-      <h2 class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-[#333]">
-        Business Hours
-      </h2>
-      <hr class="gold-rule" />
+  <section class="surface-warm py-24">
+    <div class="reveal-on-scroll mx-auto max-w-2xl px-6 text-center lg:px-12">
+      <SectionHeader eyebrow="Availability" heading="Business Hours" />
 
       <div class="mt-10 space-y-4">
         <div class="flex items-center justify-center gap-6">
@@ -350,15 +304,9 @@ const faqs = [
   {/* ═══════════════════════════════════════════════════════════════
       SOCIAL MEDIA — Dark section, horizontal links
   ═══════════════════════════════════════════════════════════════ */}
-  <section class="grain relative overflow-hidden bg-[#1a1a1a] py-24">
-    <div class="relative z-10 mx-auto max-w-4xl px-6 text-center lg:px-12">
-      <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80">
-        Follow Our Journey
-      </p>
-      <h2 class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-white">
-        Connect With Us
-      </h2>
-      <hr class="gold-rule" />
+  <section class="surface-dark grain relative overflow-hidden py-24">
+    <div class="reveal-on-scroll relative z-10 mx-auto max-w-4xl px-6 text-center lg:px-12">
+      <SectionHeader eyebrow="Follow Our Journey" heading="Connect With Us" variant="dark" />
 
       <div class="mt-12 flex flex-wrap items-center justify-center gap-8">
         {socials.map((social) => (
@@ -381,65 +329,22 @@ const faqs = [
   </section>
 
   {/* ═══════════════════════════════════════════════════════════════
-      FAQ SECTION — Q&A pairs on seasalt
+      FAQ SECTION — GoldTopCard Q&A pairs on surface-warm
   ═══════════════════════════════════════════════════════════════ */}
-  <section class="bg-[#F8F8F0] py-24">
+  <section class="surface-warm py-24">
     <div class="mx-auto max-w-3xl px-6 lg:px-12">
-      <div class="text-center">
-        <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]">
-          Common Questions
-        </p>
-        <h2 class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-[#333]">
-          Contact FAQs
-        </h2>
-        <hr class="gold-rule" />
-      </div>
+      <SectionHeader eyebrow="Common Questions" heading="Contact FAQs" />
 
-      <div class="mt-16 space-y-6">
+      <div class="stagger-children mt-16 space-y-6">
         {faqs.map((faq) => (
-          <div class="border-t-[3px] border-[#F3C00D]/50 bg-white p-8 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
-            <h3 class="font-[family-name:var(--font-heading)] text-[1rem] font-normal text-[#333]">
-              {faq.question}
-            </h3>
-            <div class="mt-3 h-px w-8 bg-[#F3C00D]/30"></div>
-            <p class="mt-4 font-[family-name:var(--font-body)] text-[14px] leading-[1.85] text-[#333]/65">
-              {faq.answer}
-            </p>
-          </div>
+          <GoldTopCard heading={faq.question} body={faq.answer} />
         ))}
       </div>
     </div>
   </section>
 
   {/* ═══════════════════════════════════════════════════════════════
-      COLLECTIONS NAV — Links to 3 collections + wholesale
+      COLLECTIONS NAV — All collections including wholesale
   ═══════════════════════════════════════════════════════════════ */}
-  <section class="border-t border-[#D6E8D3] bg-white py-16">
-    <div class="mx-auto max-w-7xl px-6 lg:px-12">
-      <p class="text-center font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]">
-        Explore Our Collections
-      </p>
-      <div class="mt-8 flex flex-col items-center justify-center gap-6 sm:flex-row sm:gap-12">
-        {[
-          { label: "Batana Oil", href: "/batana-oil/" },
-          { label: "Stingless Bee Honey", href: "/stingless-bee-honey/" },
-          { label: "Traditional Herbs", href: "/traditional-herbs/" },
-          { label: "Wholesale", href: "/wholesale/" },
-        ].map((link, i) => (
-          <>
-            {i > 0 && <span class="hidden text-[#D6E8D3] sm:inline">|</span>}
-            <a
-              href={link.href}
-              class="group flex items-center gap-3 font-[family-name:var(--font-display)] text-[1.1rem] text-[#333] transition-colors hover:text-[#206D03]"
-            >
-              {link.label}
-              <svg class="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-              </svg>
-            </a>
-          </>
-        ))}
-      </div>
-    </div>
-  </section>
+  <CollectionNav />
 </BaseLayout>

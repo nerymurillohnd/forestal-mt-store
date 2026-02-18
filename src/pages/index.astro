@@ -7,6 +7,11 @@
  */
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Head from "../components/Head.astro";
+import HeroCinematic from "../components/HeroCinematic.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import GoldTopCard from "../components/GoldTopCard.astro";
+import TrustMarquee from "../components/TrustMarquee.astro";
+import OriginPulseIsland from "../components/islands/OriginPulseIsland.tsx";
 import { getEntry } from "astro:content";
 
 const page = await getEntry("pages", "/");
@@ -45,27 +50,6 @@ const collections = [
   },
 ];
 
-const pillars = [
-  {
-    number: "01",
-    title: "Ethically Sourced",
-    description:
-      "Direct partnerships with indigenous and rural communities in Honduras. No middlemen — fair compensation that reaches the hands that harvest.",
-  },
-  {
-    number: "02",
-    title: "Authentic Origin",
-    description:
-      "Every product traces back to its source. Verifiable provenance, traditional preparation methods, and genuine cultural heritage.",
-  },
-  {
-    number: "03",
-    title: "Worldwide Shipping",
-    description:
-      "DHL Express international delivery to your door. Carefully packaged to preserve natural properties from origin to destination.",
-  },
-];
-
 const commitments = [
   {
     title: "Quality Guaranteed",
@@ -98,118 +82,44 @@ const commitments = [
   />
 
   {/* ═══════════════════════════════════════════════════════════════
-      HERO — Full viewport, cinematic, bottom-aligned content
+      HERO — Full viewport cinematic component
   ═══════════════════════════════════════════════════════════════ */}
-  <section class="grain relative flex h-dvh items-end overflow-hidden">
-    {/* Background */}
-    <div class="absolute inset-0">
-      <img
-        src="https://cdn.forestal-mt.com/pages/home/hero.jpg"
-        alt=""
-        class="h-full w-full object-cover"
-        loading="eager"
-        decoding="async"
-      />
-      <div
-        class="absolute inset-0 bg-gradient-to-t from-[#111]/90 via-[#111]/35 to-[#111]/15"
-      >
-      </div>
-    </div>
+  <HeroCinematic
+    height="100dvh"
+    background={{ type: 'image', src: 'https://cdn.forestal-mt.com/pages/home/hero.jpg', alt: 'Honduran rainforest canopy' }}
+    eyebrow="Exporting Nature Without Borders"
+    title="Batana Oil, Honey\n& Herbs from Honduras"
+    description="Family-owned Honduran exporter of Batana Oil, Jimerito stingless bee honey, and wildcrafted traditional herbs. Sourced directly from indigenous communities."
+    ctas={[
+      { label: 'Shop Now', url: '/products/' },
+      { label: 'Wholesale', url: '/wholesale/' },
+    ]}
+    scrollIndicator={true}
+  />
 
-    {/* Content */}
-    <div class="relative z-10 mx-auto w-full max-w-7xl px-6 pb-24 lg:px-12">
-      <p
-        class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/90"
-      >
-        Exporting Nature Without Borders
-      </p>
-
-      <h1
-        class="mt-5 max-w-4xl font-[family-name:var(--font-display)] text-[clamp(2.5rem,6vw,4.5rem)] font-normal leading-[1.08] text-white"
-      >
-        Batana Oil, Honey<br class="hidden md:block" />
-        & Herbs from Honduras
-      </h1>
-
-      <div
-        class="mt-6 h-px w-20 bg-gradient-to-r from-[#F3C00D]/70 to-transparent"
-      >
-      </div>
-
-      <p
-        class="mt-6 max-w-xl font-[family-name:var(--font-body)] text-[15px] leading-relaxed text-white/70"
-      >
-        Family-owned Honduran exporter of Batana Oil, Jimerito stingless bee
-        honey, and wildcrafted traditional herbs. Sourced directly from
-        indigenous communities.
-      </p>
-
-      <div class="mt-10 flex flex-wrap gap-4">
-        <a
-          href="/products/"
-          class="inline-block rounded-[3px] bg-[#206D03] px-7 py-3.5 font-[family-name:var(--font-ui)] text-[13px] font-semibold tracking-wide text-white transition-all duration-300 hover:bg-[#54B006] hover:shadow-lg hover:shadow-[#206D03]/25"
-        >
-          Shop Now
-        </a>
-        <a
-          href="/wholesale/"
-          class="inline-block rounded-[3px] border border-white/25 px-7 py-3.5 font-[family-name:var(--font-ui)] text-[13px] font-semibold tracking-wide text-white/90 transition-all duration-300 hover:border-white/50 hover:bg-white/5"
-        >
-          Wholesale
-        </a>
-      </div>
-    </div>
-
-    {/* Scroll indicator */}
-    <div class="absolute bottom-8 left-1/2 z-10 -translate-x-1/2">
-      <div class="flex flex-col items-center gap-2 text-white/30">
-        <span
-          class="font-[family-name:var(--font-ui)] text-[9px] uppercase tracking-[0.3em]"
-          >Scroll</span
-        >
-        <svg
-          class="h-4 w-4 animate-bounce"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          stroke-width="1.5"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="m19.5 13.5-7.5 7.5m0 0-7.5-7.5M12 21V3"></path>
-        </svg>
-      </div>
-    </div>
-  </section>
+  {/* ── Trust marquee after hero ── */}
+  <TrustMarquee />
 
   {/* ═══════════════════════════════════════════════════════════════
-      COLLECTIONS — 3 editorial portrait cards
+      COLLECTIONS — Bento grid editorial cards
   ═══════════════════════════════════════════════════════════════ */}
-  <section class="relative bg-[#F8F8F0] py-28">
+  <section class="surface-warm relative py-28">
     <div class="mx-auto max-w-7xl px-6 lg:px-12">
-      {/* Header */}
-      <div class="text-center">
-        <p
-          class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]"
-        >
-          Our Collections
-        </p>
-        <h2
-          class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.75rem)] font-normal text-[#333]"
-        >
-          Three Traditions, One Origin
-        </h2>
-        <hr class="gold-rule" />
-      </div>
+      <SectionHeader
+        eyebrow="Our Collections"
+        heading="Three Traditions, One Origin"
+      />
 
-      {/* Cards */}
-      <div class="mt-20 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {/* Bento grid: first card spans 2 rows on large screens */}
+      <div class="reveal-on-scroll mt-20 grid grid-cols-1 gap-4 lg:grid-cols-[1.3fr_1fr] lg:grid-rows-[1fr_1fr]">
         {
-          collections.map((col) => (
+          collections.map((col, i) => (
             <a
               href={col.href}
-              class="group relative flex aspect-[3/4] flex-col justify-end overflow-hidden rounded-[2px] shadow-sm transition-shadow duration-500 hover:shadow-xl"
+              class:list={[
+                "group relative flex aspect-[3/4] flex-col justify-end overflow-hidden rounded-[2px] shadow-sm transition-shadow duration-500 hover:shadow-xl",
+                i === 0 && "lg:row-span-2 lg:aspect-auto",
+              ]}
             >
               <img
                 src={col.image}
@@ -257,25 +167,18 @@ const commitments = [
   </section>
 
   {/* ═══════════════════════════════════════════════════════════════
-      THE SOURCE — Dark statement section with pillars
+      THE SOURCE — Interactive Honduras map (OriginPulse island)
   ═══════════════════════════════════════════════════════════════ */}
-  <section class="grain relative overflow-hidden bg-[#1a1a1a] py-28">
-    {/* Statement */}
-    <div class="relative z-10 mx-auto max-w-4xl px-6 text-center lg:px-12">
-      <p
-        class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80"
-      >
+  <section class="surface-dark grain relative overflow-hidden py-28">
+    <div class="reveal-on-scroll relative z-10 mx-auto max-w-4xl px-6 text-center lg:px-12">
+      <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80">
         Why Forestal MT
       </p>
-      <h2
-        class="mt-6 font-[family-name:var(--font-display)] text-[clamp(2rem,4.5vw,3.25rem)] font-normal leading-[1.15] text-white"
-      >
+      <h2 class="mt-6 font-[family-name:var(--font-display)] text-[clamp(2rem,4.5vw,3.25rem)] font-normal leading-[1.15] text-white">
         We Are the Source.<br />Not a Middleman.
       </h2>
       <hr class="gold-rule" />
-      <p
-        class="mx-auto mt-8 max-w-2xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-white/55"
-      >
+      <p class="mx-auto mt-8 max-w-2xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-white/55">
         Most suppliers resell from unknown origins. We source directly from
         indigenous communities in Honduras who craft these products using
         ancestral methods. No brokers. No traders. Full traceability from forest
@@ -283,41 +186,23 @@ const commitments = [
       </p>
     </div>
 
-    {/* 3 pillars */}
-    <div
-      class="relative z-10 mx-auto mt-20 grid max-w-7xl grid-cols-1 gap-12 px-6 md:grid-cols-3 md:gap-8 lg:px-12"
-    >
-      {
-        pillars.map((p) => (
-          <div class="text-center md:text-left">
-            <span class="font-[family-name:var(--font-heading)] text-[13px] text-[#F3C00D]/35">
-              {p.number}
-            </span>
-            <h3 class="mt-2 font-[family-name:var(--font-heading)] text-[1.05rem] font-normal tracking-wide text-white">
-              {p.title}
-            </h3>
-            <div class="mx-auto mt-3 h-px w-8 bg-[#F3C00D]/20 md:mx-0" />
-            <p class="mt-4 font-[family-name:var(--font-body)] text-[13px] leading-[1.85] text-white/45">
-              {p.description}
-            </p>
-          </div>
-        ))
-      }
+    <div class="relative z-10 mx-auto mt-16 max-w-7xl px-6 lg:px-12">
+      <OriginPulseIsland client:visible />
     </div>
   </section>
 
   {/* ═══════════════════════════════════════════════════════════════
-      OUR STORY — Warm editorial with image
+      OUR STORY — Warm editorial with asymmetric image
   ═══════════════════════════════════════════════════════════════ */}
   <section
     class="py-28"
     style="background-color: color-mix(in srgb, #E6D8B1 10%, #F8F8F0);"
   >
     <div
-      class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 lg:grid-cols-2 lg:px-12"
+      class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 lg:grid-cols-[1fr_1.15fr] lg:px-12"
     >
       {/* Text */}
-      <div>
+      <div class="reveal-on-scroll">
         <p
           class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]"
         >
@@ -370,7 +255,7 @@ const commitments = [
       </div>
 
       {/* Image */}
-      <div class="relative aspect-[4/5] overflow-hidden rounded-[2px]">
+      <div class="parallax-image relative aspect-[4/5] overflow-hidden rounded-[2px]">
         <img
           src="https://cdn.forestal-mt.com/pages/about/hero.jpg"
           alt="Forestal MT team with indigenous partners in Honduran forest"
@@ -386,46 +271,33 @@ const commitments = [
   </section>
 
   {/* ═══════════════════════════════════════════════════════════════
-      COMMITMENT — 3 specimen cards with gold accent
+      COMMITMENT — GoldTopCard components with stagger
   ═══════════════════════════════════════════════════════════════ */}
-  <section class="bg-[#F8F8F0] py-28">
+  <section class="surface-warm py-28">
     <div class="mx-auto max-w-7xl px-6 lg:px-12">
-      <div class="text-center">
-        <p
-          class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]"
-        >
-          Our Promise
-        </p>
-        <h2
-          class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.75rem)] font-normal text-[#333]"
-        >
-          Heritage You Can Verify
-        </h2>
-        <hr class="gold-rule" />
-      </div>
+      <SectionHeader
+        eyebrow="Our Promise"
+        heading="Heritage You Can Verify"
+      />
 
-      <div class="mt-20 grid grid-cols-1 gap-6 md:grid-cols-3">
+      <div class="reveal-on-scroll stagger-children mt-20 grid grid-cols-1 gap-6 md:grid-cols-3">
         {
           commitments.map((item) => (
-            <div class="border-t-[3px] border-[#F3C00D]/50 bg-white p-10 shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-shadow duration-300 hover:shadow-md">
-              <h3 class="font-[family-name:var(--font-heading)] text-[1rem] font-normal text-[#333]">
-                {item.title}
-              </h3>
-              <p class="mt-4 font-[family-name:var(--font-body)] text-[13px] leading-[1.85] text-[#333]/60">
-                {item.description}
-              </p>
-            </div>
+            <GoldTopCard heading={item.title} body={item.description} />
           ))
         }
       </div>
     </div>
   </section>
 
+  {/* ── Trust marquee before newsletter ── */}
+  <TrustMarquee variant="dark" />
+
   {/* ═══════════════════════════════════════════════════════════════
       NEWSLETTER — Forest green CTA with grain
   ═══════════════════════════════════════════════════════════════ */}
   <section class="grain relative overflow-hidden bg-[#206D03] py-24">
-    <div class="relative z-10 mx-auto max-w-2xl px-6 text-center">
+    <div class="reveal-on-scroll relative z-10 mx-auto max-w-2xl px-6 text-center">
       <h2
         class="font-[family-name:var(--font-display)] text-[clamp(1.5rem,3vw,2.25rem)] font-normal text-white"
       >

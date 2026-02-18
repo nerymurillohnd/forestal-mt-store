@@ -1,0 +1,82 @@
+---
+/**
+ * OriginChapter — Enhanced asymmetric origin story block.
+ * The heart of the "we are the source" narrative.
+ * Used on all 3 catalog pages.
+ */
+import OriginMetadata from './OriginMetadata.astro';
+
+interface Props {
+  eyebrow: string;
+  heading: string;
+  paragraphs: string[];
+  image: { src: string; alt: string };
+  metadata: { label: string; value: string }[];
+  catalogAccent?: 'batana' | 'honey' | 'herbs';
+  direction?: 'image-left' | 'image-right';
+}
+
+const {
+  eyebrow,
+  heading,
+  paragraphs,
+  image,
+  metadata,
+  catalogAccent = 'batana',
+  direction = 'image-left',
+} = Astro.props;
+
+const accentClass = `accent-${catalogAccent}`;
+const imageFirst = direction === 'image-left';
+---
+
+<section class:list={["py-24 overflow-hidden", accentClass]}>
+  <div class:list={[
+    "mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 lg:px-12",
+    imageFirst ? "lg:grid-cols-[1.15fr_1fr]" : "lg:grid-cols-[1fr_1.15fr]",
+  ]}>
+    {/* Image column */}
+    <div class:list={[
+      "relative aspect-[4/5] overflow-hidden rounded-[2px]",
+      imageFirst ? "lg:order-1" : "lg:order-2",
+      imageFirst ? "lg:-ml-8" : "lg:-mr-8",
+    ]}>
+      <img
+        src={image.src}
+        alt={image.alt}
+        class="parallax-image h-full w-full object-cover"
+        loading="lazy"
+      />
+      {/* Gold ring overlay */}
+      <div class="absolute inset-0 rounded-[2px] ring-1 ring-inset ring-[#F3C00D]/10"></div>
+    </div>
+
+    {/* Text column */}
+    <div class:list={[
+      "reveal-on-scroll",
+      imageFirst ? "lg:order-2" : "lg:order-1",
+    ]}>
+      <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-gold-dark">
+        {eyebrow}
+      </p>
+      <h2
+        class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-charcoal"
+        set:html={heading}
+      />
+      <hr class="gold-rule-left" />
+
+      {paragraphs.map((p) => (
+        <p class="mt-4 first:mt-8 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-charcoal/70">
+          {p}
+        </p>
+      ))}
+
+      <slot />
+
+      {/* Metadata grid — botanical field journal style */}
+      <div class="mt-10">
+        <OriginMetadata metadata={metadata} />
+      </div>
+    </div>
+  </div>
+</section>

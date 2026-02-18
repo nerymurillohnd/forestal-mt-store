@@ -1,0 +1,35 @@
+---
+/**
+ * OriginMetadata — Extracted metadata grid with botanical name treatment.
+ * Gold left-border cells with label/value pairs.
+ */
+interface Props {
+  metadata: { label: string; value: string }[];
+  variant?: 'light' | 'dark';
+}
+
+const { metadata, variant = 'light' } = Astro.props;
+
+const labelColor = variant === 'light' ? 'text-gold-dark' : 'text-[#F3C00D]/60';
+const valueColor = variant === 'light' ? 'text-charcoal/70' : 'text-white/60';
+const borderColor = variant === 'light' ? 'border-[#F3C00D]/30' : 'border-[#F3C00D]/20';
+---
+
+<div class="grid grid-cols-2 gap-4">
+  {metadata.map((item) => (
+    <div class:list={["border-l-[2px] pl-4", borderColor]}>
+      <p class:list={[
+        "font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.2em]",
+        labelColor,
+      ]}>
+        {item.label}
+      </p>
+      <p class:list={[
+        "mt-1 font-[family-name:var(--font-body)] text-[13px]",
+        valueColor,
+      ]}>
+        {item.value}
+      </p>
+    </div>
+  ))}
+</div>

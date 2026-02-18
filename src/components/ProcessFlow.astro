@@ -1,0 +1,86 @@
+---
+/**
+ * ProcessFlow — Horizontal connected process steps.
+ * Replaces frosted-card grids for processing steps.
+ * Dark background with gold connecting line.
+ */
+interface Step {
+  number: string;
+  title: string;
+  description: string;
+  tag?: string;
+}
+
+interface Props {
+  eyebrow: string;
+  heading: string;
+  steps: Step[];
+  footnote?: string;
+  /** Introductory paragraph below the heading */
+  intro?: string;
+}
+
+const { eyebrow, heading, steps, footnote, intro } = Astro.props;
+---
+
+<section class="grain relative overflow-hidden surface-dark py-24">
+  <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
+    {/* Header */}
+    <div class="text-center reveal-on-scroll">
+      <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80">
+        {eyebrow}
+      </p>
+      <h2
+        class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-white"
+        set:html={heading}
+      />
+      <hr class="gold-rule" />
+      {intro && (
+        <p class="mx-auto mt-6 max-w-2xl font-[family-name:var(--font-body)] text-[14px] leading-[1.85] text-white/45">
+          {intro}
+        </p>
+      )}
+    </div>
+
+    {/* Process steps with connecting line */}
+    <div class:list={[
+      "mt-16 relative",
+      steps.length <= 5 ? "process-line" : "",
+    ]}>
+      <div class:list={[
+        "grid grid-cols-1 gap-6 stagger-children",
+        steps.length === 2 ? "sm:grid-cols-2" : "",
+        steps.length === 3 ? "sm:grid-cols-2 lg:grid-cols-3" : "",
+        steps.length === 4 ? "sm:grid-cols-2 lg:grid-cols-4" : "",
+        steps.length >= 5 ? "sm:grid-cols-2 lg:grid-cols-5" : "",
+      ]}>
+        {steps.map((step) => (
+          <div class="relative z-10 border border-white/10 bg-white/[0.03] p-8 backdrop-blur-sm frosted-hover">
+            <span class="block font-[family-name:var(--font-heading)] text-[1.5rem] font-normal text-[#F3C00D]/30">
+              {step.number}
+            </span>
+            {step.tag && (
+              <p class="mt-1 font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.3em] text-[#F3C00D]/60">
+                {step.tag}
+              </p>
+            )}
+            <h3 class="mt-2 font-[family-name:var(--font-heading)] text-[0.95rem] font-normal tracking-wide text-white">
+              {step.title}
+            </h3>
+            <div class="mt-3 h-px w-8 bg-[#F3C00D]/20"></div>
+            <p class="mt-4 font-[family-name:var(--font-body)] text-[12px] leading-[1.85] text-white/45">
+              {step.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Footnote */}
+    {footnote && (
+      <p class="mt-8 text-center font-[family-name:var(--font-body)] text-[13px] italic text-white/35">
+        {footnote}
+      </p>
+    )}
+  </div>
+</section>

@@ -1,0 +1,70 @@
+---
+/**
+ * AudienceWholesaleSplit — Extracted 2-column audience + wholesale CTA.
+ * Replaces 3 identical implementations on catalog pages.
+ */
+interface Props {
+  audienceEyebrow?: string;
+  audienceHeading: string;
+  audienceItems: string[];
+  wholesaleEyebrow?: string;
+  wholesaleHeading?: string;
+  wholesaleBody: string;
+  wholesaleCta?: string;
+}
+
+const {
+  audienceEyebrow = 'Who This Collection Serves',
+  audienceHeading,
+  audienceItems,
+  wholesaleEyebrow = 'Wholesale & Global Supply',
+  wholesaleHeading = 'Partner With the Source',
+  wholesaleBody,
+  wholesaleCta = 'Request a Quote',
+} = Astro.props;
+---
+
+<section class="surface-warm py-24">
+  <div class="mx-auto max-w-7xl px-6 lg:px-12">
+    <div class="grid grid-cols-1 gap-16 lg:grid-cols-2">
+      {/* Audience */}
+      <div class="reveal-on-scroll">
+        <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-gold-dark">
+          {audienceEyebrow}
+        </p>
+        <h2
+          class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.5rem,3vw,2rem)] font-normal text-charcoal"
+          set:html={audienceHeading}
+        />
+        <hr class="gold-rule-left" />
+        <ul class="mt-8 space-y-3">
+          {audienceItems.map((item) => (
+            <li class="flex items-center gap-3 font-[family-name:var(--font-body)] text-[14px] text-charcoal/70">
+              <span class="h-px w-4 bg-[#F3C00D]/40" />
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Wholesale CTA */}
+      <div class="flex flex-col justify-center rounded-[2px] bg-leaf-green p-12 text-center reveal-on-scroll">
+        <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80">
+          {wholesaleEyebrow}
+        </p>
+        <h3 class="mt-4 font-[family-name:var(--font-display)] text-[1.5rem] font-normal text-white">
+          {wholesaleHeading}
+        </h3>
+        <p class="mt-4 font-[family-name:var(--font-body)] text-[13px] leading-relaxed text-white/60">
+          {wholesaleBody}
+        </p>
+        <a
+          href="/wholesale/"
+          class="mx-auto mt-8 inline-block rounded-[3px] bg-gold px-8 py-3.5 font-[family-name:var(--font-ui)] text-[13px] font-semibold text-charcoal transition-all duration-300 hover:bg-gold/90"
+        >
+          {wholesaleCta}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

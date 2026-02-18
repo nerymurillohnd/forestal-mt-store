@@ -9,10 +9,17 @@
 
   /* Surface & neutral colors */
   --color-graphite: #333333;
+  --color-charcoal: #1a1a1a;
   --color-warm-sand: #E6D8B1;
+  --color-parchment: #F5F0E8;
   --color-mint: #D6E8D3;
   --color-soft-silver: #F2F2F2;
   --color-seasalt: #F8F8F0;
+
+  /* Catalog accent colors */
+  --color-deep-amber: #8B5E34;
+  --color-honey-gold: #D4A017;
+  --color-forest-shadow: #0D3B00;
 
   /* Semantic colors */
   --color-error: #DC2626;
@@ -25,7 +32,9 @@
   --font-serif: var(--font-body);
 }
 
-/* Prose styling for markdown content */
+/* ═══════════════════════════════════════════════════════════════════
+   Prose styling for markdown content
+═══════════════════════════════════════════════════════════════════ */
 .prose-forestal {
   font-family: var(--font-body);
   color: var(--color-graphite);
@@ -164,4 +173,351 @@
   width: 4rem;
   margin: 1.25rem 0;
   background: linear-gradient(90deg, color-mix(in srgb, var(--color-gold) 50%, transparent), transparent);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   Surface backgrounds — organic gradient washes
+═══════════════════════════════════════════════════════════════════ */
+.surface-warm {
+  background:
+    radial-gradient(ellipse at 30% 0%, color-mix(in srgb, var(--color-warm-sand) 8%, transparent) 0%, transparent 60%),
+    var(--color-seasalt);
+}
+
+.surface-dark {
+  background:
+    radial-gradient(ellipse at 70% 100%, color-mix(in srgb, var(--color-deep-amber) 4%, transparent) 0%, transparent 50%),
+    var(--color-charcoal);
+}
+
+.surface-parchment {
+  background:
+    radial-gradient(ellipse at 50% 0%, color-mix(in srgb, var(--color-warm-sand) 12%, transparent) 0%, transparent 60%),
+    var(--color-parchment);
+}
+
+/* Catalog-specific accent washes */
+.accent-batana {
+  background:
+    radial-gradient(ellipse at 30% 20%, color-mix(in srgb, var(--color-deep-amber) 6%, transparent) 0%, transparent 50%),
+    var(--color-seasalt);
+}
+
+.accent-honey {
+  background:
+    radial-gradient(ellipse at 30% 20%, color-mix(in srgb, var(--color-honey-gold) 6%, transparent) 0%, transparent 50%),
+    var(--color-seasalt);
+}
+
+.accent-herbs {
+  background:
+    radial-gradient(ellipse at 30% 20%, color-mix(in srgb, var(--color-forest-shadow) 4%, transparent) 0%, transparent 50%),
+    var(--color-seasalt);
+}
+
+/* Dark catalog accent overlays (hero gradient tints) */
+.overlay-batana::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 80%, color-mix(in srgb, var(--color-deep-amber) 15%, transparent) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.overlay-honey::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 80%, color-mix(in srgb, var(--color-honey-gold) 12%, transparent) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.overlay-herbs::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 80%, color-mix(in srgb, var(--color-forest-shadow) 12%, transparent) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   Botanical name treatment
+═══════════════════════════════════════════════════════════════════ */
+.botanical-name {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.875rem;
+  color: color-mix(in srgb, var(--color-leaf-green) 80%, transparent);
+  letter-spacing: 0.02em;
+}
+
+.botanical-name-dark {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.875rem;
+  color: color-mix(in srgb, var(--color-gold) 60%, transparent);
+  letter-spacing: 0.02em;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   Scroll-driven reveal animations (CSS native — progressive enhancement)
+═══════════════════════════════════════════════════════════════════ */
+
+/* Keyframes */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes hero-reveal {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Scroll-driven animations — only in supporting browsers */
+@supports (animation-timeline: view()) {
+  .reveal-up {
+    animation: fade-up linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 25%;
+  }
+
+  .reveal-scale {
+    animation: scale-in linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 30%;
+  }
+
+  .stagger-children > * {
+    animation: fade-up linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+  .stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+  .stagger-children > *:nth-child(2) { animation-delay: 80ms; }
+  .stagger-children > *:nth-child(3) { animation-delay: 160ms; }
+  .stagger-children > *:nth-child(4) { animation-delay: 240ms; }
+  .stagger-children > *:nth-child(5) { animation-delay: 320ms; }
+  .stagger-children > *:nth-child(6) { animation-delay: 400ms; }
+}
+
+/* IntersectionObserver fallback classes (applied via JS) */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-scale-on-scroll {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal-scale-on-scroll.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   Hero entrance sequence — staggered on page load (not scroll-driven)
+═══════════════════════════════════════════════════════════════════ */
+.hero-entrance > * {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: hero-reveal 600ms ease-out forwards;
+}
+.hero-entrance > *:nth-child(1) { animation-delay: 200ms; }
+.hero-entrance > *:nth-child(2) { animation-delay: 400ms; }
+.hero-entrance > *:nth-child(3) { animation-delay: 550ms; }
+.hero-entrance > *:nth-child(4) { animation-delay: 700ms; }
+.hero-entrance > *:nth-child(5) { animation-delay: 850ms; }
+.hero-entrance > *:nth-child(6) { animation-delay: 1000ms; }
+
+/* ═══════════════════════════════════════════════════════════════════
+   Parallax — subtle CSS-only depth on split-section images
+═══════════════════════════════════════════════════════════════════ */
+@supports (animation-timeline: view()) {
+  .parallax-image {
+    will-change: transform;
+    animation: parallax-shift linear both;
+    animation-timeline: view();
+    animation-range: contain 0% contain 100%;
+  }
+}
+
+@keyframes parallax-shift {
+  from { transform: translateY(-5%); }
+  to   { transform: translateY(5%); }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   Infinite marquee — trust bar / brand pillars
+═══════════════════════════════════════════════════════════════════ */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+
+  .hero-entrance > * {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .reveal-on-scroll,
+  .reveal-scale-on-scroll {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .parallax-image {
+    animation: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   Micro-interaction utilities
+═══════════════════════════════════════════════════════════════════ */
+
+/* Link underline draw left-to-right */
+.link-draw {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  transition: background-size 0.4s ease;
+}
+
+.link-draw:hover {
+  background-size: 100% 1px;
+}
+
+/* Card lift + shadow bloom on hover */
+.card-hover {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Frosted card hover (dark) */
+.frosted-hover {
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.frosted-hover:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* CTA button glow */
+.cta-glow {
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.cta-glow:hover {
+  box-shadow: 0 0 20px rgba(32, 109, 3, 0.15);
+}
+
+/* Tag pill hover */
+.tag-hover {
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.tag-hover:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.tag-hover-light {
+  transition: background-color 0.2s ease;
+}
+
+.tag-hover-light:hover {
+  background-color: color-mix(in srgb, var(--color-leaf-green) 5%, transparent);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   Process flow — connected horizontal steps
+═══════════════════════════════════════════════════════════════════ */
+.process-line {
+  position: relative;
+}
+
+.process-line::before {
+  content: '';
+  position: absolute;
+  top: 2rem;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    color-mix(in srgb, var(--color-gold) 20%, transparent),
+    color-mix(in srgb, var(--color-gold) 40%, transparent),
+    color-mix(in srgb, var(--color-gold) 20%, transparent)
+  );
+  z-index: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   Origin pulse animation — map pulsing dots
+═══════════════════════════════════════════════════════════════════ */
+@keyframes origin-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(243, 192, 13, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(243, 192, 13, 0);
+  }
+}
+
+.pulse-dot {
+  animation: origin-pulse 2.5s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   Horizontal scroll container (herb catalog)
+═══════════════════════════════════════════════════════════════════ */
+.scroll-snap-x {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.scroll-snap-x::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-snap-x > * {
+  scroll-snap-align: start;
 }

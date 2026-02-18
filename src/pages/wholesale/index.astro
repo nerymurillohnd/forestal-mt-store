@@ -7,6 +7,12 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Head from "../../components/Head.astro";
 import Breadcrumb from "../../components/Breadcrumb.astro";
+import HeroCinematic from "../../components/HeroCinematic.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+import GoldTopCard from "../../components/GoldTopCard.astro";
+import ProcessFlow from "../../components/ProcessFlow.astro";
+import CollectionNav from "../../components/CollectionNav.astro";
+import TrustMarquee from "../../components/TrustMarquee.astro";
 import { getEntry } from "astro:content";
 
 const page = await getEntry("pages", "wholesale");
@@ -118,93 +124,50 @@ const pricingFactors = [
   />
 
   {/* ═══════════════════════════════════════════════════════════════
-      HERO — Image background, 60vh, bottom-aligned
+      HERO — HeroCinematic, 60vh, image background
   ═══════════════════════════════════════════════════════════════ */}
-  <section class="grain relative flex min-h-[60vh] items-end overflow-hidden">
-    <div class="absolute inset-0">
-      <img
-        src={data.hero.background.url}
-        alt={data.hero.background.alt}
-        class="h-full w-full object-cover"
-        loading="eager"
-        decoding="async"
-      />
-      <div class="absolute inset-0 bg-gradient-to-t from-[#111]/90 via-[#111]/40 to-[#111]/15"></div>
-    </div>
-
-    <div class="relative z-10 mx-auto w-full max-w-7xl px-6 pb-20 lg:px-12">
-      <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/90">
-        {data.hero.eyebrow}
-      </p>
-      <h1 class="mt-4 max-w-3xl font-[family-name:var(--font-display)] text-[clamp(2.5rem,5.5vw,4rem)] font-normal leading-[1.08] text-white"
-        set:html={data.hero.title.replace(/\n/g, "<br />")}
-      />
-      <p class="mt-2 font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.2em] text-white/50">
-        {data.hero.subtitle}
-      </p>
-      <div class="mt-5 h-px w-20 bg-gradient-to-r from-[#F3C00D]/70 to-transparent"></div>
-      <p class="mt-5 max-w-xl font-[family-name:var(--font-body)] text-[15px] leading-relaxed text-white/65">
-        {data.hero.description}
-      </p>
-      <div class="mt-8 flex flex-wrap gap-4">
-        {data.hero.ctas?.map((cta: { label: string; url: string }, i: number) => (
-          <a
-            href={cta.url}
-            class:list={[
-              "inline-block rounded-[3px] px-7 py-3 font-[family-name:var(--font-ui)] text-[13px] font-semibold tracking-wide transition-all duration-300",
-              i === 0
-                ? "bg-[#206D03] text-white hover:bg-[#54B006]"
-                : "border border-white/25 text-white/90 hover:border-white/50 hover:bg-white/5",
-            ]}
-          >
-            {cta.label}
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
+  <HeroCinematic
+    height="60vh"
+    background={{ type: "image", src: data.hero.background.url, alt: data.hero.background.alt }}
+    eyebrow={data.hero.eyebrow}
+    title={data.hero.title}
+    subtitle={data.hero.subtitle}
+    description={data.hero.description}
+    ctas={data.hero.ctas}
+  />
 
   <Breadcrumb pageName={data.pageName} />
 
   {/* ═══════════════════════════════════════════════════════════════
       INTRO — "Partner With the Source" centered narrative
   ═══════════════════════════════════════════════════════════════ */}
-  <section class="bg-[#F8F8F0] py-24">
+  <section class="surface-warm py-24">
     <div class="mx-auto max-w-3xl px-6 text-center lg:px-12">
-      <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]">
-        Direct From Origin
-      </p>
-      <h2 class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-[#333]">
-        Partner With the Source
-      </h2>
-      <hr class="gold-rule" />
-      <p class="mt-8 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70">
+      <SectionHeader eyebrow="Direct From Origin" heading="Partner With the Source" />
+      <p class="reveal-on-scroll mt-8 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70">
         Forestal MT offers wholesale and bulk ethnobotanical supply directly from Honduras for brands, formulators, and distributors who require origin-true ingredients and reliable export workflows. From Batana Oil to stingless bee honey and traditional herbs, every shipment is anchored in traceable origin, cultural stewardship, and verifiable quality.
       </p>
-      <p class="mt-4 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70">
+      <p class="reveal-on-scroll mt-4 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70">
         Whether you're a startup building your first product line, a small business expanding into natural ingredients, or an international distributor sourcing at scale — we supply directly, with clear origin information and all the documentation you need for smooth global shipping.
       </p>
     </div>
   </section>
 
   {/* ═══════════════════════════════════════════════════════════════
+      TRUST MARQUEE
+  ═══════════════════════════════════════════════════════════════ */}
+  <TrustMarquee />
+
+  {/* ═══════════════════════════════════════════════════════════════
       COLLECTIONS PREVIEW — 3 mini-cards with image
   ═══════════════════════════════════════════════════════════════ */}
-  <section class="py-24" style="background-color: color-mix(in srgb, #E6D8B1 10%, #F8F8F0);">
+  <section class="surface-parchment py-24">
     <div class="mx-auto max-w-7xl px-6 lg:px-12">
-      <div class="text-center">
-        <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]">
-          Our Wholesale Collections
-        </p>
-        <h2 class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-[#333]">
-          Three Collections, One Origin
-        </h2>
-        <hr class="gold-rule" />
-      </div>
+      <SectionHeader eyebrow="Our Wholesale Collections" heading="Three Collections, One Origin" />
 
-      <div class="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
+      <div class="stagger-children mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
         {collections.map((col) => (
-          <a href={col.href} class="group overflow-hidden bg-white shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-shadow duration-300 hover:shadow-md">
+          <a href={col.href} class="card-hover group overflow-hidden bg-white shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
             <div class="relative aspect-[16/9] overflow-hidden">
               <img
                 src={col.image}
@@ -239,57 +202,24 @@ const pricingFactors = [
   </section>
 
   {/* ═══════════════════════════════════════════════════════════════
-      FOREST-TO-CUSTOMER — 5 process steps on dark bg
+      FOREST-TO-CUSTOMER — ProcessFlow horizontal connected steps
   ═══════════════════════════════════════════════════════════════ */}
-  <section class="grain relative overflow-hidden bg-[#1a1a1a] py-24">
-    <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
-      <div class="text-center">
-        <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80">
-          Origin-True System
-        </p>
-        <h2 class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-white">
-          Forest-to-Customer Authenticity
-        </h2>
-        <hr class="gold-rule" />
-      </div>
-
-      <div class="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
-        {processSteps.map((step) => (
-          <div class="border border-white/10 bg-white/[0.03] p-8 backdrop-blur-sm">
-            <span class="font-[family-name:var(--font-heading)] text-[1.75rem] font-normal text-[#F3C00D]/40">
-              {step.number}
-            </span>
-            <h3 class="mt-3 font-[family-name:var(--font-heading)] text-[1rem] font-normal tracking-wide text-white">
-              {step.title}
-            </h3>
-            <div class="mt-3 h-px w-8 bg-[#F3C00D]/20"></div>
-            <p class="mt-4 font-[family-name:var(--font-body)] text-[13px] leading-[1.85] text-white/45">
-              {step.description}
-            </p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
+  <ProcessFlow
+    eyebrow="Origin-True System"
+    heading="Forest-to-Customer Authenticity"
+    steps={processSteps}
+  />
 
   {/* ═══════════════════════════════════════════════════════════════
-      SHIPPING — 2 cards side by side on seasalt
+      SHIPPING — 2 cards side by side
   ═══════════════════════════════════════════════════════════════ */}
-  <section class="bg-[#F8F8F0] py-24">
+  <section class="surface-warm py-24">
     <div class="mx-auto max-w-5xl px-6 lg:px-12">
-      <div class="text-center">
-        <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]">
-          Proven Global Export Operations
-        </p>
-        <h2 class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-[#333]">
-          Shipping Options
-        </h2>
-        <hr class="gold-rule" />
-      </div>
+      <SectionHeader eyebrow="Proven Global Export Operations" heading="Shipping Options" />
 
       <div class="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2">
         {shippingOptions.map((opt) => (
-          <div class="border-t-[3px] border-[#F3C00D]/50 bg-white p-10 shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-shadow duration-300 hover:shadow-md">
+          <div class="card-hover border-t-[3px] border-[#F3C00D]/50 bg-white p-10 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
             <p class="font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.3em] text-[#A18500]">
               {opt.tag}
             </p>
@@ -316,18 +246,12 @@ const pricingFactors = [
   </section>
 
   {/* ═══════════════════════════════════════════════════════════════
-      PRIVATE LABEL — Warm bg, "Your Brand, Our Botanicals"
+      PRIVATE LABEL — Asymmetric split, parallax image
   ═══════════════════════════════════════════════════════════════ */}
-  <section class="py-24" style="background-color: color-mix(in srgb, #E6D8B1 10%, #F8F8F0);">
-    <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 lg:grid-cols-2 lg:px-12">
-      <div>
-        <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]">
-          Private Label
-        </p>
-        <h2 class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-[#333]">
-          Your Brand,<br />Our Botanicals
-        </h2>
-        <hr class="gold-rule-left" />
+  <section class="accent-batana py-24">
+    <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 lg:grid-cols-[1fr_1.15fr] lg:px-12">
+      <div class="reveal-on-scroll">
+        <SectionHeader eyebrow="Private Label" heading="Your Brand,<br />Our Botanicals" align="left" />
         <p class="mt-8 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70">
           Forestal MT provides private-label-ready ethnobotanicals for brands seeking authentic, origin-based ingredients under their own label. We supply ready-to-brand product inputs sourced directly from Honduras.
         </p>
@@ -342,7 +266,7 @@ const pricingFactors = [
         </ul>
       </div>
 
-      <div class="relative aspect-[4/5] overflow-hidden rounded-[2px]">
+      <div class="parallax-image relative aspect-[4/5] overflow-hidden rounded-[2px]">
         <img
           src="https://cdn.forestal-mt.com/pages/wholesale/private-label.jpg"
           alt="Forestal MT private label packaging and branding solutions"
@@ -355,24 +279,18 @@ const pricingFactors = [
   </section>
 
   {/* ═══════════════════════════════════════════════════════════════
-      PRICING — Brief section on seasalt
+      PRICING — Brief section
   ═══════════════════════════════════════════════════════════════ */}
-  <section class="bg-[#F8F8F0] py-24">
+  <section class="surface-warm py-24">
     <div class="mx-auto max-w-3xl px-6 text-center lg:px-12">
-      <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]">
-        Tailored to Your Needs
-      </p>
-      <h2 class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-[#333]">
-        Volume-Based Pricing
-      </h2>
-      <hr class="gold-rule" />
+      <SectionHeader eyebrow="Tailored to Your Needs" heading="Volume-Based Pricing" />
       <p class="mt-8 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70">
         Wholesale pricing is customized based on your requirements. Request a quote and we will structure pricing to support your margins and growth strategy.
       </p>
 
       <div class="mx-auto mt-10 flex max-w-md flex-wrap justify-center gap-3">
         {pricingFactors.map((factor) => (
-          <span class="rounded-[2px] border border-[#D6E8D3] bg-white px-4 py-2 font-[family-name:var(--font-ui)] text-[11px] text-[#333]/60">
+          <span class="tag-hover-light rounded-[2px] border border-[#D6E8D3] bg-white px-4 py-2 font-[family-name:var(--font-ui)] text-[11px] text-[#333]/60">
             {factor}
           </span>
         ))}
@@ -381,22 +299,14 @@ const pricingFactors = [
   </section>
 
   {/* ═══════════════════════════════════════════════════════════════
-      WHOLESALE INQUIRY FORM — Warm bg
+      WHOLESALE INQUIRY FORM
   ═══════════════════════════════════════════════════════════════ */}
-  <section class="py-24" style="background-color: color-mix(in srgb, #E6D8B1 10%, #F8F8F0);">
+  <section class="surface-parchment py-24">
     <div class="mx-auto max-w-2xl px-6 lg:px-12">
-      <div class="text-center">
-        <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]">
-          Get Started
-        </p>
-        <h2 class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-[#333]">
-          Wholesale Inquiry
-        </h2>
-        <hr class="gold-rule" />
-        <p class="mt-6 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70">
-          Share your details and we will respond with pricing, logistics options, and next steps.
-        </p>
-      </div>
+      <SectionHeader eyebrow="Get Started" heading="Wholesale Inquiry" />
+      <p class="mt-6 text-center font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70">
+        Share your details and we will respond with pricing, logistics options, and next steps.
+      </p>
 
       <form class="mt-12 space-y-6" onsubmit="return false;">
         {/* Name */}
@@ -502,8 +412,8 @@ const pricingFactors = [
   {/* ═══════════════════════════════════════════════════════════════
       CONTACT INFO — Bottom section with email + WhatsApp
   ═══════════════════════════════════════════════════════════════ */}
-  <section class="grain relative overflow-hidden bg-[#1a1a1a] py-24">
-    <div class="relative z-10 mx-auto max-w-3xl px-6 text-center lg:px-12">
+  <section class="surface-dark grain relative overflow-hidden py-24">
+    <div class="reveal-on-scroll relative z-10 mx-auto max-w-3xl px-6 text-center lg:px-12">
       <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80">
         Ready to Partner?
       </p>
@@ -544,33 +454,7 @@ const pricingFactors = [
   </section>
 
   {/* ═══════════════════════════════════════════════════════════════
-      COLLECTIONS NAV — Links to 3 collections
+      COLLECTIONS NAV
   ═══════════════════════════════════════════════════════════════ */}
-  <section class="border-t border-[#D6E8D3] bg-white py-16">
-    <div class="mx-auto max-w-7xl px-6 lg:px-12">
-      <p class="text-center font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]">
-        Explore Our Collections
-      </p>
-      <div class="mt-8 flex flex-col items-center justify-center gap-6 sm:flex-row sm:gap-12">
-        {[
-          { label: "Batana Oil", href: "/batana-oil/" },
-          { label: "Stingless Bee Honey", href: "/stingless-bee-honey/" },
-          { label: "Traditional Herbs", href: "/traditional-herbs/" },
-        ].map((link, i) => (
-          <>
-            {i > 0 && <span class="hidden text-[#D6E8D3] sm:inline">|</span>}
-            <a
-              href={link.href}
-              class="group flex items-center gap-3 font-[family-name:var(--font-display)] text-[1.1rem] text-[#333] transition-colors hover:text-[#206D03]"
-            >
-              {link.label}
-              <svg class="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-              </svg>
-            </a>
-          </>
-        ))}
-      </div>
-    </div>
-  </section>
+  <CollectionNav exclude="wholesale" />
 </BaseLayout>

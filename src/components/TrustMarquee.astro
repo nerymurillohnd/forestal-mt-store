@@ -1,0 +1,49 @@
+---
+/**
+ * TrustMarquee — Infinite motion trust bar.
+ * Pure CSS animation. Respects prefers-reduced-motion.
+ */
+interface Props {
+  variant?: 'light' | 'dark';
+  items?: string[];
+}
+
+const {
+  variant = 'light',
+  items = [
+    'Direct from Honduras',
+    'Ethically Sourced',
+    'Worldwide DHL Express',
+    '46 Products',
+    '132 SKUs',
+    'Since 2009',
+    'Family-Owned',
+    'Full Traceability',
+  ],
+} = Astro.props;
+
+const textColor = variant === 'light' ? 'text-charcoal/40' : 'text-white/30';
+const separatorColor = variant === 'light' ? 'text-gold-dark/30' : 'text-gold/30';
+const bgClass = variant === 'light' ? 'bg-seasalt' : 'bg-charcoal';
+---
+
+<div class:list={["overflow-hidden py-5", bgClass]} aria-hidden="true">
+  <div class="marquee-track">
+    {/* Duplicate content for seamless loop */}
+    {[0, 1].map(() => (
+      <div class="flex shrink-0 items-center">
+        {items.map((item, i) => (
+          <>
+            <span class:list={[
+              "shrink-0 px-6 font-[family-name:var(--font-ui)] text-[11px] uppercase tracking-[0.2em]",
+              textColor,
+            ]}>
+              {item}
+            </span>
+            <span class:list={["shrink-0", separatorColor]}>&#10022;</span>
+          </>
+        ))}
+      </div>
+    ))}
+  </div>
+</div>
