@@ -6,13 +6,14 @@ compatibility_date = "2024-09-23"
 [version_metadata]
 binding = "CF_VERSION_METADATA"
 
-[[d1_databases]]
-binding = "DB"
-database_name = "fmt-products-database"
-database_id = "73979325-5642-4263-8146-a13f20b36ea6"
+# Post-MVP: uncomment when SSR pages need D1/KV
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "fmt-products-database"
+# database_id = "73979325-5642-4263-8146-a13f20b36ea6"
 
-[[kv_namespaces]]
-binding = "SESSION"
-id = "70e2213452d243299bb8d12be49ecb87"
+# [[kv_namespaces]]
+# binding = "SESSION"
+# id = "70e2213452d243299bb8d12be49ecb87"
 
 # R2 — bound via Cloudflare Pages dashboard (not wrangler)
