@@ -1,5 +1,41 @@
 ---
-import PageShell from "../../components/PageShell.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Head from "../../components/Head.astro";
+import Hero from "../../components/Hero.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import { getEntry, render } from "astro:content";
+
+const page = await getEntry("pages", "privacy");
+if (!page) throw new Error("Missing content: pages/privacy.mdx");
+
+const { data } = page;
+const { Content } = await render(page);
 ---
 
-<PageShell entryId="privacy" />
+<BaseLayout>
+  <Head
+    slot="head"
+    title={data.title}
+    description={data.description}
+    canonicalUrl={data.canonicalUrl}
+    pageName={data.pageName}
+    og={data.og}
+    twitter={data.twitter}
+    schemas={data.schemas}
+  />
+
+  <Hero
+    eyebrow={data.hero.eyebrow}
+    title={data.hero.title}
+    subtitle={data.hero.subtitle}
+    description={data.hero.description}
+    ctas={data.hero.ctas}
+    background={data.hero.background}
+  />
+
+  <Breadcrumb pageName={data.pageName} />
+
+  <article class="prose-forestal mx-auto max-w-4xl px-4 py-12 lg:px-8">
+    <Content />
+  </article>
+</BaseLayout>

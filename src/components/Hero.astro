@@ -1,0 +1,165 @@
+---
+/**
+ * Hero — Full-width background hero section.
+ *
+ * Three modes:
+ *   1. Video background (Cloudflare Stream HLS via <video>)
+ *   2. Image background (R2 CDN via <img>)
+ *   3. No background (dark gradient only — legal pages)
+ *
+ * Videos: 3200×1792 (25:14) — rendered with object-cover, no letterboxing.
+ * Images: 1920×1080 (16:9) — rendered with object-cover.
+ * Both fill the container edge-to-edge.
+ */
+import { getStreamHls, getStreamPoster } from "../data/stream-videos";
+
+interface CTA {
+  label: string;
+  url: string;
+}
+
+/**
+ * Matches the Zod schema in content.config.ts → hero.background
+ * so pages can pass `data.hero.background` directly.
+ */
+type HeroBackground =
+  | { type: "video"; stream: string; caption?: string; width?: number; height?: number }
+  | { type: "image"; url: string; alt?: string; width?: number; height?: number };
+
+interface Props {
+  background?: HeroBackground;
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+  description?: string;
+  ctas?: CTA[];
+  catalogAccent?: "batana" | "honey" | "herbs";
+  scrollIndicator?: boolean;
+}
+
+const {
+  background,
+  eyebrow,
+  title,
+  subtitle,
+  description,
+  ctas = [],
+  catalogAccent,
+  scrollIndicator = false,
+} = Astro.props;
+
+const overlayClass = catalogAccent ? `overlay-${catalogAccent}` : "";
+
+const hasVideo = background?.type === "video" && background.stream;
+const hasImage = background?.type === "image" && background.url;
+
+const hlsSrc = hasVideo ? getStreamHls(background.stream) : null;
+const posterSrc = hasVideo ? getStreamPoster(background.stream, 1920, 1080) : null;
+---
+
+<section
+  class:list={[
+    "grain relative flex items-end overflow-hidden bg-charcoal",
+    hasVideo || hasImage ? "h-[56.25vw] max-h-screen" : "py-24 md:py-32",
+    overlayClass,
+  ]}
+>
+  {/* ── Background media ── */}
+  <div class="absolute inset-0">
+    {hasVideo && (
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        disablepictureinpicture
+        poster={posterSrc}
+        class="h-full w-full object-cover"
+      >
+        <source src={hlsSrc} type="application/x-mpegURL" />
+      </video>
+    )}
+
+    {hasImage && (
+      <img
+        src={background.url}
+        alt={background.alt ?? ""}
+        class="h-full w-full object-cover"
+        loading="eager"
+        decoding="async"
+        width="1920"
+        height="1080"
+      />
+    )}
+
+    {/* Gradient overlay for text legibility */}
+    <div class="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/40 to-charcoal/15" />
+  </div>
+
+  {/* ── Content overlay ── */}
+  <div class="hero-entrance relative z-10 mx-auto w-full max-w-7xl px-6 pb-12 md:pb-24 lg:px-12">
+    {eyebrow && (
+      <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-gold/90">
+        {eyebrow}
+      </p>
+    )}
+
+    <h1
+      class="mt-4 max-w-3xl font-[family-name:var(--font-display)] text-[clamp(2.5rem,5.5vw,4rem)] font-normal leading-[1.08] text-white"
+      set:html={title.replace(/\n/g, "<br />")}
+    />
+
+    {subtitle && (
+      <p class="mt-2 font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.2em] text-white/50">
+        {subtitle}
+      </p>
+    )}
+
+    <div class="mt-5 h-px w-20 bg-gradient-to-r from-gold/70 to-transparent" />
+
+    {description && (
+      <p class="mt-5 max-w-xl font-[family-name:var(--font-body)] text-[15px] leading-relaxed text-white/65">
+        {description}
+      </p>
+    )}
+
+    {ctas.length > 0 && (
+      <div class="mt-8 flex flex-wrap gap-4">
+        {ctas.map((cta, i) => (
+          <a
+            href={cta.url}
+            class:list={[
+              "inline-block rounded-[3px] px-7 py-3.5 font-[family-name:var(--font-ui)] text-[13px] font-semibold tracking-wide transition-all duration-300",
+              i === 0
+                ? "bg-leaf-green text-white hover:bg-grass-green hover:shadow-lg hover:shadow-leaf-green/25"
+                : "border border-white/25 text-white/90 hover:border-white/50 hover:bg-white/5",
+            ]}
+          >
+            {cta.label}
+          </a>
+        ))}
+      </div>
+    )}
+  </div>
+
+  {/* ── Scroll indicator (home only) ── */}
+  {scrollIndicator && (
+    <div class="absolute bottom-8 left-1/2 z-10 -translate-x-1/2">
+      <div class="flex flex-col items-center gap-2 text-white/30">
+        <span class="font-[family-name:var(--font-ui)] text-[9px] uppercase tracking-[0.3em]">
+          Scroll
+        </span>
+        <svg
+          class="h-4 w-4 animate-bounce"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="1.5"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 13.5-7.5 7.5m0 0-7.5-7.5M12 21V3" />
+        </svg>
+      </div>
+    </div>
+  )}
+</section>

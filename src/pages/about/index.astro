@@ -6,7 +6,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Head from "../../components/Head.astro";
 import Breadcrumb from "../../components/Breadcrumb.astro";
-import HeroCinematic from "../../components/HeroCinematic.astro";
+import Hero from "../../components/Hero.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
 import GoldTopCard from "../../components/GoldTopCard.astro";
 import TrustMarquee from "../../components/TrustMarquee.astro";
@@ -148,11 +148,10 @@ const impacts = [
 
   {
     /* ═══════════════════════════════════════════════════════════════
-      HERO — HeroCinematic component, 80vh image background
+      HERO — Hero component
   ═══════════════════════════════════════════════════════════════ */
   }
-  <HeroCinematic
-    height="80vh"
+  <Hero
     background={data.hero.background}
     eyebrow={data.hero.eyebrow}
     title={data.hero.title}

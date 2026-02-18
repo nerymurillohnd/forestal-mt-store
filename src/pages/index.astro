@@ -7,7 +7,7 @@
  */
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Head from "../components/Head.astro";
-import HeroCinematic from "../components/HeroCinematic.astro";
+import Hero from "../components/Hero.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import GoldTopCard from "../components/GoldTopCard.astro";
 import TrustMarquee from "../components/TrustMarquee.astro";
@@ -86,8 +86,7 @@ const commitments = [
       HERO — Full viewport cinematic component
   ═══════════════════════════════════════════════════════════════ */
   }
-  <HeroCinematic
-    height="100dvh"
+  <Hero
     background={data.hero.background}
     eyebrow={data.hero.eyebrow}
     title={data.hero.title}

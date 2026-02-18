@@ -6,7 +6,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Head from "../../components/Head.astro";
 import Breadcrumb from "../../components/Breadcrumb.astro";
-import HeroCinematic from "../../components/HeroCinematic.astro";
+import Hero from "../../components/Hero.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
 import DarkFrostedCard from "../../components/DarkFrostedCard.astro";
 import OriginChapter from "../../components/OriginChapter.astro";
@@ -397,8 +397,7 @@ const sustainability = [
       HERO — Video background, cinematic
   ═══════════════════════════════════════════════════════════════ */
   }
-  <HeroCinematic
-    height="80vh"
+  <Hero
     background={data.hero.background}
     catalogAccent="herbs"
     eyebrow={data.hero.eyebrow}

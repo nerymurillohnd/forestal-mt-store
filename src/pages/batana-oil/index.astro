@@ -6,7 +6,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Head from "../../components/Head.astro";
 import Breadcrumb from "../../components/Breadcrumb.astro";
-import HeroCinematic from "../../components/HeroCinematic.astro";
+import Hero from "../../components/Hero.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
 import OriginChapter from "../../components/OriginChapter.astro";
 import ProcessFlow from "../../components/ProcessFlow.astro";
@@ -161,8 +161,7 @@ const originMetadata = Object.entries(origin).map(([key, value]) => ({
       HERO — Video background, cinematic
   ═══════════════════════════════════════════════════════════════ */
   }
-  <HeroCinematic
-    height="80vh"
+  <Hero
     background={data.hero.background}
     catalogAccent="batana"
     eyebrow={data.hero.eyebrow}
