@@ -13,6 +13,7 @@ import VideoObjectBatanaOilHero from "../data/jsonld/VideoObject-batana-oil-hero
 import VideoObjectStinglessBeeHoneyHero from "../data/jsonld/VideoObject-stingless-bee-honey-hero.json";
 import VideoObjectTraditionalHerbsHero from "../data/jsonld/VideoObject-traditional-herbs-hero.json";
 import ServiceWholesale from "../data/jsonld/Service-wholesale.json";
+import OnlineStoreFull from "../data/jsonld/OnlineStore.json";
 
 const SITE_URL = "https://forestal-mt.com";
 
@@ -87,7 +88,11 @@ function buildBreadcrumb(
  */
 function resolveSchema(
   ref: SchemaRef,
-  pageData: { pageName: string; canonicalUrl: string },
+  pageData: {
+    pageName: string;
+    canonicalUrl: string;
+    ogImage?: { url: string; alt: string; width: number; height: number };
+  },
 ): unknown | null {
   const { type, id, mode } = ref;
 
@@ -101,9 +106,13 @@ function resolveSchema(
     case "WebSite":
       return WebSiteFull;
 
-    case "SearchAction":
-      // SearchAction is embedded inside WebSite, not a standalone node
-      return null;
+    case "SearchAction": {
+      // Already embedded in WebSite.potentialAction — extract with @id for graph reference
+      const ws = WebSiteFull as Record<string, unknown>;
+      const pa = ws.potentialAction as Record<string, unknown> | undefined;
+      if (!pa) return null;
+      return { ...pa, "@id": id };
+    }
 
     case "VideoObject":
       return videoObjects[id] ?? null;
@@ -111,9 +120,18 @@ function resolveSchema(
     case "BreadcrumbList":
       return buildBreadcrumb(pageData.pageName, pageData.canonicalUrl);
 
-    case "ImageObject":
-      // OG images and hero images — generated inline per page
-      return null;
+    case "ImageObject": {
+      if (!pageData.ogImage) return null;
+      return {
+        "@type": "ImageObject",
+        "@id": id,
+        url: pageData.ogImage.url,
+        contentUrl: pageData.ogImage.url,
+        caption: pageData.ogImage.alt,
+        width: pageData.ogImage.width,
+        height: pageData.ogImage.height,
+      };
+    }
 
     case "AboutPage":
     case "ContactPage":
@@ -128,12 +146,23 @@ function resolveSchema(
       };
     }
 
-    case "OfferCatalog":
-      // Catalog pages — minimal stub, full catalog is post-MVP
-      return null;
+    case "OfferCatalog": {
+      // Extract sub-catalog from OnlineStore.hasOfferCatalog.itemListElement by @id
+      const store = OnlineStoreFull as Record<string, unknown>;
+      const catalog = store.hasOfferCatalog as Record<string, unknown> | undefined;
+      if (!catalog) return null;
+      const items = catalog.itemListElement as Record<string, unknown>[] | undefined;
+      if (!items) return null;
+      return items.find((item) => item["@id"] === id) ?? null;
+    }
 
-    case "Service":
-      return ServiceWholesale;
+    case "Service": {
+      if (!Array.isArray(ServiceWholesale)) return null;
+      const match = (ServiceWholesale as Record<string, unknown>[]).find(
+        (s) => s["@id"] === id,
+      );
+      return match ?? null;
+    }
 
     default:
       return null;
@@ -153,7 +182,11 @@ function stripContext(node: Record<string, unknown>): Record<string, unknown> {
  */
 export function buildPageGraph(
   schemas: SchemaRef[],
-  pageData: { pageName: string; canonicalUrl: string },
+  pageData: {
+    pageName: string;
+    canonicalUrl: string;
+    ogImage?: { url: string; alt: string; width: number; height: number };
+  },
 ): string {
   const graph: unknown[] = [];
 
