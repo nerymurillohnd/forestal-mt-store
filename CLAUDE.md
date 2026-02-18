@@ -32,9 +32,16 @@ pnpm format           # Prettier write
 pnpm format:check     # Prettier check (CI)
 pnpm test:e2e         # Playwright end-to-end tests
 pnpm test:e2e:ui      # Playwright with interactive UI
+pnpm lighthouse       # Lighthouse CI audit (requires built dist/)
 ```
 
-**CI gates:** `pnpm lint` and `pnpm build` both run in GitHub Actions on every push. A lint error breaks the deploy.
+**CI gates:** `pnpm format:check`, `pnpm lint`, and `pnpm build` all run in GitHub Actions. Any failure blocks deploy.
+
+**Local quality protocol (Husky enforced):**
+
+- Pre-commit: `pnpm format` + `git add -u` (auto-stages reformatted files)
+- Pre-push: `pnpm lint && pnpm check` (ESLint + TypeScript)
+- PostToolUse hook: Prettier auto-runs on every file write (`.claude/settings.json`)
 
 ---
 
@@ -156,11 +163,15 @@ Defined in `src/styles/global.css`. These are the primary layout and surface pat
 
 ### Design Tokens (Tailwind CSS variables)
 
-```css
---color-leaf-green: #206d03 /* primary CTA, links */ --color-grass-green: #54b006 /* hover state */
-  --color-gold: #f3c00d /* accents, borders, rules */ --color-gold-dark: #a18500 /* eyebrow text */
-  --color-graphite: #333333 /* body text */ --color-charcoal: #1a1a1a /* dark surfaces, headings */
-  --color-parchment: #f5f0e8 /* light section backgrounds */;
+<!-- prettier-ignore -->
+```
+--color-leaf-green: #206D03   /* primary CTA, links */
+--color-grass-green: #54B006  /* hover state */
+--color-gold: #F3C00D         /* accents, borders, rules */
+--color-gold-dark: #A18500    /* eyebrow text */
+--color-graphite: #333333     /* body text */
+--color-charcoal: #1A1A1A     /* dark surfaces, headings */
+--color-parchment: #F5F0E8    /* light section backgrounds */
 ```
 
 ### Font Variables
@@ -270,7 +281,7 @@ All URLs end with `/`. Enforced via `trailingSlash: "always"`. No exceptions.
 - Import product data as JSON — products come from D1 at runtime (SSR)
 - Use HTML comments in `.mdx` — use `{/* comment */}` only
 - Use Corepack — being removed from Node.js 25+
-- Push without `pnpm lint` passing — CI will fail
+- Push without running `pnpm format && pnpm lint && pnpm check` — Husky enforces this automatically, CI gates all three
 
 ### DO
 
