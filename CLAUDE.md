@@ -112,34 +112,30 @@ ALL URLs end with `/`. Configured via `trailingSlash: "always"`. No exceptions.
 
 ---
 
-## MVP Scope
+## Live Pages
 
-**Build these pages ONLY:**
+| #   | Page                | URL                     | Status |
+| --- | ------------------- | ----------------------- | ------ |
+| 1   | Home                | `/`                     | Live   |
+| 2   | About               | `/about/`               | Live   |
+| 3   | Batana Oil          | `/batana-oil/`          | Live   |
+| 4   | Stingless Bee Honey | `/stingless-bee-honey/` | Live   |
+| 5   | Traditional Herbs   | `/traditional-herbs/`   | Live   |
+| 6   | Contact             | `/contact/`             | Live   |
+| 7   | Wholesale           | `/wholesale/`           | Live   |
+| 8   | Terms               | `/terms/`               | Live   |
+| 9   | Privacy             | `/privacy/`             | Live   |
+| 10  | Disclaimer          | `/disclaimer/`          | Live   |
+| 11  | Shipping            | `/shipping/`            | Live   |
+| 12  | 404                 | N/A                     | Live   |
 
-| #   | Page                | URL                     | Priority |
-| --- | ------------------- | ----------------------- | -------- |
-| 1   | Home                | `/`                     | Core     |
-| 2   | About               | `/about/`               | Core     |
-| 3   | Batana Oil          | `/batana-oil/`          | Core     |
-| 4   | Stingless Bee Honey | `/stingless-bee-honey/` | Core     |
-| 5   | Traditional Herbs   | `/traditional-herbs/`   | Core     |
-| 6   | Contact             | `/contact/`             | Core     |
-| 7   | Wholesale           | `/wholesale/`           | Core     |
-| 8   | Terms               | `/terms/`               | Legal    |
-| 9   | Privacy             | `/privacy/`             | Legal    |
-| 10  | Disclaimer          | `/disclaimer/`          | Legal    |
-| 11  | Shipping            | `/shipping/`            | Legal    |
-| 12  | 404                 | N/A                     | Utility  |
-
-### NOT in MVP (post-launch)
+### Next Phase
 
 - Shop, PDPs (require D1 seeding + SSR)
 - Cart, Checkout, Order pages (e-commerce)
 - Account, Admin (auth + KV sessions)
 - Community subpages (blog, FAQs, docs, testimonials)
 - Login, Register, Forgot Password
-
-**Do NOT build post-launch features. The site must go live with catalog + contact first.**
 
 ---
 
@@ -212,7 +208,7 @@ pnpm check            # Astro type checking
 - Use HTML comments in .mdx files — use `{/* comment */}` instead
 - Use Corepack — it's being removed from Node.js 25+
 - Store images in `public/` except favicons
-- Import product data as JSON — it comes from D1 at runtime (post-MVP)
+- Import product data as JSON — it comes from D1 at runtime (when SSR is enabled)
 - Create product Content Collections — products are SSR from D1
 - Use React — use Preact
 - Use `@astrojs/tailwind` — use `@tailwindcss/vite` (Tailwind 4)
@@ -232,7 +228,7 @@ pnpm check            # Astro type checking
 - Keep page content in `.mdx` format
 - Use placeholder images for content sections (non-hero, non-OG)
 - Run `pnpm build` after every significant change
-- Challenge requests that add scope beyond current MVP
+- Scope creep without a plan — every change must serve the business
 
 ---
 
@@ -251,7 +247,7 @@ pnpm check            # Astro type checking
 | `R2`      | R2 Bucket | `assets`                | `locals.runtime.env.R2`      |
 | `SESSION` | KV        | `SESSION`               | `locals.runtime.env.SESSION` |
 
-These are configured in Cloudflare Pages dashboard and `wrangler.toml`. Not needed for MVP SSG pages, but the adapter should be configured from the start.
+These are configured in Cloudflare Pages dashboard and `wrangler.toml`. SSG pages don't use these bindings, but the adapter is configured from the start.
 
 ### Cloudflare Pages API
 
@@ -263,7 +259,7 @@ curl -X PATCH "https://api.cloudflare.com/client/v4/accounts/{ACCOUNT_ID}/pages/
   -d '{"deployment_configs":{"production":{...},"preview":{...}}}'
 ```
 
-**Dashboard state (2026-02-18):** `nodejs_compat` SET, `SENTRY_AUTH_TOKEN` SET, R2 bound. D1/KV pending (post-MVP).
+**Dashboard state (2026-02-18):** `nodejs_compat` SET, `SENTRY_AUTH_TOKEN` SET, R2 bound. D1/KV pending (when SSR is enabled).
 
 ---
 
@@ -333,5 +329,5 @@ forestal-mt-store/
 │   │   └── global.css          (Tailwind import + @theme tokens)
 │   └── content.config.ts
 └── tests/
-    └── e2e/                    (Playwright — post-MVP)
+    └── e2e/                    (Playwright)
 ```

@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
-const MVP_PAGES = [
+const LIVE_PAGES = [
   { path: "/", title: "Forestal MT" },
   { path: "/about/", title: "About" },
   { path: "/batana-oil/", title: "Batana Oil" },
@@ -15,8 +15,8 @@ const MVP_PAGES = [
   { path: "/shipping/", title: "Shipping" },
 ];
 
-test.describe("Smoke tests — all MVP pages load", () => {
-  for (const page of MVP_PAGES) {
+test.describe("Smoke tests — all live pages load", () => {
+  for (const page of LIVE_PAGES) {
     test(`${page.path} returns 200 and has title`, async ({ page: p }) => {
       const response = await p.goto(page.path);
       expect(response?.status()).toBe(200);
@@ -26,7 +26,7 @@ test.describe("Smoke tests — all MVP pages load", () => {
 });
 
 test.describe("SEO essentials", () => {
-  for (const page of MVP_PAGES) {
+  for (const page of LIVE_PAGES) {
     test(`${page.path} has meta description`, async ({ page: p }) => {
       await p.goto(page.path);
       const description = p.locator('meta[name="description"]');
@@ -48,7 +48,7 @@ test.describe("SEO essentials", () => {
 });
 
 test.describe("Accessibility — axe-core", () => {
-  for (const page of MVP_PAGES.slice(0, 4)) {
+  for (const page of LIVE_PAGES.slice(0, 4)) {
     test(`${page.path} has no critical a11y violations`, async ({ page: p }) => {
       await p.goto(page.path);
       const results = await new AxeBuilder({ page: p }).withTags(["wcag2a", "wcag2aa"]).analyze();

@@ -6,7 +6,7 @@ export const onRequest = [
     sendDefaultPii: true,
     enableLogs: true,
     tracesSampleRate: 1.0,
-    // Post-MVP: uncomment when D1 product pages go SSR
+    // Uncomment when D1 product pages go SSR
     // integrations: [Sentry.d1Integration(context.env.DB)],
   })),
 ];
