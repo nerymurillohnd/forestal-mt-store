@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "packageManager": "pnpm@10.29.3",
   "scripts": {
+    "predev": "lsof -ti :4321 | xargs -r kill -9 || true",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview --remote",
