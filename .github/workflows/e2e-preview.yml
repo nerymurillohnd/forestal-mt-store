@@ -3,6 +3,9 @@ name: E2E Preview
 on:
   deployment_status:
 
+permissions:
+  contents: read
+
 jobs:
   e2e-preview:
     name: E2E on Preview

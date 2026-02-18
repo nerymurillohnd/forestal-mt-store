@@ -31,7 +31,12 @@ interface Props {
 
 const { title, description, canonicalUrl, pageName, og, twitter, schemas } = Astro.props;
 
-const jsonLdString = buildPageGraph(schemas, { pageName, canonicalUrl, ogImage: og.image });
+const jsonLdString = buildPageGraph(schemas, {
+  pageName,
+  canonicalUrl,
+  description,
+  ogImage: og.image,
+});
 ---
 
 <meta charset="utf-8" />

@@ -86,6 +86,7 @@ function resolveSchema(
   pageData: {
     pageName: string;
     canonicalUrl: string;
+    description?: string;
     ogImage?: { url: string; alt: string; width: number; height: number };
   },
 ): unknown | null {
@@ -131,7 +132,7 @@ function resolveSchema(
     case "AboutPage":
     case "ContactPage":
     case "WebPage": {
-      return {
+      const webPageNode: Record<string, unknown> = {
         "@type": type,
         "@id": id,
         name: pageData.pageName,
@@ -139,6 +140,10 @@ function resolveSchema(
         isPartOf: { "@id": `${SITE_URL}/#website` },
         about: { "@id": `${SITE_URL}/#organization` },
       };
+      if (pageData.description) {
+        webPageNode.description = pageData.description;
+      }
+      return webPageNode;
     }
 
     case "OfferCatalog": {
@@ -178,6 +183,7 @@ export function buildPageGraph(
   pageData: {
     pageName: string;
     canonicalUrl: string;
+    description?: string;
     ogImage?: { url: string; alt: string; width: number; height: number };
   },
 ): string {

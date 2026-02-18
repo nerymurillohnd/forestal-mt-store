@@ -7,9 +7,9 @@ module.exports = {
         "http://localhost:4321/batana-oil/",
         "http://localhost:4321/contact/",
       ],
-      startServerCommand: "pnpm build && pnpm preview",
-      startServerReadyPattern: "Local:",
-      startServerReadyTimeout: 60000,
+      startServerCommand: "npx serve dist -l 4321",
+      startServerReadyPattern: "Accepting connections",
+      startServerReadyTimeout: 30000,
       numberOfRuns: 1,
       settings: {
         preset: "desktop",
