@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig, fontProviders } from "astro/config";
+import { defineConfig, fontProviders, passthroughImageService } from "astro/config";
 import cloudflare from "@astrojs/cloudflare";
 import preact from "@astrojs/preact";
 import sitemap from "@astrojs/sitemap";
@@ -17,6 +17,10 @@ export default defineConfig({
   adapter: cloudflare({
     platformProxy: { enabled: true },
   }),
+
+  image: {
+    service: passthroughImageService(),
+  },
 
   integrations: [preact(), sitemap(), mdx(), icon()],
 
