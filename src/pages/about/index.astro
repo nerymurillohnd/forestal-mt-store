@@ -1,5 +1,549 @@
 ---
-import PageShell from "../../components/PageShell.astro";
+/**
+ * ABOUT — Company Landing Page
+ * Origin story, timeline, values, collections. MDX content as DATA.
+ */
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Head from "../../components/Head.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import { getEntry } from "astro:content";
+
+const page = await getEntry("pages", "about");
+if (!page) throw new Error("Missing content: pages/about");
+const { data } = page;
+
+const timeline = [
+  {
+    year: "1990s",
+    title: "Origins in Stewardship",
+    description:
+      "Nery Roberto Murillo Montalvan enters the lumber industry with a long-term vision. Over the decade, he acquires and cares for more than 5,000 hectares of woodland in Olancho — treated as a generational responsibility.",
+  },
+  {
+    year: "2009",
+    title: "Formal Foundation",
+    description:
+      "Stewardship becomes institutional with the creation of Forestal Murillo Tejada S. de R.L. Operations center on responsible timber extraction, pine resin production, and regeneration-focused forest management.",
+  },
+  {
+    year: "2018",
+    title: "A Turning Point in La Mosquitia",
+    description:
+      "While working with Miskito territorial councils on a pine resin initiative, community leaders gift the company two bottles of Batana Oil. The gesture carries deep cultural significance and reveals a new path rooted in ancestral craftsmanship.",
+  },
+  {
+    year: "2020",
+    title: "Family-Led Renewal",
+    description:
+      "Forestal MT reorganizes as a consensus-led, family-owned enterprise. The company reaffirms its core purpose: honor tradition, innovate responsibly, and protect culture and landscape.",
+  },
+  {
+    year: "2023",
+    title: "Global Expansion",
+    description:
+      "Forestal MT begins serving customers worldwide, bringing Honduran ethnobotanical traditions to international markets across North America, Europe, and Asia.",
+  },
+  {
+    year: "2024",
+    title: "B2B Growth",
+    description:
+      "Strategic partnerships accelerate, including Fortune 500 companies. Dabur International becomes a key client, validating origin-crafted quality at global scale.",
+  },
+  {
+    year: "2025",
+    title: "Digital Expansion",
+    description:
+      "Comprehensive e-commerce platform launches, serving both B2C and B2B customers directly. Full digital presence completes the forest-to-customer chain.",
+  },
+];
+
+const collections = [
+  {
+    title: "Batana Oil",
+    eyebrow: "Ancestral Miskito Elixir",
+    tag: "Pure & Unrefined",
+    description:
+      "Wild-harvested Elaeis oleifera from La Mosquitia. Traditionally processed using ancestral Miskito methods for hair restoration, skin nourishment, and beard care.",
+    href: "/batana-oil/",
+    image: "https://cdn.forestal-mt.com/pages/batana-oil/hero.jpg",
+  },
+  {
+    title: "Stingless Bee Honey",
+    eyebrow: "The Maya Heritage",
+    tag: "Raw & Traditional",
+    description:
+      "Raw, unfiltered Jimerito honey from ancestral log hives. Harvested using traditional Mayan methods, prized for centuries for medicinal properties and complex flavor.",
+    href: "/stingless-bee-honey/",
+    image: "https://cdn.forestal-mt.com/pages/stingless-bee-honey/hero.jpg",
+  },
+  {
+    title: "Traditional Herbs",
+    eyebrow: "Sacred Wisdom Rooted in Nature",
+    tag: "Wildcrafted & Shade-Dried",
+    description:
+      "41 wildcrafted botanical varieties from Honduran cloud forests, lowland jungles, and coastal areas. Shade-dried to preserve essential oils and active compounds.",
+    href: "/traditional-herbs/",
+    image: "https://cdn.forestal-mt.com/pages/traditional-herbs/hero.jpg",
+  },
+];
+
+const values = [
+  {
+    title: "Authenticity",
+    description:
+      "Direct sourcing and a clear chain of origin. Every product is genuine, sourced directly from Honduran producers using traditional methods passed down through generations.",
+  },
+  {
+    title: "Quality",
+    description:
+      "Artisanal methods that protect botanical potency. From harvest to packaging, every step is carefully monitored to deliver the highest quality products.",
+  },
+  {
+    title: "Respect",
+    description:
+      "Care for land, people, and culture across generations. Responsible harvesting that protects natural resources. Wild-harvesting methods that ensure ecological balance.",
+  },
+  {
+    title: "Community",
+    description:
+      "Direct partnerships with local communities ensuring fair compensation and supporting local economies in rural Honduras. Every purchase sustains rural livelihoods.",
+  },
+  {
+    title: "Trust",
+    description:
+      "Long-term partnerships built on honesty and mutual benefit. Honest communication about our products, their origins, and their traditional uses.",
+  },
+  {
+    title: "Heritage",
+    description:
+      "Preserving and sharing Honduras' ethnobotanical knowledge with the world. Success measured by the health of forests, strength of partnerships, and livelihoods sustained.",
+  },
+];
+
+const impacts = [
+  "Direct partnerships with local harvesters — no intermediaries, no brokers",
+  "Fair compensation for traditional knowledge keepers and indigenous communities",
+  "Sustainable harvesting practices that protect ecosystems and ensure regeneration",
+  "Rural economic development supporting livelihoods in Olancho and La Mosquitia",
+  "Cultural preservation — keeping traditional processing methods and ethnobotanical knowledge alive",
+];
 ---
 
-<PageShell entryId="about" />
+<BaseLayout>
+  <Head
+    slot="head"
+    title={data.title}
+    description={data.description}
+    canonicalUrl={data.canonicalUrl}
+    pageName={data.pageName}
+    og={data.og}
+    twitter={data.twitter}
+    schemas={data.schemas}
+  />
+
+  {/* ═══════════════════════════════════════════════════════════════
+      HERO — Image background, min-h-[80vh]
+  ═══════════════════════════════════════════════════════════════ */}
+  <section class="grain relative flex min-h-[80vh] items-end overflow-hidden">
+    <div class="absolute inset-0">
+      <img
+        src={data.hero.background.url}
+        alt={data.hero.background.alt}
+        class="h-full w-full object-cover"
+        loading="eager"
+        decoding="async"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-[#111]/90 via-[#111]/40 to-[#111]/15"></div>
+    </div>
+
+    <div class="relative z-10 mx-auto w-full max-w-7xl px-6 pb-20 lg:px-12">
+      <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/90">
+        {data.hero.eyebrow}
+      </p>
+      <h1 class="mt-4 max-w-3xl font-[family-name:var(--font-display)] text-[clamp(2.5rem,5.5vw,4rem)] font-normal leading-[1.08] text-white"
+        set:html={data.hero.title.replace(/\n/g, "<br />")}
+      />
+      <p class="mt-2 font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.2em] text-white/50">
+        {data.hero.subtitle}
+      </p>
+      <div class="mt-5 h-px w-20 bg-gradient-to-r from-[#F3C00D]/70 to-transparent"></div>
+      <p class="mt-5 max-w-xl font-[family-name:var(--font-body)] text-[15px] leading-relaxed text-white/65">
+        {data.hero.description}
+      </p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        {data.hero.ctas?.map((cta: { label: string; url: string }, i: number) => (
+          <a
+            href={cta.url}
+            class:list={[
+              "inline-block rounded-[3px] px-7 py-3 font-[family-name:var(--font-ui)] text-[13px] font-semibold tracking-wide transition-all duration-300",
+              i === 0
+                ? "bg-[#206D03] text-white hover:bg-[#54B006]"
+                : "border border-white/25 text-white/90 hover:border-white/50 hover:bg-white/5",
+            ]}
+          >
+            {cta.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Breadcrumb pageName={data.pageName} />
+
+  {/* ═══════════════════════════════════════════════════════════════
+      WHO WE ARE — Centered intro narrative
+  ═══════════════════════════════════════════════════════════════ */}
+  <section class="bg-[#F8F8F0] py-24">
+    <div class="mx-auto max-w-3xl px-6 text-center lg:px-12">
+      <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]">
+        Who We Are
+      </p>
+      <h2 class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-[#333]">
+        Rooted in Honduras,<br />Serving the World
+      </h2>
+      <hr class="gold-rule" />
+      <p class="mt-8 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70">
+        Forestal Murillo Tejada S. de R.L. is a <strong class="font-semibold text-[#333]/85">100% family-owned Honduran ethnobotanical exporter</strong> based in San Francisco de la Paz, Olancho. Rooted in ancestral knowledge and long-term care for the land, we source, craft, and export origin-true botanicals through direct partnerships with indigenous communities.
+      </p>
+      <p class="mt-4 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70">
+        From Olancho, one of Honduras' most biodiverse regions, we export artisanal, wild-harvested botanicals to partners and consumers across <strong class="font-semibold text-[#333]/85">North America, Central and South America, Europe, and Asia</strong>.
+      </p>
+    </div>
+  </section>
+
+  {/* ═══════════════════════════════════════════════════════════════
+      MISSION / VISION / PROMISE — 3 gold-top cards on warm bg
+  ═══════════════════════════════════════════════════════════════ */}
+  <section class="py-24" style="background-color: color-mix(in srgb, #E6D8B1 10%, #F8F8F0);">
+    <div class="mx-auto max-w-7xl px-6 lg:px-12">
+      <div class="text-center">
+        <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]">
+          What Drives Us
+        </p>
+        <h2 class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-[#333]">
+          Mission, Vision, and Promise
+        </h2>
+        <hr class="gold-rule" />
+      </div>
+
+      <div class="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div class="border-t-[3px] border-[#F3C00D]/50 bg-white p-10 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
+          <p class="font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.3em] text-[#A18500]">
+            Mission
+          </p>
+          <h3 class="mt-3 font-[family-name:var(--font-heading)] text-[1.05rem] font-normal text-[#333]">
+            Preserve & Share
+          </h3>
+          <div class="mt-3 h-px w-8 bg-[#F3C00D]/30"></div>
+          <p class="mt-5 font-[family-name:var(--font-body)] text-[13px] leading-[1.85] text-[#333]/60">
+            To preserve and ethically share Honduras' ancestral ethnobotanical wisdom through pure, artisanal products that sustain ecosystems, honor indigenous knowledge holders, and serve wellness markets worldwide.
+          </p>
+        </div>
+
+        <div class="border-t-[3px] border-[#F3C00D]/50 bg-white p-10 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
+          <p class="font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.3em] text-[#A18500]">
+            Vision
+          </p>
+          <h3 class="mt-3 font-[family-name:var(--font-heading)] text-[1.05rem] font-normal text-[#333]">
+            The Global Benchmark
+          </h3>
+          <div class="mt-3 h-px w-8 bg-[#F3C00D]/30"></div>
+          <p class="mt-5 font-[family-name:var(--font-body)] text-[13px] leading-[1.85] text-[#333]/60">
+            To become the world's most trusted source for Honduran ethnobotanical treasures, setting the global benchmark for authenticity, traceability, and responsible trade.
+          </p>
+        </div>
+
+        <div class="border-t-[3px] border-[#F3C00D]/50 bg-white p-10 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
+          <p class="font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.3em] text-[#A18500]">
+            Our Promise
+          </p>
+          <h3 class="mt-3 font-[family-name:var(--font-heading)] text-[1.05rem] font-normal text-[#333]">
+            Verified Heritage
+          </h3>
+          <div class="mt-3 h-px w-8 bg-[#F3C00D]/30"></div>
+          <p class="mt-5 font-[family-name:var(--font-body)] text-[14px] font-semibold leading-[1.85] text-[#333]/75">
+            Heritage you can verify. Quality you can measure. Sourcing you can trust.
+          </p>
+          <p class="mt-3 font-[family-name:var(--font-body)] text-[13px] leading-[1.85] text-[#333]/60">
+            We deliver origin-crafted botanicals handled with meticulous care and exported under international standards.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ═══════════════════════════════════════════════════════════════
+      WE ARE THE SOURCE — Dark statement section
+  ═══════════════════════════════════════════════════════════════ */}
+  <section class="grain relative overflow-hidden bg-[#1a1a1a] py-24">
+    <div class="relative z-10 mx-auto max-w-4xl px-6 text-center lg:px-12">
+      <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80">
+        What Sets Us Apart
+      </p>
+      <h2 class="mt-6 font-[family-name:var(--font-display)] text-[clamp(2rem,4.5vw,3.25rem)] font-normal leading-[1.15] text-white">
+        We Are the Source.<br />Not a Middleman.
+      </h2>
+      <hr class="gold-rule" />
+      <p class="mx-auto mt-8 max-w-2xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-white/55">
+        Most suppliers resell from unknown origins. We source directly from indigenous communities in Honduras who craft these products using ancestral methods. No brokers. No traders. No intermediaries.
+      </p>
+      <p class="mx-auto mt-4 max-w-2xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-white/55">
+        You get Batana Oil from <em>Elaeis oleifera</em> palms in La Mosquitia, Jimerito honey from ancestral log hives, and wildcrafted herbs from native territories — with <strong class="font-semibold text-white/75">full traceability from forest to your door</strong>.
+      </p>
+      <p class="mx-auto mt-6 max-w-2xl font-[family-name:var(--font-body)] text-[14px] leading-[1.85] text-white/40">
+        The difference is control, authenticity, and trust — from people who know the forest, the harvesters, and every step of the process.
+      </p>
+    </div>
+  </section>
+
+  {/* ═══════════════════════════════════════════════════════════════
+      TIMELINE — Vertical company history (centerpiece)
+  ═══════════════════════════════════════════════════════════════ */}
+  <section class="grain relative overflow-hidden bg-[#1a1a1a] py-24">
+    <div class="relative z-10 mx-auto max-w-5xl px-6 lg:px-12">
+      <div class="text-center">
+        <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80">
+          Our Journey
+        </p>
+        <h2 class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-white">
+          From Forest Stewardship<br />to Global Ambassador
+        </h2>
+        <hr class="gold-rule" />
+      </div>
+
+      {/* Timeline */}
+      <div class="relative mt-20">
+        {/* Vertical line */}
+        <div class="absolute left-[7.5rem] top-0 hidden h-full w-px bg-gradient-to-b from-[#F3C00D]/40 via-[#F3C00D]/20 to-transparent md:block"></div>
+        <div class="absolute left-4 top-0 h-full w-px bg-gradient-to-b from-[#F3C00D]/40 via-[#F3C00D]/20 to-transparent md:hidden"></div>
+
+        <div class="space-y-16 md:space-y-12">
+          {timeline.map((milestone, index) => (
+            <div class="relative grid grid-cols-1 gap-4 md:grid-cols-[7.5rem_1fr] md:gap-8">
+              {/* Year — left side */}
+              <div class="pl-10 md:pl-0 md:text-right">
+                <span class="font-[family-name:var(--font-display)] text-[clamp(1.5rem,2.5vw,2rem)] leading-none text-[#F3C00D]">
+                  {milestone.year}
+                </span>
+              </div>
+
+              {/* Gold dot marker */}
+              <div class="absolute left-4 top-[0.35rem] hidden h-2.5 w-2.5 rounded-full border-2 border-[#F3C00D] bg-[#1a1a1a] md:left-[6.85rem] md:block"></div>
+              <div class="absolute left-[0.7rem] top-[0.35rem] h-2.5 w-2.5 rounded-full border-2 border-[#F3C00D] bg-[#1a1a1a] md:hidden"></div>
+
+              {/* Content — right side */}
+              <div class="pl-10 md:pl-8">
+                <h3 class="font-[family-name:var(--font-heading)] text-[1.05rem] font-normal tracking-wide text-white">
+                  {milestone.title}
+                </h3>
+                <p class="mt-3 max-w-xl font-[family-name:var(--font-body)] text-[13px] leading-[1.85] text-white/50">
+                  {milestone.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Terminal dot */}
+        <div class="relative mt-12 md:ml-[7.5rem] md:pl-8">
+          <div class="absolute left-4 top-1/2 hidden h-3 w-3 -translate-y-1/2 rounded-full bg-[#F3C00D]/40 md:left-[-0.65rem] md:block"></div>
+          <div class="absolute left-[0.55rem] top-1/2 h-3 w-3 -translate-y-1/2 rounded-full bg-[#F3C00D]/40 md:hidden"></div>
+          <p class="pl-10 font-[family-name:var(--font-body)] text-[13px] italic text-white/30 md:pl-0">
+            The journey continues...
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ═══════════════════════════════════════════════════════════════
+      COLLECTIONS — 3 editorial portrait cards
+  ═══════════════════════════════════════════════════════════════ */}
+  <section class="bg-[#F8F8F0] py-24">
+    <div class="mx-auto max-w-7xl px-6 lg:px-12">
+      <div class="text-center">
+        <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]">
+          Our Collections
+        </p>
+        <h2 class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-[#333]">
+          Three Traditions, One Origin
+        </h2>
+        <hr class="gold-rule" />
+      </div>
+
+      <div class="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {collections.map((col) => (
+          <a
+            href={col.href}
+            class="group relative flex aspect-[3/4] flex-col justify-end overflow-hidden rounded-[2px] shadow-sm transition-shadow duration-500 hover:shadow-xl"
+          >
+            <img
+              src={col.image}
+              alt={col.title}
+              class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#111]/85 via-[#111]/25 to-transparent transition-opacity duration-500" />
+
+            <div class="relative z-10 p-8 pb-10">
+              <p class="font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80">
+                {col.eyebrow}
+              </p>
+              <h3 class="mt-2.5 font-[family-name:var(--font-display)] text-[1.65rem] leading-tight text-white">
+                {col.title}
+              </h3>
+              <p class="mt-1 font-[family-name:var(--font-heading)] text-[10px] font-normal uppercase tracking-[0.2em] text-white/50">
+                {col.tag}
+              </p>
+              <p class="mt-4 max-w-xs font-[family-name:var(--font-body)] text-[13px] leading-relaxed text-white/55 transition-all duration-500 ease-out md:translate-y-3 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100">
+                {col.description}
+              </p>
+              <span class="mt-5 inline-flex items-center gap-1.5 font-[family-name:var(--font-ui)] text-[11px] font-semibold uppercase tracking-[0.15em] text-white/70 transition-all duration-300 group-hover:text-[#F3C00D]">
+                Explore Collection
+                <svg class="h-3 w-3 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ═══════════════════════════════════════════════════════════════
+      VALUES — 3x2 grid on seasalt
+  ═══════════════════════════════════════════════════════════════ */}
+  <section class="bg-[#F8F8F0] py-24">
+    <div class="mx-auto max-w-7xl px-6 lg:px-12">
+      <div class="text-center">
+        <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]">
+          What Guides Us
+        </p>
+        <h2 class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-[#333]">
+          Our Values
+        </h2>
+        <hr class="gold-rule" />
+      </div>
+
+      <div class="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {values.map((value, index) => (
+          <div class="border-t-[3px] border-[#F3C00D]/50 bg-white p-8 shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-shadow duration-300 hover:shadow-md">
+            <span class="font-[family-name:var(--font-heading)] text-[13px] text-[#F3C00D]/40">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <h3 class="mt-2 font-[family-name:var(--font-heading)] text-[1rem] font-normal text-[#333]">
+              {value.title}
+            </h3>
+            <div class="mt-3 h-px w-8 bg-[#F3C00D]/30"></div>
+            <p class="mt-4 font-[family-name:var(--font-body)] text-[13px] leading-[1.85] text-[#333]/60">
+              {value.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ═══════════════════════════════════════════════════════════════
+      OUR LOGO — Centered text on warm bg
+  ═══════════════════════════════════════════════════════════════ */}
+  <section class="py-24" style="background-color: color-mix(in srgb, #E6D8B1 10%, #F8F8F0);">
+    <div class="mx-auto max-w-3xl px-6 text-center lg:px-12">
+      <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]">
+        The Symbol
+      </p>
+      <h2 class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-[#333]">
+        Our Logo
+      </h2>
+      <hr class="gold-rule" />
+      <p class="mt-8 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70">
+        The <strong class="font-semibold text-[#333]/85">six pine trees</strong> in our emblem stand for family, continuity, and care for the land. The tallest tree represents the founder and the company's backbone. The arrangement reflects the flow from origin to export, showing that every product carries a clear, honest story.
+      </p>
+
+      <div class="mx-auto mt-10 grid max-w-lg grid-cols-2 gap-4 text-left">
+        {[
+          { label: "Center Tree", meaning: "Founder and structural backbone" },
+          { label: "Front Tree", meaning: "Spiritual and emotional axis of the family" },
+          { label: "Side Trees", meaning: "Operational leadership and growth" },
+          { label: "Outer Trees", meaning: "Future care and generational continuity" },
+        ].map((tree) => (
+          <div class="border-l-[2px] border-[#F3C00D]/30 pl-4">
+            <p class="font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.2em] text-[#A18500]">
+              {tree.label}
+            </p>
+            <p class="mt-1 font-[family-name:var(--font-body)] text-[13px] text-[#333]/70">
+              {tree.meaning}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <p class="mt-8 font-[family-name:var(--font-body)] text-[13px] italic text-[#333]/50">
+        The pine trees also honor our forestry origins — the responsible land management practices that built the discipline, logistics, and compliance foundation for our ethnobotanical exports today.
+      </p>
+    </div>
+  </section>
+
+  {/* ═══════════════════════════════════════════════════════════════
+      COMMUNITY IMPACT — What We Support on seasalt
+  ═══════════════════════════════════════════════════════════════ */}
+  <section class="bg-[#F8F8F0] py-24">
+    <div class="mx-auto max-w-4xl px-6 lg:px-12">
+      <div class="text-center">
+        <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]">
+          Every Purchase Matters
+        </p>
+        <h2 class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-[#333]">
+          Community Impact
+        </h2>
+        <hr class="gold-rule" />
+        <p class="mt-8 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70">
+          Every purchase supports rural communities in Honduras. We work directly with local harvesters and producers, providing fair wages and sustainable livelihoods.
+        </p>
+      </div>
+
+      <div class="mt-12">
+        <ul class="space-y-5">
+          {impacts.map((item) => (
+            <li class="flex items-start gap-4 font-[family-name:var(--font-body)] text-[14px] leading-relaxed text-[#333]/70">
+              <span class="mt-2 h-px w-5 shrink-0 bg-[#F3C00D]/50"></span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  {/* ═══════════════════════════════════════════════════════════════
+      PARTNER CTA — Green section
+  ═══════════════════════════════════════════════════════════════ */}
+  <section class="grain relative overflow-hidden bg-[#206D03] py-24">
+    <div class="relative z-10 mx-auto max-w-3xl px-6 text-center lg:px-12">
+      <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80">
+        Work With Us
+      </p>
+      <h2 class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-white">
+        Partner With Us
+      </h2>
+      <p class="mx-auto mt-6 max-w-2xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-white/60">
+        Whether you're a formulator seeking traceable ingredients, a brand looking for origin-crafted botanicals, or a distributor expanding your portfolio — Forestal MT delivers direct-from-origin products with proven quality and long-term reliability.
+      </p>
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <a
+          href="/contact/"
+          class="inline-block rounded-[3px] bg-[#F3C00D] px-8 py-3.5 font-[family-name:var(--font-ui)] text-[13px] font-semibold text-[#333] transition-all duration-300 hover:bg-[#F3C00D]/90 hover:shadow-lg hover:shadow-[#F3C00D]/20"
+        >
+          Get in Touch
+        </a>
+        <a
+          href="/wholesale/"
+          class="inline-block rounded-[3px] border border-white/25 px-8 py-3.5 font-[family-name:var(--font-ui)] text-[13px] font-semibold text-white/90 transition-all duration-300 hover:border-white/50 hover:bg-white/5"
+        >
+          Wholesale Program
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

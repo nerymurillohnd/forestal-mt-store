@@ -24,7 +24,7 @@ The `forestal-mt-suite` repository (`~/projects/forestal-mt-suite/`) is the **si
 
 | Suite Path | Project Path | Purpose |
 |-----------|-------------|---------|
-| `pages/*.md` (17 files) | `src/content/pages/*.mdx` | Page content — copied from suite .md, renamed to .mdx |
+| `pages/*.mdx` (17 files) | `src/content/pages/*.mdx` | Page content (frontmatter + body) |
 | `structured-data/jsonld/*.json` (10 static schemas) | `src/data/jsonld/` | JSON-LD nodes for `@graph` injection |
 | `logos-and-favicons/favicon*`, `apple-touch-icon*`, `android-chrome-*`, `mstile-*`, `safari-pinned-tab.svg`, `yandex-*`, `manifest.webmanifest`, `browserconfig.xml` (19 files) | `public/` | Favicons and web manifests |
 | `logos-and-favicons/logo*` (5 files) | `src/assets/logos/` | Brand logos (processed by Astro) |
@@ -60,6 +60,12 @@ Tailwind 4 does NOT use `tailwind.config.mjs` or PostCSS. Config via `@tailwindc
 ---
 
 ## Architecture
+
+### Meta Tags (Head.astro)
+
+- `title` + `description` → `<title>` and `<meta name="description">` (search engine results)
+- `og.title` + `og.description` → `<meta property="og:*">` and `<meta name="twitter:*">` (social sharing)
+- Both come from page frontmatter. Keep SEO and OG title/description in sync.
 
 ### Rendering Model
 
@@ -187,6 +193,7 @@ pnpm check            # Astro type checking
 
 ### DO
 
+- Keep SEO and OG title/description in sync when updating frontmatter
 - Follow the specs in `~/projects/forestal-mt-suite/`
 - Use Tailwind CSS 4+ with `@tailwindcss/vite`
 - Use Astro's experimental Fonts API for font loading

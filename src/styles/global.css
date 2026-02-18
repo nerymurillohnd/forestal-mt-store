@@ -99,4 +99,69 @@
     color: var(--color-graphite);
     opacity: 0.85;
   }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+    font-family: var(--font-ui);
+    font-size: 0.875rem;
+
+    th {
+      font-family: var(--font-heading);
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-graphite);
+      border-bottom: 2px solid var(--color-mint);
+      padding: 0.75rem 1rem;
+      text-align: left;
+    }
+
+    td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid color-mix(in srgb, var(--color-mint) 50%, white);
+      color: color-mix(in srgb, var(--color-graphite) 80%, white);
+    }
+
+    tr:first-child td {
+      font-weight: 600;
+      color: var(--color-leaf-green);
+    }
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   Grain texture overlay — Botanical Field Journal aesthetic
+   Usage: add class "grain" to a `position: relative` container
+═══════════════════════════════════════════════════════════════════ */
+.grain::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.035;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E");
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   Gold decorative rule — section divider
+═══════════════════════════════════════════════════════════════════ */
+.gold-rule {
+  border: none;
+  height: 1px;
+  max-width: 4rem;
+  margin: 1.25rem auto;
+  background: linear-gradient(90deg, transparent, var(--color-gold-dark), transparent);
+}
+
+.gold-rule-left {
+  border: none;
+  height: 1px;
+  width: 4rem;
+  margin: 1.25rem 0;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--color-gold) 50%, transparent), transparent);
 }
