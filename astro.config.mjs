@@ -25,7 +25,18 @@ export default defineConfig({
     service: passthroughImageService(),
   },
 
-  integrations: [preact(), sitemap(), mdx(), icon(), sentry(), spotlightjs()],
+  integrations: [
+    preact(),
+    sitemap(),
+    mdx(),
+    icon(),
+    sentry({
+      project: "forestal-mt-store",
+      org: "forestal-mt",
+      authToken: process.env.SENTRY_AUTH_TOKEN,
+    }),
+    spotlightjs(),
+  ],
 
   vite: {
     plugins: [tailwindcss()],
