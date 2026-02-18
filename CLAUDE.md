@@ -1,4 +1,6 @@
-# CLAUDE.md — forestal-mt-store
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## What This Is
 
@@ -8,183 +10,10 @@ Astro 5.7+ e-commerce site for forestal-mt.com. Deployed on Cloudflare Pages. Th
 
 The `forestal-mt-suite` repository (`~/projects/forestal-mt-suite/`) is the **single source of truth** for all data, content, schemas, assets, and specifications. This project CONSUMES files from the suite — it never modifies them.
 
-### Specification Documents (read from the suite repo)
-
-| File                          | What It Defines                                                                                  |
-| ----------------------------- | ------------------------------------------------------------------------------------------------ |
-| `SITE_TECHNICAL_SPEC.md`      | Full stack, rendering model, URL policy, asset management, fonts, CI/CD, pnpm, Playwright        |
-| `UI_DESIGN_SPEC.md`           | Preact islands, Tailwind CSS 4+, design tokens, color palette, component patterns, accessibility |
-| `SEO_STRUCTURED_DATA_SPEC.md` | JSON-LD architecture, `@graph` builder, schema.org types, meta tags, OG cards, E-E-A-T signals   |
-| `SITE_URL_MANIFEST.md`        | Complete URL inventory with routing patterns                                                     |
-| `FORESTAL_MT_PROFILE.md`      | Company profile, product catalog overview, brand context                                         |
-
-**Read these specs before any architectural decision.** Path: `~/projects/forestal-mt-suite/{filename}`.
-
-### Suite Files Consumed by This Project
-
-| Suite Path                                                                                                                                                                      | Project Path                 | Purpose                              |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- | ------------------------------------ |
-| `pages/*.mdx` (17 files)                                                                                                                                                        | `src/content/pages/*.mdx`    | Page content (frontmatter + body)    |
-| `structured-data/jsonld/*.json` (10 static schemas)                                                                                                                             | `src/data/jsonld/`           | JSON-LD nodes for `@graph` injection |
-| `logos-and-favicons/favicon*`, `apple-touch-icon*`, `android-chrome-*`, `mstile-*`, `safari-pinned-tab.svg`, `yandex-*`, `manifest.webmanifest`, `browserconfig.xml` (19 files) | `public/`                    | Favicons and web manifests           |
-| `logos-and-favicons/logo*` (5 files)                                                                                                                                            | `src/assets/logos/`          | Brand logos (processed by Astro)     |
-| `fonts/{family}/*.woff2` (13 files)                                                                                                                                             | `src/assets/fonts/{family}/` | Self-hosted web fonts                |
-
-**Copy command pattern:** `cp ~/projects/forestal-mt-suite/{source} {project-target}`
-
-Files are copied AS-IS. Never modified by this project. If the suite updates a file, the project copy must be refreshed.
-
----
-
-## Stack
-
-| Layer           | Technology            | Key Detail                                                                            |
-| --------------- | --------------------- | ------------------------------------------------------------------------------------- |
-| Framework       | Astro 5.7+            | Islands Architecture, `static` output mode                                            |
-| Content         | MDX                   | `@astrojs/mdx` — component imports in content files                                   |
-| UI framework    | Preact                | `@astrojs/preact` — interactive islands only                                          |
-| CSS             | Tailwind CSS 4+       | `@tailwindcss/vite` plugin (NOT `@astrojs/tailwind`, NOT PostCSS)                     |
-| SSR adapter     | `@astrojs/cloudflare` | `platformProxy: { enabled: true }` for local D1/KV/R2                                 |
-| Package manager | pnpm 10+ standalone   | `"packageManager": "pnpm@10.29.3"` in package.json                                    |
-| Hosting         | Cloudflare Pages      | Project: `forestal-mt-store`                                                          |
-| Database        | Cloudflare D1         | Binding: `DB` → `fmt-products-database`                                               |
-| Object storage  | Cloudflare R2         | Binding: `R2` → `assets` bucket, CDN: `cdn.forestal-mt.com`                           |
-| Sessions        | Cloudflare KV         | Binding: `SESSION` → namespace `SESSION`                                              |
-| E2E testing     | Playwright            | `@playwright/test` + `@axe-core/playwright`                                           |
-| Icons           | astro-icon            | `@iconify-json/fa6-brands` (social), `@iconify-json/logos` (payment brands)           |
-| Observability   | Sentry                | `@sentry/astro` (client) + `@sentry/cloudflare` (server) + `@spotlightjs/astro` (dev) |
-| Performance     | Lighthouse CI         | `@lhci/cli`, GitHub App integration                                                   |
-
-### Tailwind CSS 4 Setup
-
-Tailwind 4 does NOT use `tailwind.config.mjs` or PostCSS. Config via `@tailwindcss/vite` plugin. Design tokens defined in `src/styles/global.css` using `@theme` directive.
-
----
-
-## Architecture
-
-### Meta Tags (Head.astro)
-
-- `title` + `description` → `<title>` and `<meta name="description">` (search engine results)
-- `og.title` + `og.description` → `<meta property="og:*">` and `<meta name="twitter:*">` (social sharing)
-- Both come from page frontmatter. Keep SEO and OG title/description in sync.
-
-### Rendering Model
-
-| Type              | Pages                                                    | Data Source                         |
-| ----------------- | -------------------------------------------------------- | ----------------------------------- |
-| **SSG** (static)  | Home, About, Contact, Wholesale, 3 Catalogs, Legal pages | Content Collections (`pages/*.mdx`) |
-| **SSR** (dynamic) | Shop (`/products/`), PDPs (`/products/{handler}/`)       | D1 database queries                 |
-| **Authenticated** | Account (`/account/*`), Admin (`/admin/*`)               | KV sessions + D1                    |
-
-### Islands Architecture
-
-Static HTML shell. Interactive components hydrated on demand via Preact.
-
-| Directive        | When                    | Use For                      |
-| ---------------- | ----------------------- | ---------------------------- |
-| `client:load`    | Immediately             | Cart icon, variant selector  |
-| `client:idle`    | After main thread idle  | Search autocomplete, filters |
-| `client:visible` | When scrolled into view | Accordions, image zoom, maps |
-
-### Images
-
-ALL images served from R2 via `cdn.forestal-mt.com`. The ONLY images in `public/` are favicons.
-
-- Product images: `cdn.forestal-mt.com/products/{type}/{handler}.png` (defined in suite `media.json`)
-- Page hero images: `cdn.forestal-mt.com/pages/{slug}/hero.jpg`
-- Page OG images: `cdn.forestal-mt.com/pages/{slug}/og.jpg`
-
-### Fonts
-
-Self-hosted via Astro experimental Fonts API (`fontProviders.local()`). 4 families, 13 woff2 files. Source in `src/assets/fonts/`. See `SITE_TECHNICAL_SPEC.md` section 5 for full configuration.
-
-| Family            | CSS Variable     | Role                                   |
-| ----------------- | ---------------- | -------------------------------------- |
-| The New Elegance  | `--font-display` | Hero headlines (H1)                    |
-| Cinzel            | `--font-heading` | Section headings (H2+), eyebrow text   |
-| Libre Baskerville | `--font-body`    | Body text, editorial content           |
-| Open Sans         | `--font-ui`      | UI: navigation, buttons, forms, labels |
-
-### URL Policy
-
-ALL URLs end with `/`. Configured via `trailingSlash: "always"`. No exceptions.
-
----
-
-## Live Pages
-
-| #   | Page                | URL                     | Status |
-| --- | ------------------- | ----------------------- | ------ |
-| 1   | Home                | `/`                     | Live   |
-| 2   | About               | `/about/`               | Live   |
-| 3   | Batana Oil          | `/batana-oil/`          | Live   |
-| 4   | Stingless Bee Honey | `/stingless-bee-honey/` | Live   |
-| 5   | Traditional Herbs   | `/traditional-herbs/`   | Live   |
-| 6   | Contact             | `/contact/`             | Live   |
-| 7   | Wholesale           | `/wholesale/`           | Live   |
-| 8   | Terms               | `/terms/`               | Live   |
-| 9   | Privacy             | `/privacy/`             | Live   |
-| 10  | Disclaimer          | `/disclaimer/`          | Live   |
-| 11  | Shipping            | `/shipping/`            | Live   |
-| 12  | 404                 | N/A                     | Live   |
-
-### Next Phase
-
-- Shop, PDPs (require D1 seeding + SSR)
-- Cart, Checkout, Order pages (e-commerce)
-- Account, Admin (auth + KV sessions)
-- Community subpages (blog, FAQs, docs, testimonials)
-- Login, Register, Forgot Password
-
----
-
-## Content Format
-
-Page files are **MDX with YAML frontmatter** (`.mdx`). MDX allows importing and using Astro/Preact components directly in content. Comments use JSX syntax: `{/* comment */}` (NOT `<!-- -->`).
-
-Interactive elements can be embedded in content via component imports, or placed in **Astro page templates** as Preact islands.
-
-### Content Collections
-
-Full schema in `src/content.config.ts`. Glob loader accepts `**/*.{md,mdx}`.
-
-**Gotcha:** Astro's glob loader uses the frontmatter `slug` field as the collection entry ID. For example, `slug: /` produces entry ID `"/"`, not `"home"`. Query with `getEntry('pages', '/')` or filter by `entry.id`.
-
----
-
-## Sentry Observability
-
-**Two-package split — mandatory for Cloudflare Pages:**
-
-| Layer               | Package                | File                       |
-| ------------------- | ---------------------- | -------------------------- |
-| Client (browser)    | `@sentry/astro`        | `sentry.client.config.js`  |
-| Server (CF Workers) | `@sentry/cloudflare`   | `functions/_middleware.js` |
-| Build (source maps) | `@sentry/astro` plugin | `astro.config.mjs`         |
-
-- **DO NOT** use `@sentry/node` or `sentry.server.config.js` — Node SDK is incompatible with CF Workers V8 isolates
-- `wrangler.toml` MUST have `nodejs_compat` flag for `@sentry/cloudflare` to work
-- `@spotlightjs/astro` for local dev debugging overlay
-
-### SSR Migration Checklist (WHEN output changes to "hybrid"/"server")
-
-When product pages go SSR with D1 queries, these steps are **MANDATORY**:
-
-1. Uncomment `Sentry.d1Integration(context.env.DB)` in `functions/_middleware.js`
-2. Uncomment D1/KV bindings in `wrangler.toml`
-3. Bind D1/KV/R2 in Cloudflare Pages dashboard (prod + preview)
-4. Change `output: "static"` to `"hybrid"` in `astro.config.mjs`
-5. Verify `nodejs_compat` flag is active in CF Pages dashboard settings
-6. Test with `pnpm preview` (uses wrangler with local bindings)
-
----
-
-## Placeholder Image Strategy
-
-- **Real from day 1:** OG images, hero images, hero videos (from R2 / Cloudflare Stream)
-- **Placeholder OK:** Content images within page body sections
-- **Swap method:** Upload real file to same R2 path — zero code changes needed
+Copies of the main spec docs live in this repo root for quick reference:
+- `SEO_STRUCTURED_DATA_SPEC.md` — JSON-LD architecture, schema.org types, meta tags
+- `SITE_TECHNICAL_SPEC.md` — Full stack, rendering model, fonts, CI/CD
+- `SITE_URL_MANIFEST.md` — Complete URL inventory (72 pages total)
 
 ---
 
@@ -192,142 +21,262 @@ When product pages go SSR with D1 queries, these steps are **MANDATORY**:
 
 ```bash
 pnpm install          # Install dependencies
-pnpm dev              # Dev server (Vite HMR, no Cloudflare bindings)
-pnpm build            # Production build
-pnpm preview          # Preview with wrangler (local Cloudflare bindings)
-pnpm check            # Astro type checking
+pnpm dev              # Dev server (kills port 4321 first, no CF bindings)
+pnpm build            # Production build — run after every significant change
+pnpm preview          # Preview with wrangler --remote (local Cloudflare bindings)
+pnpm check            # Astro TypeScript type checking
+pnpm lint             # ESLint — runs in CI, must pass before push
+pnpm lint:fix         # ESLint with auto-fix
+pnpm format           # Prettier write
+pnpm format:check     # Prettier check (CI)
+pnpm test:e2e         # Playwright end-to-end tests
+pnpm test:e2e:ui      # Playwright with interactive UI
 ```
+
+**CI gates:** `pnpm lint` and `pnpm build` both run in GitHub Actions on every push. A lint error breaks the deploy.
+
+---
+
+## Stack
+
+| Layer | Technology | Key Detail |
+|-------|-----------|------------|
+| Framework | Astro 5.7+ | Islands Architecture, `static` output mode |
+| Content | MDX | `@astrojs/mdx` — component imports in content files |
+| UI framework | Preact | `@astrojs/preact` — interactive islands only |
+| CSS | Tailwind CSS 4+ | `@tailwindcss/vite` plugin (NOT `@astrojs/tailwind`, NOT PostCSS) |
+| SSR adapter | `@astrojs/cloudflare` | `platformProxy: { enabled: true }` for local D1/KV/R2 |
+| Package manager | pnpm 10+ standalone | `"packageManager": "pnpm@10.29.3"` in package.json |
+| Hosting | Cloudflare Pages | Project: `forestal-mt-store`, auto-deploy on push to main |
+| Database | Cloudflare D1 | Binding: `DB` → `fmt-products-database` (pending — SSR not yet enabled) |
+| Object storage | Cloudflare R2 | Binding: `R2` → `assets` bucket, CDN: `cdn.forestal-mt.com` |
+| Sessions | Cloudflare KV | Binding: `SESSION` → namespace `SESSION` (pending) |
+| Icons | astro-icon | `@iconify-json/fa6-brands` (social), `@iconify-json/logos` (payment brands) |
+| Observability | Sentry | `@sentry/astro` (client) + `@sentry/cloudflare` (server) |
+
+### Tailwind CSS 4 Setup
+
+No `tailwind.config.mjs`, no PostCSS. Config via `@tailwindcss/vite` plugin. Design tokens in `src/styles/global.css` using `@theme` directive.
+
+---
+
+## Architecture
+
+### Rendering Model
+
+| Type | Pages | Data Source |
+|------|-------|-------------|
+| **SSG** (static) | Home, About, Contact, Wholesale, 3 Catalogs, Community hub + 4 subpages, Legal | Content Collections (`pages/*.mdx`) |
+| **SSR** (dynamic) | Shop (`/products/`), PDPs (`/products/{handler}/`) | D1 database queries — **not yet built** |
+| **Authenticated** | Account (`/account/*`), Admin (`/admin/*`) | KV sessions + D1 — **not yet built** |
+
+### Content Collections
+
+Schema defined in `src/content.config.ts`. Glob loader: `src/content/pages/**/*.{md,mdx}`.
+
+**Critical gotcha:** Astro's glob loader uses the frontmatter `slug` field as the collection entry ID. Query with the slug value, not the filename:
+
+```ts
+// slug: community/faqs  → getEntry("pages", "community/faqs")
+// slug: /               → getEntry("pages", "/")
+const page = await getEntry("pages", "community/faqs");
+```
+
+Every page file requires: `slug`, `pageName`, `canonicalUrl`, `title`, `description`, `og`, `twitter`, `schemas`, `hero`.
+
+### JSON-LD Schema Builder (`src/lib/jsonld.ts`)
+
+`buildPageGraph(schemas, pageData)` resolves schema refs from page frontmatter into a `@graph` array. The switch in `resolveSchema()` handles these types:
+
+| Frontmatter `type` | Produces |
+|--------------------|----------|
+| `Organization`, `Brand` | Full or compact stub (via `mode: compact`) |
+| `WebSite`, `SearchAction` | Global site schemas |
+| `VideoObject` | Matched by `@id` from stream-videos lookup |
+| `BreadcrumbList` | Auto-built from `pageName` + `canonicalUrl` — detects community subpages for 3-level breadcrumb |
+| `ImageObject` | Built from `og.image` data |
+| `AboutPage`, `Blog`, `CollectionPage`, `ContactPage`, `FAQPage`, `WebPage` | WebPage node variants |
+| `OfferCatalog`, `Service` | Extracted from OnlineStore.json / Service-wholesale.json |
+
+Unknown types silently return null (no crash). Add new cases to the switch when new page types need schema support.
+
+### Hero Component (`src/components/Hero.astro`)
+
+Data-driven from frontmatter `hero.*`. Two background modes:
+- `background.type: "image"` → `<img>` from R2 CDN
+- `background.type: "video"` → HLS via hls.js from Cloudflare Stream
+
+Video UIDs in `src/data/stream-videos.ts`. Hero images: 1920×1080 (16:9). Hero videos: 3200×1792.
+
+### Breadcrumb Component
+
+Accepts `pageName` and optional `parent?: { name: string; href: string }` for 3-level breadcrumbs:
+
+```astro
+<!-- Top-level page -->
+<Breadcrumb pageName={data.pageName} />
+
+<!-- Community subpage (3 levels: Home → Community → Page) -->
+<Breadcrumb pageName={data.pageName} parent={{ name: "Community", href: "/community/" }} />
+```
+
+### Preact Islands (`src/components/islands/`)
+
+Interactive components hydrated on demand. All islands use Preact (not React).
+
+| Island | Directive | Purpose |
+|--------|-----------|---------|
+| `AccordionIsland.tsx` | `client:visible` | Collapsible content panels |
+| `CountUpIsland.tsx` | `client:visible` | Animated number counters |
+| `HerbScrollIsland.tsx` | `client:visible` | Herbs scrolling list |
+| `ImpactBarIsland.tsx` | `client:visible` | Animated metric bars |
+| `OriginPulseIsland.tsx` | `client:visible` | Map/pulse animation |
+| `ScrollRevealIsland.tsx` | `client:visible` | Scroll-triggered reveals |
+| `TabSwitcherIsland.tsx` | `client:idle` | Tabbed content switcher |
+
+---
+
+## CSS Utility Classes
+
+Defined in `src/styles/global.css`. These are the primary layout and surface patterns — use them consistently:
+
+| Class | Effect |
+|-------|--------|
+| `.surface-warm` | Warm off-white background |
+| `.surface-parchment` | Parchment background (`#F5F0E8`) |
+| `.surface-dark` | Charcoal background (`#1A1A1A`) with light text |
+| `.grain` | Noise texture overlay via `::before` pseudo-element (add to `relative` containers) |
+| `.gold-rule` | Centered gold horizontal rule (decorative `<hr>`) |
+| `.gold-rule-left` | Left-aligned gold rule |
+| `.stagger-children` | CSS animation: child elements fade-in with sequential delay (up to 6 children) |
+| `.reveal-on-scroll` | JS-driven scroll reveal — becomes visible when `.is-visible` is toggled |
+| `.card-hover` | White card with lift shadow + border transition on hover |
+
+### Design Tokens (Tailwind CSS variables)
+
+```css
+--color-leaf-green: #206D03   /* primary CTA, links */
+--color-grass-green: #54B006  /* hover state */
+--color-gold: #F3C00D         /* accents, borders, rules */
+--color-gold-dark: #A18500    /* eyebrow text */
+--color-graphite: #333333     /* body text */
+--color-charcoal: #1A1A1A     /* dark surfaces, headings */
+--color-parchment: #F5F0E8    /* light section backgrounds */
+```
+
+### Font Variables
+
+```css
+--font-display   /* The New Elegance — Hero H1 */
+--font-heading   /* Cinzel — Section headings, eyebrow text, nav */
+--font-body      /* Libre Baskerville — Editorial body text */
+--font-ui        /* Open Sans — Buttons, labels, UI elements */
+```
+
+Usage pattern: `font-[family-name:var(--font-heading)]` in Tailwind class strings.
+
+---
+
+## Images
+
+All images served from R2 via `cdn.forestal-mt.com`. The ONLY images in `public/` are favicons.
+
+- Product images: `cdn.forestal-mt.com/products/{type}/{handler}.png`
+- Page hero images: `cdn.forestal-mt.com/pages/{slug}/hero.jpg`
+- Page OG images: `cdn.forestal-mt.com/pages/{slug}/og.jpg`
+
+**Cloudflare Image Resizing** is active. Use `/cdn-cgi/image/width=X,format=webp/{full-url}` for optimized sizes.
+
+**Never use Astro's `<Image>` component for R2 URLs** — `passthroughImageService()` is configured, Sharp is disabled. Use plain `<img>` tags.
+
+---
+
+## Live Pages (17 SSG pages)
+
+| URL | Page |
+|-----|------|
+| `/` | Home |
+| `/about/` | About |
+| `/batana-oil/` | Batana Oil catalog |
+| `/stingless-bee-honey/` | Stingless Bee Honey catalog |
+| `/traditional-herbs/` | Traditional Herbs catalog |
+| `/contact/` | Contact |
+| `/wholesale/` | Wholesale Program |
+| `/community/` | Community hub |
+| `/community/faqs/` | FAQs |
+| `/community/blog/` | Blog & Stories |
+| `/community/testimonials/` | Testimonials |
+| `/community/docs/` | Documentation |
+| `/terms/` | Terms & Conditions |
+| `/privacy/` | Privacy Policy |
+| `/disclaimer/` | Disclaimer |
+| `/shipping/` | Shipping & Returns |
+| `/404` | 404 Not Found |
+
+**Next phase:** Shop + 46 PDPs (requires D1 seeding + SSR migration).
+
+---
+
+## SSR Migration Checklist
+
+When switching from `output: "static"` to `"hybrid"` for D1 product pages:
+
+1. Uncomment `Sentry.d1Integration(context.env.DB)` in `functions/_middleware.js`
+2. Uncomment D1/KV bindings in `wrangler.toml`
+3. Bind D1/KV in Cloudflare Pages dashboard (prod + preview)
+4. Change `output: "static"` → `"hybrid"` in `astro.config.mjs`
+5. Verify `nodejs_compat` flag active in CF Pages dashboard
+6. Test with `pnpm preview` (wrangler + local bindings)
+
+---
+
+## Sentry
+
+Two-package split — mandatory for Cloudflare Pages:
+
+| Layer | Package | File |
+|-------|---------|------|
+| Client (browser) | `@sentry/astro` | `sentry.client.config.js` |
+| Server (CF Workers) | `@sentry/cloudflare` | `functions/_middleware.js` |
+| Build (source maps) | `@sentry/astro` plugin | `astro.config.mjs` |
+
+Do NOT use `@sentry/node` — incompatible with CF Workers V8 isolates.
+
+---
+
+## URL Policy
+
+All URLs end with `/`. Enforced via `trailingSlash: "always"`. No exceptions.
+
+---
+
+## Cloudflare Bindings
+
+| Binding | Type | Name | Runtime Access |
+|---------|------|------|----------------|
+| `DB` | D1 | `fmt-products-database` | `locals.runtime.env.DB` |
+| `R2` | R2 Bucket | `assets` | `locals.runtime.env.R2` |
+| `SESSION` | KV | `SESSION` | `locals.runtime.env.SESSION` |
 
 ---
 
 ## Rules
 
 ### DO NOT
-
-- Add e-commerce features before the catalog is live — launch first
-- Use HTML comments in .mdx files — use `{/* comment */}` instead
-- Use Corepack — it's being removed from Node.js 25+
-- Store images in `public/` except favicons
-- Import product data as JSON — it comes from D1 at runtime (when SSR is enabled)
-- Create product Content Collections — products are SSR from D1
-- Use React — use Preact
 - Use `@astrojs/tailwind` — use `@tailwindcss/vite` (Tailwind 4)
-- Use Astro's `<Image>` component for local assets — triggers Sharp error with `passthroughImageService()`. Use `<img src={asset.src}>` instead
-- Break the build — run `pnpm build` after significant changes
-- Say "Great idea!" — diagnose problems, prescribe solutions
-- Suggest hiring agencies/freelancers — this topic is closed
+- Use React — use Preact for islands
+- Use Astro's `<Image>` component for R2 URLs — use plain `<img>` tags
+- Store images in `public/` except favicons
+- Import product data as JSON — products come from D1 at runtime (SSR)
+- Use HTML comments in `.mdx` — use `{/* comment */}` only
+- Use Corepack — being removed from Node.js 25+
+- Push without `pnpm lint` passing — CI will fail
 
 ### DO
-
-- Keep SEO and OG title/description in sync when updating frontmatter
-- Follow the specs in `~/projects/forestal-mt-suite/`
-- Use Tailwind CSS 4+ with `@tailwindcss/vite`
-- Use Astro's experimental Fonts API for font loading
-- Use trailing slashes on ALL URLs
+- Keep SEO and OG `title`/`description` in sync in frontmatter
 - Use `cdn.forestal-mt.com` for all image URLs
-- Keep page content in `.mdx` format
-- Use placeholder images for content sections (non-hero, non-OG)
-- Run `pnpm build` after every significant change
-- Scope creep without a plan — every change must serve the business
-
----
-
-## Language Policy
-
-- **Conversation:** Spanish (mirror user language)
-- **ALL code, files, comments, variables, commits:** English only
-
----
-
-## Cloudflare Bindings
-
-| Binding   | Type      | Name                    | Runtime Access               |
-| --------- | --------- | ----------------------- | ---------------------------- |
-| `DB`      | D1        | `fmt-products-database` | `locals.runtime.env.DB`      |
-| `R2`      | R2 Bucket | `assets`                | `locals.runtime.env.R2`      |
-| `SESSION` | KV        | `SESSION`               | `locals.runtime.env.SESSION` |
-
-These are configured in Cloudflare Pages dashboard and `wrangler.toml`. SSG pages don't use these bindings, but the adapter is configured from the start.
-
-### Cloudflare Pages API
-
-`wrangler.toml` only affects local `pnpm preview`. Production/preview settings MUST be set via dashboard or API:
-
-```bash
-curl -X PATCH "https://api.cloudflare.com/client/v4/accounts/{ACCOUNT_ID}/pages/projects/forestal-mt-store" \
-  -H "Authorization: Bearer {API_TOKEN}" -H "Content-Type: application/json" \
-  -d '{"deployment_configs":{"production":{...},"preview":{...}}}'
-```
-
-**Dashboard state (2026-02-18):** `nodejs_compat` SET, `SENTRY_AUTH_TOKEN` SET, R2 bound. D1/KV pending (when SSR is enabled).
-
----
-
-## Project Structure (target)
-
-```
-forestal-mt-store/
-├── CLAUDE.md
-├── astro.config.mjs
-├── package.json
-├── pnpm-lock.yaml
-├── tsconfig.json
-├── public/
-│   ├── favicon.ico
-│   ├── favicon.svg
-│   ├── favicon-*.png
-│   ├── apple-touch-icon*.png
-│   ├── android-chrome-*.png
-│   ├── mstile-*.png
-│   ├── safari-pinned-tab.svg
-│   ├── yandex-*.png
-│   ├── manifest.webmanifest
-│   ├── browserconfig.xml
-│   ├── yandex-browser-manifest.json
-│   └── robots.txt
-├── src/
-│   ├── assets/
-│   │   ├── fonts/
-│   │   │   ├── cinzel/
-│   │   │   ├── libre-baskerville/
-│   │   │   ├── open-sans/
-│   │   │   └── the-new-elegance/
-│   │   └── logos/
-│   │       ├── logo.svg
-│   │       ├── logo.png
-│   │       ├── logo-gold.png
-│   │       ├── logo-dark.png
-│   │       └── logo-light.png
-│   ├── components/
-│   │   ├── Head.astro          (SEO meta, OG, canonical)
-│   │   ├── Header.astro        (nav, logo, search, cart icon)
-│   │   ├── Footer.astro        (links, legal, newsletter)
-│   │   ├── Breadcrumb.astro    (visual + JSON-LD)
-│   │   └── Hero.astro          (hero section from frontmatter)
-│   ├── content/
-│   │   └── pages/              (17 .mdx files — migrated from suite .md)
-│   ├── data/
-│   │   └── jsonld/             (10 static JSON-LD schemas from suite)
-│   ├── layouts/
-│   │   └── BaseLayout.astro    (html shell, head, header, footer)
-│   ├── lib/
-│   │   └── jsonld.ts           (JSON-LD @graph builder utility)
-│   ├── pages/
-│   │   ├── index.astro         (Home)
-│   │   ├── about/index.astro
-│   │   ├── batana-oil/index.astro
-│   │   ├── stingless-bee-honey/index.astro
-│   │   ├── traditional-herbs/index.astro
-│   │   ├── contact/index.astro
-│   │   ├── wholesale/index.astro
-│   │   ├── terms/index.astro
-│   │   ├── privacy/index.astro
-│   │   ├── disclaimer/index.astro
-│   │   ├── shipping/index.astro
-│   │   └── 404.astro
-│   ├── styles/
-│   │   └── global.css          (Tailwind import + @theme tokens)
-│   └── content.config.ts
-└── tests/
-    └── e2e/                    (Playwright)
-```
+- Use trailing slashes on ALL URLs
+- Run `pnpm build` + `pnpm lint` before commit
+- Use `.surface-warm`, `.surface-parchment`, `.surface-dark` for section backgrounds
+- Use `.stagger-children` on grids, `.reveal-on-scroll` on individual elements
+- Use `font-[family-name:var(--font-heading)]` pattern (not `font-cinzel` etc.)
