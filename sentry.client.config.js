@@ -6,6 +6,9 @@ Sentry.init({
   integrations: [
     Sentry.browserTracingIntegration(),
     Sentry.replayIntegration(),
+    Sentry.feedbackIntegration({
+      colorScheme: "system",
+    }),
   ],
   // Enable logs to be sent to Sentry
   enableLogs: true,
