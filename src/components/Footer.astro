@@ -1,106 +1,229 @@
 ---
+import { Icon } from "astro-icon/components";
+import logoLight from "../assets/logos/logo-light.png";
+
 const year = new Date().getFullYear();
 
-const catalogLinks = [
-  { label: "Batana Oil", href: "/batana-oil/" },
-  { label: "Stingless Bee Honey", href: "/stingless-bee-honey/" },
-  { label: "Traditional Herbs", href: "/traditional-herbs/" },
-];
-
-const companyLinks = [
-  { label: "About Us", href: "/about/" },
+const quickLinks = [
+  { label: "About Us",  href: "/about/" },
   { label: "Wholesale", href: "/wholesale/" },
-  { label: "Contact", href: "/contact/" },
+  { label: "Shop",      href: "/" },
+  { label: "Contact",   href: "/contact/" },
 ];
 
-const legalLinks = [
+const exploreLinks = [
+  { label: "Batana Oil",     href: "/batana-oil/" },
+  { label: "Jimerito Honey", href: "/stingless-bee-honey/" },
+  { label: "Wild Herbs",     href: "/traditional-herbs/" },
+  { label: "FAQs",           href: "/" },
+];
+
+const policyLinks = [
   { label: "Terms & Conditions", href: "/terms/" },
-  { label: "Privacy Policy", href: "/privacy/" },
-  { label: "Disclaimer", href: "/disclaimer/" },
-  { label: "Shipping Policy", href: "/shipping/" },
+  { label: "Privacy Policy",     href: "/privacy/" },
+  { label: "Shipping & Returns", href: "/shipping/" },
+  { label: "Documents",          href: "/" },
+];
+
+const socialLinks = [
+  { label: "Facebook",  href: "#", icon: "fa6-brands:facebook" },
+  { label: "Instagram", href: "#", icon: "fa6-brands:instagram" },
+  { label: "TikTok",    href: "#", icon: "fa6-brands:tiktok" },
+  { label: "LinkedIn",  href: "#", icon: "fa6-brands:linkedin-in" },
 ];
 ---
 
-<footer class="border-t border-mint bg-seasalt">
-  <div class="mx-auto max-w-7xl px-4 py-12 lg:px-8">
-    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-      <!-- Brand -->
-      <div>
-        <p class="font-[family-name:var(--font-heading)] text-lg font-semibold text-leaf-green">
-          Forestal MT
-        </p>
-        <p class="mt-2 font-[family-name:var(--font-body)] text-sm text-graphite/70">
-          Premium ethnobotanical products sourced directly from indigenous
-          communities in Honduras.
-        </p>
+<footer class="surface-dark grain relative" role="contentinfo">
+  <div class="mx-auto max-w-7xl px-4 py-16 lg:px-8">
+
+    <!-- 5-column grid: Logo (2fr) + 4 link columns (1fr each) -->
+    <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr_1fr] lg:gap-12">
+
+      <!-- Col 1: Logo -->
+      <div class="flex items-start sm:col-span-2 lg:col-span-1">
+        <a href="/" aria-label="Forestal MT — Home">
+          <img
+            src={logoLight.src}
+            alt="Forestal MT"
+            width={160}
+            height={logoLight.height}
+            class="h-auto w-40"
+            loading="lazy"
+            decoding="async"
+          />
+        </a>
       </div>
 
-      <!-- Catalogs -->
+      <!-- Col 2: Quick Links -->
       <div>
-        <h3 class="font-[family-name:var(--font-heading)] text-sm font-semibold uppercase tracking-wider text-graphite">
-          Collections
+        <h3 class="font-[family-name:var(--font-heading)] text-xs font-semibold uppercase tracking-widest text-gold">
+          Quick Links
         </h3>
-        <ul class="mt-3 space-y-2 font-[family-name:var(--font-ui)] text-sm">
-          {
-            catalogLinks.map((link) => (
-              <li>
-                <a
-                  href={link.href}
-                  class="text-graphite/70 transition-colors hover:text-leaf-green"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))
-          }
+        <ul class="mt-4 space-y-1">
+          {quickLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="link-draw flex min-h-[44px] items-center font-[family-name:var(--font-ui)] text-sm text-white/60 transition-colors hover:text-white lg:min-h-0"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
 
-      <!-- Company -->
+      <!-- Col 3: Explore -->
       <div>
-        <h3 class="font-[family-name:var(--font-heading)] text-sm font-semibold uppercase tracking-wider text-graphite">
-          Company
+        <h3 class="font-[family-name:var(--font-heading)] text-xs font-semibold uppercase tracking-widest text-gold">
+          Explore
         </h3>
-        <ul class="mt-3 space-y-2 font-[family-name:var(--font-ui)] text-sm">
-          {
-            companyLinks.map((link) => (
-              <li>
-                <a
-                  href={link.href}
-                  class="text-graphite/70 transition-colors hover:text-leaf-green"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))
-          }
+        <ul class="mt-4 space-y-1">
+          {exploreLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="link-draw flex min-h-[44px] items-center font-[family-name:var(--font-ui)] text-sm text-white/60 transition-colors hover:text-white lg:min-h-0"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
 
-      <!-- Legal -->
+      <!-- Col 4: Docs & Policies -->
       <div>
-        <h3 class="font-[family-name:var(--font-heading)] text-sm font-semibold uppercase tracking-wider text-graphite">
-          Legal
+        <h3 class="font-[family-name:var(--font-heading)] text-xs font-semibold uppercase tracking-widest text-gold">
+          Docs & Policies
         </h3>
-        <ul class="mt-3 space-y-2 font-[family-name:var(--font-ui)] text-sm">
-          {
-            legalLinks.map((link) => (
-              <li>
-                <a
-                  href={link.href}
-                  class="text-graphite/70 transition-colors hover:text-leaf-green"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))
-          }
+        <ul class="mt-4 space-y-1">
+          {policyLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="link-draw flex min-h-[44px] items-center font-[family-name:var(--font-ui)] text-sm text-white/60 transition-colors hover:text-white lg:min-h-0"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
+
+      <!-- Col 5: Follow Us -->
+      <div>
+        <h3 class="font-[family-name:var(--font-heading)] text-xs font-semibold uppercase tracking-widest text-gold">
+          Follow Us
+        </h3>
+        <div class="mt-4 grid grid-cols-2 gap-x-4 gap-y-1">
+          {socialLinks.map((social) => (
+            <a
+              href={social.href}
+              aria-label={social.label}
+              class="flex min-h-[44px] items-center gap-2 text-white/60 transition-colors hover:text-white lg:min-h-0"
+            >
+              <Icon name={social.icon} class="h-5 w-5 shrink-0" />
+              <span class="font-[family-name:var(--font-ui)] text-xs">{social.label}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+
+    </div>
+    <!-- END main grid -->
+
+    <!-- Tagline divider -->
+    <div class="flex items-center gap-6 py-10">
+      <div class="h-px flex-1 bg-gradient-to-r from-transparent via-gold-dark/50 to-transparent" aria-hidden="true"></div>
+      <p class="shrink-0 font-[family-name:var(--font-display)] text-lg italic text-white/75 sm:text-xl">
+        Exporting Nature Without Borders
+      </p>
+      <div class="h-px flex-1 bg-gradient-to-r from-transparent via-gold-dark/50 to-transparent" aria-hidden="true"></div>
     </div>
 
-    <div class="mt-10 border-t border-mint pt-6 text-center font-[family-name:var(--font-ui)] text-xs text-graphite/50">
-      <p>&copy; {year} Forestal Murillo Tejada S. de R.L. All rights reserved.</p>
+    <!-- Bottom bar -->
+    <div class="flex flex-col items-center gap-4 border-t border-white/10 pt-6 sm:flex-row sm:justify-between">
+
+      <!-- Left: Payment methods -->
+      <div class="flex flex-wrap items-center gap-2" aria-label="Accepted payment methods">
+        <span class="flex items-center rounded bg-white px-2 py-1">
+          <Icon name="logos:visa" class="h-4 w-auto" aria-label="Visa" />
+        </span>
+        <span class="flex items-center rounded bg-white px-2 py-1">
+          <Icon name="logos:mastercard" class="h-4 w-auto" aria-label="Mastercard" />
+        </span>
+        <span class="inline-flex items-center rounded bg-[#EE3124] px-2 py-0.5 font-[family-name:var(--font-ui)] text-[10px] font-bold text-white">
+          Moneygram
+        </span>
+        <span class="inline-flex items-center rounded bg-[#FFD700] px-2 py-0.5 font-[family-name:var(--font-ui)] text-[10px] font-bold text-black">
+          WU
+        </span>
+        <span class="inline-flex items-center rounded bg-[#004A97] px-2 py-0.5 font-[family-name:var(--font-ui)] text-[10px] font-bold text-white">
+          Atlántida
+        </span>
+      </div>
+
+      <!-- Center: Copyright -->
+      <p class="font-[family-name:var(--font-ui)] text-xs text-white/40">
+        &copy; {year} Forestal Murillo Tejada S. de R.L. | All rights reserved.
+      </p>
+
+      <!-- Right: Location -->
+      <p class="font-[family-name:var(--font-ui)] text-xs text-white/40">
+        Olancho, Honduras
+      </p>
+
     </div>
+
   </div>
 </footer>
+
+<!-- Back to top button -->
+<button
+  id="back-to-top"
+  type="button"
+  aria-label="Back to top"
+  class="fixed bottom-6 right-6 z-30 flex h-11 w-11 items-center justify-center rounded-full bg-gold text-charcoal opacity-0 shadow-lg transition-all duration-300 hover:bg-gold-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+  style="pointer-events: none;"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class="h-5 w-5"
+    aria-hidden="true"
+  >
+    <path d="M18 15l-6-6-6 6" />
+  </svg>
+</button>
+
+<script>
+  (function () {
+    const btn = document.getElementById("back-to-top");
+    if (!btn) return;
+
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    function updateVisibility() {
+      const visible = window.scrollY > 300;
+      btn.style.opacity = visible ? "1" : "0";
+      btn.style.pointerEvents = visible ? "auto" : "none";
+    }
+
+    window.addEventListener("scroll", updateVisibility, { passive: true });
+
+    btn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: prefersReducedMotion ? "instant" : "smooth",
+      });
+    });
+  })();
+</script>

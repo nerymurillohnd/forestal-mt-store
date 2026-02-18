@@ -6,6 +6,7 @@ import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 
 import mdx from "@astrojs/mdx";
+import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,7 +18,7 @@ export default defineConfig({
     platformProxy: { enabled: true },
   }),
 
-  integrations: [preact(), sitemap(), mdx()],
+  integrations: [preact(), sitemap(), mdx(), icon()],
 
   vite: {
     plugins: [tailwindcss()],
