@@ -149,7 +149,7 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           wranglerVersion: "4.66.0"
           packageManager: pnpm
-          command: pages deploy dist --project-name=forestal-mt-store --branch=main
+          command: pages deploy dist --project-name=forestal-mt-store --branch=main --commit-dirty=true
 
   # ── Claude Auto-Fix (on failure) ──────────────────────────────
   claude-fix:
