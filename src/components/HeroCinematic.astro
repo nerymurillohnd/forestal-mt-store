@@ -61,7 +61,7 @@ const overlayClass = catalogAccent ? `overlay-${catalogAccent}` : '';
         title={background.caption ?? 'Hero video'}
         style="border:none; pointer-events:none;"
       ></iframe>
-    ) : (
+    ) : background.src ? (
       <img
         src={background.src}
         alt={background.alt ?? ''}
@@ -69,7 +69,7 @@ const overlayClass = catalogAccent ? `overlay-${catalogAccent}` : '';
         loading="eager"
         decoding="async"
       />
-    )}
+    ) : null}
     <div class="absolute inset-0 bg-gradient-to-t from-[#111]/90 via-[#111]/40 to-[#111]/15"></div>
   </div>
 
