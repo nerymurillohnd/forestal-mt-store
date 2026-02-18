@@ -24,7 +24,7 @@ The `forestal-mt-suite` repository (`~/projects/forestal-mt-suite/`) is the **si
 
 | Suite Path | Project Path | Purpose |
 |-----------|-------------|---------|
-| `pages/*.md` (17 files) | `src/content/pages/` | Page content (frontmatter + body) |
+| `pages/*.md` (17 files) | `src/content/pages/*.mdx` | Page content — copied from suite .md, renamed to .mdx |
 | `structured-data/jsonld/*.json` (10 static schemas) | `src/data/jsonld/` | JSON-LD nodes for `@graph` injection |
 | `logos-and-favicons/favicon*`, `apple-touch-icon*`, `android-chrome-*`, `mstile-*`, `safari-pinned-tab.svg`, `yandex-*`, `manifest.webmanifest`, `browserconfig.xml` (19 files) | `public/` | Favicons and web manifests |
 | `logos-and-favicons/logo*` (5 files) | `src/assets/logos/` | Brand logos (processed by Astro) |
@@ -40,7 +40,8 @@ Files are copied AS-IS. Never modified by this project. If the suite updates a f
 
 | Layer | Technology | Key Detail |
 |-------|-----------|-----------|
-| Framework | Astro 5.7+ | Islands Architecture, `hybrid` output mode |
+| Framework | Astro 5.7+ | Islands Architecture, `static` output mode |
+| Content | MDX | `@astrojs/mdx` — component imports in content files |
 | UI framework | Preact | `@astrojs/preact` — interactive islands only |
 | CSS | Tailwind CSS 4+ | `@tailwindcss/vite` plugin (NOT `@astrojs/tailwind`, NOT PostCSS) |
 | SSR adapter | `@astrojs/cloudflare` | `platformProxy: { enabled: true }` for local D1/KV/R2 |
@@ -54,57 +55,7 @@ Files are copied AS-IS. Never modified by this project. If the suite updates a f
 
 ### Tailwind CSS 4 Setup
 
-Tailwind 4 does NOT use `tailwind.config.mjs` or PostCSS. Configuration:
-
-```js
-// astro.config.mjs
-import tailwindcss from '@tailwindcss/vite';
-
-export default defineConfig({
-  vite: {
-    plugins: [tailwindcss()]
-  }
-});
-```
-
-```css
-/* src/styles/global.css */
-@import "tailwindcss";
-
-/* Custom design tokens */
-@theme {
-  --color-leaf-green: #206D03;
-  --color-grass-green: #54B006;
-  --color-gold: #F3C00D;
-  --color-gold-dark: #A18500;
-  --color-warm-sand: #E6D8B1;
-  --color-mint: #D6E8D3;
-  --color-soft-silver: #F2F2F2;
-  --color-seasalt: #F8F8F0;
-  --color-graphite: #333333;
-  --color-error: #DC2626;
-  --color-warning: #D97706;
-  --color-success: #16A34A;
-  --color-info: #2563EB;
-}
-```
-
-### Astro Configuration Summary
-
-```js
-// astro.config.mjs — key settings
-{
-  site: 'https://forestal-mt.com',
-  output: 'hybrid',
-  trailingSlash: 'always',
-  adapter: cloudflare({ platformProxy: { enabled: true } }),
-  integrations: [preact(), sitemap()],
-  vite: { plugins: [tailwindcss()] },
-  experimental: {
-    fonts: [/* 4 font families — see SITE_TECHNICAL_SPEC.md section 5 */]
-  }
-}
-```
+Tailwind 4 does NOT use `tailwind.config.mjs` or PostCSS. Config via `@tailwindcss/vite` plugin. Design tokens defined in `src/styles/global.css` using `@theme` directive.
 
 ---
 
@@ -114,7 +65,7 @@ export default defineConfig({
 
 | Type | Pages | Data Source |
 |------|-------|-----------|
-| **SSG** (static) | Home, About, Contact, Wholesale, 3 Catalogs, Legal pages | Content Collections (`pages/*.md`) |
+| **SSG** (static) | Home, About, Contact, Wholesale, 3 Catalogs, Legal pages | Content Collections (`pages/*.mdx`) |
 | **SSR** (dynamic) | Shop (`/products/`), PDPs (`/products/{handler}/`) | D1 database queries |
 | **Authenticated** | Account (`/account/*`), Admin (`/admin/*`) | KV sessions + D1 |
 
@@ -186,32 +137,15 @@ ALL URLs end with `/`. Configured via `trailingSlash: "always"`. No exceptions.
 
 ## Content Format
 
-Page files are **Markdown with YAML frontmatter** (NOT MDX). The Astro project reads frontmatter for SEO/hero configuration and renders the body as HTML via Content Collections.
+Page files are **MDX with YAML frontmatter** (`.mdx`). MDX allows importing and using Astro/Preact components directly in content. Comments use JSX syntax: `{/* comment */}` (NOT `<!-- -->`).
 
-Interactive elements (forms, carousels, maps) belong in **Astro page templates**, not in the markdown content.
+Interactive elements can be embedded in content via component imports, or placed in **Astro page templates** as Preact islands.
 
 ### Content Collections
 
-```typescript
-// src/content.config.ts
-import { defineCollection, z } from 'astro:content';
-import { glob } from 'astro/loaders';
+Full schema in `src/content.config.ts`. Glob loader accepts `**/*.{md,mdx}`.
 
-const pages = defineCollection({
-  loader: glob({ pattern: '*.md', base: 'src/content/pages' }),
-  schema: z.object({
-    slug: z.string(),
-    pageName: z.string(),
-    canonicalUrl: z.string(),
-    rendering: z.enum(['SSG', 'SSR']),
-    title: z.string(),
-    description: z.string(),
-    // ... extend from actual frontmatter structure
-  }),
-});
-
-export const collections = { pages };
-```
+**Gotcha:** Astro's glob loader uses the frontmatter `slug` field as the collection entry ID. For example, `slug: /` produces entry ID `"/"`, not `"home"`. Query with `getEntry('pages', '/')` or filter by `entry.id`.
 
 ---
 
@@ -240,7 +174,7 @@ pnpm check            # Astro type checking
 ### DO NOT
 
 - Add e-commerce features before the catalog is live — launch first
-- Use MDX for page content files — .md is the canonical format
+- Use HTML comments in .mdx files — use `{/* comment */}` instead
 - Use Corepack — it's being removed from Node.js 25+
 - Store images in `public/` except favicons
 - Import product data as JSON — it comes from D1 at runtime (post-MVP)
@@ -258,7 +192,7 @@ pnpm check            # Astro type checking
 - Use Astro's experimental Fonts API for font loading
 - Use trailing slashes on ALL URLs
 - Use `cdn.forestal-mt.com` for all image URLs
-- Keep page content in `.md` format
+- Keep page content in `.mdx` format
 - Use placeholder images for content sections (non-hero, non-OG)
 - Run `pnpm build` after every significant change
 - Challenge requests that add scope beyond current MVP
@@ -326,7 +260,7 @@ forestal-mt-store/
 │   │   ├── Breadcrumb.astro    (visual + JSON-LD)
 │   │   └── Hero.astro          (hero section from frontmatter)
 │   ├── content/
-│   │   └── pages/              (17 .md files from suite)
+│   │   └── pages/              (17 .mdx files — migrated from suite .md)
 │   ├── data/
 │   │   └── jsonld/             (10 static JSON-LD schemas from suite)
 │   ├── layouts/

@@ -5,6 +5,8 @@ import preact from "@astrojs/preact";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 
+import mdx from "@astrojs/mdx";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://forestal-mt.com",
@@ -15,7 +17,7 @@ export default defineConfig({
     platformProxy: { enabled: true },
   }),
 
-  integrations: [preact(), sitemap()],
+  integrations: [preact(), sitemap(), mdx()],
 
   vite: {
     plugins: [tailwindcss()],
