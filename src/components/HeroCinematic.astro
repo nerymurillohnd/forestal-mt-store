@@ -24,7 +24,7 @@ interface HeroBackground {
 
 interface Props {
   height?: "100dvh" | "80vh" | "60vh";
-  background: HeroBackground;
+  background?: HeroBackground;
   eyebrow?: string;
   title: string;
   subtitle?: string;
@@ -48,13 +48,15 @@ const {
 } = Astro.props;
 
 // Normalize frontmatter field names to component field names
-const background = {
-  type: rawBg.type,
-  src: rawBg.src ?? rawBg.url,
-  streamId: rawBg.streamId ?? rawBg.stream,
-  alt: rawBg.alt,
-  caption: rawBg.caption,
-};
+const background = rawBg
+  ? {
+      type: rawBg.type,
+      src: rawBg.src ?? rawBg.url,
+      streamId: rawBg.streamId ?? rawBg.stream,
+      alt: rawBg.alt,
+      caption: rawBg.caption,
+    }
+  : null;
 
 const overlayClass = catalogAccent ? `overlay-${catalogAccent}` : "";
 ---
@@ -70,7 +72,7 @@ const overlayClass = catalogAccent ? `overlay-${catalogAccent}` : "";
   {/* Background */}
   <div class="absolute inset-0">
     {
-      background.type === "video" && background.streamId ? (
+      background?.type === "video" && background.streamId ? (
         <iframe
           src={`https://customer-8w5s9dekjdinwesc.cloudflarestream.com/${background.streamId}/iframe?muted=true&autoplay=true&loop=true&controls=false`}
           class="h-full w-full scale-110 object-cover"
@@ -79,7 +81,7 @@ const overlayClass = catalogAccent ? `overlay-${catalogAccent}` : "";
           title={background.caption ?? "Hero video"}
           style="border:none; pointer-events:none;"
         />
-      ) : background.src ? (
+      ) : background?.src ? (
         <img
           src={background.src}
           alt={background.alt ?? ""}
