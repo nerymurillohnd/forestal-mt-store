@@ -13,6 +13,13 @@ concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
 
+# ── Pinned versions ──────────────────────────────────────────────
+# Node: 24.13.1 (LTS)   — matches local dev environment
+# pnpm: 10.29.3          — locked via package.json "packageManager"
+# Wrangler: 4.66.0       — pinned in deploy job
+env:
+  NODE_VERSION: "24.13.1"
+
 jobs:
   # ── Stage 1: Lint ──────────────────────────────────────────────
   lint:
@@ -23,7 +30,7 @@ jobs:
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version: ${{ env.NODE_VERSION }}
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - name: ESLint
@@ -42,7 +49,7 @@ jobs:
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version: ${{ env.NODE_VERSION }}
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - name: Build
@@ -66,7 +73,7 @@ jobs:
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version: ${{ env.NODE_VERSION }}
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - name: Install Playwright
@@ -102,7 +109,7 @@ jobs:
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version: ${{ env.NODE_VERSION }}
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - name: Download build artifact
@@ -129,7 +136,7 @@ jobs:
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version: ${{ env.NODE_VERSION }}
       - name: Download build artifact
         uses: actions/download-artifact@v4
         with:
@@ -140,6 +147,8 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4.66.0"
+          packageManager: pnpm
           command: pages deploy dist --project-name=forestal-mt-store --branch=main
 
   # ── Claude Auto-Fix (on failure) ──────────────────────────────
