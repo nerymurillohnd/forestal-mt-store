@@ -1,0 +1,193 @@
+---
+/**
+ * COMMUNITY / DOCUMENTATION — TDS, SDS, COA, and export documentation for B2B partners.
+ */
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Head from "../../../components/Head.astro";
+import Breadcrumb from "../../../components/Breadcrumb.astro";
+import Hero from "../../../components/Hero.astro";
+import SectionHeader from "../../../components/SectionHeader.astro";
+import GoldTopCard from "../../../components/GoldTopCard.astro";
+import CollectionNav from "../../../components/CollectionNav.astro";
+import { getEntry } from "astro:content";
+
+const page = await getEntry("pages", "community/docs");
+if (!page) throw new Error("Missing content: pages/community/docs");
+const { data } = page;
+
+const docCategories = [
+  {
+    eyebrow: "Product Science",
+    heading: "Technical Data Sheets (TDS)",
+    body: "Detailed technical specifications for each product — physical properties, composition, recommended usage parameters, shelf life, and storage conditions. Required by cosmetic formulators, supplement manufacturers, and ingredient buyers.",
+    available: "Available on request",
+  },
+  {
+    eyebrow: "Safety & Compliance",
+    heading: "Safety Data Sheets (SDS)",
+    body: "Full safety data per GHS/OSHA and EU REACH standards. Covers hazard identification, handling precautions, first aid measures, and regulatory classification. Required for import into the EU, USA, and most regulated markets.",
+    available: "Available on request",
+  },
+  {
+    eyebrow: "Quality Assurance",
+    heading: "Certificates of Analysis (COA)",
+    body: "Third-party lab analysis confirming purity, composition, and absence of contaminants. Includes microbial testing, heavy metals, moisture content, and product-specific markers (e.g., fatty acid profile for Batana Oil). Available per lot number.",
+    available: "Available per lot",
+  },
+  {
+    eyebrow: "Trade Documentation",
+    heading: "Certificates of Origin",
+    body: "Official documentation issued by Honduran authorities certifying the geographic and production origin of all exported products. Required for import preferential tariff treatment under trade agreements (DR-CAFTA, EU GSP, others).",
+    available: "Included with every shipment",
+  },
+  {
+    eyebrow: "Export Compliance",
+    heading: "Export Licenses & Phytosanitary",
+    body: "Honduran export permits, phytosanitary certificates for botanical products, and CITES documentation where applicable. Our export process is fully documented and compliant with Honduran SENASA requirements.",
+    available: "Included with every shipment",
+  },
+  {
+    eyebrow: "Custom Documentation",
+    heading: "Importer-Specific Requirements",
+    body: "Some markets require additional documentation: FDA facility registration for US imports, EU Novel Food declarations, organic equivalency statements, or custom country-of-origin affidavits. Contact us with your specific requirements before ordering.",
+    available: "Per request — contact us",
+  },
+];
+---
+
+<BaseLayout>
+  <Head
+    slot="head"
+    title={data.title}
+    description={data.description}
+    canonicalUrl={data.canonicalUrl}
+    pageName={data.pageName}
+    og={data.og}
+    twitter={data.twitter}
+    schemas={data.schemas}
+  />
+
+  <Hero
+    background={data.hero.background}
+    eyebrow={data.hero.eyebrow}
+    title={data.hero.title}
+    subtitle={data.hero.subtitle}
+    description={data.hero.description}
+    ctas={data.hero.ctas}
+  />
+
+  <Breadcrumb pageName={data.pageName} parent={{ name: "Community", href: "/community/" }} />
+
+  {/* ── INTRO ── */}
+  <section class="surface-warm border-b border-[#F3C00D]/10 py-16">
+    <div class="mx-auto max-w-3xl px-6 text-center lg:px-12">
+      <SectionHeader eyebrow="For Importers & Formulators" heading="Documentation That Closes Deals" />
+      <p class="reveal-on-scroll mt-6 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70">
+        Every document your compliance team, customs broker, or formulation lab needs — organized,
+        accurate, and traceable to origin. We don't make buyers chase paperwork.
+      </p>
+    </div>
+  </section>
+
+  {/* ── DOCUMENT CATEGORIES ── */}
+  <section class="surface-parchment py-16">
+    <div class="mx-auto max-w-7xl px-6 lg:px-12">
+      <div class="stagger-children grid grid-cols-1 gap-6 md:grid-cols-2">
+        {
+          docCategories.map((doc) => (
+            <article class="border-t-[3px] border-[#F3C00D]/40 bg-white p-8 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
+              <p class="font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.3em] text-[#A18500]">
+                {doc.eyebrow}
+              </p>
+              <h2 class="mt-2 font-[family-name:var(--font-heading)] text-[1.1rem] font-normal text-charcoal">
+                {doc.heading}
+              </h2>
+              <div class="mt-3 h-px w-8 bg-[#F3C00D]/30" />
+              <p class="mt-4 font-[family-name:var(--font-body)] text-[13.5px] leading-[1.85] text-[#333]/65">
+                {doc.body}
+              </p>
+              <div class="mt-5 flex items-center gap-2">
+                <svg
+                  class="h-3.5 w-3.5 shrink-0 text-[#206D03]"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m4.5 12.75 6 6 9-13.5"
+                  />
+                </svg>
+                <span class="font-[family-name:var(--font-ui)] text-[11px] font-semibold uppercase tracking-[0.15em] text-[#206D03]">
+                  {doc.available}
+                </span>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {/* ── HOW TO REQUEST ── */}
+  <section class="surface-warm border-y border-[#F3C00D]/10 py-16">
+    <div class="mx-auto max-w-3xl px-6 lg:px-12">
+      <SectionHeader eyebrow="How to Request" heading="Getting Your Documentation" />
+      <div class="mt-10 space-y-5">
+        <GoldTopCard
+          heading="Step 1 — Identify what you need"
+          body="Most importers need: COA + Certificate of Origin for customs, TDS + SDS for formulation or regulatory filing. Let us know your destination country and intended use and we'll tell you exactly what applies."
+        />
+        <GoldTopCard
+          heading="Step 2 — Contact us with specifications"
+          body="Email sales@forestal-mt.com with the product name, quantity, destination market, and the specific documents required. Attach any importer templates or regulatory forms your country requires."
+        />
+        <GoldTopCard
+          heading="Step 3 — Receive before payment"
+          body="We provide documentation previews before you commit to an order. No surprises at customs. If a document doesn't meet your requirements, we address it before shipment — not after."
+        />
+      </div>
+    </div>
+  </section>
+
+  {/* ── CTA ── */}
+  <section class="surface-parchment py-16">
+    <div class="mx-auto max-w-xl px-6 text-center lg:px-12">
+      <p
+        class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]"
+      >
+        Ready to start?
+      </p>
+      <h2
+        class="mt-3 font-[family-name:var(--font-display)] text-[clamp(1.5rem,2.5vw,2rem)] font-normal text-charcoal"
+      >
+        Request your documentation package.
+      </h2>
+      <p class="mt-4 font-[family-name:var(--font-body)] text-[14px] leading-[1.85] text-[#333]/60">
+        Email <a
+          href="mailto:sales@forestal-mt.com"
+          class="font-semibold text-[#206D03] underline underline-offset-2 transition-colors hover:text-[#185202]"
+          >sales@forestal-mt.com</a
+        > with your requirements, or use the contact form and specify "Documentation Request" in your message.
+      </p>
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <a
+          href="/contact/"
+          class="inline-block rounded-[3px] bg-[#206D03] px-7 py-3 font-[family-name:var(--font-ui)] text-[13px] font-semibold text-white transition-all duration-300 hover:bg-[#185202]"
+        >
+          Contact Us
+        </a>
+        <a
+          href="/wholesale/"
+          class="inline-block rounded-[3px] border border-charcoal/20 px-7 py-3 font-[family-name:var(--font-ui)] text-[13px] font-semibold text-charcoal transition-all duration-300 hover:border-charcoal/40 hover:bg-charcoal/5"
+        >
+          Wholesale Program
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <CollectionNav />
+</BaseLayout>

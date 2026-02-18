@@ -141,19 +141,34 @@ const impactStats = [
 
 const leadership = [
   {
-    name: "Nery Roberto Murillo M.",
-    title: "Founder",
-    bio: "Started in the lumber industry in the 1990s. Founded Forestal MT in 2009. His way of thinking about the land — take care of it and it takes care of you — is the foundation everything else is built on.",
+    name: "Nery Roberto Murillo Montalvan",
+    title: "General Manager & Legal Representative",
+    bio: "Founded the company in 2009 after two decades of forest stewardship in Olancho. The structural backbone of everything we do.",
   },
   {
-    name: "Nery Samuel Murillo",
-    title: "General Manager",
-    bio: "Runs the day-to-day: international partnerships, digital strategy, and making sure what we promise is what we deliver. Leading the company's growth across four continents.",
+    name: "Lucy Maira Tejada Flores",
+    title: "Partner",
+    bio: "",
   },
   {
-    name: "Operations & Finance",
-    title: "Family Leadership",
-    bio: "Quality control, sourcing, production, compliance, and accounting. Three generations working together — each one bringing something different to the table.",
+    name: "Jackeline Grissell Murillo Tejada",
+    title: "Partner",
+    bio: "",
+  },
+  {
+    name: "Nery Samuel Murillo Tejada",
+    title: "Operations, Exports & Sales Manager",
+    bio: "International partnerships, digital strategy, and export operations. Leading the company's growth across four continents.",
+  },
+  {
+    name: "Nery Roberto Murillo Tejada",
+    title: "Partner",
+    bio: "",
+  },
+  {
+    name: "Nery Alfredo Murillo Tejada",
+    title: "Partner",
+    bio: "",
   },
 ];
 ---
@@ -185,7 +200,7 @@ const leadership = [
 
   {/* ── 3. WHO WE ARE — family photo (full, uncropped) + text ── */}
   <section class="surface-warm py-20">
-    <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 lg:grid-cols-[2fr_1fr] lg:gap-12 lg:px-12">
+    <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 lg:grid-cols-2 lg:gap-12 lg:px-12">
       {/* Image — 2/3 width, natural aspect ratio, no cropping */}
       <div class="overflow-hidden rounded-[2px]">
         <img
@@ -465,12 +480,7 @@ const leadership = [
             <LeadershipCard
               name={leader.name}
               title={leader.title}
-              bio={leader.bio}
-              image={
-                leader.title === "Founder"
-                  ? `${R2_ABOUT}/the-founder-legacy.jpg`
-                  : undefined
-              }
+              bio={leader.bio || undefined}
             />
           ))
         }

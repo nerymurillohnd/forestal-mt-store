@@ -1,9 +1,10 @@
 ---
 interface Props {
   pageName: string;
+  parent?: { name: string; href: string };
 }
 
-const { pageName } = Astro.props;
+const { pageName, parent } = Astro.props;
 ---
 
 <nav
@@ -14,6 +15,20 @@ const { pageName } = Astro.props;
     <li>
       <a href="/" class="transition-colors hover:text-leaf-green">Home</a>
     </li>
+    {
+      parent && (
+        <>
+          <li aria-hidden="true" class="select-none">
+            /
+          </li>
+          <li>
+            <a href={parent.href} class="transition-colors hover:text-leaf-green">
+              {parent.name}
+            </a>
+          </li>
+        </>
+      )
+    }
     <li aria-hidden="true" class="select-none">/</li>
     <li>
       <span class="text-graphite" aria-current="page">{pageName}</span>

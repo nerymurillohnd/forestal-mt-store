@@ -1,0 +1,186 @@
+---
+/**
+ * COMMUNITY / FAQs — Frequently Asked Questions.
+ * Organized by category: Products, Authenticity, Ordering, Shipping.
+ */
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Head from "../../../components/Head.astro";
+import Breadcrumb from "../../../components/Breadcrumb.astro";
+import Hero from "../../../components/Hero.astro";
+import SectionHeader from "../../../components/SectionHeader.astro";
+import GoldTopCard from "../../../components/GoldTopCard.astro";
+import CollectionNav from "../../../components/CollectionNav.astro";
+import { getEntry } from "astro:content";
+
+const page = await getEntry("pages", "community/faqs");
+if (!page) throw new Error("Missing content: pages/community/faqs");
+const { data } = page;
+
+const faqCategories = [
+  {
+    eyebrow: "Our Products",
+    heading: "About Our Collections",
+    faqs: [
+      {
+        question: "What is Batana Oil and where does it come from?",
+        answer:
+          "Batana Oil is a rich, dark oil extracted from the nuts of the American oil palm (Elaeis oleifera), wild-harvested by Miskito indigenous communities in La Mosquitia, Honduras. It has been used for centuries for hair restoration, skin hydration, and beard conditioning. Ours comes directly from the communities who have always made it — no intermediaries.",
+      },
+      {
+        question: "What is Jimerito Honey (Stingless Bee Honey)?",
+        answer:
+          "Jimerito is raw, unfiltered honey produced by Tetragonisca angustula, a native stingless bee species. It is harvested from traditional log hives maintained by indigenous beekeepers in Olancho using ancestral Mayan methods. Prized for ocular comfort, respiratory support, immune wellness, and culinary applications. Never heated or filtered — enzymes, pollen, and medicinal properties intact.",
+      },
+      {
+        question: "What are your Traditional Herbs?",
+        answer:
+          "A curated collection of 41 wildcrafted botanical varieties gathered from cloud forests, lowland jungles, river valleys, and coastal areas across Honduras and Central America. Handpicked by indigenous partners and shade-dried to preserve essential oils, natural color, and active compounds. Available as single herbs or custom blends.",
+      },
+      {
+        question: "Are your products organically certified?",
+        answer:
+          "Our products are wild-harvested from native ecosystems — not grown on farms — which means they are free of pesticides and synthetic inputs by nature. Formal organic certification applies to cultivated farms, not wildcrafted harvests. In many markets, wildcrafted designation carries equal or greater value. COAs and origin documentation are available for B2B partners.",
+      },
+    ],
+  },
+  {
+    eyebrow: "Sourcing & Trust",
+    heading: "Authenticity & Origin",
+    faqs: [
+      {
+        question: "What makes your sourcing different from other suppliers?",
+        answer:
+          "Most Batana Oil and Jimerito honey on the market passes through 2-3 middlemen before reaching the buyer. We go directly to La Mosquitia and Olancho. We know the harvesters by name. We negotiate directly with community leaders. No brokers, no mystery sourcing, no shortcuts — and our export documentation traces every product back to its ecosystem and community.",
+      },
+      {
+        question: "Can I verify where your products come from?",
+        answer:
+          "Yes. We provide certificates of origin and can share detailed sourcing information for B2B partners requiring full traceability documentation. For inquiries, contact sales@forestal-mt.com and specify your documentation requirements.",
+      },
+      {
+        question: "Do indigenous communities receive fair compensation?",
+        answer:
+          "Yes. We operate on direct-partnership terms negotiated with community leaders, with no intermediary taking a cut. Harvesters receive above-market rates. This isn't a charity arrangement — it's how sustainable long-term sourcing works. When our partners do well, we do well.",
+      },
+    ],
+  },
+  {
+    eyebrow: "Buying From Us",
+    heading: "Ordering & Wholesale",
+    faqs: [
+      {
+        question: "What are your minimum order quantities (MOQs)?",
+        answer:
+          "MOQs vary by product. Batana Oil starts at 1 kg for sample orders, with wholesale pricing from 5 kg and up. Stingless Bee Honey and Traditional Herbs have similar tiered minimums. Contact sales@forestal-mt.com with your specific requirements for a customized quote and pricing sheet.",
+      },
+      {
+        question: "Do you offer private label or custom packaging?",
+        answer:
+          "Yes. We supply bulk ingredients and retail-ready formats suitable for private label branding. Custom packaging options are available for qualifying orders. See the Wholesale Program page for details, or email sales@forestal-mt.com with your project requirements.",
+      },
+      {
+        question: "What payment methods do you accept?",
+        answer:
+          "Bank transfer (wire), MoneyGram, Western Union, and credit card for smaller orders. Payment terms for established wholesale partners are negotiated case-by-case based on order history and volume.",
+      },
+    ],
+  },
+  {
+    eyebrow: "Delivery & Documentation",
+    heading: "Shipping & Logistics",
+    faqs: [
+      {
+        question: "Where do you ship?",
+        answer:
+          "Worldwide. We serve customers across North America, Europe, Latin America, and Asia via DHL Express (DAP terms). Maritime freight is available for pallet and container volumes. Contact us with your destination country for specific logistics guidance.",
+      },
+      {
+        question: "How long does delivery take?",
+        answer:
+          "DHL Express typically delivers in 3-7 business days from Honduras, depending on destination. Maritime freight transit times vary by shipping lane and port. We will provide estimated timelines with every order confirmation.",
+      },
+      {
+        question: "What export documentation is included?",
+        answer:
+          "Standard documentation includes commercial invoice with HS codes, packing list, certificate of origin, and export license. Certificates of Analysis (COA) are available upon request. We can accommodate specific regulatory documentation for your destination country — let us know what you need.",
+      },
+      {
+        question: "What does DAP shipping mean for me?",
+        answer:
+          "DAP (Delivered at Place) means we cover all costs and risks until the goods arrive at your specified destination. You are responsible for import duties and local taxes at your end. This is the standard term for our DHL Express shipments and keeps the process straightforward for international buyers.",
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout>
+  <Head
+    slot="head"
+    title={data.title}
+    description={data.description}
+    canonicalUrl={data.canonicalUrl}
+    pageName={data.pageName}
+    og={data.og}
+    twitter={data.twitter}
+    schemas={data.schemas}
+  />
+
+  <Hero
+    background={data.hero.background}
+    eyebrow={data.hero.eyebrow}
+    title={data.hero.title}
+    subtitle={data.hero.subtitle}
+    description={data.hero.description}
+    ctas={data.hero.ctas}
+  />
+
+  <Breadcrumb pageName={data.pageName} parent={{ name: "Community", href: "/community/" }} />
+
+  {
+    faqCategories.map((cat) => (
+      <section class="surface-warm border-b border-[#F3C00D]/10 py-16 last:border-0">
+        <div class="mx-auto max-w-3xl px-6 lg:px-12">
+          <SectionHeader eyebrow={cat.eyebrow} heading={cat.heading} />
+          <div class="stagger-children mt-10 space-y-5">
+            {cat.faqs.map((faq) => (
+              <GoldTopCard heading={faq.question} body={faq.answer} />
+            ))}
+          </div>
+        </div>
+      </section>
+    ))
+  }
+
+  {/* ── CTA ── */}
+  <section class="surface-parchment py-16">
+    <div class="mx-auto max-w-xl px-6 text-center lg:px-12">
+      <p
+        class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]"
+      >
+        Still have questions?
+      </p>
+      <h2
+        class="mt-3 font-[family-name:var(--font-display)] text-[clamp(1.5rem,2.5vw,2rem)] font-normal text-charcoal"
+      >
+        We're one message away.
+      </h2>
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <a
+          href="/contact/"
+          class="inline-block rounded-[3px] bg-[#206D03] px-7 py-3 font-[family-name:var(--font-ui)] text-[13px] font-semibold text-white transition-all duration-300 hover:bg-[#185202]"
+        >
+          Contact Us
+        </a>
+        <a
+          href="/wholesale/"
+          class="inline-block rounded-[3px] border border-charcoal/20 px-7 py-3 font-[family-name:var(--font-ui)] text-[13px] font-semibold text-charcoal transition-all duration-300 hover:border-charcoal/40 hover:bg-charcoal/5"
+        >
+          Wholesale Program
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <CollectionNav />
+</BaseLayout>

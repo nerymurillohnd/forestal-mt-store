@@ -64,12 +64,29 @@ function buildBreadcrumb(pageName: string, canonicalUrl: string): Record<string,
     },
   ];
 
-  // Last item has no "item" URL per Google guidelines
-  items.push({
-    "@type": "ListItem",
-    position: 2,
-    name: pageName,
-  });
+  // Detect community subpages — insert intermediate breadcrumb item
+  const urlObj = new URL(canonicalUrl);
+  const segments = urlObj.pathname.replace(/^\/|\/$/g, "").split("/");
+  if (segments.length >= 2 && segments[0] === "community") {
+    items.push({
+      "@type": "ListItem",
+      position: 2,
+      name: "Community",
+      item: `${SITE_URL}/community/`,
+    });
+    items.push({
+      "@type": "ListItem",
+      position: 3,
+      name: pageName,
+    });
+  } else {
+    // Last item has no "item" URL per Google guidelines
+    items.push({
+      "@type": "ListItem",
+      position: 2,
+      name: pageName,
+    });
+  }
 
   return {
     "@type": "BreadcrumbList",
@@ -130,7 +147,10 @@ function resolveSchema(
     }
 
     case "AboutPage":
+    case "Blog":
+    case "CollectionPage":
     case "ContactPage":
+    case "FAQPage":
     case "WebPage": {
       const webPageNode: Record<string, unknown> = {
         "@type": type,

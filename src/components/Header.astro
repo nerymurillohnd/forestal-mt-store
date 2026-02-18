@@ -1,32 +1,56 @@
 ---
 import logoSvg from "../assets/logos/logo.svg";
+import logoLight from "../assets/logos/logo-light.png";
 
 const navLinks = [
-  { label: "Batana Oil", href: "/batana-oil/" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about/" },
+  { label: "Shop", href: "/products/" },
+  { label: "Wholesale", href: "/wholesale/" },
+  { label: "Batana", href: "/batana-oil/" },
   { label: "Honey", href: "/stingless-bee-honey/" },
   { label: "Herbs", href: "/traditional-herbs/" },
-  { label: "About", href: "/about/" },
-  { label: "Wholesale", href: "/wholesale/" },
+  { label: "Community", href: "/community/" },
   { label: "Contact", href: "/contact/" },
 ];
 
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="sticky top-0 z-20 border-b border-mint bg-white/95 backdrop-blur-sm">
+<header
+  id="site-header"
+  class="sticky top-0 z-50 border-b border-mint bg-white/95 backdrop-blur-sm transition-colors duration-300"
+>
   <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-8">
     <!-- Logo -->
     <a href="/" class="flex shrink-0 items-center gap-2">
-      <img src={logoSvg.src} alt="Forestal MT" width="40" height="40" class="h-10 w-10" />
+      <div class="relative h-10 w-10">
+        <img
+          src={logoSvg.src}
+          alt=""
+          aria-hidden="true"
+          width="40"
+          height="40"
+          class="logo-dark absolute inset-0 h-10 w-10 transition-opacity duration-300"
+        />
+        <img
+          src={logoLight.src}
+          alt="Forestal MT"
+          width="40"
+          height="40"
+          class="logo-light absolute inset-0 h-10 w-10 opacity-0 transition-opacity duration-300"
+        />
+      </div>
       <span
-        class="hidden font-[family-name:var(--font-heading)] text-lg font-semibold text-leaf-green sm:inline"
+        id="logo-label"
+        class="hidden font-[family-name:var(--font-heading)] text-lg font-semibold text-leaf-green transition-colors duration-300 sm:inline"
       >
         Forestal MT
       </span>
     </a>
 
-    <!-- Desktop navigation -->
-    <ul class="hidden items-center gap-6 font-[family-name:var(--font-ui)] text-sm lg:flex">
+    <!-- Desktop nav -->
+    <ul class="hidden items-center gap-5 font-[family-name:var(--font-ui)] text-[13px] lg:flex">
       {
         navLinks.map((link) => (
           <li>
@@ -34,7 +58,9 @@ const currentPath = Astro.url.pathname;
               href={link.href}
               class:list={[
                 "transition-colors hover:text-leaf-green",
-                currentPath === link.href ? "font-semibold text-leaf-green" : "text-graphite",
+                currentPath === link.href
+                  ? "font-semibold text-leaf-green"
+                  : "text-graphite",
               ]}
             >
               {link.label}
@@ -44,48 +70,190 @@ const currentPath = Astro.url.pathname;
       }
     </ul>
 
-    <!-- Mobile menu button -->
+    <!-- Hamburger button -->
     <button
-      type="button"
-      class="rounded-md p-2 text-graphite lg:hidden"
-      aria-label="Open menu"
       id="mobile-menu-btn"
+      type="button"
+      class="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-[5px] text-graphite transition-colors duration-300 lg:hidden"
+      aria-label="Toggle menu"
+      aria-expanded="false"
     >
-      <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
-      </svg>
+      <span class="bar block h-[1.5px] w-5 origin-center bg-current transition-all duration-300"
+      ></span>
+      <span class="bar block h-[1.5px] w-5 bg-current transition-all duration-300"></span>
+      <span class="bar block h-[1.5px] w-5 origin-center bg-current transition-all duration-300"
+      ></span>
     </button>
   </nav>
-
-  <!-- Mobile menu -->
-  <div id="mobile-menu" class="hidden border-t border-mint lg:hidden">
-    <ul class="space-y-1 px-4 py-3 font-[family-name:var(--font-ui)] text-sm">
-      {
-        navLinks.map((link) => (
-          <li>
-            <a
-              href={link.href}
-              class:list={[
-                "block rounded-md px-3 py-2 transition-colors hover:bg-mint",
-                currentPath === link.href ? "font-semibold text-leaf-green" : "text-graphite",
-              ]}
-            >
-              {link.label}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </div>
 </header>
 
+<!-- Full-screen mobile overlay (z-40 — behind header z-50) -->
+<div
+  id="mobile-menu"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Site navigation"
+  aria-hidden="true"
+  class="grain fixed inset-0 z-40 bg-charcoal lg:hidden"
+  style="visibility: hidden; opacity: 0; transition: opacity 0.3s ease, visibility 0s linear 0.3s;"
+>
+  <div class="relative z-10 flex h-full flex-col justify-center px-8 pb-10 pt-16 sm:px-14">
+    <nav>
+      <ul>
+        {
+          navLinks.map((link, i) => (
+            <li class="mobile-nav-item border-b border-white/[0.07]">
+              <a
+                href={link.href}
+                class:list={[
+                  "group flex items-center gap-5 py-[0.85rem] transition-colors duration-200",
+                  currentPath === link.href
+                    ? "text-[#F3C00D]"
+                    : "text-white/50 hover:text-white",
+                ]}
+              >
+                <span class="w-5 shrink-0 text-right font-[family-name:var(--font-ui)] text-[9px] uppercase tracking-[0.25em] text-white/20">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span class="font-[family-name:var(--font-heading)] text-[1.6rem] font-normal leading-none tracking-wide">
+                  {link.label}
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <p
+      class="mt-8 font-[family-name:var(--font-ui)] text-[9px] uppercase tracking-[0.25em] text-white/20"
+    >
+      Forestal Murillo Tejada · Honduras
+    </p>
+  </div>
+</div>
+
+<style is:global>
+  /* Hamburger bars → X */
+  .bar-top {
+    transform: translateY(6.5px) rotate(45deg) !important;
+    background-color: white !important;
+  }
+  .bar-mid {
+    opacity: 0 !important;
+    transform: scaleX(0) !important;
+  }
+  .bar-bot {
+    transform: translateY(-6.5px) rotate(-45deg) !important;
+    background-color: white !important;
+  }
+
+  /* Header dark state when menu is open */
+  #site-header.menu-open {
+    background-color: #1a1a1a !important;
+    border-color: rgba(243, 192, 13, 0.1) !important;
+  }
+  #site-header.menu-open #logo-label {
+    color: white !important;
+  }
+  #site-header.menu-open .logo-dark {
+    opacity: 0 !important;
+  }
+  #site-header.menu-open .logo-light {
+    opacity: 1 !important;
+  }
+  #site-header.menu-open #mobile-menu-btn {
+    color: white !important;
+  }
+
+  /* Mobile nav item stagger entrance */
+  .mobile-nav-item {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  .mobile-nav-item.item-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+</style>
+
 <script>
-  const btn = document.getElementById("mobile-menu-btn");
-  const menu = document.getElementById("mobile-menu");
-  btn?.addEventListener("click", () => {
-    menu?.classList.toggle("hidden");
+  const btn = document.getElementById("mobile-menu-btn") as HTMLButtonElement;
+  const menu = document.getElementById("mobile-menu") as HTMLElement;
+  const header = document.getElementById("site-header") as HTMLElement;
+  const items = menu.querySelectorAll<HTMLElement>(".mobile-nav-item");
+
+  let isOpen = false;
+
+  function openMenu() {
+    isOpen = true;
+
+    // Show overlay
+    menu.style.transition = "opacity 0.3s ease, visibility 0s linear";
+    menu.style.visibility = "visible";
+    menu.style.opacity = "1";
+    menu.setAttribute("aria-hidden", "false");
+    btn.setAttribute("aria-expanded", "true");
+
+    // Header goes dark
+    header.classList.add("menu-open");
+
+    // Hamburger → X
+    const bars = btn.querySelectorAll(".bar");
+    bars[0].classList.add("bar-top");
+    bars[1].classList.add("bar-mid");
+    bars[2].classList.add("bar-bot");
+
+    // Lock body scroll
+    document.body.style.overflow = "hidden";
+
+    // Stagger nav items in
+    items.forEach((item, i) => {
+      item.classList.remove("item-visible");
+      item.style.transitionDelay = "0ms";
+      setTimeout(() => {
+        item.style.transitionDelay = `${i * 40}ms`;
+        item.classList.add("item-visible");
+      }, 60);
+    });
+  }
+
+  function closeMenu() {
+    isOpen = false;
+
+    // Hide overlay
+    menu.style.transition = "opacity 0.25s ease, visibility 0s linear 0.25s";
+    menu.style.opacity = "0";
+    menu.style.visibility = "hidden";
+    menu.setAttribute("aria-hidden", "true");
+    btn.setAttribute("aria-expanded", "false");
+
+    // Header reverts
+    header.classList.remove("menu-open");
+
+    // X → hamburger
+    const bars = btn.querySelectorAll(".bar");
+    bars[0].classList.remove("bar-top");
+    bars[1].classList.remove("bar-mid");
+    bars[2].classList.remove("bar-bot");
+
+    // Unlock body scroll
+    document.body.style.overflow = "";
+
+    // Reset item states for next open
+    items.forEach((item) => {
+      item.classList.remove("item-visible");
+      item.style.transitionDelay = "0ms";
+    });
+  }
+
+  btn.addEventListener("click", () => (isOpen ? closeMenu() : openMenu()));
+
+  // Close when a nav link is clicked
+  menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeMenu));
+
+  // Close on Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && isOpen) closeMenu();
   });
 </script>
