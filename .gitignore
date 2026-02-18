@@ -26,3 +26,11 @@ pnpm-debug.log*
 
 # vscode
 .vscode/
+
+# playwright mcp
+.playwright-mcp/
+
+# screenshots (temp visual testing)
+*.png
+!public/**/*.png
+!src/assets/**/*.png

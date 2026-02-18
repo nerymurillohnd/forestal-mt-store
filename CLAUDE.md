@@ -51,6 +51,8 @@ Files are copied AS-IS. Never modified by this project. If the suite updates a f
 | Object storage | Cloudflare R2 | Binding: `R2` → `assets` bucket, CDN: `cdn.forestal-mt.com` |
 | Sessions | Cloudflare KV | Binding: `SESSION` → namespace `SESSION` |
 | E2E testing | Playwright | `@playwright/test` + `@axe-core/playwright` |
+| Icons | astro-icon | `@iconify-json/fa6-brands` (social), `@iconify-json/logos` (payment brands) |
+| Observability | Sentry | `@sentry/astro` (client) + `@sentry/cloudflare` (server) + `@spotlightjs/astro` (dev) |
 | Performance | Lighthouse CI | `@lhci/cli`, GitHub App integration |
 
 ### Tailwind CSS 4 Setup
@@ -214,6 +216,7 @@ pnpm check            # Astro type checking
 - Create product Content Collections — products are SSR from D1
 - Use React — use Preact
 - Use `@astrojs/tailwind` — use `@tailwindcss/vite` (Tailwind 4)
+- Use Astro's `<Image>` component for local assets — triggers Sharp error with `passthroughImageService()`. Use `<img src={asset.src}>` instead
 - Break the build — run `pnpm build` after significant changes
 - Say "Great idea!" — diagnose problems, prescribe solutions
 - Suggest hiring agencies/freelancers — this topic is closed
@@ -249,6 +252,16 @@ pnpm check            # Astro type checking
 | `SESSION` | KV | `SESSION` | `locals.runtime.env.SESSION` |
 
 These are configured in Cloudflare Pages dashboard and `wrangler.toml`. Not needed for MVP SSG pages, but the adapter should be configured from the start.
+
+### Cloudflare Pages API
+
+`wrangler.toml` only affects local `pnpm preview`. Production/preview settings MUST be set via dashboard or API:
+```bash
+curl -X PATCH "https://api.cloudflare.com/client/v4/accounts/{ACCOUNT_ID}/pages/projects/forestal-mt-store" \
+  -H "Authorization: Bearer {API_TOKEN}" -H "Content-Type: application/json" \
+  -d '{"deployment_configs":{"production":{...},"preview":{...}}}'
+```
+**Dashboard state (2026-02-18):** `nodejs_compat` SET, `SENTRY_AUTH_TOKEN` SET, R2 bound. D1/KV pending (post-MVP).
 
 ---
 
