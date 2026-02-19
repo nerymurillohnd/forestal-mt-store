@@ -251,6 +251,7 @@ const faqs = [
             id="name"
             name="name"
             required
+            autocomplete="name"
             class="mt-2 w-full rounded-[3px] border border-[#D6E8D3] bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-[#333] outline-none transition-colors focus:border-[#206D03] focus:ring-1 focus:ring-[#206D03]/20"
             placeholder="Your full name"
           />
@@ -269,6 +270,7 @@ const faqs = [
             id="email"
             name="email"
             required
+            autocomplete="email"
             class="mt-2 w-full rounded-[3px] border border-[#D6E8D3] bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-[#333] outline-none transition-colors focus:border-[#206D03] focus:ring-1 focus:ring-[#206D03]/20"
             placeholder="you@company.com"
           />
@@ -288,6 +290,7 @@ const faqs = [
             type="tel"
             id="phone"
             name="phone"
+            autocomplete="tel"
             class="mt-2 w-full rounded-[3px] border border-[#D6E8D3] bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-[#333] outline-none transition-colors focus:border-[#206D03] focus:ring-1 focus:ring-[#206D03]/20"
             placeholder="+1 (555) 000-0000"
           />
@@ -305,6 +308,7 @@ const faqs = [
             id="subject"
             name="subject"
             required
+            autocomplete="off"
             class="mt-2 w-full rounded-[3px] border border-[#D6E8D3] bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-[#333] outline-none transition-colors focus:border-[#206D03] focus:ring-1 focus:ring-[#206D03]/20"
           >
             <option value="" disabled selected>Select an inquiry type</option>
@@ -325,6 +329,7 @@ const faqs = [
             name="message"
             required
             rows={6}
+            autocomplete="off"
             class="mt-2 w-full resize-y rounded-[3px] border border-[#D6E8D3] bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-[#333] outline-none transition-colors focus:border-[#206D03] focus:ring-1 focus:ring-[#206D03]/20"
             placeholder="Describe your project, questions, or requirements. Include brand name, target market, products of interest, volumes, and timeline if applicable."
           ></textarea>
@@ -333,6 +338,8 @@ const faqs = [
         {/* Submit */}
         <button
           type="submit"
+          id="submit-btn"
+          name="submit"
           class="w-full rounded-[3px] bg-[#206D03] px-8 py-3.5 font-[family-name:var(--font-ui)] text-[13px] font-semibold tracking-wide text-white transition-all duration-300 hover:bg-[#54B006] hover:shadow-lg hover:shadow-[#206D03]/25"
         >
           Send Message
