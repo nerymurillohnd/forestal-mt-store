@@ -288,6 +288,14 @@ https://www.forestal-mt.com/* https://forestal-mt.com/:splat 301
 /shop /products/ 301
 /shop/ /products/ 301
 
+# Legacy page URLs
+/about-us /about/ 301
+/about-us/ /about/ 301
+/contact-us /contact/ 301
+/contact-us/ /contact/ 301
+/home / 301
+/home/ / 301
+
 # Legacy /collections/ URLs → catalog pages
 /collections/batana-oil /batana-oil/ 301
 /collections/batana-oil/ /batana-oil/ 301
