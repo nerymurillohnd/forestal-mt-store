@@ -237,6 +237,7 @@ const isInStock = inventory.availability === "InStock";
           {
             product.variants.map((v) => {
               const vPrice = pricing.variants.find((pv) => pv.sku === v.sku);
+              const vInv = inventory.variants.find((iv) => iv.sku === v.sku);
               return (
                 <div class="rounded-lg border border-graphite/15 px-4 py-3 text-center transition-colors hover:border-leaf-green">
                   <p class="font-[family-name:var(--font-ui)] text-sm font-medium text-charcoal">
@@ -245,6 +246,11 @@ const isInStock = inventory.availability === "InStock";
                   {vPrice && (
                     <p class="font-[family-name:var(--font-ui)] text-xs text-graphite/70">
                       ${vPrice.price.toFixed(2)}
+                    </p>
+                  )}
+                  {vInv?.packaging && (
+                    <p class="font-[family-name:var(--font-ui)] text-[11px] capitalize text-graphite/50">
+                      {vInv.packaging}
                     </p>
                   )}
                 </div>
