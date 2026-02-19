@@ -223,7 +223,34 @@ All images served from R2 via `cdn.forestal-mt.com`. The ONLY images in `public/
 | `/shipping/`               | Shipping & Returns          |
 | `/404`                     | 404 Not Found               |
 
-**Next phase:** Shop + 46 PDPs (requires D1 seeding + SSR migration).
+**Deployed and live:** 63 pages (17 content + 46 PDPs + shop) — all SSG, all indexed.
+
+---
+
+## Pending: E-Commerce Activation
+
+**Full architecture spec:** `docs/architecture/pdp-ecommerce-architecture.md`
+
+The PDPs currently display static inventory/pricing from JSON files. Before activating the cart,
+these blocks must be replaced with Preact islands that fetch live data from `fmt-ecommerce-api`.
+**Do NOT switch to `output: "hybrid"` for PDPs** — SSG shell + client-side API is the correct model.
+
+### Required before cart launch
+
+- [ ] Replace static availability + price block in `src/pages/products/[handler].astro` with `ProductAvailabilityIsland`
+- [ ] Build API Worker endpoints: `GET /api/products/{handler}/availability`, `POST /api/cart`, `GET /api/cart`, `POST /api/orders`
+- [ ] Integrate DHL Express API in `fmt-ecommerce-api`: shipment creation, AWB generation, rates, tracking
+- [ ] Store AWB PDFs in R2 (`awbs/` prefix)
+- [ ] Add `api.forestal-mt.com` DNS A/CNAME record → `fmt-ecommerce-api` Worker route
+- [ ] Bind KV `SESSION` in Cloudflare Pages dashboard (prod + preview)
+- [ ] Add Worker secrets: `DHL_API_KEY`, `DHL_ACCOUNT_NUMBER`
+- [ ] Implement CORS on API Worker (allow `forestal-mt.com` origin)
+
+### DHL Express API
+
+DHL Express handles all shipping: shipment creation, Air Waybill (AWB) generation, label printing,
+real-time tracking, and delivery confirmation. Integration lives entirely in `fmt-ecommerce-api` —
+called at order confirmation. Shipper origin: Honduras (`countryCode: "HN"`), DAP incoterms.
 
 ---
 
