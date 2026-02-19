@@ -15,27 +15,7 @@ import VideoObjectTraditionalHerbsHero from "../data/jsonld/VideoObject-traditio
 import ServiceWholesale from "../data/jsonld/Service-wholesale.json";
 import OnlineStoreFull from "../data/jsonld/OnlineStore.json";
 
-const SITE_URL = "https://forestal-mt.com";
-
-/** Compact Organization stub for non-home pages */
-const OrganizationCompact = {
-  "@type": "Organization",
-  "@id": `${SITE_URL}/#organization`,
-  name: "Forestal MT",
-  url: SITE_URL,
-  logo: {
-    "@type": "ImageObject",
-    url: `${SITE_URL}/android-chrome-512x512.png`,
-  },
-};
-
-/** Compact Brand stub for non-home pages */
-const BrandCompact = {
-  "@type": "Brand",
-  "@id": `${SITE_URL}/#brand`,
-  name: "Forestal MT",
-  url: SITE_URL,
-};
+import { SITE_URL, OrganizationCompact, BrandCompact } from "./jsonld-shared";
 
 /** VideoObject lookup by hero id fragment */
 const videoObjects: Record<string, unknown> = {
