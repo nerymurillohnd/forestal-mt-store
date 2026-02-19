@@ -57,9 +57,11 @@ const jsonLdString = buildPageGraph(schemas, {
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G5HBPV2FE7"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
+  /* eslint-disable prefer-rest-params */
   function gtag() {
     dataLayer.push(arguments);
   }
+  /* eslint-enable prefer-rest-params */
   gtag("js", new Date());
   gtag("config", "G-G5HBPV2FE7");
 </script>
