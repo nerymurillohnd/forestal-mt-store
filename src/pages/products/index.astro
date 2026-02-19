@@ -6,6 +6,7 @@
  */
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Head from "../../components/Head.astro";
+import Hero from "../../components/Hero.astro";
 import Breadcrumb from "../../components/Breadcrumb.astro";
 import { buildShopPageGraph } from "../../lib/product-jsonld";
 
@@ -86,24 +87,21 @@ const ogImageUrl = "https://cdn.forestal-mt.com/pages/products/og.jpg";
 
   <Breadcrumb pageName="Shop All Products" />
 
+  <Hero
+    background={{
+      type: "image",
+      url: "https://cdn.forestal-mt.com/pages/products/hero.jpg",
+      alt: "Forestal MT premium ethnobotanical products collection",
+      width: 1920,
+      height: 1080,
+    }}
+    eyebrow="Full Catalog"
+    title="Shop All Products"
+    description={`${products.length} premium ethnobotanical products sourced directly from indigenous communities in Honduras. Authentic Batana Oil, Stingless Bee Honey, and Traditional Wildcrafted Herbs.`}
+  />
+
   <section class="surface-warm">
     <div class="mx-auto max-w-7xl px-4 py-12 lg:px-8">
-      {/* Page Header */}
-      <div class="mb-12 text-center">
-        <p
-          class="mb-3 font-[family-name:var(--font-heading)] text-xs uppercase tracking-widest text-gold-dark"
-        >
-          Full Catalog
-        </p>
-        <h1 class="font-[family-name:var(--font-display)] text-4xl text-charcoal lg:text-5xl">
-          Shop All Products
-        </h1>
-        <p class="mx-auto mt-4 max-w-2xl font-[family-name:var(--font-body)] text-graphite/80">
-          {products.length} premium ethnobotanical products sourced directly from indigenous communities
-          in Honduras. Authentic Batana Oil, Stingless Bee Honey, and Traditional Wildcrafted Herbs.
-        </p>
-      </div>
-
       {/* Catalog Sections */}
       {
         productsByCatalog.map((cat) => (
