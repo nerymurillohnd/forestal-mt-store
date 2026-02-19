@@ -60,6 +60,9 @@
       "esbuild",
       "sharp",
       "workerd"
-    ]
+    ],
+    "overrides": {
+      "wrangler": "^4.66.0"
+    }
   }
 }
