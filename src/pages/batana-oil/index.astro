@@ -19,38 +19,42 @@ const page = await getEntry("pages", "batana-oil");
 if (!page) throw new Error("Missing content: pages/batana-oil");
 const { data } = page;
 
+import mediaFile from "../../data/jsonld/products/media.json";
+
+const mediaMap = new Map(mediaFile.products.map((m) => [m.handler, m.image.url]));
+
 const products = [
   {
     name: "Raw Batana Oil",
     tag: "Pure & Unrefined",
     sku: "FMT-BO-RBO",
+    handler: "raw-batana-oil",
     description:
       "100% Elaeis oleifera kernel oil sourced directly from La Mosquitia. The same unrefined oil the Miskito people have trusted for centuries.",
-    image: "https://cdn.forestal-mt.com/products/batana-oil/raw-batana-oil.png",
   },
   {
     name: "Hair Wash",
     tag: "Gentle & Nourishing",
     sku: "FMT-BO-SH",
+    handler: "batana-oil-hair-wash",
     description:
       "A gentle cleansing formula enriched with Batana Oil to support softness, moisture retention, and balanced scalp care.",
-    image: "https://cdn.forestal-mt.com/products/batana-oil/hair-wash.png",
   },
   {
     name: "Conditioner",
     tag: "Restorative & Smoothing",
     sku: "FMT-BO-CO",
+    handler: "batana-oil-hair-conditioner",
     description:
       "A restorative conditioner built around Batana Oil for detangling, shine, fiber resilience, and lasting moisture balance.",
-    image: "https://cdn.forestal-mt.com/products/batana-oil/conditioner.png",
   },
   {
     name: "Soap Bar",
     tag: "Concentrated & Artisanal",
     sku: "FMT-BO-SB",
+    handler: "batana-oil-true-soap-bar",
     description:
       "Handcrafted in La Mosquitia using a traditional Miskito recipe. Concentrated soap bringing the nourishing qualities of Batana Oil to daily care.",
-    image: "https://cdn.forestal-mt.com/products/batana-oil/soap-bar.png",
   },
 ];
 
@@ -264,8 +268,10 @@ const originMetadata = Object.entries(origin).map(([key, value]) => ({
             <div class="card-hover group border-t-[3px] border-[#F3C00D]/50 bg-white shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-shadow duration-300 hover:shadow-md">
               <div class="aspect-square bg-[#F2F2F2] p-6">
                 <img
-                  src={product.image}
+                  src={`/cdn-cgi/image/width=400,format=webp/${mediaMap.get(product.handler)}`}
                   alt={product.name}
+                  width={400}
+                  height={400}
                   class="h-full w-full object-contain"
                   loading="lazy"
                 />
