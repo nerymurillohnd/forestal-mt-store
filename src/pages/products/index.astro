@@ -1,0 +1,171 @@
+---
+/**
+ * SHOP PAGE — All Products
+ *
+ * Product grid grouped by catalog. JSON-LD CollectionPage + ItemList.
+ */
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Head from "../../components/Head.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import { buildShopPageGraph } from "../../lib/product-jsonld";
+
+import productsFile from "../../data/jsonld/products/products.json";
+import mediaFile from "../../data/jsonld/products/media.json";
+import seoFile from "../../data/jsonld/products/seo.json";
+
+interface ProductEntry {
+  handler: string;
+  name: string;
+  catalog: string;
+  price_range_usd: { low: string; high: string };
+  variant_count: number;
+}
+
+interface MediaEntry {
+  handler: string;
+  image: { url: string; alt: string };
+}
+
+// Only include published products
+const publishedHandlers = new Set(
+  seoFile.products.filter((s) => s.published === true).map((s) => s.handler),
+);
+const products = (productsFile.products as ProductEntry[]).filter((p) =>
+  publishedHandlers.has(p.handler),
+);
+const mediaMap = new Map((mediaFile.products as MediaEntry[]).map((m) => [m.handler, m]));
+
+// Group by catalog
+const catalogs = [
+  { name: "Batana Oil", slug: "batana-oil" },
+  { name: "Stingless Bee Honey", slug: "stingless-bee-honey" },
+  { name: "Traditional Herbs", slug: "traditional-herbs" },
+];
+
+const productsByCatalog = catalogs.map((cat) => ({
+  ...cat,
+  products: products.filter((p) => p.catalog === cat.name),
+}));
+
+// Build JSON-LD
+const allProductsForGraph = products.map((p) => ({
+  handler: p.handler,
+  name: p.name,
+  imageUrl: mediaMap.get(p.handler)?.image.url ?? "",
+}));
+
+const jsonLdString = buildShopPageGraph(allProductsForGraph);
+
+const canonicalUrl = "https://forestal-mt.com/products/";
+const seoTitle = "Shop All Products — Premium Ethnobotanical Products from Honduras";
+const seoDescription = `Browse our full catalog of ${products.length} premium ethnobotanical products. Authentic Batana Oil, Stingless Bee Honey, and Traditional Wildcrafted Herbs sourced directly from Honduras.`;
+const ogImageUrl = "https://cdn.forestal-mt.com/pages/home/og.jpg";
+---
+
+<BaseLayout>
+  <Head
+    slot="head"
+    title={seoTitle}
+    description={seoDescription}
+    canonicalUrl={canonicalUrl}
+    pageName="Shop All Products"
+    og={{
+      title: seoTitle,
+      description: seoDescription,
+      image: {
+        url: ogImageUrl,
+        alt: "Forestal MT — Premium Ethnobotanical Products from Honduras",
+        width: 1200,
+        height: 630,
+      },
+    }}
+    twitter={{ card: "summary_large_image" }}
+    schemas={[]}
+  />
+  <script slot="head" type="application/ld+json" set:html={jsonLdString} />
+
+  <Breadcrumb pageName="Shop All Products" />
+
+  <section class="surface-warm">
+    <div class="mx-auto max-w-7xl px-4 py-12 lg:px-8">
+      {/* Page Header */}
+      <div class="mb-12 text-center">
+        <p
+          class="mb-3 font-[family-name:var(--font-heading)] text-xs uppercase tracking-widest text-gold-dark"
+        >
+          Full Catalog
+        </p>
+        <h1 class="font-[family-name:var(--font-display)] text-4xl text-charcoal lg:text-5xl">
+          Shop All Products
+        </h1>
+        <p class="mx-auto mt-4 max-w-2xl font-[family-name:var(--font-body)] text-graphite/80">
+          {products.length} premium ethnobotanical products sourced directly from indigenous communities
+          in Honduras. Authentic Batana Oil, Stingless Bee Honey, and Traditional Wildcrafted Herbs.
+        </p>
+      </div>
+
+      {/* Catalog Sections */}
+      {
+        productsByCatalog.map((cat) => (
+          <section class="mb-16">
+            <div class="mb-8 flex items-center gap-4">
+              <h2 class="font-[family-name:var(--font-heading)] text-xl uppercase tracking-wider text-charcoal">
+                {cat.name}
+              </h2>
+              <span class="font-[family-name:var(--font-ui)] text-sm text-graphite/50">
+                {cat.products.length} {cat.products.length === 1 ? "product" : "products"}
+              </span>
+              <a
+                href={`/${cat.slug}/`}
+                class="ml-auto font-[family-name:var(--font-ui)] text-sm text-leaf-green transition-colors hover:text-grass-green"
+              >
+                View Collection &rarr;
+              </a>
+            </div>
+
+            <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {cat.products.map((p) => {
+                const m = mediaMap.get(p.handler);
+                const priceRange =
+                  p.price_range_usd.low === p.price_range_usd.high
+                    ? `$${p.price_range_usd.low}`
+                    : `$${p.price_range_usd.low} – $${p.price_range_usd.high}`;
+
+                return (
+                  <a
+                    href={`/products/${p.handler}/`}
+                    class="card-hover group block overflow-hidden rounded-lg"
+                  >
+                    <div class="aspect-square overflow-hidden bg-parchment">
+                      <img
+                        src={`/cdn-cgi/image/width=400,format=webp/${m?.image.url ?? ""}`}
+                        alt={m?.image.alt ?? p.name}
+                        width={400}
+                        height={400}
+                        class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="p-4">
+                      <h3 class="font-[family-name:var(--font-heading)] text-sm text-charcoal">
+                        {p.name}
+                      </h3>
+                      <div class="mt-2 flex items-baseline justify-between">
+                        <span class="font-[family-name:var(--font-ui)] text-sm font-medium text-charcoal">
+                          {priceRange}
+                        </span>
+                        <span class="font-[family-name:var(--font-ui)] text-xs text-graphite/50">
+                          {p.variant_count} {p.variant_count === 1 ? "size" : "sizes"}
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
+          </section>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>

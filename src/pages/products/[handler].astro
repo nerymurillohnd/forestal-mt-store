@@ -1,0 +1,325 @@
+---
+/**
+ * PRODUCT DETAIL PAGE (PDP) — SSG
+ *
+ * Generates 46 static pages, one per ProductGroup.
+ * Reads from JSON data files at build time.
+ * JSON-LD uses ProductGroup + hasVariant[] model.
+ */
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Head from "../../components/Head.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import { buildProductPageGraph } from "../../lib/product-jsonld";
+import type {
+  ProductData,
+  ContentData,
+  MediaData,
+  PricingVariant,
+  ProductVariantData,
+} from "../../lib/product-jsonld";
+
+import productsFile from "../../data/jsonld/products/products.json";
+import contentFile from "../../data/jsonld/products/content.json";
+import mediaFile from "../../data/jsonld/products/media.json";
+import seoFile from "../../data/jsonld/products/seo.json";
+import pricingFile from "../../data/jsonld/products/pricing.json";
+import inventoryFile from "../../data/jsonld/products/inventory.json";
+
+interface ProductEntry {
+  handler: string;
+  productGroupId: string;
+  name: string;
+  catalog: string;
+  botanical_name?: string;
+  url: string;
+  price_range_usd: { low: string; high: string };
+  variant_count: number;
+  variants: Array<{ sku: string; name: string; size: string; weight_kg?: number }>;
+}
+
+export function getStaticPaths() {
+  const products = productsFile.products as ProductEntry[];
+  const contentMap = new Map(contentFile.products.map((c) => [c.handler, c]));
+  const mediaMap = new Map(mediaFile.products.map((m) => [m.handler, m]));
+  const seoMap = new Map(seoFile.products.map((s) => [s.handler, s]));
+  const pricingMap = new Map(
+    pricingFile.products.map((p) => [p.ProductGroup.handler, p.ProductGroup]),
+  );
+  const inventoryMap = new Map(inventoryFile.products.map((i) => [i.handler, i]));
+
+  // Only build pages for published products
+  const publishedProducts = products.filter((p) => seoMap.get(p.handler)?.published === true);
+
+  return publishedProducts.map((p) => {
+    const content = contentMap.get(p.handler)!;
+    const media = mediaMap.get(p.handler)!;
+    const seo = seoMap.get(p.handler)!;
+    const pricing = pricingMap.get(p.handler)!;
+    const inventory = inventoryMap.get(p.handler)!;
+
+    return {
+      params: { handler: p.handler },
+      props: { product: p, content, media, seo, pricing, inventory },
+    };
+  });
+}
+
+const { product, content, media, seo, pricing, inventory } = Astro.props;
+
+const canonicalUrl = `https://forestal-mt.com/products/${product.handler}/`;
+
+// Build JSON-LD graph
+const productData: ProductData = {
+  handler: product.handler,
+  productGroupId: product.productGroupId,
+  name: product.name,
+  catalog: product.catalog,
+  botanicalName: product.botanical_name,
+  url: canonicalUrl,
+};
+
+const contentData: ContentData = {
+  category: content.category,
+  shortDescription: content.shortDescription,
+  howToUse: content.howToUse,
+};
+
+const mediaData: MediaData = {
+  image: media.image,
+  variantImages: media.variantImages,
+};
+
+const pricingVariants: PricingVariant[] = pricing.variants;
+
+const productVariants: ProductVariantData[] = product.variants.map((v) => {
+  const invVariant = inventory.variants.find((iv) => iv.sku === v.sku);
+  return {
+    sku: v.sku,
+    size: v.size,
+    availability: invVariant?.availability ?? "InStock",
+    weightKg: v.weight_kg,
+  };
+});
+
+const jsonLdString = buildProductPageGraph({
+  product: productData,
+  content: contentData,
+  media: mediaData,
+  pricingVariants,
+  productVariants,
+});
+
+// Catalog parent for breadcrumb
+const catalogUrls: Record<string, string> = {
+  "Batana Oil": "/batana-oil/",
+  "Stingless Bee Honey": "/stingless-bee-honey/",
+  "Traditional Herbs": "/traditional-herbs/",
+};
+
+const catalogParent = {
+  name: product.catalog,
+  href: catalogUrls[product.catalog] ?? "/products/",
+};
+
+// Price range display
+const priceRange =
+  product.price_range_usd.low === product.price_range_usd.high
+    ? `$${product.price_range_usd.low}`
+    : `$${product.price_range_usd.low} – $${product.price_range_usd.high}`;
+
+// Availability
+const isInStock = inventory.availability === "InStock";
+---
+
+<BaseLayout>
+  <Head
+    slot="head"
+    title={seo.seoTitle}
+    description={seo.seoDescription}
+    canonicalUrl={canonicalUrl}
+    pageName={product.name}
+    og={{
+      title: seo.seoTitle,
+      description: seo.seoDescription,
+      image: {
+        url: seo.ogImageUrl,
+        alt: seo.ogImageAlt,
+        width: seo.ogImageWidth,
+        height: seo.ogImageHeight,
+      },
+    }}
+    twitter={{ card: seo.twitterCard }}
+    schemas={[]}
+  />
+  {/* PDP JSON-LD — custom ProductGroup graph, not the generic buildPageGraph */}
+  <script slot="head" type="application/ld+json" set:html={jsonLdString} />
+
+  <Breadcrumb pageName={product.name} parent={catalogParent} />
+
+  <article class="mx-auto max-w-7xl px-4 py-8 lg:px-8">
+    <div class="grid gap-10 lg:grid-cols-2">
+      {/* Product Image */}
+      <div class="relative">
+        <img
+          src={`/cdn-cgi/image/width=800,format=webp/${media.image.url}`}
+          alt={media.image.alt}
+          width={800}
+          height={800}
+          class="aspect-square w-full rounded-lg bg-parchment object-cover"
+          loading="eager"
+        />
+      </div>
+
+      {/* Product Info */}
+      <div class="flex flex-col gap-6">
+        {/* Eyebrow */}
+        <p
+          class="font-[family-name:var(--font-heading)] text-xs uppercase tracking-widest text-gold-dark"
+        >
+          {product.catalog}
+        </p>
+
+        {/* H1 — Display Name */}
+        <h1
+          class="font-[family-name:var(--font-display)] text-4xl leading-tight text-charcoal lg:text-5xl"
+        >
+          {product.name}
+        </h1>
+
+        {/* Botanical Name */}
+        {
+          product.botanical_name && (
+            <p class="font-[family-name:var(--font-body)] text-sm italic text-graphite/70">
+              {product.botanical_name}
+            </p>
+          )
+        }
+
+        {/* Quality Badge */}
+        {
+          content.qualityBadge && (
+            <span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-leaf-green/10 px-3 py-1 font-[family-name:var(--font-ui)] text-xs font-medium text-leaf-green">
+              {content.qualityBadge}
+            </span>
+          )
+        }
+
+        {/* Short Description */}
+        <p class="font-[family-name:var(--font-body)] leading-relaxed text-graphite">
+          {content.shortDescription}
+        </p>
+
+        <hr class="gold-rule-left" />
+
+        {/* Price Range */}
+        <div class="flex items-baseline gap-3">
+          <span class="font-[family-name:var(--font-heading)] text-2xl text-charcoal">
+            {priceRange}
+          </span>
+          <span class="font-[family-name:var(--font-ui)] text-sm text-graphite/60">
+            {product.variant_count}
+            {product.variant_count === 1 ? "size" : "sizes"} available
+          </span>
+        </div>
+
+        {/* Availability */}
+        <p
+          class:list={[
+            "font-[family-name:var(--font-ui)] text-sm font-medium",
+            isInStock ? "text-leaf-green" : "text-red-600",
+          ]}
+        >
+          {isInStock ? "In Stock — Ships Worldwide via DHL Express" : "Currently Out of Stock"}
+        </p>
+
+        {/* Variants List */}
+        <div class="flex flex-wrap gap-2">
+          {
+            product.variants.map((v) => {
+              const vPrice = pricing.variants.find((pv) => pv.sku === v.sku);
+              return (
+                <div class="rounded-lg border border-graphite/15 px-4 py-3 text-center transition-colors hover:border-leaf-green">
+                  <p class="font-[family-name:var(--font-ui)] text-sm font-medium text-charcoal">
+                    {v.size}
+                  </p>
+                  {vPrice && (
+                    <p class="font-[family-name:var(--font-ui)] text-xs text-graphite/70">
+                      ${vPrice.price.toFixed(2)}
+                    </p>
+                  )}
+                </div>
+              );
+            })
+          }
+        </div>
+
+        {/* Cart placeholder */}
+        <div class="rounded-lg border-2 border-dashed border-graphite/20 p-6 text-center">
+          <p class="font-[family-name:var(--font-ui)] text-sm text-graphite/50">
+            Add to Cart — Coming Soon
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {/* Product Details Sections */}
+    <div class="mt-16 grid gap-12 lg:grid-cols-2">
+      {/* Description */}
+      <section>
+        <h2
+          class="mb-4 font-[family-name:var(--font-heading)] text-lg uppercase tracking-wider text-charcoal"
+        >
+          About This Product
+        </h2>
+        <p class="font-[family-name:var(--font-body)] leading-relaxed text-graphite">
+          {content.description}
+        </p>
+      </section>
+
+      {/* Traditional Uses */}
+      {
+        content.traditionalUses && content.traditionalUses.length > 0 && (
+          <section>
+            <h2 class="mb-4 font-[family-name:var(--font-heading)] text-lg uppercase tracking-wider text-charcoal">
+              Traditional Uses
+            </h2>
+            <ul class="list-inside list-disc space-y-2 font-[family-name:var(--font-body)] text-graphite">
+              {content.traditionalUses.map((use) => (
+                <li>{use}</li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
+    </div>
+
+    {/* How to Use */}
+    {
+      content.howToUse && content.howToUse.length > 0 && (
+        <section class="mt-12">
+          <h2 class="mb-6 font-[family-name:var(--font-heading)] text-lg uppercase tracking-wider text-charcoal">
+            How to Use
+          </h2>
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {content.howToUse.map((step, i) => {
+              const colonIdx = step.indexOf(":");
+              const hasName = colonIdx > 0 && colonIdx < 60;
+              const stepName = hasName ? step.slice(0, colonIdx).trim() : `Step ${i + 1}`;
+              const stepText = hasName ? step.slice(colonIdx + 1).trim() : step;
+              return (
+                <div class="rounded-lg border border-graphite/10 p-5">
+                  <p class="mb-2 font-[family-name:var(--font-heading)] text-sm font-medium text-charcoal">
+                    {stepName}
+                  </p>
+                  <p class="font-[family-name:var(--font-body)] text-sm leading-relaxed text-graphite/80">
+                    {stepText}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      )
+    }
+  </article>
+</BaseLayout>
