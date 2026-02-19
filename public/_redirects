@@ -287,3 +287,13 @@ https://www.forestal-mt.com/* https://forestal-mt.com/:splat 301
 # Catch-all: any remaining /shop/ URL → /products/
 /shop /products/ 301
 /shop/ /products/ 301
+
+# Legacy /collections/ URLs → catalog pages
+/collections/batana-oil /batana-oil/ 301
+/collections/batana-oil/ /batana-oil/ 301
+/collections/stingless-bee-honey /stingless-bee-honey/ 301
+/collections/stingless-bee-honey/ /stingless-bee-honey/ 301
+/collections/traditional-herbs /traditional-herbs/ 301
+/collections/traditional-herbs/ /traditional-herbs/ 301
+/collections /products/ 301
+/collections/ /products/ 301
