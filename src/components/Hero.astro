@@ -59,8 +59,10 @@ const posterSrc = hasVideo ? getStreamPoster(background.stream, 1920, 1080) : nu
 
 <section
   class:list={[
-    "grain relative flex items-end overflow-hidden bg-charcoal",
-    hasVideo || hasImage ? "h-[56.25vw] max-h-screen" : "py-24 md:py-32",
+    "grain relative flex overflow-hidden bg-charcoal",
+    hasVideo || hasImage
+      ? "h-[56.25vw] max-h-screen items-end"
+      : "min-h-[360px] items-center py-24 md:py-32",
     overlayClass,
   ]}
 >
@@ -97,13 +99,28 @@ const posterSrc = hasVideo ? getStreamPoster(background.stream, 1920, 1080) : nu
       )
     }
 
+    {/* Decorative gradient — gradient-only pages (no video, no image) */}
+    {
+      !hasVideo && !hasImage && (
+        <div
+          class="absolute inset-0"
+          style="background: radial-gradient(ellipse 70% 55% at 10% 100%, rgba(32,109,3,0.09) 0%, transparent 60%), radial-gradient(ellipse 55% 45% at 90% 0%, rgba(161,133,0,0.10) 0%, transparent 55%), linear-gradient(160deg, #0f0f0f 0%, #141414 50%, #111111 100%);"
+        />
+      )
+    }
+
     {/* Gradient overlay for text legibility */}
     <div class="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/40 to-charcoal/15">
     </div>
   </div>
 
   {/* ── Content overlay ── */}
-  <div class="hero-entrance relative z-10 mx-auto w-full max-w-7xl px-6 pb-12 md:pb-24 lg:px-12">
+  <div
+    class:list={[
+      "hero-entrance relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-12",
+      hasVideo || hasImage ? "pb-12 md:pb-24" : "",
+    ]}
+  >
     {
       eyebrow && (
         <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-gold/90">
