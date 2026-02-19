@@ -1,0 +1,20 @@
+name = "fmt-ecommerce-api"
+main = "src/index.ts"
+compatibility_date = "2025-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "fmt-products-database"
+database_id = "73979325-5642-4263-8146-a13f20b36ea6"
+
+[[r2_buckets]]
+binding = "R2"
+bucket_name = "assets"
+
+[vars]
+ENVIRONMENT = "development"
+
+[env.production]
+[env.production.vars]
+ENVIRONMENT = "production"
