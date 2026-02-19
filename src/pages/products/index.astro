@@ -58,8 +58,9 @@ const allProductsForGraph = products.map((p) => ({
 const jsonLdString = buildShopPageGraph(allProductsForGraph);
 
 const canonicalUrl = "https://forestal-mt.com/products/";
-const seoTitle = "Shop All Products — Premium Ethnobotanical Products from Honduras";
-const seoDescription = `Browse our full catalog of ${products.length} premium ethnobotanical products. Authentic Batana Oil, Stingless Bee Honey, and Traditional Wildcrafted Herbs sourced directly from Honduras.`;
+const seoTitle = "Shop Batana Oil, Honey & Herbs - All Products";
+const seoDescription =
+  "Explore our full collection of authentic ethnobotanicals, including Batana oil, stingless bee honey, and traditional herbs sourced directly from origin.";
 const ogImageUrl = "https://cdn.forestal-mt.com/pages/products/og.jpg";
 ---
 
@@ -69,7 +70,7 @@ const ogImageUrl = "https://cdn.forestal-mt.com/pages/products/og.jpg";
     title={seoTitle}
     description={seoDescription}
     canonicalUrl={canonicalUrl}
-    pageName="Shop All Products"
+    pageName="Authentic Ethnobotanicals Treasures"
     og={{
       title: seoTitle,
       description: seoDescription,
@@ -85,7 +86,7 @@ const ogImageUrl = "https://cdn.forestal-mt.com/pages/products/og.jpg";
   />
   <script slot="head" type="application/ld+json" set:html={jsonLdString} />
 
-  <Breadcrumb pageName="Shop All Products" />
+  <Breadcrumb pageName="Authentic Ethnobotanicals Treasures" />
 
   <Hero
     background={{
@@ -95,9 +96,10 @@ const ogImageUrl = "https://cdn.forestal-mt.com/pages/products/og.jpg";
       width: 1920,
       height: 1080,
     }}
-    eyebrow="Full Catalog"
-    title="Shop All Products"
-    description={`${products.length} premium ethnobotanical products sourced directly from indigenous communities in Honduras. Authentic Batana Oil, Stingless Bee Honey, and Traditional Wildcrafted Herbs.`}
+    eyebrow="FROM FOREST TO CUSTOMER"
+    title="Authentic Ethnobotanicals Treasures"
+    subtitle="Forestal MT Product Catalogue"
+    description="Explore our full collection of authentic ethnobotanicals, including Batana oil, stingless bee honey, and traditional herbs sourced directly from origin."
   />
 
   <section class="surface-warm">
