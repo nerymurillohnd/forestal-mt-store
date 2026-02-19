@@ -295,6 +295,10 @@ https://www.forestal-mt.com/* https://forestal-mt.com/:splat 301
 /contact-us/ /contact/ 301
 /home / 301
 /home/ / 301
+/community/blog-stories /community/blog/ 301
+/community/blog-stories/ /community/blog/ 301
+/shipping-return /shipping/ 301
+/shipping-return/ /shipping/ 301
 
 # Legacy /collections/ URLs → catalog pages
 /collections/batana-oil /batana-oil/ 301
