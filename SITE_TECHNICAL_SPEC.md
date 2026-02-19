@@ -1,7 +1,7 @@
 # Forestal MT — Site Technical Specification
 
-**Document version:** 2.1
-**Last updated:** 2026-02-17
+**Document version:** 2.2
+**Last updated:** 2026-02-19
 **Language:** English
 **Applies to:** forestal-mt.com and all related Forestal MT web projects
 
@@ -11,7 +11,7 @@
 
 | Layer               | Technology            | Service                                                         |
 | ------------------- | --------------------- | --------------------------------------------------------------- |
-| Framework           | Astro 5.7+            | SSG + SSR hybrid, Islands Architecture                          |
+| Framework           | Astro 5.7+            | SSG, Islands Architecture                                       |
 | UI framework        | Preact                | Interactive islands, React-compatible API (3KB)                 |
 | CSS framework       | Tailwind CSS 4+       | Utility-first styling                                           |
 | Package manager     | pnpm 10+ (standalone) | No Corepack dependency, `packageManager` field pinning          |
@@ -21,7 +21,7 @@
 | CDN                 | Cloudflare            | `cdn.forestal-mt.com` (R2 custom domain)                        |
 | Video               | Cloudflare Stream     | Hero videos only                                                |
 | Sessions            | Cloudflare KV         | Namespace: `SESSION`                                            |
-| External API        | Cloudflare Workers    | `api-worker` (wholesale/third-party)                            |
+| External API        | Cloudflare Workers    | `fmt-ecommerce-api` (cart, orders, inventory — not yet active)  |
 | DNS                 | Cloudflare            | Zone: `forestal-mt.com`                                         |
 | E2E testing         | Playwright            | Functional testing, visual regression, accessibility (axe-core) |
 | Performance testing | Lighthouse CI         | Automated scores, SEO audits, PR status checks                  |
@@ -34,7 +34,7 @@
 - **Architecture:** Islands Architecture — static HTML shell with interactive components hydrated on demand
 - **SSR adapter:** `@astrojs/cloudflare`
 - **Trailing slash:** `trailingSlash: "always"`
-- **Output:** `hybrid` (static by default, opt-in SSR per page)
+- **Output:** `static` (all 64 pages generated at build time)
 
 ### Astro Integrations
 
@@ -89,30 +89,37 @@ Professional yet warm. Heritage-focused. Transparency-driven. Globally positione
 
 ### Static (SSG) — Built at deploy time
 
-Pages with fixed content that does not depend on D1 or any runtime data source. Rebuilt only on deploy.
+The site uses `output: "static"`. All 64 deployed pages are generated at build time. Cloudflare Pages serves static HTML from CDN edge. No SSR adapter is active.
+
+**Content pages (17 pages) — driven by MDX frontmatter:**
 
 - Home, About, Wholesale, Contact
 - 3 Catalogue pages (Batana Oil, Stingless Bee Honey, Traditional Herbs)
 - Community + subpages (FAQs, Docs, Testimonials, Blog & Stories)
 - Legal pages (Terms, Privacy, Disclaimer, Shipping)
-- Utility pages (404, Login, Register, Forgot/Reset Password)
+- Utility pages (404)
 
-**Catalogue pages are informational and educational.** They describe what the products are, their origin, sourcing methods, traditional uses, and cultural significance. They do NOT display prices, stock levels, variant selectors, or any data from D1. They link to the Shop page and individual PDPs where dynamic product data lives.
+**Product pages (47 pages) — driven by 6 JSON data files in `src/data/`:**
 
-### Dynamic (SSR) — Server-rendered per request
+- Shop (`/products/`) — static listing generated from `products.json` + `pricing.json`
+- 46 Product Detail Pages (`/products/{handler}/`) — static HTML generated per-product from `products.json`, `content.json`, `media.json`, `seo.json`, `pricing.json`, `inventory.json`
 
-Pages that query D1 and/or require runtime state. Rendered on Cloudflare Pages Workers via Astro SSR adapter.
+**Catalogue pages are informational and educational.** They describe what the products are, their origin, sourcing methods, traditional uses, and cultural significance. They do NOT display prices, stock levels, variant selectors, or any runtime data. They link to the Shop page and individual PDPs.
 
-- Shop (`/products/`) — product listing with prices, filters, availability from D1
-- 46 Product Detail Pages (`/products/{handler}/`) — full PDP with pricing, variants, inventory, content from D1; images from R2
-- E-commerce pages (Cart, Checkout, Order Confirmation, Order Tracking)
+**Product data at build time:** `[handler].astro` imports all 6 JSON files from `src/data/` and statically generates one HTML page per product. Inventory and pricing in the static HTML reflect the JSON snapshot at deploy time.
 
-### Authenticated — SSR with session gate
+### E-Commerce Layer (client-side, not SSR)
 
-Pages requiring valid session (KV-backed). Redirect to `/login/` if unauthenticated.
+Real-time product data (live inventory, prices, cart, orders) is handled by client-side Preact islands fetching from `fmt-ecommerce-api` Cloudflare Worker. The static HTML shell serves Google and delivers maximum TTFB performance; the API layer serves the customer at runtime. SSR is not required for PDPs. See `docs/architecture/pdp-ecommerce-architecture.md`.
+
+### Future Scope (not yet built)
+
+When implemented, these pages require `output: "hybrid"` with KV session gates:
 
 - Customer account pages (`/account/*`)
 - Admin pages (`/admin/*`)
+- Cart, Checkout, Order Confirmation, Order Tracking
+- Login, Register, Forgot/Reset Password
 
 ---
 
@@ -131,7 +138,7 @@ Global search input in the header. Two complementary layers:
 | **UX (autocomplete)**  | User on site   | Typeahead dropdown with matching products → click | PDP: `/products/{handler}/` |
 | **SEO (SearchAction)** | User on Google | Google Sitelinks Search Box in SERP → submit      | Shop: `/products/?q={term}` |
 
-**Requirement:** The Shop page (`/products/`) must implement `?q=` query param to filter products server-side (D1 query). This is mandatory for Google Sitelinks Search Box to function. If `/products/?q={term}` does not return filtered results, Google disables the Sitelinks Search Box.
+**Requirement:** The Shop page (`/products/`) must handle `?q=` query param for product filtering. This is mandatory for Google Sitelinks Search Box to function. Currently the Shop is SSG — `?q=` filtering is handled client-side. When the Shop moves to SSR, filtering will be D1-powered server-side. If `/products/?q={term}` does not return filtered results, Google disables the Sitelinks Search Box.
 
 ### Footer
 
@@ -327,8 +334,6 @@ The handler is the universal primary key across all 6 JSON files in this suite.
 
 ## 7. UI Design & Components
 
-Full specification in **[`UI_DESIGN_SPEC.md`](./UI_DESIGN_SPEC.md)**.
-
 Summary:
 
 - **UI Framework:** Preact via `@astrojs/preact` — interactive islands only, static Astro components by default
@@ -348,7 +353,7 @@ Full specification in **[`SEO_STRUCTURED_DATA_SPEC.md`](./SEO_STRUCTURED_DATA_SP
 Summary:
 
 - **SEO:** Custom `<Head>` component (no third-party packages), meta tags from `seo.json`/frontmatter, OG/Twitter cards, canonical URLs with trailing slash, robots directives per page type
-- **Sitemap:** `@astrojs/sitemap` for static pages + custom `sitemap.xml.ts` endpoint for SSR routes (D1 query)
+- **Sitemap:** `@astrojs/sitemap` auto-discovers all 63 indexable pages at build time — no custom endpoint needed
 - **Structured Data:** JSON-LD with `@graph` pattern, schema.org vocabulary, E-E-A-T signals, Zod validation at build time
 - **Validation:** Lighthouse CI in pipeline, Google Rich Results Test, Schema Markup Validator
 
@@ -356,37 +361,38 @@ Summary:
 
 ## 9. Data Flow Rules
 
-### Product data
+### Product data (current — SSG)
 
 ```
-6 JSON files (this suite) → seed → D1 → queried by Astro SSR (PDPs/Shop)
-                                       → queried by API Worker (wholesale)
+6 JSON files (forestal-mt-suite) → imported by Astro at build time → static HTML (Shop + 46 PDPs)
+6 JSON files (forestal-mt-suite) → seed → D1 → queried by fmt-ecommerce-api Worker (not yet active)
 ```
 
-- D1 is the runtime source for all product data on the site
-- The 6 JSON files in this suite are the canonical source; D1 is seeded from them
+- At build time, `[handler].astro` imports all 6 JSON files directly from `src/data/`
+- D1 (`fmt-products-database`) exists and is seeded from the JSON suite — it is the future runtime source for the `fmt-ecommerce-api` Worker, not for the Astro build
+- The 6 JSON files in the `forestal-mt-suite` repo are the canonical source of truth
 - If D1 and the JSON suite disagree, the JSON suite is correct — re-seed D1
+
+**JSON files imported at build time:**
+
+| File             | Contents                                                    |
+| ---------------- | ----------------------------------------------------------- |
+| `products.json`  | Product name, handler, variants, catalog assignment         |
+| `content.json`   | Descriptions, how-to-use steps, processing method, specs    |
+| `media.json`     | Image URLs, alt text, captions for ProductGroup + variants  |
+| `seo.json`       | SEO title, meta description, OG data per product            |
+| `pricing.json`   | Variant prices (USD)                                        |
+| `inventory.json` | Availability status, stock levels (snapshot at deploy time) |
 
 ### Images
 
 ```
-R2 bucket (assets) → cdn.forestal-mt.com → referenced by SSR pages and OG tags
+R2 bucket (assets) → cdn.forestal-mt.com → referenced in static HTML and OG tags
 ```
 
 - Product image URLs are defined in `media.json`
-- Page image URLs follow the R2 path convention in section 3
-
-### No product data in the Astro project
-
-The Astro project contains zero product data:
-
-- No JSON imports of product data
-- No Content Collections for products
-- No MDX files for products
-- No product images in `public/`
-- No hardcoded prices, names, or descriptions
-
-All product information flows from D1 at request time.
+- Page OG images: `cdn.forestal-mt.com/pages/{slug}/og.jpg`
+- Page hero images: `cdn.forestal-mt.com/pages/{slug}/hero.jpg`
 
 ---
 
@@ -452,7 +458,7 @@ pnpm is the sole package manager. Installed as a standalone binary (`@pnpm/exe`)
 
 ### Playwright (E2E Testing)
 
-Functional end-to-end testing via `@playwright/test`. Validates that pages render, forms work, SSR routes return correct data, and structured data is present.
+Functional end-to-end testing via `@playwright/test`. Validates that pages render, structured data is present, and interactive islands behave correctly.
 
 | Capability        | Details                                                                       |
 | ----------------- | ----------------------------------------------------------------------------- |
@@ -466,7 +472,7 @@ Functional end-to-end testing via `@playwright/test`. Validates that pages rende
 
 **CDP (Chrome DevTools Protocol)** is built into Playwright — no separate plugin. Provides `Performance.getMetrics`, network condition emulation (slow 3G), JavaScript coverage analysis, and HAR recording. Only works with Chromium.
 
-**Testing SSR routes:** Tests run against Cloudflare Pages preview deployments (real D1, real R2, real KV). For local development, `pnpm preview` runs `wrangler pages dev` with local bindings via `platformProxy`.
+**Testing product pages:** Tests run against Cloudflare Pages preview deployments (real R2 CDN). For local development, `pnpm preview` runs `wrangler pages dev`. When SSR is activated for future pages, D1/KV bindings will be available via `platformProxy`.
 
 ### Lighthouse CI
 

@@ -1,24 +1,24 @@
 # Forestal MT - Website URL Manifest
 
 **SITE_URL**: https://forestal-mt.com
-**Total Pages**: 72
-**Last Updated**: 2026-02-17
+**Total Pages**: 64 (63 indexable)
+**Last Updated**: 2026-02-19
 
 ---
 
 ## Overview
 
-forestal-mt.com is an SEO-first, UX-driven e-commerce platform for Forestal MT's ethnobotanical product catalog. Built with Astro 5 on Cloudflare Pages, the site uses a hybrid rendering model: static pages are pre-built at deploy time (SSG), while product-facing pages are server-rendered on each request (SSR) pulling live data from Cloudflare D1.
+forestal-mt.com is an SEO-first, UX-driven e-commerce platform for Forestal MT's ethnobotanical product catalog. Built with Astro 5 on Cloudflare Pages with `output: "static"` — all 64 deployed pages are generated at build time (SSG). Content pages are driven by MDX frontmatter; product pages (Shop + 46 PDPs) are generated from 6 JSON data files in `src/data/`. Real-time commerce data (inventory, cart, orders) will be served by client-side Preact islands fetching from `fmt-ecommerce-api` Cloudflare Worker when e-commerce is activated.
 
 ### Architecture
 
-| Layer             | Rendering                      | Content Source       | Pages                                                                         |
-| ----------------- | ------------------------------ | -------------------- | ----------------------------------------------------------------------------- |
-| **Static (SSG)**  | Built at deploy time           | Astro project files  | Home, About, Wholesale, Contact, Community, Legal, 3 Catalogue pages, Utility |
-| **Dynamic (SSR)** | Server-rendered per request    | D1 database + R2 CDN | Shop, 46 PDPs, Cart, Checkout, E-commerce                                     |
-| **Authenticated** | Server-rendered, session-gated | D1 + KV sessions     | Account, Admin                                                                |
+| Layer                        | Rendering            | Content Source                        | Pages                                                                         |
+| ---------------------------- | -------------------- | ------------------------------------- | ----------------------------------------------------------------------------- |
+| **Static (SSG) — content**   | Built at deploy time | MDX frontmatter + Astro project files | Home, About, Wholesale, Contact, Community, Legal, 3 Catalogue pages, Utility |
+| **Static (SSG) — products**  | Built at deploy time | 6 JSON data files in `src/data/`      | Shop (`/products/`), 46 PDPs (`/products/{handler}/`)                         |
+| **Future scope (not built)** | SSR when implemented | D1 + KV sessions                      | Account, Admin, Cart, Checkout, Auth pages                                    |
 
-**Catalogue pages** (Batana Oil, Stingless Bee Honey, Traditional Herbs) are **static**. They are informational and educational — what these products are, their origin, sourcing, traditional uses, and cultural significance. They do not display prices, stock levels, or any data from D1. They link to the Shop and individual PDPs where dynamic product data lives.
+**Catalogue pages** (Batana Oil, Stingless Bee Honey, Traditional Herbs) are **static**. They are informational and educational — what these products are, their origin, sourcing, traditional uses, and cultural significance. They do not display prices, stock levels, or any runtime data. They link to the Shop and individual PDPs.
 
 ### Product Images
 
@@ -37,12 +37,12 @@ Full image manifest with URLs, alt text, captions, and dimensions: see `products
 | Component        | Service            | Purpose                                                                                  |
 | ---------------- | ------------------ | ---------------------------------------------------------------------------------------- |
 | Domain & DNS     | Cloudflare         | `forestal-mt.com` (Zone ID: `16f3b0040dd96c240f6bfc4e2a1cdb96`)                          |
-| Site hosting     | Cloudflare Pages   | Astro 5 SSG + SSR hybrid (`forestal-mt-store` project)                                   |
+| Site hosting     | Cloudflare Pages   | Astro 5 SSG (`forestal-mt-store` project, `output: "static"`)                            |
 | Product database | Cloudflare D1      | `fmt-products-database` — seeded from 6-file JSON suite                                  |
 | Product images   | Cloudflare R2      | `assets` bucket → `cdn.forestal-mt.com`                                                  |
 | Hero videos      | Cloudflare Stream  | 4 static pages with video hero: Home, Batana Oil, Stingless Bee Honey, Traditional Herbs |
 | Sessions         | Cloudflare KV      | `SESSION` namespace for auth state                                                       |
-| External API     | Cloudflare Workers | `api-worker` for wholesale/third-party consumers                                         |
+| External API     | Cloudflare Workers | `fmt-ecommerce-api` — cart, orders, inventory (not yet active)                           |
 
 ### URL Policy
 
@@ -50,7 +50,7 @@ Full image manifest with URLs, alt text, captions, and dimensions: see `products
 
 ---
 
-# STATIC PAGES (21 pages)
+# STATIC PAGES (17 pages)
 
 ## Core Navigation Pages (8 pages)
 
@@ -91,25 +91,21 @@ Full image manifest with URLs, alt text, captions, and dimensions: see `products
 
 ---
 
-## Utility Pages (5 pages)
+## Utility Pages (1 page)
 
-| #   | Page Name       | URL                                      | Description               | Indexing         |
-| --- | --------------- | ---------------------------------------- | ------------------------- | ---------------- |
-| 1   | 404 Not Found   | https://forestal-mt.com/404/             | Custom branded error page | noindex,follow   |
-| 2   | Login           | https://forestal-mt.com/login/           | Customer authentication   | noindex,follow   |
-| 3   | Register        | https://forestal-mt.com/register/        | Customer account creation | noindex,follow   |
-| 4   | Forgot Password | https://forestal-mt.com/forgot-password/ | Password recovery         | noindex,nofollow |
-| 5   | Reset Password  | https://forestal-mt.com/reset-password/  | Password reset form       | noindex,nofollow |
+| #   | Page Name     | URL                          | Description               | Indexing       |
+| --- | ------------- | ---------------------------- | ------------------------- | -------------- |
+| 1   | 404 Not Found | https://forestal-mt.com/404/ | Custom branded error page | noindex,follow |
 
 ---
 
-# DYNAMIC PAGES (51 pages)
+# PRODUCT PAGES — SSG (47 pages)
 
 ## Shop Page (1 page)
 
-| #   | Page Name | Nav Label | URL                               | Description                                                                                                                                                      | Indexing     |
-| --- | --------- | --------- | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| 1   | Shop      | Shop      | https://forestal-mt.com/products/ | All products listing with filters, prices from D1. Accepts `?q={term}` for server-side search (required by Google Sitelinks Search Box via SearchAction schema). | index,follow |
+| #   | Page Name | Nav Label | URL                               | Description                                                                                                                                                                                   | Indexing     |
+| --- | --------- | --------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| 1   | Shop      | Shop      | https://forestal-mt.com/products/ | All products listing generated from `products.json` + `pricing.json` at build time. Accepts `?q={term}` for Google Sitelinks Search Box (requires client-side filtering until SSR activates). | index,follow |
 
 ---
 
@@ -178,7 +174,22 @@ Full image manifest with URLs, alt text, captions, and dimensions: see `products
 
 ---
 
-## E-Commerce Pages (4 pages)
+---
+
+# FUTURE SCOPE (not yet built)
+
+These pages are planned but do not exist in the current codebase. When implemented, they will require `output: "hybrid"` (Astro SSR), D1 product database queries, and KV session management. All will be `noindex` when live.
+
+## Auth Pages
+
+| #   | Page Name       | URL                                      | Description               | Indexing         |
+| --- | --------------- | ---------------------------------------- | ------------------------- | ---------------- |
+| 1   | Login           | https://forestal-mt.com/login/           | Customer authentication   | noindex,follow   |
+| 2   | Register        | https://forestal-mt.com/register/        | Customer account creation | noindex,follow   |
+| 3   | Forgot Password | https://forestal-mt.com/forgot-password/ | Password recovery         | noindex,nofollow |
+| 4   | Reset Password  | https://forestal-mt.com/reset-password/  | Password reset form       | noindex,nofollow |
+
+## E-Commerce Pages
 
 | #   | Page Name          | URL                                         | Description                | Indexing         |
 | --- | ------------------ | ------------------------------------------- | -------------------------- | ---------------- |
@@ -186,10 +197,6 @@ Full image manifest with URLs, alt text, captions, and dimensions: see `products
 | 2   | Checkout           | https://forestal-mt.com/checkout/           | Order checkout flow        | noindex,nofollow |
 | 3   | Order Confirmation | https://forestal-mt.com/order-confirmation/ | Post-purchase confirmation | noindex,nofollow |
 | 4   | Order Tracking     | https://forestal-mt.com/order-tracking/     | Shipment tracking lookup   | noindex,nofollow |
-
----
-
-# AUTHENTICATED PAGES (requires login)
 
 ## Customer Account Pages
 

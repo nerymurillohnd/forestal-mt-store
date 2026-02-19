@@ -14,7 +14,7 @@ Copies of the main spec docs live in this repo root for quick reference:
 
 - `SEO_STRUCTURED_DATA_SPEC.md` — JSON-LD architecture, schema.org types, meta tags
 - `SITE_TECHNICAL_SPEC.md` — Full stack, rendering model, fonts, CI/CD
-- `SITE_URL_MANIFEST.md` — Complete URL inventory (72 pages total)
+- `SITE_URL_MANIFEST.md` — Complete URL inventory (64 pages, 63 indexable)
 
 ---
 
@@ -72,11 +72,11 @@ No `tailwind.config.mjs`, no PostCSS. Config via `@tailwindcss/vite` plugin. Des
 
 ### Rendering Model
 
-| Type              | Pages                                                                          | Data Source                             |
-| ----------------- | ------------------------------------------------------------------------------ | --------------------------------------- |
-| **SSG** (static)  | Home, About, Contact, Wholesale, 3 Catalogs, Community hub + 4 subpages, Legal | Content Collections (`pages/*.mdx`)     |
-| **SSR** (dynamic) | Shop (`/products/`), PDPs (`/products/{handler}/`)                             | D1 database queries — **not yet built** |
-| **Authenticated** | Account (`/account/*`), Admin (`/admin/*`)                                     | KV sessions + D1 — **not yet built**    |
+| Type               | Pages                                                                          | Data Source                         |
+| ------------------ | ------------------------------------------------------------------------------ | ----------------------------------- |
+| **SSG — content**  | Home, About, Contact, Wholesale, 3 Catalogs, Community hub + 4 subpages, Legal | Content Collections (`pages/*.mdx`) |
+| **SSG — products** | Shop (`/products/`), 46 PDPs (`/products/{handler}/`)                          | 6 JSON files in `src/data/`         |
+| **Future scope**   | Account, Admin, Cart, Checkout, Auth pages                                     | SSR + D1 + KV — not yet built       |
 
 ### Content Collections
 
@@ -201,7 +201,9 @@ All images served from R2 via `cdn.forestal-mt.com`. The ONLY images in `public/
 
 ---
 
-## Live Pages (17 SSG pages)
+## Live Pages (64 deployed — 63 indexable)
+
+**Content pages (17):**
 
 | URL                        | Page                        |
 | -------------------------- | --------------------------- |
@@ -221,9 +223,11 @@ All images served from R2 via `cdn.forestal-mt.com`. The ONLY images in `public/
 | `/privacy/`                | Privacy Policy              |
 | `/disclaimer/`             | Disclaimer                  |
 | `/shipping/`               | Shipping & Returns          |
-| `/404`                     | 404 Not Found               |
+| `/404`                     | 404 Not Found (noindex)     |
 
-**Deployed and live:** 63 pages (17 content + 46 PDPs + shop) — all SSG, all indexed.
+**Product pages (47):** Shop (`/products/`) + 46 PDPs (`/products/{handler}/`) — each generated at build time from 6 JSON files in `src/data/`. Full product URL list: `SITE_URL_MANIFEST.md`.
+
+**Future scope (not yet built):** Auth pages, Cart, Checkout, Account, Admin.
 
 ---
 
@@ -305,7 +309,7 @@ All URLs end with `/`. Enforced via `trailingSlash: "always"`. No exceptions.
 - Use React — use Preact for islands
 - Use Astro's `<Image>` component for R2 URLs — use plain `<img>` tags
 - Store images in `public/` except favicons
-- Import product data as JSON — products come from D1 at runtime (SSR)
+- Query D1 directly from Astro pages — product data at build time comes from `src/data/*.json`; D1 is for `fmt-ecommerce-api` Worker only
 - Use HTML comments in `.mdx` — use `{/* comment */}` only
 - Use Corepack — being removed from Node.js 25+
 - Push without running `pnpm format && pnpm lint && pnpm check` — Husky enforces this automatically, CI gates all three

@@ -1,7 +1,7 @@
 # Forestal MT — SEO & Structured Data Specification
 
-**Document version:** 2.0
-**Last updated:** 2026-02-17
+**Document version:** 2.1
+**Last updated:** 2026-02-19
 **Language:** English
 **Parent document:** `SITE_TECHNICAL_SPEC.md`
 **Applies to:** forestal-mt.com and all related Forestal MT web projects
@@ -19,14 +19,14 @@ A custom `<Head>` Astro component handles all meta tag generation. No third-part
 ### Meta Tags
 
 - Every page must have unique `<title>` (max 60 chars) and `<meta name="description">` (max 160 chars)
-- Product pages: values from `seo.json` (authoritative source, queried from D1)
+- Product pages: values from `seo.json` (authoritative source, imported as JSON at build time)
 - Static pages: defined in Astro frontmatter or layout
 
 ### Open Graph
 
 - Every page must have `og:title`, `og:description`, `og:image`, `og:url`, `og:type`
 - Product OG images: `cdn.forestal-mt.com/products/og/{handler}.png` (from `media.json`)
-- Static page OG images: `cdn.forestal-mt.com/pages/og/{page-slug}.png`
+- Static page OG images: `cdn.forestal-mt.com/pages/{slug}/og.jpg`
 - All OG images: 1200x630, PNG
 
 ### Twitter Cards
@@ -47,11 +47,11 @@ A custom `<Head>` Astro component handles all meta tag generation. No third-part
 
 ### Sitemap
 
-Generated via `@astrojs/sitemap` integration with hybrid approach:
+Generated via `@astrojs/sitemap` integration. All 63 indexable pages are SSG — `@astrojs/sitemap` auto-discovers all static routes at build time. No custom endpoint needed.
 
-- **Static pages:** auto-discovered at build time
-- **SSR pages (46 PDPs + Shop):** `@astrojs/sitemap` cannot discover dynamic SSR routes — use custom `src/pages/sitemap.xml.ts` endpoint that queries D1 for all handlers at request time
-- **Filter:** excludes `noindex` pages (cart, checkout, account, admin, utility)
+- **Auto-discovered:** All 63 pages at build time (17 content pages + Shop + 46 PDPs)
+- **Excluded:** 404 page (noindex, not in sitemap)
+- **Filter:** Precautionary guard for future-scope pages (cart, checkout, account, admin, auth) that are not yet built but will be `noindex` when implemented
 - **Discovery:** `<link rel="sitemap">` in `<head>` + `Sitemap:` directive in `robots.txt`
 - Submitted to Google Search Console and Bing Webmaster Tools
 
@@ -182,7 +182,7 @@ Enables Google Sitelinks Search Box — a search input displayed directly in Goo
 }
 ```
 
-**Contract:** The Shop page (`/products/`) MUST implement `?q=` query param for server-side product filtering via D1. Google sends users directly to this URL from the Sitelinks Search Box. If the page does not return filtered results, Google disables the feature.
+**Contract:** The Shop page (`/products/`) must handle `?q=` query param for product filtering. Google sends users directly to this URL from the Sitelinks Search Box. Currently the Shop is SSG — `?q=` filtering requires client-side JavaScript until the Shop moves to SSR. If the page does not return filtered results, Google disables the feature.
 
 **Relationship with header search box:** The SearchAction and the header autocomplete search are complementary — not redundant. SearchAction captures traffic from Google SERP; header autocomplete improves on-site navigation (typeahead → PDP direct). Both are primary features.
 
@@ -223,15 +223,15 @@ SHOP PAGE @graph:
 | Organization         | `structured-data/jsonld/Organization.json`              | Included in Home page `@graph` (static)                                                                          |
 | WebSite              | `structured-data/jsonld/WebSite.json`                   | Included in Home page `@graph` (static)                                                                          |
 | Brand                | `structured-data/jsonld/Brand.json`                     | Inline within Organization; also referenced by Product nodes                                                     |
-| OnlineStore          | `structured-data/jsonld/OnlineStore.json`               | Included in Shop page `@graph` (SSR)                                                                             |
+| OnlineStore          | `structured-data/jsonld/OnlineStore.json`               | Included in Shop page `@graph` (SSG — build time)                                                                |
 | OfferShippingDetails | `structured-data/jsonld/OfferShippingDetails.json`      | 9 regional shipping zones; rendered on Shop page @graph, referenced by Offer nodes via `@id`                     |
 | Service (x4)         | `structured-data/jsonld/Service-wholesale.json`         | 4 B2B services (wholesale, private label, custom packaging, export logistics); rendered on Wholesale page @graph |
 | VideoObject (x4)     | `structured-data/jsonld/VideoObject-*.json`             | Included in Home + 3 Catalogue page `@graph` (static)                                                            |
 | ProductGroup (x46)   | `structured-data/jsonld/ProductGroup-all-products.json` | Reference manifest; includes hasVariant, ImageObject, Offer per variant                                          |
-| HowTo (x46)          | `structured-data/jsonld/HowTo-all-products.json`        | Reference manifest; SSR pages build from D1 `content.howToUse`                                                   |
-| BreadcrumbList (x79) | `structured-data/jsonld/BreadcrumbList-all-pages.json`  | Reference manifest; PDPs use Home > Catalog > Product pattern                                                    |
+| HowTo (x46)          | `structured-data/jsonld/HowTo-all-products.json`        | Reference manifest; built from `content.json` at build time                                                      |
+| BreadcrumbList (x63) | `structured-data/jsonld/BreadcrumbList-all-pages.json`  | Reference manifest; PDPs use Home > Catalog > Product pattern                                                    |
 
-**Static JSON files** (Organization, Brand, WebSite, OnlineStore, OfferShippingDetails, VideoObject, Service-wholesale) are imported and injected as-is. OfferShippingDetails (9 nodes) are rendered on the Shop page @graph — this is where the full definitions live that Offer nodes reference via @id. Service (4 nodes) are rendered on the Wholesale page @graph. **Reference manifests** (ProductGroup, HowTo, BreadcrumbList) are NOT imported at runtime — they exist for validation and documentation. Page-level schemas are built from D1 query results by a builder utility (`src/lib/jsonld.ts`).
+**Static JSON files** (Organization, Brand, WebSite, OnlineStore, OfferShippingDetails, VideoObject, Service-wholesale) are imported and injected as-is. OfferShippingDetails (9 nodes) are rendered on the Shop page @graph — this is where the full definitions live that Offer nodes reference via @id. Service (4 nodes) are rendered on the Wholesale page @graph. **Reference manifests** (ProductGroup, HowTo, BreadcrumbList) exist for validation and documentation — they are not loaded at runtime. All page schemas are built at deploy time by the builder utilities (`src/lib/jsonld.ts` for content pages, `src/lib/product-jsonld.ts` for PDPs).
 
 ### schema.org Type Hierarchy
 
@@ -290,73 +290,83 @@ Thing
 
 ### JSON-LD Builder Contract
 
-A single builder utility (`src/lib/jsonld.ts`) assembles the `@graph` for every page type. Each page calls one function, receives a complete JSON-LD object, and injects it into `<head>`. The builder consumes static JSON files from the suite and dynamic data from D1.
+The builder utility (`src/lib/jsonld.ts`) assembles the `@graph` for all SSG content pages. Product pages use a separate builder (`src/lib/product-jsonld.ts`). Each page calls one function, receives a complete JSON-LD object, and injects it into `<head>`.
 
-**Interface:**
+**Interface — content pages (frontmatter-driven):**
 
 ```ts
 // src/lib/jsonld.ts
-type PageType =
-  | "home"
-  | "about"
-  | "pdp"
-  | "shop"
-  | "catalog"
-  | "wholesale"
-  | "contact"
-  | "community"
-  | "faq"
-  | "blog"
-  | "legal";
+// Resolves schema types from MDX frontmatter schemas[] into @graph nodes
+export function buildPageGraph(
+  schemas: SchemaRef[], // from page.data.schemas in frontmatter
+  pageData: PageData, // full page frontmatter data (og, hero, canonicalUrl, etc.)
+): JsonLdGraph;
+```
 
-interface JsonLdGraph {
-  "@context": "https://schema.org";
-  "@graph": Record<string, unknown>[];
-}
+**Interface — product pages (JSON-data-driven):**
 
-export function buildJsonLd(page: PageType, data?: Record<string, unknown>): JsonLdGraph;
+```ts
+// src/lib/product-jsonld.ts
+// Builds ProductGroup @graph from 6 JSON data files at build time
+export function buildProductPageGraph(
+  product: ProductData, // from products.json
+  content: ContentData, // from content.json
+  media: MediaData, // from media.json
+  seo: SeoData, // from seo.json
+  pricing: PricingData, // from pricing.json
+  inventory: InventoryData, // from inventory.json
+): JsonLdGraph;
 ```
 
 **Builder inputs per page type:**
 
-| Page Type   | Static JSON Imports                                 | D1 Data (via `data` param)                                  | Output @graph Nodes                                                               |
-| ----------- | --------------------------------------------------- | ----------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| `home`      | Organization, WebSite, Brand, VideoObject-home-hero | —                                                           | Organization, WebSite, SearchAction, VideoObject, ImageObject                     |
-| `about`     | Organization                                        | —                                                           | Organization, ImageObject, BreadcrumbList                                         |
-| `pdp`       | —                                                   | handler → products, pricing, media, seo, content, inventory | ProductGroup, Product[] (hasVariant), Offer[], ImageObject, HowTo, BreadcrumbList |
-| `shop`      | OnlineStore, OfferShippingDetails                   | products (all or filtered by ?q=)                           | OnlineStore, CollectionPage, ItemList, OfferShippingDetails (x9), BreadcrumbList  |
-| `catalog`   | VideoObject-{catalog}-hero                          | catalog slug → products in catalog                          | CollectionPage, OfferCatalog, VideoObject, BreadcrumbList                         |
-| `wholesale` | Service-wholesale                                   | —                                                           | WebPage, Service (x4), BreadcrumbList                                             |
-| `contact`   | Organization                                        | —                                                           | ContactPage, Organization, ImageObject, BreadcrumbList                            |
-| `community` | —                                                   | —                                                           | WebPage, ImageObject, BreadcrumbList                                              |
-| `faq`       | —                                                   | FAQ content                                                 | FAQPage, Question/Answer, ImageObject, BreadcrumbList                             |
-| `blog`      | —                                                   | blog posts                                                  | Blog, BlogPosting, ImageObject, BreadcrumbList                                    |
-| `legal`     | —                                                   | —                                                           | WebPage, BreadcrumbList                                                           |
+| Page Type        | Data Source                                               | Output @graph Nodes                                                               |
+| ---------------- | --------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| Home             | MDX frontmatter + VideoObject JSON                        | Organization, WebSite, SearchAction, VideoObject, ImageObject                     |
+| About            | MDX frontmatter + Organization JSON                       | Organization, AboutPage, ImageObject, BreadcrumbList                              |
+| PDPs             | 6 JSON files (`src/data/`) — build time                   | ProductGroup, Product[] (hasVariant), Offer[], ImageObject, HowTo, BreadcrumbList |
+| Shop             | MDX frontmatter + OnlineStore + OfferShippingDetails JSON | OnlineStore, CollectionPage, ItemList, OfferShippingDetails (x9), BreadcrumbList  |
+| Catalogue pages  | MDX frontmatter + VideoObject JSON + products.json        | CollectionPage, OfferCatalog, VideoObject, BreadcrumbList                         |
+| Wholesale        | MDX frontmatter + Service-wholesale JSON                  | WebPage, Service (x4), BreadcrumbList                                             |
+| Contact          | MDX frontmatter + Organization JSON                       | ContactPage, Organization, ImageObject, BreadcrumbList                            |
+| Community + subs | MDX frontmatter                                           | WebPage, ImageObject, BreadcrumbList                                              |
+| FAQs             | MDX frontmatter                                           | FAQPage, Question/Answer, ImageObject, BreadcrumbList                             |
+| Blog             | MDX frontmatter                                           | Blog, BlogPosting, ImageObject, BreadcrumbList                                    |
+| Legal            | MDX frontmatter                                           | WebPage, BreadcrumbList                                                           |
 
 **Rules:**
 
-1. One function, one page type, one `@graph` — no scattered `<script>` tags
-2. Static JSON files are imported once at module level, not per-request
-3. D1 queries happen in the Astro page, results passed to the builder via `data`
-4. The builder NEVER queries D1 directly — it receives data, it does not fetch
-5. Every `@graph` node must have `@type`; nodes referenced within the same page's `@graph` must have `@id`
-6. BreadcrumbList is built by the builder for every page except Home
+1. One function, one page, one `@graph` — no scattered `<script>` tags
+2. Static JSON files (Organization, WebSite, Brand, etc.) are imported once at module level
+3. The builder NEVER queries D1 directly — all data is resolved at build time from JSON files or frontmatter
+4. Every `@graph` node must have `@type`; nodes referenced within the same page's `@graph` must have `@id`
+5. BreadcrumbList is built by the builder for every page except Home
 
 **Usage in Astro pages:**
 
 ```astro
 ---
-// Any page — same pattern everywhere
-import { buildJsonLd } from "../lib/jsonld";
+// SSG content pages — frontmatter-driven
+import { buildPageGraph } from "../lib/jsonld";
+const page = await getEntry("pages", slug);
+const jsonLd = buildPageGraph(page.data.schemas, page.data);
 
-// For static pages (no D1 data needed):
-const jsonLd = buildJsonLd("wholesale");
-
-// For dynamic pages (D1 data required):
-const db = Astro.locals.runtime.env.DB;
-const product = await db.prepare("SELECT * FROM products WHERE handler = ?").bind(handler).first();
-// ... more queries ...
-const jsonLd = buildJsonLd("pdp", { product, pricing, media, seo, content, inventory });
+// SSG product pages — JSON data files
+import { buildProductPageGraph } from "../lib/product-jsonld";
+import products from "../data/products.json";
+import content from "../data/content.json";
+import media from "../data/media.json";
+import seo from "../data/seo.json";
+import pricing from "../data/pricing.json";
+import inventory from "../data/inventory.json";
+const jsonLd = buildProductPageGraph(
+  product,
+  productContent,
+  productMedia,
+  productSeo,
+  productPricing,
+  productInventory,
+);
 ---
 
 <head>
@@ -370,7 +380,7 @@ The following examples show the exact `@graph` content each page type produces. 
 
 **Product Detail Page (PDP):**
 
-`buildJsonLd("pdp", { product, pricing, media, seo, content, inventory })` — D1 data for one handler.
+`buildProductPageGraph(product, content, media, seo, pricing, inventory)` — 6 JSON data files for one handler, resolved at build time.
 
 ```json
 {
@@ -469,7 +479,7 @@ The following examples show the exact `@graph` content each page type produces. 
 
 **Shop Page:**
 
-`buildJsonLd("shop", { products })` — D1 products (all or filtered by `?q=`). Renders the most nodes of any page — OnlineStore + 9 OfferShippingDetails definitions that 132 Offers reference via @id.
+`buildPageGraph(schemas, pageData)` — frontmatter-driven, with product list from `products.json` at build time. Renders the most nodes of any page — OnlineStore + 9 OfferShippingDetails definitions that 132 Offers reference via @id.
 
 ```json
 {
@@ -505,7 +515,7 @@ The following examples show the exact `@graph` content each page type produces. 
 
 **Catalogue Page (batana-oil, stingless-bee-honey, traditional-herbs):**
 
-`buildJsonLd("catalog", { catalog, products })` — D1 products for one catalog. OfferCatalog @id matches OnlineStore's `hasOfferCatalog` sub-catalogs.
+`buildPageGraph(schemas, pageData)` — frontmatter-driven, with products filtered from `products.json` at build time. OfferCatalog @id matches OnlineStore's `hasOfferCatalog` sub-catalogs.
 
 ```json
 {
@@ -549,7 +559,7 @@ The following examples show the exact `@graph` content each page type produces. 
 
 **Wholesale Page:**
 
-`buildJsonLd("wholesale")` — no D1 data needed (static services). Declares B2B services as `Service` nodes so Google classifies Forestal MT as a service provider for queries like "private label batana oil supplier".
+`buildPageGraph(schemas, pageData)` — frontmatter-driven, Service JSON imported at module level. Declares B2B services as `Service` nodes so Google classifies Forestal MT as a service provider for queries like "private label batana oil supplier".
 
 ```json
 {
@@ -663,11 +673,11 @@ Each PDP includes a `HowTo` node in its `@graph` array, generated from `content.
 
 **Not included:** `tool`, `estimatedCost`, `totalTime`, `yield` — not applicable for ethnobotanical product usage. No per-step images — product images are in the Product node.
 
-**Reference file:** `structured-data/jsonld/HowTo-all-products.json` — pre-generated manifest of all 46 HowTo schemas for validation and review. At runtime, HowTo nodes are built by Astro SSR from D1 queries.
+**Reference file:** `structured-data/jsonld/HowTo-all-products.json` — pre-generated manifest of all 46 HowTo schemas for validation and review. At build time, HowTo nodes are built from `content.json` data via the product schema builder.
 
 ### BreadcrumbList Schema (All Pages)
 
-Every page (except Home) includes a `BreadcrumbList` node in its `@graph` array. Breadcrumbs are pre-generated for all 79 pages and documented in the reference manifest.
+Every page (except Home) includes a `BreadcrumbList` node in its `@graph` array. Breadcrumbs are pre-generated for all 63 deployed pages and documented in the reference manifest.
 
 **PDP breadcrumb pattern:** `Home > {Catalog} > {Product}`
 
@@ -693,7 +703,7 @@ Every page (except Home) includes a `BreadcrumbList` node in its `@graph` array.
 
 **Google guidelines:** Last item in the breadcrumb has no `item` URL (represents the current page). All parent items include `item` URLs for navigation.
 
-**Reference file:** `structured-data/jsonld/BreadcrumbList-all-pages.json` — pre-generated manifest with BreadcrumbList schemas for all 79 pages (Home excluded). Static pages embed at build time; SSR pages build from D1 at runtime.
+**Reference file:** `structured-data/jsonld/BreadcrumbList-all-pages.json` — pre-generated manifest with BreadcrumbList schemas for all 63 pages (Home excluded). All pages embed BreadcrumbList at build time — content pages from frontmatter, product pages from `products.json`.
 
 ### Validation
 
