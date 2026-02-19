@@ -4,11 +4,14 @@ import { buildPageGraph } from "../lib/jsonld";
 // SEO title/description → <title> and <meta name="description"> (search engine results)
 // OG title/description → <meta property="og:*"> and <meta name="twitter:*"> (social sharing)
 // Both come from frontmatter but are independent — SEO is the source of truth for the DOM.
+// appendBrand: when true (default), appends "| Forestal MT" to <title>. Set false for PDPs
+// where seoTitle in seo.json is already the complete, optimized title (max 60 chars).
 interface Props {
   title: string;
   description: string;
   canonicalUrl: string;
   pageName: string;
+  appendBrand?: boolean;
   og: {
     title: string;
     description: string;
@@ -29,7 +32,16 @@ interface Props {
   }>;
 }
 
-const { title, description, canonicalUrl, pageName, og, twitter, schemas } = Astro.props;
+const {
+  title,
+  description,
+  canonicalUrl,
+  pageName,
+  appendBrand = true,
+  og,
+  twitter,
+  schemas,
+} = Astro.props;
 
 const jsonLdString = buildPageGraph(schemas, {
   pageName,
@@ -41,8 +53,9 @@ const jsonLdString = buildPageGraph(schemas, {
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="index, follow" />
 
-<title>{title} | Forestal MT</title>
+<title>{appendBrand ? `${title} | Forestal MT` : title}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={canonicalUrl} />
 
