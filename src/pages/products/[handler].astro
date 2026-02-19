@@ -321,5 +321,129 @@ const isInStock = inventory.availability === "InStock";
         </section>
       )
     }
+
+    {/* Processing Method */}
+    {
+      content.processingMethod && content.processingMethod.length > 0 && (
+        <section class="mt-12">
+          <h2 class="mb-6 font-[family-name:var(--font-heading)] text-lg uppercase tracking-wider text-charcoal">
+            Processing Method
+          </h2>
+          <ol class="space-y-4">
+            {content.processingMethod.map((step, i) => {
+              const colonIdx = step.indexOf("—");
+              const dashIdx = colonIdx > 0 ? colonIdx : step.indexOf(":");
+              const hasName = dashIdx > 0 && dashIdx < 60;
+              const stepName = hasName ? step.slice(0, dashIdx).trim() : `Step ${i + 1}`;
+              const stepText = hasName ? step.slice(dashIdx + 1).trim() : step;
+              return (
+                <li class="flex gap-4">
+                  <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gold/15 font-[family-name:var(--font-heading)] text-sm font-medium text-gold-dark">
+                    {i + 1}
+                  </span>
+                  <div>
+                    <p class="font-[family-name:var(--font-heading)] text-sm font-medium text-charcoal">
+                      {stepName}
+                    </p>
+                    <p class="mt-1 font-[family-name:var(--font-body)] text-sm leading-relaxed text-graphite/80">
+                      {stepText}
+                    </p>
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
+        </section>
+      )
+    }
+
+    {/* Product Specifications */}
+    <section class="mt-12">
+      <h2
+        class="mb-6 font-[family-name:var(--font-heading)] text-lg uppercase tracking-wider text-charcoal"
+      >
+        Product Specifications
+      </h2>
+      <div class="overflow-hidden rounded-lg border border-graphite/10">
+        <table class="w-full text-left">
+          <tbody class="divide-y divide-graphite/10">
+            {
+              content.ingredients && (
+                <tr>
+                  <td class="px-5 py-3 font-[family-name:var(--font-ui)] text-sm font-medium text-charcoal">
+                    Ingredients
+                  </td>
+                  <td class="px-5 py-3 font-[family-name:var(--font-body)] text-sm text-graphite">
+                    {content.ingredients}
+                  </td>
+                </tr>
+              )
+            }
+            {
+              content.shelfLife && (
+                <tr>
+                  <td class="px-5 py-3 font-[family-name:var(--font-ui)] text-sm font-medium text-charcoal">
+                    Shelf Life
+                  </td>
+                  <td class="px-5 py-3 font-[family-name:var(--font-body)] text-sm text-graphite">
+                    {content.shelfLife}
+                  </td>
+                </tr>
+              )
+            }
+            {
+              content.storage && (
+                <tr>
+                  <td class="px-5 py-3 font-[family-name:var(--font-ui)] text-sm font-medium text-charcoal">
+                    Storage
+                  </td>
+                  <td class="px-5 py-3 font-[family-name:var(--font-body)] text-sm text-graphite">
+                    {content.storage}
+                  </td>
+                </tr>
+              )
+            }
+            {
+              content.origin && (
+                <tr>
+                  <td class="px-5 py-3 font-[family-name:var(--font-ui)] text-sm font-medium text-charcoal">
+                    Origin
+                  </td>
+                  <td class="px-5 py-3 font-[family-name:var(--font-body)] text-sm text-graphite">
+                    {content.origin}
+                  </td>
+                </tr>
+              )
+            }
+            {
+              content.shipping && (
+                <tr>
+                  <td class="px-5 py-3 font-[family-name:var(--font-ui)] text-sm font-medium text-charcoal">
+                    Shipping
+                  </td>
+                  <td class="px-5 py-3 font-[family-name:var(--font-body)] text-sm text-graphite">
+                    {content.shipping}
+                  </td>
+                </tr>
+              )
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    {/* Disclaimer */}
+    {
+      content.disclaimer && (
+        <section class="mt-12 rounded-lg border border-gold/30 bg-gold/5 p-6">
+          <p class="font-[family-name:var(--font-ui)] text-xs uppercase tracking-wider text-gold-dark">
+            Disclaimer
+          </p>
+          <p class="mt-2 font-[family-name:var(--font-body)] text-sm leading-relaxed text-graphite/80">
+            {content.disclaimer}
+          </p>
+        </section>
+      )
+    }
   </article>
 </BaseLayout>
