@@ -8,6 +8,20 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **Status: skeleton only.** CORS + health check exist. Product, cart, order, and search routers are TODO.
 
+## Workspace Context
+
+This package is a pnpm workspace member of `forestal-mt-store` (parent repo at `../`).
+The parent repo's CLAUDE.md covers the Astro frontend. This CLAUDE.md covers the Worker only.
+
+**Start Claude from `api-worker/` for all API work** — separate session memory, separate context.
+
+From the store root you can also run Worker commands without cd:
+
+```bash
+pnpm --filter api-worker dev
+pnpm --filter api-worker deploy:prod
+```
+
 ## Commands
 
 ```bash

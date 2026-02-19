@@ -18,6 +18,31 @@ Copies of the main spec docs live in this repo root for quick reference:
 
 ---
 
+## Workspace
+
+This repo is a pnpm workspace with two packages:
+
+| Package             | Directory     | Deployment                                                    |
+| ------------------- | ------------- | ------------------------------------------------------------- |
+| `forestal-mt-store` | `/` (root)    | Cloudflare Pages — auto-deploys on push to `main`             |
+| `fmt-ecommerce-api` | `api-worker/` | Cloudflare Worker — manual (`pnpm deploy:prod` or GH Actions) |
+
+Shared lockfile (`pnpm-lock.yaml`) at root. Both packages have their own `CLAUDE.md`.
+
+**Claude Code session model:** Start Claude from the directory matching your task:
+
+- Astro pages, content, components, SEO → start from `forestal-mt-store/` (here)
+- API routes, D1 schema, Hono handlers, DHL → start from `forestal-mt-store/api-worker/`
+
+**Cross-workspace commands (run from root without cd):**
+
+```bash
+pnpm --filter api-worker dev         # wrangler dev for the Worker
+pnpm --filter api-worker deploy:prod # deploy Worker to production
+```
+
+---
+
 ## Build Commands
 
 ```bash
