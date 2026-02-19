@@ -1,0 +1,2114 @@
+{
+  "_metadata": {
+    "file": "inventory.json",
+    "version": "1.0.0",
+    "brand": "Forestal MT",
+    "created": "2026-02-16",
+    "lastUpdated": "2026-02-16",
+    "description": "Stock levels, packaging, weights, and order limits per variant.",
+    "parent": "products.json",
+    "fields": {
+      "packaging": "Physical container description",
+      "tareWeight_g": "Empty container weight in grams",
+      "netWeight_g": "Product weight in grams",
+      "grossWeight_g": "Total shipping weight (tare + net) in grams",
+      "stockQty": "Units available in inventory",
+      "availability": "InStock or OutOfStock (schema.org compatible)",
+      "minOrderQty": "Minimum units per order",
+      "maxOrderQty": "Maximum units per order (capped by stockQty)",
+      "orderQty": "Units sold to date"
+    },
+    "counts": {
+      "productGroups": 46,
+      "variants": 132,
+      "inStock": 87,
+      "outOfStock": 45
+    }
+  },
+  "products": [
+    {
+      "handler": "amaranth-greens",
+      "productGroupId": "FMT-TH-BL",
+      "catalog": "Traditional Herbs",
+      "availability": "InStock",
+      "variants": [
+        {
+          "sku": "fmt-th-bl-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-bl-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-bl-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "batana-oil-hair-conditioner",
+      "productGroupId": "FMT-BO-CO",
+      "catalog": "Batana Oil",
+      "availability": "InStock",
+      "variants": [
+        {
+          "sku": "fmt-bo-co-250-ml",
+          "size": "250 ml",
+          "packaging": "plastic dispenser bottle",
+          "tareWeight_g": 25,
+          "netWeight_g": 225.0,
+          "grossWeight_g": 250.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-bo-co-500-ml",
+          "size": "500 ml",
+          "packaging": "plastic dispenser bottle",
+          "tareWeight_g": 35,
+          "netWeight_g": 450.0,
+          "grossWeight_g": 485.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "batana-oil-hair-wash",
+      "productGroupId": "FMT-BO-SH",
+      "catalog": "Batana Oil",
+      "availability": "InStock",
+      "variants": [
+        {
+          "sku": "fmt-bo-sh-250-ml",
+          "size": "250 ml",
+          "packaging": "plastic dispenser bottle",
+          "tareWeight_g": 25,
+          "netWeight_g": 225.0,
+          "grossWeight_g": 250.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-bo-sh-500-ml",
+          "size": "500 ml",
+          "packaging": "plastic dispenser bottle",
+          "tareWeight_g": 35,
+          "netWeight_g": 450.0,
+          "grossWeight_g": 485.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "batana-oil-true-soap-bar",
+      "productGroupId": "FMT-BO-SB",
+      "catalog": "Batana Oil",
+      "availability": "InStock",
+      "variants": [
+        {
+          "sku": "fmt-bo-sb-100-g",
+          "size": "100 g",
+          "packaging": "cardboard soap box",
+          "tareWeight_g": 30,
+          "netWeight_g": 100.0,
+          "grossWeight_g": 130.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "bay-leaves",
+      "productGroupId": "FMT-TH-BY",
+      "catalog": "Traditional Herbs",
+      "availability": "OutOfStock",
+      "variants": [
+        {
+          "sku": "fmt-th-by-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-by-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-by-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "bitter-melon-cundeamor",
+      "productGroupId": "FMT-TH-CA",
+      "catalog": "Traditional Herbs",
+      "availability": "InStock",
+      "variants": [
+        {
+          "sku": "fmt-th-ca-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-ca-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-ca-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "blessed-holy-thistle",
+      "productGroupId": "FMT-TH-HT",
+      "catalog": "Traditional Herbs",
+      "availability": "OutOfStock",
+      "variants": [
+        {
+          "sku": "fmt-th-ht-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-ht-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-ht-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "cassia-pods",
+      "productGroupId": "FMT-TH-CF",
+      "catalog": "Traditional Herbs",
+      "availability": "OutOfStock",
+      "variants": [
+        {
+          "sku": "fmt-th-cf-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-cf-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-cf-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "cats-claw",
+      "productGroupId": "FMT-TH-CC",
+      "catalog": "Traditional Herbs",
+      "availability": "InStock",
+      "variants": [
+        {
+          "sku": "fmt-th-cc-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-cc-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-cc-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "cocolmeca-root",
+      "productGroupId": "FMT-TH-CR",
+      "catalog": "Traditional Herbs",
+      "availability": "InStock",
+      "variants": [
+        {
+          "sku": "fmt-th-cr-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-cr-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-cr-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "contribo",
+      "productGroupId": "FMT-TH-CT",
+      "catalog": "Traditional Herbs",
+      "availability": "OutOfStock",
+      "variants": [
+        {
+          "sku": "fmt-th-ct-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-ct-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-ct-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "cows-foot-leaves",
+      "productGroupId": "FMT-TH-CW",
+      "catalog": "Traditional Herbs",
+      "availability": "OutOfStock",
+      "variants": [
+        {
+          "sku": "fmt-th-cw-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-cw-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-cw-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "dragons-blood-bark",
+      "productGroupId": "FMT-TH-DB",
+      "catalog": "Traditional Herbs",
+      "availability": "InStock",
+      "variants": [
+        {
+          "sku": "fmt-th-db-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-db-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-db-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "duck-flower",
+      "productGroupId": "FMT-TH-DF",
+      "catalog": "Traditional Herbs",
+      "availability": "InStock",
+      "variants": [
+        {
+          "sku": "fmt-th-df-1-unit",
+          "size": "1 unit",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 1.0,
+          "grossWeight_g": 6.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-df-2-unit",
+          "size": "2 unit",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 2.0,
+          "grossWeight_g": 8.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "eucalyptus-leaves",
+      "productGroupId": "FMT-TH-EU",
+      "catalog": "Traditional Herbs",
+      "availability": "InStock",
+      "variants": [
+        {
+          "sku": "fmt-th-eu-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-eu-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-eu-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "guaco-leaves",
+      "productGroupId": "FMT-TH-GU",
+      "catalog": "Traditional Herbs",
+      "availability": "InStock",
+      "variants": [
+        {
+          "sku": "fmt-th-gu-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-gu-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-gu-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "guava-leaves",
+      "productGroupId": "FMT-TH-GL",
+      "catalog": "Traditional Herbs",
+      "availability": "InStock",
+      "variants": [
+        {
+          "sku": "fmt-th-gl-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-gl-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-gl-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "gumbo-limbo-bark",
+      "productGroupId": "FMT-TH-GLB",
+      "catalog": "Traditional Herbs",
+      "availability": "InStock",
+      "variants": [
+        {
+          "sku": "fmt-th-glb-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-glb-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-glb-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "gumbo-limbo-leaves",
+      "productGroupId": "FMT-TH-AL",
+      "catalog": "Traditional Herbs",
+      "availability": "InStock",
+      "variants": [
+        {
+          "sku": "fmt-th-al-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-al-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-al-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "hibiscus-flowers",
+      "productGroupId": "FMT-TH-HF",
+      "catalog": "Traditional Herbs",
+      "availability": "OutOfStock",
+      "variants": [
+        {
+          "sku": "fmt-th-hf-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-hf-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-hf-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "jimerito",
+      "productGroupId": "FMT-SBH-JM",
+      "catalog": "Stingless Bee Honey",
+      "availability": "InStock",
+      "variants": [
+        {
+          "sku": "fmt-sbh-jm-30-ml",
+          "size": "30 ml",
+          "packaging": "glass dropper bottle",
+          "tareWeight_g": 50,
+          "netWeight_g": 30.0,
+          "grossWeight_g": 80.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-sbh-jm-250-ml",
+          "size": "250 ml",
+          "packaging": "glass bottle",
+          "tareWeight_g": 200,
+          "netWeight_g": 250.0,
+          "grossWeight_g": 450.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-sbh-jm-750-ml",
+          "size": "750 ml",
+          "packaging": "clear long-neck glass bottle",
+          "tareWeight_g": 400,
+          "netWeight_g": 750.0,
+          "grossWeight_g": 1150.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "kalawalla-root",
+      "productGroupId": "FMT-TH-KR",
+      "catalog": "Traditional Herbs",
+      "availability": "InStock",
+      "variants": [
+        {
+          "sku": "fmt-th-kr-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-kr-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-kr-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "leaf-of-life-miracle-leaf",
+      "productGroupId": "FMT-TH-LV",
+      "catalog": "Traditional Herbs",
+      "availability": "InStock",
+      "variants": [
+        {
+          "sku": "fmt-th-lv-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-lv-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-lv-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "lemongrass",
+      "productGroupId": "FMT-TH-LG",
+      "catalog": "Traditional Herbs",
+      "availability": "InStock",
+      "variants": [
+        {
+          "sku": "fmt-th-lg-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-lg-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-lg-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "linden-tilia",
+      "productGroupId": "FMT-TH-TL",
+      "catalog": "Traditional Herbs",
+      "availability": "OutOfStock",
+      "variants": [
+        {
+          "sku": "fmt-th-tl-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-tl-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-tl-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "mango-leaves",
+      "productGroupId": "FMT-TH-ML",
+      "catalog": "Traditional Herbs",
+      "availability": "InStock",
+      "variants": [
+        {
+          "sku": "fmt-th-ml-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-ml-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-ml-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "moringa-leaves",
+      "productGroupId": "FMT-TH-MO",
+      "catalog": "Traditional Herbs",
+      "availability": "OutOfStock",
+      "variants": [
+        {
+          "sku": "fmt-th-mo-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-mo-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-mo-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "muicle-herb",
+      "productGroupId": "FMT-TH-MU",
+      "catalog": "Traditional Herbs",
+      "availability": "OutOfStock",
+      "variants": [
+        {
+          "sku": "fmt-th-mu-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-mu-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-mu-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "neem-leaves",
+      "productGroupId": "FMT-TH-NM",
+      "catalog": "Traditional Herbs",
+      "availability": "InStock",
+      "variants": [
+        {
+          "sku": "fmt-th-nm-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-nm-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-nm-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "nettle-leaves",
+      "productGroupId": "FMT-TH-NL",
+      "catalog": "Traditional Herbs",
+      "availability": "OutOfStock",
+      "variants": [
+        {
+          "sku": "fmt-th-nl-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-nl-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-nl-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "palo-guaco",
+      "productGroupId": "FMT-TH-PG",
+      "catalog": "Traditional Herbs",
+      "availability": "InStock",
+      "variants": [
+        {
+          "sku": "fmt-th-pg-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-pg-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-pg-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "palo-santo",
+      "productGroupId": "FMT-TH-PS",
+      "catalog": "Traditional Herbs",
+      "availability": "OutOfStock",
+      "variants": [
+        {
+          "sku": "fmt-th-ps-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-ps-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-ps-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "pau-darco-bark",
+      "productGroupId": "FMT-TH-PC",
+      "catalog": "Traditional Herbs",
+      "availability": "OutOfStock",
+      "variants": [
+        {
+          "sku": "fmt-th-pc-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-pc-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-pc-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "pine-needles",
+      "productGroupId": "FMT-TH-PN",
+      "catalog": "Traditional Herbs",
+      "availability": "InStock",
+      "variants": [
+        {
+          "sku": "fmt-th-pn-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-pn-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-pn-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "plantain-leaf",
+      "productGroupId": "FMT-TH-PL",
+      "catalog": "Traditional Herbs",
+      "availability": "InStock",
+      "variants": [
+        {
+          "sku": "fmt-th-pl-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-pl-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-pl-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "possum-grape-cissus",
+      "productGroupId": "FMT-TH-CI",
+      "catalog": "Traditional Herbs",
+      "availability": "InStock",
+      "variants": [
+        {
+          "sku": "fmt-th-ci-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-ci-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-ci-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "quassia-bitter-wood",
+      "productGroupId": "FMT-TH-HG",
+      "catalog": "Traditional Herbs",
+      "availability": "InStock",
+      "variants": [
+        {
+          "sku": "fmt-th-hg-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-hg-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-hg-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "raw-batana-oil",
+      "productGroupId": "FMT-BO-RBO",
+      "catalog": "Batana Oil",
+      "availability": "InStock",
+      "variants": [
+        {
+          "sku": "fmt-bo-rbo-60-ml",
+          "size": "60 ml",
+          "packaging": "plastic jar",
+          "tareWeight_g": 15,
+          "netWeight_g": 54.0,
+          "grossWeight_g": 69.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-bo-rbo-120-ml",
+          "size": "120 ml",
+          "packaging": "plastic jar",
+          "tareWeight_g": 20,
+          "netWeight_g": 108.0,
+          "grossWeight_g": 128.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-bo-rbo-1-gal",
+          "size": "1 gal",
+          "packaging": "plastic jug",
+          "tareWeight_g": 120,
+          "netWeight_g": 3407.0,
+          "grossWeight_g": 3527.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "sarsaparilla",
+      "productGroupId": "FMT-TH-SR",
+      "catalog": "Traditional Herbs",
+      "availability": "OutOfStock",
+      "variants": [
+        {
+          "sku": "fmt-th-sr-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-sr-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-sr-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "sensitive-plant",
+      "productGroupId": "FMT-TH-DO",
+      "catalog": "Traditional Herbs",
+      "availability": "InStock",
+      "variants": [
+        {
+          "sku": "fmt-th-do-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-do-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-do-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "snake-plant",
+      "productGroupId": "FMT-TH-SN",
+      "catalog": "Traditional Herbs",
+      "availability": "InStock",
+      "variants": [
+        {
+          "sku": "fmt-th-sn-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-sn-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-sn-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "soursop-leaves",
+      "productGroupId": "FMT-TH-SL",
+      "catalog": "Traditional Herbs",
+      "availability": "InStock",
+      "variants": [
+        {
+          "sku": "fmt-th-sl-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-sl-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-sl-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "stonebreaker",
+      "productGroupId": "FMT-TH-SP",
+      "catalog": "Traditional Herbs",
+      "availability": "OutOfStock",
+      "variants": [
+        {
+          "sku": "fmt-th-sp-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-sp-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-sp-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "taro-malanga-leaf",
+      "productGroupId": "FMT-TH-MA",
+      "catalog": "Traditional Herbs",
+      "availability": "InStock",
+      "variants": [
+        {
+          "sku": "fmt-th-ma-1-unit",
+          "size": "1 unit",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 1.0,
+          "grossWeight_g": 6.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-ma-2-unit",
+          "size": "2 unit",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 2.0,
+          "grossWeight_g": 8.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "thuja-cedar-leaves",
+      "productGroupId": "FMT-TH-CD",
+      "catalog": "Traditional Herbs",
+      "availability": "OutOfStock",
+      "variants": [
+        {
+          "sku": "fmt-th-cd-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-cd-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-cd-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 0,
+          "availability": "OutOfStock",
+          "minOrderQty": 0,
+          "maxOrderQty": 0,
+          "orderQty": 0
+        }
+      ]
+    },
+    {
+      "handler": "trumpet-tree-leaves",
+      "productGroupId": "FMT-TH-TT",
+      "catalog": "Traditional Herbs",
+      "availability": "InStock",
+      "variants": [
+        {
+          "sku": "fmt-th-tt-57-g",
+          "size": "57 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 5,
+          "netWeight_g": 57.0,
+          "grossWeight_g": 62.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-tt-113-g",
+          "size": "113 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 6,
+          "netWeight_g": 113.0,
+          "grossWeight_g": 119.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        },
+        {
+          "sku": "fmt-th-tt-454-g",
+          "size": "454 g",
+          "packaging": "vacuum-sealed clear food-grade bag",
+          "tareWeight_g": 8,
+          "netWeight_g": 454.0,
+          "grossWeight_g": 462.0,
+          "stockQty": 50,
+          "availability": "InStock",
+          "minOrderQty": 1,
+          "maxOrderQty": 50,
+          "orderQty": 0
+        }
+      ]
+    }
+  ]
+}

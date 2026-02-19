@@ -1,0 +1,1403 @@
+{
+  "_metadata": {
+    "file": "pricing.json",
+    "version": "1.0.0",
+    "brand": "Forestal MT",
+    "created": "2026-02-14",
+    "lastUpdated": "2026-02-16",
+    "parent": "products.json",
+    "description": "Authoritative source for B2C retail pricing. Individual variant prices owned here; products.json derives price_range_usd from this file. Wholesale/bulk pricing is by quotation only.",
+    "currency": "USD",
+    "decimals": 2,
+    "counts": {
+      "productGroups": 46,
+      "variants": 132
+    }
+  },
+  "products": [
+    {
+      "ProductGroup": {
+        "handler": "amaranth-greens",
+        "productGroupId": "FMT-TH-BL",
+        "catalog": "Traditional Herbs",
+        "name": "Amaranth Greens",
+        "variants": [
+          {
+            "sku": "fmt-th-bl-57-g",
+            "skuName": "Amaranth Greens - Bledo - Wildcrafted in Honduras - 57 g",
+            "price": 15.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-bl-113-g",
+            "skuName": "Amaranth Greens - Bledo - Wildcrafted in Honduras - 113 g",
+            "price": 22.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-bl-454-g",
+            "skuName": "Amaranth Greens - Bledo - Wildcrafted in Honduras - 454 g",
+            "price": 44.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "batana-oil-hair-conditioner",
+        "productGroupId": "FMT-BO-CO",
+        "catalog": "Batana Oil",
+        "name": "Batana Oil Hair Conditioner",
+        "variants": [
+          {
+            "sku": "fmt-bo-co-250-ml",
+            "skuName": "Batana Oil Hair Conditioner from La Mosquitia - Restorative - 250 ml",
+            "price": 24.99,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-bo-co-500-ml",
+            "skuName": "Batana Oil Hair Conditioner from La Mosquitia - Restorative - 500 ml",
+            "price": 34.99,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "batana-oil-hair-wash",
+        "productGroupId": "FMT-BO-SH",
+        "catalog": "Batana Oil",
+        "name": "Batana Oil Hair Wash",
+        "variants": [
+          {
+            "sku": "fmt-bo-sh-250-ml",
+            "skuName": "Batana Oil Hair Wash from La Mosquitia - Nourishing - 250 ml",
+            "price": 24.99,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-bo-sh-500-ml",
+            "skuName": "Batana Oil Hair Wash from La Mosquitia - Nourishing - 500 ml",
+            "price": 34.99,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "batana-oil-true-soap-bar",
+        "productGroupId": "FMT-BO-SB",
+        "catalog": "Batana Oil",
+        "name": "Batana Oil True Soap Bar",
+        "variants": [
+          {
+            "sku": "fmt-bo-sb-100-g",
+            "skuName": "Batana Oil True Soap Bar from La Mosquitia - Artisanal - 100 g",
+            "price": 19.99,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "bay-leaves",
+        "productGroupId": "FMT-TH-BY",
+        "catalog": "Traditional Herbs",
+        "name": "Bay Leaves",
+        "variants": [
+          {
+            "sku": "fmt-th-by-57-g",
+            "skuName": "Bay Leaves - Hojas de Laurel - Wildcrafted & Shade-Dried - 57 g",
+            "price": 10.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-by-113-g",
+            "skuName": "Bay Leaves - Hojas de Laurel - Wildcrafted & Shade-Dried - 113 g",
+            "price": 18.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-by-454-g",
+            "skuName": "Bay Leaves - Hojas de Laurel - Wildcrafted & Shade-Dried - 454 g",
+            "price": 32.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "bitter-melon-cundeamor",
+        "productGroupId": "FMT-TH-CA",
+        "catalog": "Traditional Herbs",
+        "name": "Bitter Melon - Cundeamor",
+        "variants": [
+          {
+            "sku": "fmt-th-ca-57-g",
+            "skuName": "Bitter Melon (Cundeamor) - Wildcrafted & Shade-Dried - 57 g",
+            "price": 10.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-ca-113-g",
+            "skuName": "Bitter Melon (Cundeamor) - Wildcrafted & Shade-Dried - 113 g",
+            "price": 16.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-ca-454-g",
+            "skuName": "Bitter Melon (Cundeamor) - Wildcrafted & Shade-Dried - 454 g",
+            "price": 32.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "blessed-holy-thistle",
+        "productGroupId": "FMT-TH-HT",
+        "catalog": "Traditional Herbs",
+        "name": "Blessed - Holy Thistle",
+        "variants": [
+          {
+            "sku": "fmt-th-ht-57-g",
+            "skuName": "Holy Thistle - Cardo Santo - Wildcrafted & Shade-Dried - 57 g",
+            "price": 17.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-ht-113-g",
+            "skuName": "Holy Thistle - Cardo Santo - Wildcrafted & Shade-Dried - 113 g",
+            "price": 24.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-ht-454-g",
+            "skuName": "Holy Thistle - Cardo Santo - Wildcrafted & Shade-Dried - 454 g",
+            "price": 45.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "cassia-pods",
+        "productGroupId": "FMT-TH-CF",
+        "catalog": "Traditional Herbs",
+        "name": "Cassia Pods",
+        "variants": [
+          {
+            "sku": "fmt-th-cf-57-g",
+            "skuName": "Cassia Pods (Vainas) - Caña Fístula - Wildcrafted in Honduras - 57 g",
+            "price": 8.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-cf-113-g",
+            "skuName": "Cassia Pods (Vainas) - Caña Fístula - Wildcrafted in Honduras - 113 g",
+            "price": 14.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-cf-454-g",
+            "skuName": "Cassia Pods (Vainas) - Caña Fístula - Wildcrafted in Honduras - 454 g",
+            "price": 28.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "cats-claw",
+        "productGroupId": "FMT-TH-CC",
+        "catalog": "Traditional Herbs",
+        "name": "Cat's Claw",
+        "variants": [
+          {
+            "sku": "fmt-th-cc-57-g",
+            "skuName": "Cat's Claw - Uña de Gato - Wildcrafted in Honduras - 57 g",
+            "price": 18.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-cc-113-g",
+            "skuName": "Cat's Claw - Uña de Gato - Wildcrafted in Honduras - 113 g",
+            "price": 28.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-cc-454-g",
+            "skuName": "Cat's Claw - Uña de Gato - Wildcrafted in Honduras - 454 g",
+            "price": 50.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "cocolmeca-root",
+        "productGroupId": "FMT-TH-CR",
+        "catalog": "Traditional Herbs",
+        "name": "Cocolmeca Root",
+        "variants": [
+          {
+            "sku": "fmt-th-cr-57-g",
+            "skuName": "Cocolmeca Root - Cuculmeca - Wildcrafted in Honduras - 57 g",
+            "price": 20.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-cr-113-g",
+            "skuName": "Cocolmeca Root - Cuculmeca - Wildcrafted in Honduras - 113 g",
+            "price": 32.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-cr-454-g",
+            "skuName": "Cocolmeca Root - Cuculmeca - Wildcrafted in Honduras - 454 g",
+            "price": 60.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "contribo",
+        "productGroupId": "FMT-TH-CT",
+        "catalog": "Traditional Herbs",
+        "name": "Contribo",
+        "variants": [
+          {
+            "sku": "fmt-th-ct-57-g",
+            "skuName": "Contribo - Wildcrafted in Honduras - 57 g",
+            "price": 20.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-ct-113-g",
+            "skuName": "Contribo - Wildcrafted in Honduras - 113 g",
+            "price": 30.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-ct-454-g",
+            "skuName": "Contribo - Wildcrafted in Honduras - 454 g",
+            "price": 60.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "cows-foot-leaves",
+        "productGroupId": "FMT-TH-CW",
+        "catalog": "Traditional Herbs",
+        "name": "Cow's Foot Leaves",
+        "variants": [
+          {
+            "sku": "fmt-th-cw-57-g",
+            "skuName": "Cow's Foot Leaves - Pata de Vaca - Wildcrafted - 57 g",
+            "price": 10.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-cw-113-g",
+            "skuName": "Cow's Foot Leaves - Pata de Vaca - Wildcrafted - 113 g",
+            "price": 18.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-cw-454-g",
+            "skuName": "Cow's Foot Leaves - Pata de Vaca - Wildcrafted - 454 g",
+            "price": 36.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "dragons-blood-bark",
+        "productGroupId": "FMT-TH-DB",
+        "catalog": "Traditional Herbs",
+        "name": "Dragon's Blood Bark",
+        "variants": [
+          {
+            "sku": "fmt-th-db-57-g",
+            "skuName": "Dragon's Blood Bark - Grado - Wildcrafted in Honduras - 57 g",
+            "price": 22.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-db-113-g",
+            "skuName": "Dragon's Blood Bark - Grado - Wildcrafted in Honduras - 113 g",
+            "price": 36.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-db-454-g",
+            "skuName": "Dragon's Blood Bark - Grado - Wildcrafted in Honduras - 454 g",
+            "price": 72.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "duck-flower",
+        "productGroupId": "FMT-TH-DF",
+        "catalog": "Traditional Herbs",
+        "name": "Duck Flower",
+        "variants": [
+          {
+            "sku": "fmt-th-df-1-unit",
+            "skuName": "Duck Flower - Wildcrafted & Shade-Dried - 1 unit",
+            "price": 35.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-df-2-unit",
+            "skuName": "Duck Flower - Wildcrafted & Shade-Dried - 2 units",
+            "price": 60.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "eucalyptus-leaves",
+        "productGroupId": "FMT-TH-EU",
+        "catalog": "Traditional Herbs",
+        "name": "Eucalyptus Leaves",
+        "variants": [
+          {
+            "sku": "fmt-th-eu-57-g",
+            "skuName": "Eucalyptus Leaves - Hojas de Eucalipto - Wildcrafted & Shade-Dried - 57 g",
+            "price": 14.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-eu-113-g",
+            "skuName": "Eucalyptus Leaves - Hojas de Eucalipto - Wildcrafted & Shade-Dried - 113 g",
+            "price": 20.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-eu-454-g",
+            "skuName": "Eucalyptus Leaves - Hojas de Eucalipto - Wildcrafted & Shade-Dried - 454 g",
+            "price": 35.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "guaco-leaves",
+        "productGroupId": "FMT-TH-GU",
+        "catalog": "Traditional Herbs",
+        "name": "Guaco Leaves",
+        "variants": [
+          {
+            "sku": "fmt-th-gu-57-g",
+            "skuName": "Guaco Leaves - Wildcrafted & Shade-Dried - 57 g",
+            "price": 14.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-gu-113-g",
+            "skuName": "Guaco Leaves - Wildcrafted & Shade-Dried - 113 g",
+            "price": 20.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-gu-454-g",
+            "skuName": "Guaco Leaves - Wildcrafted & Shade-Dried - 454 g",
+            "price": 35.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "guava-leaves",
+        "productGroupId": "FMT-TH-GL",
+        "catalog": "Traditional Herbs",
+        "name": "Guava Leaves",
+        "variants": [
+          {
+            "sku": "fmt-th-gl-57-g",
+            "skuName": "Guava Leaves - Hojas de Guayaba - Wildcrafted & Shade-Dried - 57 g",
+            "price": 16.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-gl-113-g",
+            "skuName": "Guava Leaves - Hojas de Guayaba - Wildcrafted & Shade-Dried - 113 g",
+            "price": 25.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-gl-454-g",
+            "skuName": "Guava Leaves - Hojas de Guayaba - Wildcrafted & Shade-Dried - 454 g",
+            "price": 60.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "gumbo-limbo-bark",
+        "productGroupId": "FMT-TH-GLB",
+        "catalog": "Traditional Herbs",
+        "name": "Gumbo Limbo Bark",
+        "variants": [
+          {
+            "sku": "fmt-th-glb-57-g",
+            "skuName": "Gumbo Limbo Bark - Mulato (Indio Desnudo) - Wildcrafted - 57 g",
+            "price": 24.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-glb-113-g",
+            "skuName": "Gumbo Limbo Bark - Mulato (Indio Desnudo) - Wildcrafted - 113 g",
+            "price": 40.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-glb-454-g",
+            "skuName": "Gumbo Limbo Bark - Mulato (Indio Desnudo) - Wildcrafted - 454 g",
+            "price": 80.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "gumbo-limbo-leaves",
+        "productGroupId": "FMT-TH-AL",
+        "catalog": "Traditional Herbs",
+        "name": "Gumbo Limbo Leaves",
+        "variants": [
+          {
+            "sku": "fmt-th-al-57-g",
+            "skuName": "Gumbo Limbo Leaves - Mulato (Indio Desnudo) - Wildcrafted - 57 g",
+            "price": 30.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-al-113-g",
+            "skuName": "Gumbo Limbo Leaves - Mulato (Indio Desnudo) - Wildcrafted - 113 g",
+            "price": 50.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-al-454-g",
+            "skuName": "Gumbo Limbo Leaves - Mulato (Indio Desnudo) - Wildcrafted - 454 g",
+            "price": 100.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "hibiscus-flowers",
+        "productGroupId": "FMT-TH-HF",
+        "catalog": "Traditional Herbs",
+        "name": "Hibiscus Flowers",
+        "variants": [
+          {
+            "sku": "fmt-th-hf-57-g",
+            "skuName": "Hibiscus Flowers - Flor de Jamaica - Wildcrafted & Shade-Dried - 57 g",
+            "price": 10.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-hf-113-g",
+            "skuName": "Hibiscus Flowers - Flor de Jamaica - Wildcrafted & Shade-Dried - 113 g",
+            "price": 18.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-hf-454-g",
+            "skuName": "Hibiscus Flowers - Flor de Jamaica - Wildcrafted & Shade-Dried - 454 g",
+            "price": 36.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "jimerito",
+        "productGroupId": "FMT-SBH-JM",
+        "catalog": "Stingless Bee Honey",
+        "name": "Jimerito",
+        "variants": [
+          {
+            "sku": "fmt-sbh-jm-30-ml",
+            "skuName": "Jimerito Melipona - Raw Stingless Bee Honey - 30 ml",
+            "price": 49.99,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-sbh-jm-250-ml",
+            "skuName": "Jimerito Melipona - Raw Stingless Bee Honey - 250 ml",
+            "price": 219.99,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-sbh-jm-750-ml",
+            "skuName": "Jimerito Melipona - Raw Stingless Bee Honey - 750 ml",
+            "price": 349.99,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "kalawalla-root",
+        "productGroupId": "FMT-TH-KR",
+        "catalog": "Traditional Herbs",
+        "name": "Kalawalla Root",
+        "variants": [
+          {
+            "sku": "fmt-th-kr-57-g",
+            "skuName": "Kalawalla Root - Calaguala - Wildcrafted in Honduras - 57 g",
+            "price": 24.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-kr-113-g",
+            "skuName": "Kalawalla Root - Calaguala - Wildcrafted in Honduras - 113 g",
+            "price": 38.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-kr-454-g",
+            "skuName": "Kalawalla Root - Calaguala - Wildcrafted in Honduras - 454 g",
+            "price": 70.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "leaf-of-life-miracle-leaf",
+        "productGroupId": "FMT-TH-LV",
+        "catalog": "Traditional Herbs",
+        "name": "Leaf of Life - Miracle Leaf",
+        "variants": [
+          {
+            "sku": "fmt-th-lv-57-g",
+            "skuName": "Miracle Leaf - Kalanchoe - Wildcrafted in Honduras - 57 g",
+            "price": 20.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-lv-113-g",
+            "skuName": "Miracle Leaf - Kalanchoe - Wildcrafted in Honduras - 113 g",
+            "price": 33.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-lv-454-g",
+            "skuName": "Miracle Leaf - Kalanchoe - Wildcrafted in Honduras - 454 g",
+            "price": 66.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "lemongrass",
+        "productGroupId": "FMT-TH-LG",
+        "catalog": "Traditional Herbs",
+        "name": "Lemongrass",
+        "variants": [
+          {
+            "sku": "fmt-th-lg-57-g",
+            "skuName": "Lemongrass - Zacate de Limón - From Honduras - 57 g",
+            "price": 15.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-lg-113-g",
+            "skuName": "Lemongrass - Zacate de Limón - From Honduras - 113 g",
+            "price": 18.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-lg-454-g",
+            "skuName": "Lemongrass - Zacate de Limón - From Honduras - 454 g",
+            "price": 34.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "linden-tilia",
+        "productGroupId": "FMT-TH-TL",
+        "catalog": "Traditional Herbs",
+        "name": "Linden - Tilia",
+        "variants": [
+          {
+            "sku": "fmt-th-tl-57-g",
+            "skuName": "Linden - Tilia - Wildcrafted & Shade-Dried - 57 g",
+            "price": 16.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-tl-113-g",
+            "skuName": "Linden - Tilia - Wildcrafted & Shade-Dried - 113 g",
+            "price": 26.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-tl-454-g",
+            "skuName": "Linden - Tilia - Wildcrafted & Shade-Dried - 454 g",
+            "price": 52.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "mango-leaves",
+        "productGroupId": "FMT-TH-ML",
+        "catalog": "Traditional Herbs",
+        "name": "Mango Leaves",
+        "variants": [
+          {
+            "sku": "fmt-th-ml-57-g",
+            "skuName": "Mango Leaves - Hojas de Mango - Wildcrafted in Honduras - 57 g",
+            "price": 10.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-ml-113-g",
+            "skuName": "Mango Leaves - Hojas de Mango - Wildcrafted in Honduras - 113 g",
+            "price": 16.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-ml-454-g",
+            "skuName": "Mango Leaves - Hojas de Mango - Wildcrafted in Honduras - 454 g",
+            "price": 32.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "moringa-leaves",
+        "productGroupId": "FMT-TH-MO",
+        "catalog": "Traditional Herbs",
+        "name": "Moringa Leaves",
+        "variants": [
+          {
+            "sku": "fmt-th-mo-57-g",
+            "skuName": "Moringa Leaves - Wildcrafted & Shade-Dried - 57 g",
+            "price": 15.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-mo-113-g",
+            "skuName": "Moringa Leaves - Wildcrafted & Shade-Dried - 113 g",
+            "price": 22.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-mo-454-g",
+            "skuName": "Moringa Leaves - Wildcrafted & Shade-Dried - 454 g",
+            "price": 44.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "muicle-herb",
+        "productGroupId": "FMT-TH-MU",
+        "catalog": "Traditional Herbs",
+        "name": "Muicle Herb",
+        "variants": [
+          {
+            "sku": "fmt-th-mu-57-g",
+            "skuName": "Muicle Herb - Wildcrafted & Shade-Dried - 57 g",
+            "price": 12.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-mu-113-g",
+            "skuName": "Muicle Herb - Wildcrafted & Shade-Dried - 113 g",
+            "price": 18.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-mu-454-g",
+            "skuName": "Muicle Herb - Wildcrafted & Shade-Dried - 454 g",
+            "price": 36.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "neem-leaves",
+        "productGroupId": "FMT-TH-NM",
+        "catalog": "Traditional Herbs",
+        "name": "Neem Leaves",
+        "variants": [
+          {
+            "sku": "fmt-th-nm-57-g",
+            "skuName": "Neem Leaves - Wildcrafted & Shade-Dried - 57 g",
+            "price": 14.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-nm-113-g",
+            "skuName": "Neem Leaves - Wildcrafted & Shade-Dried - 113 g",
+            "price": 20.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-nm-454-g",
+            "skuName": "Neem Leaves - Wildcrafted & Shade-Dried - 454 g",
+            "price": 40.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "nettle-leaves",
+        "productGroupId": "FMT-TH-NL",
+        "catalog": "Traditional Herbs",
+        "name": "Nettle Leaves",
+        "variants": [
+          {
+            "sku": "fmt-th-nl-57-g",
+            "skuName": "Nettle Leaves - Ortiga - Wildcrafted & Shade-Dried - 57 g",
+            "price": 13.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-nl-113-g",
+            "skuName": "Nettle Leaves - Ortiga - Wildcrafted & Shade-Dried - 113 g",
+            "price": 19.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-nl-454-g",
+            "skuName": "Nettle Leaves - Ortiga - Wildcrafted & Shade-Dried - 454 g",
+            "price": 38.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "palo-guaco",
+        "productGroupId": "FMT-TH-PG",
+        "catalog": "Traditional Herbs",
+        "name": "Palo Guaco",
+        "variants": [
+          {
+            "sku": "fmt-th-pg-57-g",
+            "skuName": "Palo Guaco - Wildcrafted in Honduras - 57 g",
+            "price": 18.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-pg-113-g",
+            "skuName": "Palo Guaco - Wildcrafted in Honduras - 113 g",
+            "price": 25.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-pg-454-g",
+            "skuName": "Palo Guaco - Wildcrafted in Honduras - 454 g",
+            "price": 50.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "palo-santo",
+        "productGroupId": "FMT-TH-PS",
+        "catalog": "Traditional Herbs",
+        "name": "Palo Santo",
+        "variants": [
+          {
+            "sku": "fmt-th-ps-57-g",
+            "skuName": "Palo Santo - From Honduras - Wildcrafted - 57 g",
+            "price": 9.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-ps-113-g",
+            "skuName": "Palo Santo - From Honduras - Wildcrafted - 113 g",
+            "price": 15.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-ps-454-g",
+            "skuName": "Palo Santo - From Honduras - Wildcrafted - 454 g",
+            "price": 30.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "pau-darco-bark",
+        "productGroupId": "FMT-TH-PC",
+        "catalog": "Traditional Herbs",
+        "name": "Pau D'Arco Bark",
+        "variants": [
+          {
+            "sku": "fmt-th-pc-57-g",
+            "skuName": "Pau D'Arco Bark - Wildcrafted in Honduras - 57 g",
+            "price": 28.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-pc-113-g",
+            "skuName": "Pau D'Arco Bark - Wildcrafted in Honduras - 113 g",
+            "price": 40.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-pc-454-g",
+            "skuName": "Pau D'Arco Bark - Wildcrafted in Honduras - 454 g",
+            "price": 88.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "pine-needles",
+        "productGroupId": "FMT-TH-PN",
+        "catalog": "Traditional Herbs",
+        "name": "Pine Needles",
+        "variants": [
+          {
+            "sku": "fmt-th-pn-57-g",
+            "skuName": "Pine Needles - Hojas de Pino - Wildcrafted & Shade-Dried - 57 g",
+            "price": 20.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-pn-113-g",
+            "skuName": "Pine Needles - Hojas de Pino - Wildcrafted & Shade-Dried - 113 g",
+            "price": 30.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-pn-454-g",
+            "skuName": "Pine Needles - Hojas de Pino - Wildcrafted & Shade-Dried - 454 g",
+            "price": 60.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "plantain-leaf",
+        "productGroupId": "FMT-TH-PL",
+        "catalog": "Traditional Herbs",
+        "name": "Plantain Leaf",
+        "variants": [
+          {
+            "sku": "fmt-th-pl-57-g",
+            "skuName": "Plantain Leaf - Llantén - Wildcrafted in Honduras - 57 g",
+            "price": 15.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-pl-113-g",
+            "skuName": "Plantain Leaf - Llantén - Wildcrafted in Honduras - 113 g",
+            "price": 22.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-pl-454-g",
+            "skuName": "Plantain Leaf - Llantén - Wildcrafted in Honduras - 454 g",
+            "price": 44.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "possum-grape-cissus",
+        "productGroupId": "FMT-TH-CI",
+        "catalog": "Traditional Herbs",
+        "name": "Possum Grape - Cissus",
+        "variants": [
+          {
+            "sku": "fmt-th-ci-57-g",
+            "skuName": "Possum Grape - Cissus - Wildcrafted & Shade-Dried - 57 g",
+            "price": 10.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-ci-113-g",
+            "skuName": "Possum Grape - Cissus - Wildcrafted & Shade-Dried - 113 g",
+            "price": 16.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-ci-454-g",
+            "skuName": "Possum Grape - Cissus - Wildcrafted & Shade-Dried - 454 g",
+            "price": 32.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "quassia-bitter-wood",
+        "productGroupId": "FMT-TH-HG",
+        "catalog": "Traditional Herbs",
+        "name": "Quassia - Bitter Wood",
+        "variants": [
+          {
+            "sku": "fmt-th-hg-57-g",
+            "skuName": "Quassia - Bitter Wood - Hombre Grande - Wildcrafted - 57 g",
+            "price": 14.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-hg-113-g",
+            "skuName": "Quassia - Bitter Wood - Hombre Grande - Wildcrafted - 113 g",
+            "price": 20.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-hg-454-g",
+            "skuName": "Quassia - Bitter Wood - Hombre Grande - Wildcrafted - 454 g",
+            "price": 40.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "raw-batana-oil",
+        "productGroupId": "FMT-BO-RBO",
+        "catalog": "Batana Oil",
+        "name": "Raw Batana Oil",
+        "variants": [
+          {
+            "sku": "fmt-bo-rbo-60-ml",
+            "skuName": "Raw Batana Oil from La Mosquitia - Pure & Unrefined - 60 ml",
+            "price": 19.99,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-bo-rbo-120-ml",
+            "skuName": "Raw Batana Oil from La Mosquitia - Pure & Unrefined - 120 ml",
+            "price": 29.99,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-bo-rbo-1-gal",
+            "skuName": "Raw Batana Oil from La Mosquitia - Pure & Unrefined - 1 gal",
+            "price": 220.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "sarsaparilla",
+        "productGroupId": "FMT-TH-SR",
+        "catalog": "Traditional Herbs",
+        "name": "Sarsaparilla",
+        "variants": [
+          {
+            "sku": "fmt-th-sr-57-g",
+            "skuName": "Sarsaparilla - Wildcrafted in Honduras - 57 g",
+            "price": 18.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-sr-113-g",
+            "skuName": "Sarsaparilla - Wildcrafted in Honduras - 113 g",
+            "price": 28.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-sr-454-g",
+            "skuName": "Sarsaparilla - Wildcrafted in Honduras - 454 g",
+            "price": 50.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "sensitive-plant",
+        "productGroupId": "FMT-TH-DO",
+        "catalog": "Traditional Herbs",
+        "name": "Sensitive Plant",
+        "variants": [
+          {
+            "sku": "fmt-th-do-57-g",
+            "skuName": "Sensitive Plant - Dormilona - Wildcrafted & Shade-Dried - 57 g",
+            "price": 14.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-do-113-g",
+            "skuName": "Sensitive Plant - Dormilona - Wildcrafted & Shade-Dried - 113 g",
+            "price": 20.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-do-454-g",
+            "skuName": "Sensitive Plant - Dormilona - Wildcrafted & Shade-Dried - 454 g",
+            "price": 38.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "snake-plant",
+        "productGroupId": "FMT-TH-SN",
+        "catalog": "Traditional Herbs",
+        "name": "Snake Plant",
+        "variants": [
+          {
+            "sku": "fmt-th-sn-57-g",
+            "skuName": "Snake Plant - Lengua de Suegra - Wildcrafted in Honduras - 57 g",
+            "price": 9.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-sn-113-g",
+            "skuName": "Snake Plant - Lengua de Suegra - Wildcrafted in Honduras - 113 g",
+            "price": 15.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-sn-454-g",
+            "skuName": "Snake Plant - Lengua de Suegra - Wildcrafted in Honduras - 454 g",
+            "price": 30.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "soursop-leaves",
+        "productGroupId": "FMT-TH-SL",
+        "catalog": "Traditional Herbs",
+        "name": "Soursop Leaves",
+        "variants": [
+          {
+            "sku": "fmt-th-sl-57-g",
+            "skuName": "Soursop Leaves - Guanábana - Wildcrafted in Honduras - 57 g",
+            "price": 16.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-sl-113-g",
+            "skuName": "Soursop Leaves - Guanábana - Wildcrafted in Honduras - 113 g",
+            "price": 25.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-sl-454-g",
+            "skuName": "Soursop Leaves - Guanábana - Wildcrafted in Honduras - 454 g",
+            "price": 60.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "stonebreaker",
+        "productGroupId": "FMT-TH-SP",
+        "catalog": "Traditional Herbs",
+        "name": "Stonebreaker",
+        "variants": [
+          {
+            "sku": "fmt-th-sp-57-g",
+            "skuName": "Stonebreaker - Chanca Piedra - Wildcrafted & Shade-Dried - 57 g",
+            "price": 30.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-sp-113-g",
+            "skuName": "Stonebreaker - Chanca Piedra - Wildcrafted & Shade-Dried - 113 g",
+            "price": 50.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-sp-454-g",
+            "skuName": "Stonebreaker - Chanca Piedra - Wildcrafted & Shade-Dried - 454 g",
+            "price": 100.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "taro-malanga-leaf",
+        "productGroupId": "FMT-TH-MA",
+        "catalog": "Traditional Herbs",
+        "name": "Taro - Malanga Leaf",
+        "variants": [
+          {
+            "sku": "fmt-th-ma-1-unit",
+            "skuName": "Taro - Malanga Leaf - Wildcrafted & Shade-Dried - 1 unit",
+            "price": 10.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-ma-2-unit",
+            "skuName": "Taro - Malanga Leaf - Wildcrafted & Shade-Dried - 2 units",
+            "price": 18.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "thuja-cedar-leaves",
+        "productGroupId": "FMT-TH-CD",
+        "catalog": "Traditional Herbs",
+        "name": "Thuja - Cedar Leaves",
+        "variants": [
+          {
+            "sku": "fmt-th-cd-57-g",
+            "skuName": "Thuja - Cedar Leaves - Wildcrafted & Shade-Dried - 57 g",
+            "price": 20.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-cd-113-g",
+            "skuName": "Thuja - Cedar Leaves - Wildcrafted & Shade-Dried - 113 g",
+            "price": 32.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-cd-454-g",
+            "skuName": "Thuja - Cedar Leaves - Wildcrafted & Shade-Dried - 454 g",
+            "price": 66.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    },
+    {
+      "ProductGroup": {
+        "handler": "trumpet-tree-leaves",
+        "productGroupId": "FMT-TH-TT",
+        "catalog": "Traditional Herbs",
+        "name": "Trumpet Tree Leaves",
+        "variants": [
+          {
+            "sku": "fmt-th-tt-57-g",
+            "skuName": "Trumpet Tree Leaves - Guarumo - Wildcrafted in Honduras - 57 g",
+            "price": 25.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-tt-113-g",
+            "skuName": "Trumpet Tree Leaves - Guarumo - Wildcrafted in Honduras - 113 g",
+            "price": 36.0,
+            "currency": "USD",
+            "decimals": 2
+          },
+          {
+            "sku": "fmt-th-tt-454-g",
+            "skuName": "Trumpet Tree Leaves - Guarumo - Wildcrafted in Honduras - 454 g",
+            "price": 68.0,
+            "currency": "USD",
+            "decimals": 2
+          }
+        ]
+      }
+    }
+  ]
+}

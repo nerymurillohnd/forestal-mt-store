@@ -33,6 +33,6 @@ export default [
     },
   },
   {
-    ignores: ["dist/", ".astro/", "node_modules/", ".playwright-mcp/"],
+    ignores: ["dist/", ".astro/", "node_modules/", ".playwright-mcp/", "api-worker/"],
   },
 ];

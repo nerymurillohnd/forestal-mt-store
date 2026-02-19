@@ -1,0 +1,2720 @@
+{
+  "_metadata": {
+    "file": "media.json",
+    "version": "1.0.0",
+    "brand": "Forestal MT",
+    "created": "2026-02-16",
+    "lastUpdated": "2026-02-16",
+    "description": "Image assets per product. ProductGroup images, Open Graph images, and variant images.",
+    "parent": "products.json",
+    "cdnBase": "https://cdn.forestal-mt.com/products/",
+    "fields": {
+      "image": "ProductGroup main image (1200x1200 PNG)",
+      "ogImage": "Open Graph social sharing image (1200x630 PNG)",
+      "variantImages": "Per-SKU product images (1200x1200 PNG)"
+    },
+    "counts": {
+      "productGroups": 46,
+      "productGroupImages": 46,
+      "ogImages": 46,
+      "variantImages": 132,
+      "totalImages": 224
+    }
+  },
+  "products": [
+    {
+      "handler": "amaranth-greens",
+      "productGroupId": "FMT-TH-BL",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/amaranth-greens.png",
+        "alt": "Amaranth Greens - Forestal MT product image",
+        "caption": "Amaranth Greens — Shade-Dried Bledo from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/amaranth-greens.png",
+        "alt": "Pile of dried dark green amaranth greens on white background",
+        "caption": "Wildcrafted amaranth greens from Honduras - finely cut dried leaves for traditional herbal preparations",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-bl-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/amaranth-greens-57-g.png",
+          "alt": "Amaranth Greens 57 g - Forestal MT",
+          "caption": "Amaranth Greens - Bledo - Wildcrafted in Honduras - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-bl-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/amaranth-greens-113-g.png",
+          "alt": "Amaranth Greens 113 g - Forestal MT",
+          "caption": "Amaranth Greens - Bledo - Wildcrafted in Honduras - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-bl-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/amaranth-greens-454-g.png",
+          "alt": "Amaranth Greens 454 g - Forestal MT",
+          "caption": "Amaranth Greens - Bledo - Wildcrafted in Honduras - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "batana-oil-hair-conditioner",
+      "productGroupId": "FMT-BO-CO",
+      "catalog": "Batana Oil",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/batana-oil-hair-conditioner.png",
+        "alt": "Batana Oil Hair Conditioner - Forestal MT product image",
+        "caption": "Batana Oil Hair Conditioner — Miskito-Crafted from La Mosquitia, Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/batana-oil-hair-conditioner.png",
+        "alt": "Black pump bottle of Forestal MT Batana Oil Hair Conditioner with Miskito palm nut branding",
+        "caption": "Batana Oil Hair Conditioner - Pure & unrefined Elaeis oleifera kernel oil from La Mosquitia, Honduras in 500ml bottle",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-bo-co-250-ml",
+          "url": "https://cdn.forestal-mt.com/products/variants/batana-oil-hair-conditioner-250-ml.png",
+          "alt": "Batana Oil Hair Conditioner 250 ml - Forestal MT",
+          "caption": "Batana Oil Hair Conditioner from La Mosquitia - Restorative - 250 ml",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-bo-co-500-ml",
+          "url": "https://cdn.forestal-mt.com/products/variants/batana-oil-hair-conditioner-500-ml.png",
+          "alt": "Batana Oil Hair Conditioner 500 ml - Forestal MT",
+          "caption": "Batana Oil Hair Conditioner from La Mosquitia - Restorative - 500 ml",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "batana-oil-hair-wash",
+      "productGroupId": "FMT-BO-SH",
+      "catalog": "Batana Oil",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/batana-oil-hair-wash.png",
+        "alt": "Batana Oil Hair Wash - Forestal MT product image",
+        "caption": "Batana Oil Hair Wash — Miskito-Crafted from La Mosquitia, Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/batana-oil-hair-wash.png",
+        "alt": "Black pump bottle of Forestal MT Batana Oil Hair Wash with ancestral Miskito elixir branding",
+        "caption": "Batana Oil Hair Wash - Pure & unrefined Elaeis oleifera kernel oil for follicle restoration from La Mosquitia, Honduras",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-bo-sh-250-ml",
+          "url": "https://cdn.forestal-mt.com/products/variants/batana-oil-hair-wash-250-ml.png",
+          "alt": "Batana Oil Hair Wash 250 ml - Forestal MT",
+          "caption": "Batana Oil Hair Wash from La Mosquitia - Nourishing - 250 ml",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-bo-sh-500-ml",
+          "url": "https://cdn.forestal-mt.com/products/variants/batana-oil-hair-wash-500-ml.png",
+          "alt": "Batana Oil Hair Wash 500 ml - Forestal MT",
+          "caption": "Batana Oil Hair Wash from La Mosquitia - Nourishing - 500 ml",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "batana-oil-true-soap-bar",
+      "productGroupId": "FMT-BO-SB",
+      "catalog": "Batana Oil",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/batana-oil-true-soap-bar.png",
+        "alt": "Batana Oil True Soap Bar - Forestal MT product image",
+        "caption": "Batana Oil True Soap Bar — Artisanal Miskito Soap from La Mosquitia, Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/batana-oil-true-soap-bar.png",
+        "alt": "Black box packaging of Forestal MT Batana Oil Soap Bar with gold lettering and palm nut icon",
+        "caption": "Batana Oil True Soap Bar - 100% saponified Elaeis oleifera kernel oil from La Mosquitia, Honduras (2.6 oz)",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-bo-sb-100-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/batana-oil-true-soap-bar-100-g.png",
+          "alt": "Batana Oil True Soap Bar 100 g - Forestal MT",
+          "caption": "Batana Oil True Soap Bar from La Mosquitia - Artisanal - 100 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "bay-leaves",
+      "productGroupId": "FMT-TH-BY",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/bay-leaves.png",
+        "alt": "Bay Leaves - Forestal MT product image",
+        "caption": "Bay Leaves — Shade-Dried Laurel from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/bay-leaves.png",
+        "alt": "Pile of whole dried bay leaves showing natural olive-green color and characteristic oval shape",
+        "caption": "Wildcrafted bay leaves from Honduras - whole dried leaves with natural oils and aromatic properties intact",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-by-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/bay-leaves-57-g.png",
+          "alt": "Bay Leaves 57 g - Forestal MT",
+          "caption": "Bay Leaves - Hojas de Laurel - Wildcrafted & Shade-Dried - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-by-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/bay-leaves-113-g.png",
+          "alt": "Bay Leaves 113 g - Forestal MT",
+          "caption": "Bay Leaves - Hojas de Laurel - Wildcrafted & Shade-Dried - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-by-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/bay-leaves-454-g.png",
+          "alt": "Bay Leaves 454 g - Forestal MT",
+          "caption": "Bay Leaves - Hojas de Laurel - Wildcrafted & Shade-Dried - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "bitter-melon-cundeamor",
+      "productGroupId": "FMT-TH-CA",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/bitter-melon-cundeamor.png",
+        "alt": "Bitter Melon - Cundeamor - Forestal MT product image",
+        "caption": "Bitter Melon — Dried Cundeamor from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/bitter-melon-cundeamor.png",
+        "alt": "Dried bitter melon herb mix with green leaves and distinctive orange fruit pieces",
+        "caption": "Bitter Melon (Cundeamor) from Honduras - dried leaves and fruit pieces for traditional wellness preparations",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-ca-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/bitter-melon-cundeamor-57-g.png",
+          "alt": "Bitter Melon - Cundeamor 57 g - Forestal MT",
+          "caption": "Bitter Melon (Cundeamor) - Wildcrafted & Shade-Dried - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-ca-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/bitter-melon-cundeamor-113-g.png",
+          "alt": "Bitter Melon - Cundeamor 113 g - Forestal MT",
+          "caption": "Bitter Melon (Cundeamor) - Wildcrafted & Shade-Dried - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-ca-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/bitter-melon-cundeamor-454-g.png",
+          "alt": "Bitter Melon - Cundeamor 454 g - Forestal MT",
+          "caption": "Bitter Melon (Cundeamor) - Wildcrafted & Shade-Dried - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "blessed-holy-thistle",
+      "productGroupId": "FMT-TH-HT",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/blessed-holy-thistle.png",
+        "alt": "Blessed - Holy Thistle - Forestal MT product image",
+        "caption": "Blessed Holy Thistle — Shade-Dried Cardo Santo from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/blessed-holy-thistle.png",
+        "alt": "Pile of dried blessed thistle herb showing stems, leaves and flower heads in natural golden-green color",
+        "caption": "Blessed Holy Thistle from Honduras - wildcrafted dried herb with stems, leaves and flowers for traditional use",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-ht-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/blessed-holy-thistle-57-g.png",
+          "alt": "Blessed - Holy Thistle 57 g - Forestal MT",
+          "caption": "Holy Thistle - Cardo Santo - Wildcrafted & Shade-Dried - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-ht-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/blessed-holy-thistle-113-g.png",
+          "alt": "Blessed - Holy Thistle 113 g - Forestal MT",
+          "caption": "Holy Thistle - Cardo Santo - Wildcrafted & Shade-Dried - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-ht-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/blessed-holy-thistle-454-g.png",
+          "alt": "Blessed - Holy Thistle 454 g - Forestal MT",
+          "caption": "Holy Thistle - Cardo Santo - Wildcrafted & Shade-Dried - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "cassia-pods",
+      "productGroupId": "FMT-TH-CF",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/cassia-pods.png",
+        "alt": "Cassia Pods - Forestal MT product image",
+        "caption": "Cassia Pods — Shade-Dried Caña Fístula from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/cassia-pods.png",
+        "alt": "Dark brown cassia pods arranged in pile showing curved shape and visible seeds inside",
+        "caption": "Cassia Pods from Honduras - whole dried pods with natural seeds visible, traditional botanical ingredient",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-cf-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/cassia-pods-57-g.png",
+          "alt": "Cassia Pods 57 g - Forestal MT",
+          "caption": "Cassia Pods (Vainas) - Caña Fístula - Wildcrafted in Honduras - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-cf-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/cassia-pods-113-g.png",
+          "alt": "Cassia Pods 113 g - Forestal MT",
+          "caption": "Cassia Pods (Vainas) - Caña Fístula - Wildcrafted in Honduras - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-cf-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/cassia-pods-454-g.png",
+          "alt": "Cassia Pods 454 g - Forestal MT",
+          "caption": "Cassia Pods (Vainas) - Caña Fístula - Wildcrafted in Honduras - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "cats-claw",
+      "productGroupId": "FMT-TH-CC",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/cats-claw.png",
+        "alt": "Cat's Claw - Forestal MT product image",
+        "caption": "Cat's Claw — Wild-Harvested Uña de Gato from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/cats-claw.png",
+        "alt": "Pile of dried cat's claw bark pieces in natural brown tones with characteristic woody texture",
+        "caption": "Cat's Claw (Uña de Gato) bark from Honduras - wildcrafted inner bark pieces for traditional preparations",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-cc-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/cats-claw-57-g.png",
+          "alt": "Cat's Claw 57 g - Forestal MT",
+          "caption": "Cat's Claw - Uña de Gato - Wildcrafted in Honduras - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-cc-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/cats-claw-113-g.png",
+          "alt": "Cat's Claw 113 g - Forestal MT",
+          "caption": "Cat's Claw - Uña de Gato - Wildcrafted in Honduras - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-cc-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/cats-claw-454-g.png",
+          "alt": "Cat's Claw 454 g - Forestal MT",
+          "caption": "Cat's Claw - Uña de Gato - Wildcrafted in Honduras - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "cocolmeca-root",
+      "productGroupId": "FMT-TH-CR",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/cocolmeca-root.png",
+        "alt": "Cocolmeca Root - Forestal MT product image",
+        "caption": "Cocolmeca Root — Wild-Harvested Smilax from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/cocolmeca-root.png",
+        "alt": "Chunky pieces of dried cocolmeca root in reddish-brown color showing natural texture",
+        "caption": "Cocolmeca Root from Honduras - dried root chunks with traditional medicinal properties",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-cr-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/cocolmeca-root-57-g.png",
+          "alt": "Cocolmeca Root 57 g - Forestal MT",
+          "caption": "Cocolmeca Root - Cuculmeca - Wildcrafted in Honduras - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-cr-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/cocolmeca-root-113-g.png",
+          "alt": "Cocolmeca Root 113 g - Forestal MT",
+          "caption": "Cocolmeca Root - Cuculmeca - Wildcrafted in Honduras - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-cr-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/cocolmeca-root-454-g.png",
+          "alt": "Cocolmeca Root 454 g - Forestal MT",
+          "caption": "Cocolmeca Root - Cuculmeca - Wildcrafted in Honduras - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "contribo",
+      "productGroupId": "FMT-TH-CT",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/contribo.png",
+        "alt": "Contribo - Forestal MT product image",
+        "caption": "Contribo — Wild-Harvested Bejuco de Santiago from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/contribo.png",
+        "alt": "Pile of thin twisted brown contribo vine strips showing natural fibrous texture",
+        "caption": "Contribo vine from Honduras - dried strips of traditional vine used in Central American ethnobotany",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-ct-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/contribo-57-g.png",
+          "alt": "Contribo 57 g - Forestal MT",
+          "caption": "Contribo - Wildcrafted in Honduras - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-ct-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/contribo-113-g.png",
+          "alt": "Contribo 113 g - Forestal MT",
+          "caption": "Contribo - Wildcrafted in Honduras - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-ct-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/contribo-454-g.png",
+          "alt": "Contribo 454 g - Forestal MT",
+          "caption": "Contribo - Wildcrafted in Honduras - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "cows-foot-leaves",
+      "productGroupId": "FMT-TH-CW",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/cows-foot-leaves.png",
+        "alt": "Cow's Foot Leaves - Forestal MT product image",
+        "caption": "Cow's Foot Leaves — Shade-Dried Pata de Vaca from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/cows-foot-leaves.png",
+        "alt": "Dried cow's foot leaves in natural green color showing characteristic leaf shape",
+        "caption": "Cow's Foot Leaves from Honduras - wildcrafted dried leaves for traditional herbal infusions",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-cw-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/cows-foot-leaves-57-g.png",
+          "alt": "Cow's Foot Leaves 57 g - Forestal MT",
+          "caption": "Cow's Foot Leaves - Pata de Vaca - Wildcrafted - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-cw-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/cows-foot-leaves-113-g.png",
+          "alt": "Cow's Foot Leaves 113 g - Forestal MT",
+          "caption": "Cow's Foot Leaves - Pata de Vaca - Wildcrafted - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-cw-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/cows-foot-leaves-454-g.png",
+          "alt": "Cow's Foot Leaves 454 g - Forestal MT",
+          "caption": "Cow's Foot Leaves - Pata de Vaca - Wildcrafted - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "dragons-blood-bark",
+      "productGroupId": "FMT-TH-DB",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/dragons-blood-bark.png",
+        "alt": "Dragon's Blood Bark - Forestal MT product image",
+        "caption": "Dragon's Blood Bark — Wildcrafted Sangre de Grado from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/dragons-blood-bark.png",
+        "alt": "Pile of light tan dragon's blood bark strips showing natural woody texture",
+        "caption": "Dragon's Blood Bark from Honduras - dried inner bark pieces known for resinous properties",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-db-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/dragons-blood-bark-57-g.png",
+          "alt": "Dragon's Blood Bark 57 g - Forestal MT",
+          "caption": "Dragon's Blood Bark - Grado - Wildcrafted in Honduras - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-db-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/dragons-blood-bark-113-g.png",
+          "alt": "Dragon's Blood Bark 113 g - Forestal MT",
+          "caption": "Dragon's Blood Bark - Grado - Wildcrafted in Honduras - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-db-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/dragons-blood-bark-454-g.png",
+          "alt": "Dragon's Blood Bark 454 g - Forestal MT",
+          "caption": "Dragon's Blood Bark - Grado - Wildcrafted in Honduras - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "duck-flower",
+      "productGroupId": "FMT-TH-DF",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/duck-flower.png",
+        "alt": "Duck Flower - Forestal MT product image",
+        "caption": "Duck Flower — Wild Shade-Dried Flor de Pato from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/duck-flower.png",
+        "alt": "Dried duck flower petals and plant material in muted colors",
+        "caption": "Duck Flower from Honduras - traditional Caribbean botanical used in wellness preparations",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-df-1-unit",
+          "url": "https://cdn.forestal-mt.com/products/variants/duck-flower-1-unit.png",
+          "alt": "Duck Flower 1 unit - Forestal MT",
+          "caption": "Duck Flower - Wildcrafted & Shade-Dried - 1 unit",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-df-2-unit",
+          "url": "https://cdn.forestal-mt.com/products/variants/duck-flower-2-unit.png",
+          "alt": "Duck Flower 2 units - Forestal MT",
+          "caption": "Duck Flower - Wildcrafted & Shade-Dried - 2 units",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "eucalyptus-leaves",
+      "productGroupId": "FMT-TH-EU",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/eucalyptus-leaves.png",
+        "alt": "Eucalyptus Leaves - Forestal MT product image",
+        "caption": "Eucalyptus Leaves — Shade-Dried Eucalipto from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/eucalyptus-leaves.png",
+        "alt": "Pile of dried eucalyptus leaves showing characteristic elongated shape and silvery-green color",
+        "caption": "Eucalyptus Leaves from Honduras - wildcrafted whole leaves rich in natural essential oils",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-eu-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/eucalyptus-leaves-57-g.png",
+          "alt": "Eucalyptus Leaves 57 g - Forestal MT",
+          "caption": "Eucalyptus Leaves - Hojas de Eucalipto - Wildcrafted & Shade-Dried - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-eu-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/eucalyptus-leaves-113-g.png",
+          "alt": "Eucalyptus Leaves 113 g - Forestal MT",
+          "caption": "Eucalyptus Leaves - Hojas de Eucalipto - Wildcrafted & Shade-Dried - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-eu-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/eucalyptus-leaves-454-g.png",
+          "alt": "Eucalyptus Leaves 454 g - Forestal MT",
+          "caption": "Eucalyptus Leaves - Hojas de Eucalipto - Wildcrafted & Shade-Dried - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "guaco-leaves",
+      "productGroupId": "FMT-TH-GU",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/guaco-leaves.png",
+        "alt": "Guaco Leaves - Forestal MT product image",
+        "caption": "Guaco Leaves — Shade-Dried Hojas de Guaco from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/guaco-leaves.png",
+        "alt": "Dried guaco leaves showing natural green color and whole leaf structure",
+        "caption": "Guaco Leaves from Honduras - traditional respiratory wellness herb with aromatic properties",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-gu-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/guaco-leaves-57-g.png",
+          "alt": "Guaco Leaves 57 g - Forestal MT",
+          "caption": "Guaco Leaves - Wildcrafted & Shade-Dried - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-gu-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/guaco-leaves-113-g.png",
+          "alt": "Guaco Leaves 113 g - Forestal MT",
+          "caption": "Guaco Leaves - Wildcrafted & Shade-Dried - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-gu-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/guaco-leaves-454-g.png",
+          "alt": "Guaco Leaves 454 g - Forestal MT",
+          "caption": "Guaco Leaves - Wildcrafted & Shade-Dried - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "guava-leaves",
+      "productGroupId": "FMT-TH-GL",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/guava-leaves.png",
+        "alt": "Guava Leaves - Forestal MT product image",
+        "caption": "Guava Leaves — Shade-Dried Hojas de Guayaba from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/guava-leaves.png",
+        "alt": "Pile of whole dried guava leaves in natural green tone showing characteristic oval shape",
+        "caption": "Guava Leaves from Honduras - wildcrafted dried leaves from Psidium guajava for traditional preparations",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-gl-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/guava-leaves-57-g.png",
+          "alt": "Guava Leaves 57 g - Forestal MT",
+          "caption": "Guava Leaves - Hojas de Guayaba - Wildcrafted & Shade-Dried - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-gl-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/guava-leaves-113-g.png",
+          "alt": "Guava Leaves 113 g - Forestal MT",
+          "caption": "Guava Leaves - Hojas de Guayaba - Wildcrafted & Shade-Dried - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-gl-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/guava-leaves-454-g.png",
+          "alt": "Guava Leaves 454 g - Forestal MT",
+          "caption": "Guava Leaves - Hojas de Guayaba - Wildcrafted & Shade-Dried - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "gumbo-limbo-bark",
+      "productGroupId": "FMT-TH-GLB",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/gumbo-limbo-bark.png",
+        "alt": "Gumbo Limbo Bark - Forestal MT product image",
+        "caption": "Gumbo Limbo Bark — Wildcrafted Palo Mulato from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/gumbo-limbo-bark.png",
+        "alt": "Dried gumbo limbo bark pieces showing reddish-brown color and papery texture",
+        "caption": "Gumbo Limbo Bark from Honduras - traditional bark known as 'tourist tree' used in Central American ethnobotany",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-glb-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/gumbo-limbo-bark-57-g.png",
+          "alt": "Gumbo Limbo Bark 57 g - Forestal MT",
+          "caption": "Gumbo Limbo Bark - Mulato (Indio Desnudo) - Wildcrafted - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-glb-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/gumbo-limbo-bark-113-g.png",
+          "alt": "Gumbo Limbo Bark 113 g - Forestal MT",
+          "caption": "Gumbo Limbo Bark - Mulato (Indio Desnudo) - Wildcrafted - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-glb-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/gumbo-limbo-bark-454-g.png",
+          "alt": "Gumbo Limbo Bark 454 g - Forestal MT",
+          "caption": "Gumbo Limbo Bark - Mulato (Indio Desnudo) - Wildcrafted - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "gumbo-limbo-leaves",
+      "productGroupId": "FMT-TH-AL",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/gumbo-limbo-leaves.png",
+        "alt": "Gumbo Limbo Leaves - Forestal MT product image",
+        "caption": "Gumbo Limbo Leaves — Shade-Dried Palo Mulato from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/gumbo-limbo-leaves.png",
+        "alt": "Dried gumbo limbo leaves showing natural green color and compound leaf structure",
+        "caption": "Gumbo Limbo Leaves from Honduras - wildcrafted leaves from Bursera simaruba tree",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-al-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/gumbo-limbo-leaves-57-g.png",
+          "alt": "Gumbo Limbo Leaves 57 g - Forestal MT",
+          "caption": "Gumbo Limbo Leaves - Mulato (Indio Desnudo) - Wildcrafted - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-al-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/gumbo-limbo-leaves-113-g.png",
+          "alt": "Gumbo Limbo Leaves 113 g - Forestal MT",
+          "caption": "Gumbo Limbo Leaves - Mulato (Indio Desnudo) - Wildcrafted - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-al-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/gumbo-limbo-leaves-454-g.png",
+          "alt": "Gumbo Limbo Leaves 454 g - Forestal MT",
+          "caption": "Gumbo Limbo Leaves - Mulato (Indio Desnudo) - Wildcrafted - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "hibiscus-flowers",
+      "productGroupId": "FMT-TH-HF",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/hibiscus-flowers.png",
+        "alt": "Hibiscus Flowers - Forestal MT product image",
+        "caption": "Hibiscus Flowers — Wild-Harvested Flor de Jamaica from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/hibiscus-flowers.png",
+        "alt": "Large pile of deep burgundy-red dried hibiscus petals showing vibrant natural color",
+        "caption": "Hibiscus Flowers from Honduras - whole dried Hibiscus sabdariffa calyces with rich antioxidant content",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-hf-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/hibiscus-flowers-57-g.png",
+          "alt": "Hibiscus Flowers 57 g - Forestal MT",
+          "caption": "Hibiscus Flowers - Flor de Jamaica - Wildcrafted & Shade-Dried - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-hf-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/hibiscus-flowers-113-g.png",
+          "alt": "Hibiscus Flowers 113 g - Forestal MT",
+          "caption": "Hibiscus Flowers - Flor de Jamaica - Wildcrafted & Shade-Dried - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-hf-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/hibiscus-flowers-454-g.png",
+          "alt": "Hibiscus Flowers 454 g - Forestal MT",
+          "caption": "Hibiscus Flowers - Flor de Jamaica - Wildcrafted & Shade-Dried - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "jimerito",
+      "productGroupId": "FMT-SBH-JM",
+      "catalog": "Stingless Bee Honey",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/jimerito.png",
+        "alt": "Jimerito - Forestal MT product image",
+        "caption": "Jimerito — Raw Stingless Bee Honey from Olancho, Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/jimerito.png",
+        "alt": "Amber glass dropper bottle with beige label showing Jimerito Stingless Bee Honey from The Mayans Heritage",
+        "caption": "Jimerito - Pure stingless bee honey from Olancho, Honduras in 30ml amber dropper bottle, The Mayans Heritage",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-sbh-jm-30-ml",
+          "url": "https://cdn.forestal-mt.com/products/variants/jimerito-30-ml.png",
+          "alt": "Jimerito 30 ml - Forestal MT",
+          "caption": "Jimerito Melipona - Raw Stingless Bee Honey - 30 ml",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-sbh-jm-250-ml",
+          "url": "https://cdn.forestal-mt.com/products/variants/jimerito-250-ml.png",
+          "alt": "Jimerito 250 ml - Forestal MT",
+          "caption": "Jimerito Melipona - Raw Stingless Bee Honey - 250 ml",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-sbh-jm-750-ml",
+          "url": "https://cdn.forestal-mt.com/products/variants/jimerito-750-ml.png",
+          "alt": "Jimerito 750 ml - Forestal MT",
+          "caption": "Jimerito Melipona - Raw Stingless Bee Honey - 750 ml",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "kalawalla-root",
+      "productGroupId": "FMT-TH-KR",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/kalawalla-root.png",
+        "alt": "Kalawalla Root - Forestal MT product image",
+        "caption": "Kalawalla Root — Wildcrafted Calaguala from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/kalawalla-root.png",
+        "alt": "Dried kalawalla root pieces showing reddish-brown color and fibrous texture",
+        "caption": "Kalawalla Root from Honduras - traditional fern root (Polypodium leucotomos) used in ethnobotanical preparations",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-kr-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/kalawalla-root-57-g.png",
+          "alt": "Kalawalla Root 57 g - Forestal MT",
+          "caption": "Kalawalla Root - Calaguala - Wildcrafted in Honduras - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-kr-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/kalawalla-root-113-g.png",
+          "alt": "Kalawalla Root 113 g - Forestal MT",
+          "caption": "Kalawalla Root - Calaguala - Wildcrafted in Honduras - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-kr-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/kalawalla-root-454-g.png",
+          "alt": "Kalawalla Root 454 g - Forestal MT",
+          "caption": "Kalawalla Root - Calaguala - Wildcrafted in Honduras - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "leaf-of-life-miracle-leaf",
+      "productGroupId": "FMT-TH-LV",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/leaf-of-life-miracle-leaf.png",
+        "alt": "Leaf of Life - Miracle Leaf - Forestal MT product image",
+        "caption": "Leaf of Life — Shade-Dried Miracle Leaf from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/leaf-of-life-miracle-leaf.png",
+        "alt": "Dried leaf of life (miracle leaf) showing characteristic scalloped edges and green color",
+        "caption": "Leaf of Life (Miracle Leaf) from Honduras - Kalanchoe pinnata leaves known for traditional healing properties",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-lv-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/leaf-of-life-miracle-leaf-57-g.png",
+          "alt": "Leaf of Life - Miracle Leaf 57 g - Forestal MT",
+          "caption": "Miracle Leaf - Kalanchoe - Wildcrafted in Honduras - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-lv-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/leaf-of-life-miracle-leaf-113-g.png",
+          "alt": "Leaf of Life - Miracle Leaf 113 g - Forestal MT",
+          "caption": "Miracle Leaf - Kalanchoe - Wildcrafted in Honduras - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-lv-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/leaf-of-life-miracle-leaf-454-g.png",
+          "alt": "Leaf of Life - Miracle Leaf 454 g - Forestal MT",
+          "caption": "Miracle Leaf - Kalanchoe - Wildcrafted in Honduras - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "lemongrass",
+      "productGroupId": "FMT-TH-LG",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/lemongrass.png",
+        "alt": "Lemongrass - Forestal MT product image",
+        "caption": "Lemongrass — Shade-Dried Zacate de Limón from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/lemongrass.png",
+        "alt": "Dried lemongrass pieces showing natural pale green-yellow color and fibrous grass structure",
+        "caption": "Lemongrass from Honduras - wildcrafted Cymbopogon citratus with natural citrus aroma for teas and infusions",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-lg-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/lemongrass-57-g.png",
+          "alt": "Lemongrass 57 g - Forestal MT",
+          "caption": "Lemongrass - Zacate de Limón - From Honduras - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-lg-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/lemongrass-113-g.png",
+          "alt": "Lemongrass 113 g - Forestal MT",
+          "caption": "Lemongrass - Zacate de Limón - From Honduras - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-lg-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/lemongrass-454-g.png",
+          "alt": "Lemongrass 454 g - Forestal MT",
+          "caption": "Lemongrass - Zacate de Limón - From Honduras - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "linden-tilia",
+      "productGroupId": "FMT-TH-TL",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/linden-tilia.png",
+        "alt": "Linden - Tilia - Forestal MT product image",
+        "caption": "Linden Tilia — Shade-Dried Tilo Flowers from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/linden-tilia.png",
+        "alt": "Dried linden (tilia) flowers and leaves showing delicate structure and golden-green color",
+        "caption": "Linden (Tilia) from Honduras - wildcrafted flowers and leaves traditionally used for calming herbal infusions",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-tl-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/linden-tilia-57-g.png",
+          "alt": "Linden - Tilia 57 g - Forestal MT",
+          "caption": "Linden - Tilia - Wildcrafted & Shade-Dried - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-tl-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/linden-tilia-113-g.png",
+          "alt": "Linden - Tilia 113 g - Forestal MT",
+          "caption": "Linden - Tilia - Wildcrafted & Shade-Dried - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-tl-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/linden-tilia-454-g.png",
+          "alt": "Linden - Tilia 454 g - Forestal MT",
+          "caption": "Linden - Tilia - Wildcrafted & Shade-Dried - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "mango-leaves",
+      "productGroupId": "FMT-TH-ML",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/mango-leaves.png",
+        "alt": "Mango Leaves - Forestal MT product image",
+        "caption": "Mango Leaves — Shade-Dried Hojas de Mango from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/mango-leaves.png",
+        "alt": "Pile of whole dried mango leaves showing characteristic elongated shape and natural color",
+        "caption": "Mango Leaves from Honduras - wildcrafted Mangifera indica leaves for traditional wellness preparations",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-ml-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/mango-leaves-57-g.png",
+          "alt": "Mango Leaves 57 g - Forestal MT",
+          "caption": "Mango Leaves - Hojas de Mango - Wildcrafted in Honduras - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-ml-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/mango-leaves-113-g.png",
+          "alt": "Mango Leaves 113 g - Forestal MT",
+          "caption": "Mango Leaves - Hojas de Mango - Wildcrafted in Honduras - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-ml-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/mango-leaves-454-g.png",
+          "alt": "Mango Leaves 454 g - Forestal MT",
+          "caption": "Mango Leaves - Hojas de Mango - Wildcrafted in Honduras - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "moringa-leaves",
+      "productGroupId": "FMT-TH-MO",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/moringa-leaves.png",
+        "alt": "Moringa Leaves - Forestal MT product image",
+        "caption": "Moringa Leaves — Shade-Dried Hojas de Moringa from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/moringa-leaves.png",
+        "alt": "Large pile of bright green dried moringa leaf pieces showing nutrient-rich quality",
+        "caption": "Moringa Leaves from Honduras - premium dried Moringa oleifera leaves rich in vitamins and minerals",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-mo-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/moringa-leaves-57-g.png",
+          "alt": "Moringa Leaves 57 g - Forestal MT",
+          "caption": "Moringa Leaves - Wildcrafted & Shade-Dried - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-mo-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/moringa-leaves-113-g.png",
+          "alt": "Moringa Leaves 113 g - Forestal MT",
+          "caption": "Moringa Leaves - Wildcrafted & Shade-Dried - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-mo-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/moringa-leaves-454-g.png",
+          "alt": "Moringa Leaves 454 g - Forestal MT",
+          "caption": "Moringa Leaves - Wildcrafted & Shade-Dried - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "muicle-herb",
+      "productGroupId": "FMT-TH-MU",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/muicle-herb.png",
+        "alt": "Muicle Herb - Forestal MT product image",
+        "caption": "Muicle Herb — Shade-Dried Justicia Spicigera from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/muicle-herb.png",
+        "alt": "Dried muicle herb showing stems, leaves and flower parts in natural colors",
+        "caption": "Muicle Herb from Honduras - traditional Justicia spicigera plant used in Central American ethnobotany",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-mu-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/muicle-herb-57-g.png",
+          "alt": "Muicle Herb 57 g - Forestal MT",
+          "caption": "Muicle Herb - Wildcrafted & Shade-Dried - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-mu-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/muicle-herb-113-g.png",
+          "alt": "Muicle Herb 113 g - Forestal MT",
+          "caption": "Muicle Herb - Wildcrafted & Shade-Dried - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-mu-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/muicle-herb-454-g.png",
+          "alt": "Muicle Herb 454 g - Forestal MT",
+          "caption": "Muicle Herb - Wildcrafted & Shade-Dried - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "neem-leaves",
+      "productGroupId": "FMT-TH-NM",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/neem-leaves.png",
+        "alt": "Neem Leaves - Forestal MT product image",
+        "caption": "Neem Leaves — Shade-Dried Hojas de Neem from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/neem-leaves.png",
+        "alt": "Dried neem leaves showing characteristic compound leaf structure and green color",
+        "caption": "Neem Leaves from Honduras - Azadirachta indica leaves with traditional wellness applications",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-nm-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/neem-leaves-57-g.png",
+          "alt": "Neem Leaves 57 g - Forestal MT",
+          "caption": "Neem Leaves - Wildcrafted & Shade-Dried - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-nm-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/neem-leaves-113-g.png",
+          "alt": "Neem Leaves 113 g - Forestal MT",
+          "caption": "Neem Leaves - Wildcrafted & Shade-Dried - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-nm-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/neem-leaves-454-g.png",
+          "alt": "Neem Leaves 454 g - Forestal MT",
+          "caption": "Neem Leaves - Wildcrafted & Shade-Dried - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "nettle-leaves",
+      "productGroupId": "FMT-TH-NL",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/nettle-leaves.png",
+        "alt": "Nettle Leaves - Forestal MT product image",
+        "caption": "Nettle Leaves — Shade-Dried Ortiga from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/nettle-leaves.png",
+        "alt": "Dried nettle leaves showing natural green color and serrated edges",
+        "caption": "Nettle Leaves from Honduras - wildcrafted Urtica dioica rich in natural minerals and nutrients",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-nl-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/nettle-leaves-57-g.png",
+          "alt": "Nettle Leaves 57 g - Forestal MT",
+          "caption": "Nettle Leaves - Ortiga - Wildcrafted & Shade-Dried - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-nl-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/nettle-leaves-113-g.png",
+          "alt": "Nettle Leaves 113 g - Forestal MT",
+          "caption": "Nettle Leaves - Ortiga - Wildcrafted & Shade-Dried - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-nl-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/nettle-leaves-454-g.png",
+          "alt": "Nettle Leaves 454 g - Forestal MT",
+          "caption": "Nettle Leaves - Ortiga - Wildcrafted & Shade-Dried - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "palo-guaco",
+      "productGroupId": "FMT-TH-PG",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/palo-guaco.png",
+        "alt": "Palo Guaco - Forestal MT product image",
+        "caption": "Palo Guaco — Wildcrafted Mikania Vine from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/palo-guaco.png",
+        "alt": "Dried palo guaco bark and wood pieces showing natural brown woody texture",
+        "caption": "Palo Guaco from Honduras - traditional bark and wood used in Central American wellness practices",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-pg-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/palo-guaco-57-g.png",
+          "alt": "Palo Guaco 57 g - Forestal MT",
+          "caption": "Palo Guaco - Wildcrafted in Honduras - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-pg-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/palo-guaco-113-g.png",
+          "alt": "Palo Guaco 113 g - Forestal MT",
+          "caption": "Palo Guaco - Wildcrafted in Honduras - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-pg-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/palo-guaco-454-g.png",
+          "alt": "Palo Guaco 454 g - Forestal MT",
+          "caption": "Palo Guaco - Wildcrafted in Honduras - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "palo-santo",
+      "productGroupId": "FMT-TH-PS",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/palo-santo.png",
+        "alt": "Palo Santo - Forestal MT product image",
+        "caption": "Palo Santo — Wildcrafted Holy Wood from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/palo-santo.png",
+        "alt": "Palo santo wood sticks showing characteristic pale beige color and aromatic wood grain",
+        "caption": "Palo Santo from Honduras - sacred wood (Bursera graveolens) traditionally used for cleansing and aromatherapy",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-ps-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/palo-santo-57-g.png",
+          "alt": "Palo Santo 57 g - Forestal MT",
+          "caption": "Palo Santo - From Honduras - Wildcrafted - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-ps-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/palo-santo-113-g.png",
+          "alt": "Palo Santo 113 g - Forestal MT",
+          "caption": "Palo Santo - From Honduras - Wildcrafted - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-ps-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/palo-santo-454-g.png",
+          "alt": "Palo Santo 454 g - Forestal MT",
+          "caption": "Palo Santo - From Honduras - Wildcrafted - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "pau-darco-bark",
+      "productGroupId": "FMT-TH-PC",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/pau-darco-bark.png",
+        "alt": "Pau D'Arco Bark - Forestal MT product image",
+        "caption": "Pau D'Arco Bark — Wildcrafted Lapacho from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/pau-darco-bark.png",
+        "alt": "Dried pau d'arco inner bark pieces showing reddish-brown color and fibrous texture",
+        "caption": "Pau D'Arco Bark from Honduras - traditional Tabebuia impetiginosa inner bark for wellness infusions",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-pc-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/pau-darco-bark-57-g.png",
+          "alt": "Pau D'Arco Bark 57 g - Forestal MT",
+          "caption": "Pau D'Arco Bark - Wildcrafted in Honduras - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-pc-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/pau-darco-bark-113-g.png",
+          "alt": "Pau D'Arco Bark 113 g - Forestal MT",
+          "caption": "Pau D'Arco Bark - Wildcrafted in Honduras - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-pc-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/pau-darco-bark-454-g.png",
+          "alt": "Pau D'Arco Bark 454 g - Forestal MT",
+          "caption": "Pau D'Arco Bark - Wildcrafted in Honduras - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "pine-needles",
+      "productGroupId": "FMT-TH-PN",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/pine-needles.png",
+        "alt": "Pine Needles - Forestal MT product image",
+        "caption": "Pine Needles — Shade-Dried Pinus Oocarpa from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/pine-needles.png",
+        "alt": "Dried pine needles showing natural green color and characteristic needle structure",
+        "caption": "Pine Needles from Honduras - wildcrafted needles rich in vitamin C and natural antioxidants",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-pn-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/pine-needles-57-g.png",
+          "alt": "Pine Needles 57 g - Forestal MT",
+          "caption": "Pine Needles - Hojas de Pino - Wildcrafted & Shade-Dried - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-pn-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/pine-needles-113-g.png",
+          "alt": "Pine Needles 113 g - Forestal MT",
+          "caption": "Pine Needles - Hojas de Pino - Wildcrafted & Shade-Dried - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-pn-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/pine-needles-454-g.png",
+          "alt": "Pine Needles 454 g - Forestal MT",
+          "caption": "Pine Needles - Hojas de Pino - Wildcrafted & Shade-Dried - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "plantain-leaf",
+      "productGroupId": "FMT-TH-PL",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/plantain-leaf.png",
+        "alt": "Plantain Leaf - Forestal MT product image",
+        "caption": "Plantain Leaf — Shade-Dried Llantén from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/plantain-leaf.png",
+        "alt": "Dried plantain leaves showing broad leaf structure and natural green color",
+        "caption": "Plantain Leaf from Honduras - Plantago major leaves traditionally used for topical and internal wellness",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-pl-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/plantain-leaf-57-g.png",
+          "alt": "Plantain Leaf 57 g - Forestal MT",
+          "caption": "Plantain Leaf - Llantén - Wildcrafted in Honduras - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-pl-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/plantain-leaf-113-g.png",
+          "alt": "Plantain Leaf 113 g - Forestal MT",
+          "caption": "Plantain Leaf - Llantén - Wildcrafted in Honduras - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-pl-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/plantain-leaf-454-g.png",
+          "alt": "Plantain Leaf 454 g - Forestal MT",
+          "caption": "Plantain Leaf - Llantén - Wildcrafted in Honduras - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "possum-grape-cissus",
+      "productGroupId": "FMT-TH-CI",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/possum-grape-cissus.png",
+        "alt": "Possum Grape - Cissus - Forestal MT product image",
+        "caption": "Possum Grape — Shade-Dried Cissus Verticillata from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/possum-grape-cissus.png",
+        "alt": "Dried possum grape (cissus) vine and leaf material showing natural texture",
+        "caption": "Possum Grape (Cissus) from Honduras - traditional vine used in Central American ethnobotanical practices",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-ci-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/possum-grape-cissus-57-g.png",
+          "alt": "Possum Grape - Cissus 57 g - Forestal MT",
+          "caption": "Possum Grape - Cissus - Wildcrafted & Shade-Dried - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-ci-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/possum-grape-cissus-113-g.png",
+          "alt": "Possum Grape - Cissus 113 g - Forestal MT",
+          "caption": "Possum Grape - Cissus - Wildcrafted & Shade-Dried - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-ci-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/possum-grape-cissus-454-g.png",
+          "alt": "Possum Grape - Cissus 454 g - Forestal MT",
+          "caption": "Possum Grape - Cissus - Wildcrafted & Shade-Dried - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "quassia-bitter-wood",
+      "productGroupId": "FMT-TH-HG",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/quassia-bitter-wood.png",
+        "alt": "Quassia - Bitter Wood - Forestal MT product image",
+        "caption": "Quassia Bitter Wood — Wildcrafted Palo Amargo from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/quassia-bitter-wood.png",
+        "alt": "Dried quassia wood chips showing pale yellowish color and characteristic bitter wood texture",
+        "caption": "Quassia Bitter Wood from Honduras - Quassia amara wood chips known for intense bitter properties",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-hg-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/quassia-bitter-wood-57-g.png",
+          "alt": "Quassia - Bitter Wood 57 g - Forestal MT",
+          "caption": "Quassia - Bitter Wood - Hombre Grande - Wildcrafted - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-hg-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/quassia-bitter-wood-113-g.png",
+          "alt": "Quassia - Bitter Wood 113 g - Forestal MT",
+          "caption": "Quassia - Bitter Wood - Hombre Grande - Wildcrafted - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-hg-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/quassia-bitter-wood-454-g.png",
+          "alt": "Quassia - Bitter Wood 454 g - Forestal MT",
+          "caption": "Quassia - Bitter Wood - Hombre Grande - Wildcrafted - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "raw-batana-oil",
+      "productGroupId": "FMT-BO-RBO",
+      "catalog": "Batana Oil",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/raw-batana-oil.png",
+        "alt": "Raw Batana Oil - Forestal MT product image",
+        "caption": "Raw Batana Oil — Pure & Unrefined from La Mosquitia, Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/raw-batana-oil.png",
+        "alt": "Amber glass jar with silver lid containing Forestal MT Raw Batana Oil with Miskito traditional design",
+        "caption": "Raw Batana Oil - 100% pure Elaeis oleifera kernel oil from La Mosquitia, Honduras - Ancestral Miskito Elixir in amber glass jar",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-bo-rbo-60-ml",
+          "url": "https://cdn.forestal-mt.com/products/variants/raw-batana-oil-60-ml.png",
+          "alt": "Raw Batana Oil 60 ml - Forestal MT",
+          "caption": "Raw Batana Oil — 60 ml (2 oz)",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-bo-rbo-120-ml",
+          "url": "https://cdn.forestal-mt.com/products/variants/raw-batana-oil-120-ml.png",
+          "alt": "Raw Batana Oil 120 ml - Forestal MT",
+          "caption": "Raw Batana Oil — 120 ml (4 oz)",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-bo-rbo-1-gal",
+          "url": "https://cdn.forestal-mt.com/products/variants/raw-batana-oil-1-gal.png",
+          "alt": "Raw Batana Oil 1 gal - Forestal MT",
+          "caption": "Raw Batana Oil — 1 Gallon",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "sarsaparilla",
+      "productGroupId": "FMT-TH-SR",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/sarsaparilla.png",
+        "alt": "Sarsaparilla - Forestal MT product image",
+        "caption": "Sarsaparilla — Wild-Harvested Zarzaparrilla Root from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/sarsaparilla.png",
+        "alt": "Dried sarsaparilla root pieces showing dark reddish-brown color and fibrous root texture",
+        "caption": "Sarsaparilla Root from Honduras - traditional Smilax ornata root used in Central American wellness preparations",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-sr-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/sarsaparilla-57-g.png",
+          "alt": "Sarsaparilla 57 g - Forestal MT",
+          "caption": "Sarsaparilla - Wildcrafted in Honduras - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-sr-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/sarsaparilla-113-g.png",
+          "alt": "Sarsaparilla 113 g - Forestal MT",
+          "caption": "Sarsaparilla - Wildcrafted in Honduras - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-sr-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/sarsaparilla-454-g.png",
+          "alt": "Sarsaparilla 454 g - Forestal MT",
+          "caption": "Sarsaparilla - Wildcrafted in Honduras - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "sensitive-plant",
+      "productGroupId": "FMT-TH-DO",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/sensitive-plant.png",
+        "alt": "Sensitive Plant - Forestal MT product image",
+        "caption": "Sensitive Plant — Shade-Dried Dormilona from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/sensitive-plant.png",
+        "alt": "Dried sensitive plant (Mimosa pudica) showing delicate leaf and stem structure",
+        "caption": "Sensitive Plant from Honduras - Mimosa pudica leaves and stems traditionally used in ethnobotanical practices",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-do-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/sensitive-plant-57-g.png",
+          "alt": "Sensitive Plant 57 g - Forestal MT",
+          "caption": "Sensitive Plant - Dormilona - Wildcrafted & Shade-Dried - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-do-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/sensitive-plant-113-g.png",
+          "alt": "Sensitive Plant 113 g - Forestal MT",
+          "caption": "Sensitive Plant - Dormilona - Wildcrafted & Shade-Dried - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-do-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/sensitive-plant-454-g.png",
+          "alt": "Sensitive Plant 454 g - Forestal MT",
+          "caption": "Sensitive Plant - Dormilona - Wildcrafted & Shade-Dried - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "snake-plant",
+      "productGroupId": "FMT-TH-SN",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/snake-plant.png",
+        "alt": "Snake Plant - Forestal MT product image",
+        "caption": "Snake Plant — Shade-Dried Lengua de Suegra from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/snake-plant.png",
+        "alt": "Dried snake plant material showing characteristic fibrous texture",
+        "caption": "Snake Plant from Honduras - traditional botanical material used in Central American wellness preparations",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-sn-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/snake-plant-57-g.png",
+          "alt": "Snake Plant 57 g - Forestal MT",
+          "caption": "Snake Plant - Lengua de Suegra - Wildcrafted in Honduras - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-sn-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/snake-plant-113-g.png",
+          "alt": "Snake Plant 113 g - Forestal MT",
+          "caption": "Snake Plant - Lengua de Suegra - Wildcrafted in Honduras - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-sn-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/snake-plant-454-g.png",
+          "alt": "Snake Plant 454 g - Forestal MT",
+          "caption": "Snake Plant - Lengua de Suegra - Wildcrafted in Honduras - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "soursop-leaves",
+      "productGroupId": "FMT-TH-SL",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/soursop-leaves.png",
+        "alt": "Soursop Leaves - Forestal MT product image",
+        "caption": "Soursop Leaves — Shade-Dried Hojas de Guanábana from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/soursop-leaves.png",
+        "alt": "Pile of whole green soursop leaves showing glossy surface and characteristic oval shape",
+        "caption": "Soursop Leaves from Honduras - Annona muricata leaves known for traditional wellness applications",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-sl-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/soursop-leaves-57-g.png",
+          "alt": "Soursop Leaves 57 g - Forestal MT",
+          "caption": "Soursop Leaves - Guanábana - Wildcrafted in Honduras - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-sl-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/soursop-leaves-113-g.png",
+          "alt": "Soursop Leaves 113 g - Forestal MT",
+          "caption": "Soursop Leaves - Guanábana - Wildcrafted in Honduras - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-sl-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/soursop-leaves-454-g.png",
+          "alt": "Soursop Leaves 454 g - Forestal MT",
+          "caption": "Soursop Leaves - Guanábana - Wildcrafted in Honduras - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "stonebreaker",
+      "productGroupId": "FMT-TH-SP",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/stonebreaker.png",
+        "alt": "Stonebreaker - Forestal MT product image",
+        "caption": "Stonebreaker — Shade-Dried Chanca Piedra from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/stonebreaker.png",
+        "alt": "Dried stonebreaker (Chanca Piedra) herb showing delicate stems and small leaves",
+        "caption": "Stonebreaker (Chanca Piedra) from Honduras - Phyllanthus niruri whole plant traditionally used for wellness",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-sp-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/stonebreaker-57-g.png",
+          "alt": "Stonebreaker 57 g - Forestal MT",
+          "caption": "Stonebreaker - Chanca Piedra - Wildcrafted & Shade-Dried - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-sp-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/stonebreaker-113-g.png",
+          "alt": "Stonebreaker 113 g - Forestal MT",
+          "caption": "Stonebreaker - Chanca Piedra - Wildcrafted & Shade-Dried - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-sp-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/stonebreaker-454-g.png",
+          "alt": "Stonebreaker 454 g - Forestal MT",
+          "caption": "Stonebreaker - Chanca Piedra - Wildcrafted & Shade-Dried - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "taro-malanga-leaf",
+      "productGroupId": "FMT-TH-MA",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/taro-malanga-leaf.png",
+        "alt": "Taro - Malanga Leaf - Forestal MT product image",
+        "caption": "Taro Malanga Leaf — Shade-Dried Hoja de Malanga from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/taro-malanga-leaf.png",
+        "alt": "Dried taro (malanga) leaves showing broad leaf structure and natural color",
+        "caption": "Taro (Malanga) Leaf from Honduras - traditional Colocasia esculenta leaves used in Central American practices",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-ma-1-unit",
+          "url": "https://cdn.forestal-mt.com/products/variants/taro-malanga-leaf-1-unit.png",
+          "alt": "Taro - Malanga Leaf 1 unit - Forestal MT",
+          "caption": "Taro - Malanga Leaf - Wildcrafted & Shade-Dried - 1 unit",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-ma-2-unit",
+          "url": "https://cdn.forestal-mt.com/products/variants/taro-malanga-leaf-2-unit.png",
+          "alt": "Taro - Malanga Leaf 2 units - Forestal MT",
+          "caption": "Taro - Malanga Leaf - Wildcrafted & Shade-Dried - 2 units",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "thuja-cedar-leaves",
+      "productGroupId": "FMT-TH-CD",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/thuja-cedar-leaves.png",
+        "alt": "Thuja - Cedar Leaves - Forestal MT product image",
+        "caption": "Thuja Cedar Leaves — Shade-Dried Tree of Life from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/thuja-cedar-leaves.png",
+        "alt": "Dried thuja cedar leaves showing scale-like foliage and natural green color",
+        "caption": "Thuja Cedar Leaves from Honduras - aromatic Thuja occidentalis foliage for traditional preparations",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-cd-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/thuja-cedar-leaves-57-g.png",
+          "alt": "Thuja - Cedar Leaves 57 g - Forestal MT",
+          "caption": "Thuja - Cedar Leaves - Wildcrafted & Shade-Dried - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-cd-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/thuja-cedar-leaves-113-g.png",
+          "alt": "Thuja - Cedar Leaves 113 g - Forestal MT",
+          "caption": "Thuja - Cedar Leaves - Wildcrafted & Shade-Dried - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-cd-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/thuja-cedar-leaves-454-g.png",
+          "alt": "Thuja - Cedar Leaves 454 g - Forestal MT",
+          "caption": "Thuja - Cedar Leaves - Wildcrafted & Shade-Dried - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "handler": "trumpet-tree-leaves",
+      "productGroupId": "FMT-TH-TT",
+      "catalog": "Traditional Herbs",
+      "image": {
+        "url": "https://cdn.forestal-mt.com/products/productGroup/trumpet-tree-leaves.png",
+        "alt": "Trumpet Tree Leaves - Forestal MT product image",
+        "caption": "Trumpet Tree Leaves — Shade-Dried Guarumo from Honduras",
+        "width": 1200,
+        "height": 1200,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "ogImage": {
+        "url": "https://cdn.forestal-mt.com/products/og/trumpet-tree-leaves.png",
+        "alt": "Dried trumpet tree leaves showing natural green color and whole leaf structure",
+        "caption": "Trumpet Tree Leaves from Honduras - Cecropia peltata leaves traditionally used in Central American ethnobotany",
+        "width": 1200,
+        "height": 630,
+        "encodingFormat": "image/png",
+        "creator": "Forestal Murillo Tejada S. de R.L.",
+        "uploadedDate": "2026-02-16"
+      },
+      "variantImages": [
+        {
+          "sku": "fmt-th-tt-57-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/trumpet-tree-leaves-57-g.png",
+          "alt": "Trumpet Tree Leaves 57 g - Forestal MT",
+          "caption": "Trumpet Tree Leaves - Guarumo - Wildcrafted in Honduras - 57 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-tt-113-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/trumpet-tree-leaves-113-g.png",
+          "alt": "Trumpet Tree Leaves 113 g - Forestal MT",
+          "caption": "Trumpet Tree Leaves - Guarumo - Wildcrafted in Honduras - 113 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        },
+        {
+          "sku": "fmt-th-tt-454-g",
+          "url": "https://cdn.forestal-mt.com/products/variants/trumpet-tree-leaves-454-g.png",
+          "alt": "Trumpet Tree Leaves 454 g - Forestal MT",
+          "caption": "Trumpet Tree Leaves - Guarumo - Wildcrafted in Honduras - 454 g",
+          "width": 1200,
+          "height": 1200,
+          "encodingFormat": "image/png",
+          "creator": "Forestal Murillo Tejada S. de R.L.",
+          "uploadedDate": "2026-02-16"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1526 @@
+{
+  "_metadata": {
+    "file": "products.json",
+    "version": "1.0.0",
+    "brand": "Forestal MT",
+    "created": "2026-02-14",
+    "lastUpdated": "2026-02-16",
+    "description": "Central product catalog. All ProductGroups, variants, and catalog assignments.",
+    "counts": {
+      "catalogs": 3,
+      "productGroups": 46,
+      "variants": 132
+    },
+    "suite": {
+      "pricing": "pricing.json",
+      "seo": "seo.json",
+      "media": "media.json",
+      "inventory": "inventory.json",
+      "content": "content.json"
+    }
+  },
+  "catalogs": {
+    "batana-oil": {
+      "name": "Batana Oil",
+      "slug": "batana-oil",
+      "url": "https://forestal-mt.com/batana-oil/",
+      "product_count": 4
+    },
+    "stingless-bee-honey": {
+      "name": "Stingless Bee Honey",
+      "slug": "stingless-bee-honey",
+      "url": "https://forestal-mt.com/stingless-bee-honey/",
+      "product_count": 1
+    },
+    "traditional-herbs": {
+      "name": "Traditional Herbs",
+      "slug": "traditional-herbs",
+      "url": "https://forestal-mt.com/traditional-herbs/",
+      "product_count": 41
+    }
+  },
+  "products": [
+    {
+      "handler": "amaranth-greens",
+      "productGroupId": "FMT-TH-BL",
+      "name": "Amaranth Greens",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Amaranthus spp.",
+      "url": "https://forestal-mt.com/products/amaranth-greens/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "15.00",
+        "high": "44.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-bl-57-g",
+          "name": "Amaranth Greens - Bledo - Wildcrafted in Honduras - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-bl-113-g",
+          "name": "Amaranth Greens - Bledo - Wildcrafted in Honduras - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-bl-454-g",
+          "name": "Amaranth Greens - Bledo - Wildcrafted in Honduras - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "batana-oil-hair-conditioner",
+      "productGroupId": "FMT-BO-CO",
+      "name": "Batana Oil Hair Conditioner",
+      "catalog": "Batana Oil",
+      "botanical_name": "Elaeis oleifera",
+      "url": "https://forestal-mt.com/products/batana-oil-hair-conditioner/",
+      "variant_count": 2,
+      "price_range_usd": {
+        "low": "24.99",
+        "high": "34.99"
+      },
+      "variants": [
+        {
+          "sku": "fmt-bo-co-250-ml",
+          "name": "Batana Oil Hair Conditioner from La Mosquitia - Restorative - 250 ml",
+          "size": "250 ml | 8.5 fl oz",
+          "weight_kg": 0.25
+        },
+        {
+          "sku": "fmt-bo-co-500-ml",
+          "name": "Batana Oil Hair Conditioner from La Mosquitia - Restorative - 500 ml",
+          "size": "500 ml | 16.9 fl oz",
+          "weight_kg": 0.485
+        }
+      ]
+    },
+    {
+      "handler": "batana-oil-hair-wash",
+      "productGroupId": "FMT-BO-SH",
+      "name": "Batana Oil Hair Wash",
+      "catalog": "Batana Oil",
+      "botanical_name": "Elaeis oleifera",
+      "url": "https://forestal-mt.com/products/batana-oil-hair-wash/",
+      "variant_count": 2,
+      "price_range_usd": {
+        "low": "24.99",
+        "high": "34.99"
+      },
+      "variants": [
+        {
+          "sku": "fmt-bo-sh-250-ml",
+          "name": "Batana Oil Hair Wash from La Mosquitia - Nourishing - 250 ml",
+          "size": "250 ml | 8.5 fl oz",
+          "weight_kg": 0.25
+        },
+        {
+          "sku": "fmt-bo-sh-500-ml",
+          "name": "Batana Oil Hair Wash from La Mosquitia - Nourishing - 500 ml",
+          "size": "500 ml | 16.9 fl oz",
+          "weight_kg": 0.485
+        }
+      ]
+    },
+    {
+      "handler": "batana-oil-true-soap-bar",
+      "productGroupId": "FMT-BO-SB",
+      "name": "Batana Oil True Soap Bar",
+      "catalog": "Batana Oil",
+      "botanical_name": "Elaeis oleifera",
+      "url": "https://forestal-mt.com/products/batana-oil-true-soap-bar/",
+      "variant_count": 1,
+      "price_range_usd": {
+        "low": "19.99",
+        "high": "19.99"
+      },
+      "variants": [
+        {
+          "sku": "fmt-bo-sb-100-g",
+          "name": "Batana Oil True Soap Bar from La Mosquitia - Artisanal - 100 g",
+          "size": "100 g | 3.5 oz",
+          "weight_kg": 0.13
+        }
+      ]
+    },
+    {
+      "handler": "bay-leaves",
+      "productGroupId": "FMT-TH-BY",
+      "name": "Bay Leaves",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Laurus nobilis",
+      "url": "https://forestal-mt.com/products/bay-leaves/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "10.00",
+        "high": "32.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-by-57-g",
+          "name": "Bay Leaves - Hojas de Laurel - Wildcrafted & Shade-Dried - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-by-113-g",
+          "name": "Bay Leaves - Hojas de Laurel - Wildcrafted & Shade-Dried - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-by-454-g",
+          "name": "Bay Leaves - Hojas de Laurel - Wildcrafted & Shade-Dried - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "bitter-melon-cundeamor",
+      "productGroupId": "FMT-TH-CA",
+      "name": "Bitter Melon - Cundeamor",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Momordica charantia",
+      "url": "https://forestal-mt.com/products/bitter-melon-cundeamor/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "10.00",
+        "high": "32.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-ca-57-g",
+          "name": "Bitter Melon (Cundeamor) - Wildcrafted & Shade-Dried - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-ca-113-g",
+          "name": "Bitter Melon (Cundeamor) - Wildcrafted & Shade-Dried - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-ca-454-g",
+          "name": "Bitter Melon (Cundeamor) - Wildcrafted & Shade-Dried - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "blessed-holy-thistle",
+      "productGroupId": "FMT-TH-HT",
+      "name": "Blessed - Holy Thistle",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Cnicus benedictus",
+      "url": "https://forestal-mt.com/products/blessed-holy-thistle/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "17.00",
+        "high": "45.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-ht-57-g",
+          "name": "Holy Thistle - Cardo Santo - Wildcrafted & Shade-Dried - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-ht-113-g",
+          "name": "Holy Thistle - Cardo Santo - Wildcrafted & Shade-Dried - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-ht-454-g",
+          "name": "Holy Thistle - Cardo Santo - Wildcrafted & Shade-Dried - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "cassia-pods",
+      "productGroupId": "FMT-TH-CF",
+      "name": "Cassia Pods",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Cassia fistula",
+      "url": "https://forestal-mt.com/products/cassia-pods/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "8.00",
+        "high": "28.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-cf-57-g",
+          "name": "Cassia Pods (Vainas) - Caña Fístula - Wildcrafted in Honduras - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-cf-113-g",
+          "name": "Cassia Pods (Vainas) - Caña Fístula - Wildcrafted in Honduras - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-cf-454-g",
+          "name": "Cassia Pods (Vainas) - Caña Fístula - Wildcrafted in Honduras - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "cats-claw",
+      "productGroupId": "FMT-TH-CC",
+      "name": "Cat's Claw",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Uncaria tomentosa",
+      "url": "https://forestal-mt.com/products/cats-claw/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "18.00",
+        "high": "50.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-cc-57-g",
+          "name": "Cat's Claw - Uña de Gato - Wildcrafted in Honduras - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-cc-113-g",
+          "name": "Cat's Claw - Uña de Gato - Wildcrafted in Honduras - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-cc-454-g",
+          "name": "Cat's Claw - Uña de Gato - Wildcrafted in Honduras - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "cocolmeca-root",
+      "productGroupId": "FMT-TH-CR",
+      "name": "Cocolmeca Root",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Smilax spp.",
+      "url": "https://forestal-mt.com/products/cocolmeca-root/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "20.00",
+        "high": "60.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-cr-57-g",
+          "name": "Cocolmeca Root - Cuculmeca - Wildcrafted in Honduras - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-cr-113-g",
+          "name": "Cocolmeca Root - Cuculmeca - Wildcrafted in Honduras - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-cr-454-g",
+          "name": "Cocolmeca Root - Cuculmeca - Wildcrafted in Honduras - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "contribo",
+      "productGroupId": "FMT-TH-CT",
+      "name": "Contribo",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Aristolochia spp.",
+      "url": "https://forestal-mt.com/products/contribo/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "20.00",
+        "high": "60.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-ct-57-g",
+          "name": "Contribo - Wildcrafted in Honduras - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-ct-113-g",
+          "name": "Contribo - Wildcrafted in Honduras - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-ct-454-g",
+          "name": "Contribo - Wildcrafted in Honduras - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "cows-foot-leaves",
+      "productGroupId": "FMT-TH-CW",
+      "name": "Cow's Foot Leaves",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Bauhinia spp.",
+      "url": "https://forestal-mt.com/products/cows-foot-leaves/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "10.00",
+        "high": "36.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-cw-57-g",
+          "name": "Cow's Foot Leaves - Pata de Vaca - Wildcrafted - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-cw-113-g",
+          "name": "Cow's Foot Leaves - Pata de Vaca - Wildcrafted - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-cw-454-g",
+          "name": "Cow's Foot Leaves - Pata de Vaca - Wildcrafted - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "dragons-blood-bark",
+      "productGroupId": "FMT-TH-DB",
+      "name": "Dragon's Blood Bark",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Croton spp.",
+      "url": "https://forestal-mt.com/products/dragons-blood-bark/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "22.00",
+        "high": "72.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-db-57-g",
+          "name": "Dragon's Blood Bark - Grado - Wildcrafted in Honduras - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-db-113-g",
+          "name": "Dragon's Blood Bark - Grado - Wildcrafted in Honduras - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-db-454-g",
+          "name": "Dragon's Blood Bark - Grado - Wildcrafted in Honduras - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "duck-flower",
+      "productGroupId": "FMT-TH-DF",
+      "name": "Duck Flower",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Aristolochia grandiflora",
+      "url": "https://forestal-mt.com/products/duck-flower/",
+      "variant_count": 2,
+      "price_range_usd": {
+        "low": "35.00",
+        "high": "60.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-df-1-unit",
+          "name": "Duck Flower - Wildcrafted & Shade-Dried - 1 unit",
+          "size": "1 unit | 1 flower",
+          "weight_kg": 0.006
+        },
+        {
+          "sku": "fmt-th-df-2-unit",
+          "name": "Duck Flower - Wildcrafted & Shade-Dried - 2 units",
+          "size": "2 unit | 2 flowers",
+          "weight_kg": 0.008
+        }
+      ]
+    },
+    {
+      "handler": "eucalyptus-leaves",
+      "productGroupId": "FMT-TH-EU",
+      "name": "Eucalyptus Leaves",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Eucalyptus globulus",
+      "url": "https://forestal-mt.com/products/eucalyptus-leaves/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "14.00",
+        "high": "35.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-eu-57-g",
+          "name": "Eucalyptus Leaves - Hojas de Eucalipto - Wildcrafted & Shade-Dried - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-eu-113-g",
+          "name": "Eucalyptus Leaves - Hojas de Eucalipto - Wildcrafted & Shade-Dried - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-eu-454-g",
+          "name": "Eucalyptus Leaves - Hojas de Eucalipto - Wildcrafted & Shade-Dried - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "guaco-leaves",
+      "productGroupId": "FMT-TH-GU",
+      "name": "Guaco Leaves",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Mikania spp.",
+      "url": "https://forestal-mt.com/products/guaco-leaves/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "14.00",
+        "high": "35.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-gu-57-g",
+          "name": "Guaco Leaves - Wildcrafted & Shade-Dried - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-gu-113-g",
+          "name": "Guaco Leaves - Wildcrafted & Shade-Dried - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-gu-454-g",
+          "name": "Guaco Leaves - Wildcrafted & Shade-Dried - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "guava-leaves",
+      "productGroupId": "FMT-TH-GL",
+      "name": "Guava Leaves",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Psidium guajava",
+      "url": "https://forestal-mt.com/products/guava-leaves/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "16.00",
+        "high": "60.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-gl-57-g",
+          "name": "Guava Leaves - Hojas de Guayaba - Wildcrafted & Shade-Dried - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-gl-113-g",
+          "name": "Guava Leaves - Hojas de Guayaba - Wildcrafted & Shade-Dried - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-gl-454-g",
+          "name": "Guava Leaves - Hojas de Guayaba - Wildcrafted & Shade-Dried - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "gumbo-limbo-bark",
+      "productGroupId": "FMT-TH-GLB",
+      "name": "Gumbo Limbo Bark",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Bursera simaruba",
+      "url": "https://forestal-mt.com/products/gumbo-limbo-bark/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "24.00",
+        "high": "80.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-glb-57-g",
+          "name": "Gumbo Limbo Bark - Mulato (Indio Desnudo) - Wildcrafted - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-glb-113-g",
+          "name": "Gumbo Limbo Bark - Mulato (Indio Desnudo) - Wildcrafted - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-glb-454-g",
+          "name": "Gumbo Limbo Bark - Mulato (Indio Desnudo) - Wildcrafted - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "gumbo-limbo-leaves",
+      "productGroupId": "FMT-TH-AL",
+      "name": "Gumbo Limbo Leaves",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Bursera simaruba",
+      "url": "https://forestal-mt.com/products/gumbo-limbo-leaves/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "30.00",
+        "high": "100.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-al-57-g",
+          "name": "Gumbo Limbo Leaves - Mulato (Indio Desnudo) - Wildcrafted - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-al-113-g",
+          "name": "Gumbo Limbo Leaves - Mulato (Indio Desnudo) - Wildcrafted - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-al-454-g",
+          "name": "Gumbo Limbo Leaves - Mulato (Indio Desnudo) - Wildcrafted - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "hibiscus-flowers",
+      "productGroupId": "FMT-TH-HF",
+      "name": "Hibiscus Flowers",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Hibiscus sabdariffa",
+      "url": "https://forestal-mt.com/products/hibiscus-flowers/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "10.00",
+        "high": "36.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-hf-57-g",
+          "name": "Hibiscus Flowers - Flor de Jamaica - Wildcrafted & Shade-Dried - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-hf-113-g",
+          "name": "Hibiscus Flowers - Flor de Jamaica - Wildcrafted & Shade-Dried - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-hf-454-g",
+          "name": "Hibiscus Flowers - Flor de Jamaica - Wildcrafted & Shade-Dried - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "jimerito",
+      "productGroupId": "FMT-SBH-JM",
+      "name": "Jimerito",
+      "catalog": "Stingless Bee Honey",
+      "botanical_name": "Tetragonisca angustula",
+      "url": "https://forestal-mt.com/products/jimerito/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "49.99",
+        "high": "349.99"
+      },
+      "variants": [
+        {
+          "sku": "fmt-sbh-jm-30-ml",
+          "name": "Jimerito Melipona - Raw Stingless Bee Honey - 30 ml",
+          "size": "30 ml | 1 fl oz",
+          "weight_kg": 0.08
+        },
+        {
+          "sku": "fmt-sbh-jm-250-ml",
+          "name": "Jimerito Melipona - Raw Stingless Bee Honey - 250 ml",
+          "size": "250 ml | 8.5 fl oz",
+          "weight_kg": 0.45
+        },
+        {
+          "sku": "fmt-sbh-jm-750-ml",
+          "name": "Jimerito Melipona - Raw Stingless Bee Honey - 750 ml",
+          "size": "750 ml | 25.4 fl oz",
+          "weight_kg": 1.15
+        }
+      ]
+    },
+    {
+      "handler": "kalawalla-root",
+      "productGroupId": "FMT-TH-KR",
+      "name": "Kalawalla Root",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Polypodium leucotomos",
+      "url": "https://forestal-mt.com/products/kalawalla-root/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "24.00",
+        "high": "70.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-kr-57-g",
+          "name": "Kalawalla Root - Calaguala - Wildcrafted in Honduras - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-kr-113-g",
+          "name": "Kalawalla Root - Calaguala - Wildcrafted in Honduras - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-kr-454-g",
+          "name": "Kalawalla Root - Calaguala - Wildcrafted in Honduras - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "leaf-of-life-miracle-leaf",
+      "productGroupId": "FMT-TH-LV",
+      "name": "Leaf of Life - Miracle Leaf",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Kalanchoe pinnata",
+      "url": "https://forestal-mt.com/products/leaf-of-life-miracle-leaf/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "20.00",
+        "high": "66.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-lv-57-g",
+          "name": "Miracle Leaf - Kalanchoe - Wildcrafted in Honduras - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-lv-113-g",
+          "name": "Miracle Leaf - Kalanchoe - Wildcrafted in Honduras - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-lv-454-g",
+          "name": "Miracle Leaf - Kalanchoe - Wildcrafted in Honduras - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "lemongrass",
+      "productGroupId": "FMT-TH-LG",
+      "name": "Lemongrass",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Cymbopogon citratus",
+      "url": "https://forestal-mt.com/products/lemongrass/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "15.00",
+        "high": "34.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-lg-57-g",
+          "name": "Lemongrass - Zacate de Limón - From Honduras - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-lg-113-g",
+          "name": "Lemongrass - Zacate de Limón - From Honduras - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-lg-454-g",
+          "name": "Lemongrass - Zacate de Limón - From Honduras - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "linden-tilia",
+      "productGroupId": "FMT-TH-TL",
+      "name": "Linden - Tilia",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Tilia spp.",
+      "url": "https://forestal-mt.com/products/linden-tilia/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "16.00",
+        "high": "52.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-tl-57-g",
+          "name": "Linden - Tilia - Wildcrafted & Shade-Dried - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-tl-113-g",
+          "name": "Linden - Tilia - Wildcrafted & Shade-Dried - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-tl-454-g",
+          "name": "Linden - Tilia - Wildcrafted & Shade-Dried - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "mango-leaves",
+      "productGroupId": "FMT-TH-ML",
+      "name": "Mango Leaves",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Mangifera indica",
+      "url": "https://forestal-mt.com/products/mango-leaves/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "10.00",
+        "high": "32.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-ml-57-g",
+          "name": "Mango Leaves - Hojas de Mango - Wildcrafted in Honduras - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-ml-113-g",
+          "name": "Mango Leaves - Hojas de Mango - Wildcrafted in Honduras - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-ml-454-g",
+          "name": "Mango Leaves - Hojas de Mango - Wildcrafted in Honduras - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "moringa-leaves",
+      "productGroupId": "FMT-TH-MO",
+      "name": "Moringa Leaves",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Moringa oleifera",
+      "url": "https://forestal-mt.com/products/moringa-leaves/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "15.00",
+        "high": "44.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-mo-57-g",
+          "name": "Moringa Leaves - Wildcrafted & Shade-Dried - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-mo-113-g",
+          "name": "Moringa Leaves - Wildcrafted & Shade-Dried - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-mo-454-g",
+          "name": "Moringa Leaves - Wildcrafted & Shade-Dried - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "muicle-herb",
+      "productGroupId": "FMT-TH-MU",
+      "name": "Muicle Herb",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Justicia spicigera",
+      "url": "https://forestal-mt.com/products/muicle-herb/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "12.00",
+        "high": "36.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-mu-57-g",
+          "name": "Muicle Herb - Wildcrafted & Shade-Dried - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-mu-113-g",
+          "name": "Muicle Herb - Wildcrafted & Shade-Dried - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-mu-454-g",
+          "name": "Muicle Herb - Wildcrafted & Shade-Dried - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "neem-leaves",
+      "productGroupId": "FMT-TH-NM",
+      "name": "Neem Leaves",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Azadirachta indica",
+      "url": "https://forestal-mt.com/products/neem-leaves/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "14.00",
+        "high": "40.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-nm-57-g",
+          "name": "Neem Leaves - Wildcrafted & Shade-Dried - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-nm-113-g",
+          "name": "Neem Leaves - Wildcrafted & Shade-Dried - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-nm-454-g",
+          "name": "Neem Leaves - Wildcrafted & Shade-Dried - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "nettle-leaves",
+      "productGroupId": "FMT-TH-NL",
+      "name": "Nettle Leaves",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Urtica dioica",
+      "url": "https://forestal-mt.com/products/nettle-leaves/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "13.00",
+        "high": "38.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-nl-57-g",
+          "name": "Nettle Leaves - Ortiga - Wildcrafted & Shade-Dried - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-nl-113-g",
+          "name": "Nettle Leaves - Ortiga - Wildcrafted & Shade-Dried - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-nl-454-g",
+          "name": "Nettle Leaves - Ortiga - Wildcrafted & Shade-Dried - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "palo-guaco",
+      "productGroupId": "FMT-TH-PG",
+      "name": "Palo Guaco",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Mikania spp.",
+      "url": "https://forestal-mt.com/products/palo-guaco/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "18.00",
+        "high": "50.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-pg-57-g",
+          "name": "Palo Guaco - Wildcrafted in Honduras - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-pg-113-g",
+          "name": "Palo Guaco - Wildcrafted in Honduras - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-pg-454-g",
+          "name": "Palo Guaco - Wildcrafted in Honduras - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "palo-santo",
+      "productGroupId": "FMT-TH-PS",
+      "name": "Palo Santo",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Bursera graveolens",
+      "url": "https://forestal-mt.com/products/palo-santo/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "9.00",
+        "high": "30.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-ps-57-g",
+          "name": "Palo Santo - From Honduras - Wildcrafted - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-ps-113-g",
+          "name": "Palo Santo - From Honduras - Wildcrafted - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-ps-454-g",
+          "name": "Palo Santo - From Honduras - Wildcrafted - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "pau-darco-bark",
+      "productGroupId": "FMT-TH-PC",
+      "name": "Pau D'Arco Bark",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Tabebuia spp.",
+      "url": "https://forestal-mt.com/products/pau-darco-bark/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "28.00",
+        "high": "88.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-pc-57-g",
+          "name": "Pau D'Arco Bark - Wildcrafted in Honduras - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-pc-113-g",
+          "name": "Pau D'Arco Bark - Wildcrafted in Honduras - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-pc-454-g",
+          "name": "Pau D'Arco Bark - Wildcrafted in Honduras - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "pine-needles",
+      "productGroupId": "FMT-TH-PN",
+      "name": "Pine Needles",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Pinus spp.",
+      "url": "https://forestal-mt.com/products/pine-needles/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "20.00",
+        "high": "60.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-pn-57-g",
+          "name": "Pine Needles - Hojas de Pino - Wildcrafted & Shade-Dried - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-pn-113-g",
+          "name": "Pine Needles - Hojas de Pino - Wildcrafted & Shade-Dried - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-pn-454-g",
+          "name": "Pine Needles - Hojas de Pino - Wildcrafted & Shade-Dried - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "plantain-leaf",
+      "productGroupId": "FMT-TH-PL",
+      "name": "Plantain Leaf",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Plantago major",
+      "url": "https://forestal-mt.com/products/plantain-leaf/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "15.00",
+        "high": "44.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-pl-57-g",
+          "name": "Plantain Leaf - Llantén - Wildcrafted in Honduras - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-pl-113-g",
+          "name": "Plantain Leaf - Llantén - Wildcrafted in Honduras - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-pl-454-g",
+          "name": "Plantain Leaf - Llantén - Wildcrafted in Honduras - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "possum-grape-cissus",
+      "productGroupId": "FMT-TH-CI",
+      "name": "Possum Grape - Cissus",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Cissus verticillata",
+      "url": "https://forestal-mt.com/products/possum-grape-cissus/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "10.00",
+        "high": "32.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-ci-57-g",
+          "name": "Possum Grape - Cissus - Wildcrafted & Shade-Dried - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-ci-113-g",
+          "name": "Possum Grape - Cissus - Wildcrafted & Shade-Dried - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-ci-454-g",
+          "name": "Possum Grape - Cissus - Wildcrafted & Shade-Dried - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "quassia-bitter-wood",
+      "productGroupId": "FMT-TH-HG",
+      "name": "Quassia - Bitter Wood",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Quassia amara",
+      "url": "https://forestal-mt.com/products/quassia-bitter-wood/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "14.00",
+        "high": "40.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-hg-57-g",
+          "name": "Quassia - Bitter Wood - Hombre Grande - Wildcrafted - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-hg-113-g",
+          "name": "Quassia - Bitter Wood - Hombre Grande - Wildcrafted - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-hg-454-g",
+          "name": "Quassia - Bitter Wood - Hombre Grande - Wildcrafted - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "raw-batana-oil",
+      "productGroupId": "FMT-BO-RBO",
+      "name": "Raw Batana Oil",
+      "catalog": "Batana Oil",
+      "botanical_name": "Elaeis oleifera",
+      "url": "https://forestal-mt.com/products/raw-batana-oil/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "19.99",
+        "high": "220.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-bo-rbo-60-ml",
+          "name": "Raw Batana Oil from La Mosquitia - Pure & Unrefined - 60 ml",
+          "size": "60 ml | 2 fl oz",
+          "weight_kg": 0.069
+        },
+        {
+          "sku": "fmt-bo-rbo-120-ml",
+          "name": "Raw Batana Oil from La Mosquitia - Pure & Unrefined - 120 ml",
+          "size": "120 ml | 4 fl oz",
+          "weight_kg": 0.128
+        },
+        {
+          "sku": "fmt-bo-rbo-1-gal",
+          "name": "Raw Batana Oil from La Mosquitia - Pure & Unrefined - 1 gal",
+          "size": "1 gal | 3.33 kg",
+          "weight_kg": 3.527
+        }
+      ]
+    },
+    {
+      "handler": "sarsaparilla",
+      "productGroupId": "FMT-TH-SR",
+      "name": "Sarsaparilla",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Smilax spp.",
+      "url": "https://forestal-mt.com/products/sarsaparilla/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "18.00",
+        "high": "50.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-sr-57-g",
+          "name": "Sarsaparilla - Wildcrafted in Honduras - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-sr-113-g",
+          "name": "Sarsaparilla - Wildcrafted in Honduras - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-sr-454-g",
+          "name": "Sarsaparilla - Wildcrafted in Honduras - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "sensitive-plant",
+      "productGroupId": "FMT-TH-DO",
+      "name": "Sensitive Plant",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Mimosa pudica",
+      "url": "https://forestal-mt.com/products/sensitive-plant/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "14.00",
+        "high": "38.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-do-57-g",
+          "name": "Sensitive Plant - Dormilona - Wildcrafted & Shade-Dried - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-do-113-g",
+          "name": "Sensitive Plant - Dormilona - Wildcrafted & Shade-Dried - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-do-454-g",
+          "name": "Sensitive Plant - Dormilona - Wildcrafted & Shade-Dried - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "snake-plant",
+      "productGroupId": "FMT-TH-SN",
+      "name": "Snake Plant",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Sansevieria trifasciata",
+      "url": "https://forestal-mt.com/products/snake-plant/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "9.00",
+        "high": "30.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-sn-57-g",
+          "name": "Snake Plant - Lengua de Suegra - Wildcrafted in Honduras - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-sn-113-g",
+          "name": "Snake Plant - Lengua de Suegra - Wildcrafted in Honduras - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-sn-454-g",
+          "name": "Snake Plant - Lengua de Suegra - Wildcrafted in Honduras - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "soursop-leaves",
+      "productGroupId": "FMT-TH-SL",
+      "name": "Soursop Leaves",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Annona muricata",
+      "url": "https://forestal-mt.com/products/soursop-leaves/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "16.00",
+        "high": "60.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-sl-57-g",
+          "name": "Soursop Leaves - Guanábana - Wildcrafted in Honduras - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-sl-113-g",
+          "name": "Soursop Leaves - Guanábana - Wildcrafted in Honduras - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-sl-454-g",
+          "name": "Soursop Leaves - Guanábana - Wildcrafted in Honduras - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "stonebreaker",
+      "productGroupId": "FMT-TH-SP",
+      "name": "Stonebreaker",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Phyllanthus niruri",
+      "url": "https://forestal-mt.com/products/stonebreaker/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "30.00",
+        "high": "100.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-sp-57-g",
+          "name": "Stonebreaker - Chanca Piedra - Wildcrafted & Shade-Dried - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-sp-113-g",
+          "name": "Stonebreaker - Chanca Piedra - Wildcrafted & Shade-Dried - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-sp-454-g",
+          "name": "Stonebreaker - Chanca Piedra - Wildcrafted & Shade-Dried - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "taro-malanga-leaf",
+      "productGroupId": "FMT-TH-MA",
+      "name": "Taro - Malanga Leaf",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Colocasia esculenta",
+      "url": "https://forestal-mt.com/products/taro-malanga-leaf/",
+      "variant_count": 2,
+      "price_range_usd": {
+        "low": "10.00",
+        "high": "18.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-ma-1-unit",
+          "name": "Taro - Malanga Leaf - Wildcrafted & Shade-Dried - 1 unit",
+          "size": "1 unit | 1 leaf",
+          "weight_kg": 0.006
+        },
+        {
+          "sku": "fmt-th-ma-2-unit",
+          "name": "Taro - Malanga Leaf - Wildcrafted & Shade-Dried - 2 units",
+          "size": "2 unit | 2 leaves",
+          "weight_kg": 0.008
+        }
+      ]
+    },
+    {
+      "handler": "thuja-cedar-leaves",
+      "productGroupId": "FMT-TH-CD",
+      "name": "Thuja - Cedar Leaves",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Thuja spp.",
+      "url": "https://forestal-mt.com/products/thuja-cedar-leaves/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "20.00",
+        "high": "66.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-cd-57-g",
+          "name": "Thuja - Cedar Leaves - Wildcrafted & Shade-Dried - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-cd-113-g",
+          "name": "Thuja - Cedar Leaves - Wildcrafted & Shade-Dried - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-cd-454-g",
+          "name": "Thuja - Cedar Leaves - Wildcrafted & Shade-Dried - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    },
+    {
+      "handler": "trumpet-tree-leaves",
+      "productGroupId": "FMT-TH-TT",
+      "name": "Trumpet Tree Leaves",
+      "catalog": "Traditional Herbs",
+      "botanical_name": "Cecropia spp.",
+      "url": "https://forestal-mt.com/products/trumpet-tree-leaves/",
+      "variant_count": 3,
+      "price_range_usd": {
+        "low": "25.00",
+        "high": "68.00"
+      },
+      "variants": [
+        {
+          "sku": "fmt-th-tt-57-g",
+          "name": "Trumpet Tree Leaves - Guarumo - Wildcrafted in Honduras - 57 g",
+          "size": "57 g | 2 oz",
+          "weight_kg": 0.062
+        },
+        {
+          "sku": "fmt-th-tt-113-g",
+          "name": "Trumpet Tree Leaves - Guarumo - Wildcrafted in Honduras - 113 g",
+          "size": "113 g | 4 oz",
+          "weight_kg": 0.119
+        },
+        {
+          "sku": "fmt-th-tt-454-g",
+          "name": "Trumpet Tree Leaves - Guarumo - Wildcrafted in Honduras - 454 g",
+          "size": "454 g | 16 oz",
+          "weight_kg": 0.462
+        }
+      ]
+    }
+  ]
+}
