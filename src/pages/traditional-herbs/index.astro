@@ -16,10 +16,20 @@ import CollectionNav from "../../components/CollectionNav.astro";
 import TrustMarquee from "../../components/TrustMarquee.astro";
 import HerbScrollIsland from "../../components/islands/HerbScrollIsland.tsx";
 import { getEntry } from "astro:content";
+import productsFile from "../../data/jsonld/products/products.json";
+import mediaFile from "../../data/jsonld/products/media.json";
 
 const page = await getEntry("pages", "traditional-herbs");
 if (!page) throw new Error("Missing content: pages/traditional-herbs");
 const { data } = page;
+
+// Build SKU → image URL map from product data
+const mediaMap = new Map(mediaFile.products.map((m) => [m.handler, m.image.url]));
+const skuToImage = new Map(
+  productsFile.products
+    .filter((p) => p.catalog === "Traditional Herbs")
+    .map((p) => [p.productGroupId, mediaMap.get(p.handler) ?? ""]),
+);
 
 const herbs = [
   {
@@ -494,7 +504,10 @@ const sustainability = [
     </div>
 
     <div class="mt-16">
-      <HerbScrollIsland client:visible herbs={herbs} />
+      <HerbScrollIsland
+        client:visible
+        herbs={herbs.map((h) => ({ ...h, image: skuToImage.get(h.sku) ?? "" }))}
+      />
     </div>
   </section>
 

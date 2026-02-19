@@ -10,6 +10,7 @@ interface Herb {
   localName?: string;
   sku: string;
   description: string;
+  image?: string;
 }
 
 interface Props {
@@ -142,21 +143,21 @@ export default function HerbScrollIsland({ herbs }: Props) {
             class="min-w-[280px] max-w-[280px] shrink-0 border-l-[2px] border-gold/30 bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.04)] select-none"
             role="listitem"
           >
-            {/* Placeholder image area */}
-            <div class="aspect-[4/3] rounded-[2px] bg-soft-silver mb-4 flex items-center justify-center">
-              <svg
-                class="h-10 w-10 text-charcoal/10"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="0.5"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
+            <div class="aspect-[4/3] rounded-[2px] bg-parchment mb-4 overflow-hidden">
+              {herb.image ? (
+                <img
+                  src={`/cdn-cgi/image/width=280,format=webp/${herb.image}`}
+                  alt={herb.name}
+                  width={280}
+                  height={210}
+                  class="h-full w-full object-contain"
+                  loading="lazy"
                 />
-              </svg>
+              ) : (
+                <div class="flex h-full items-center justify-center">
+                  <span class="text-charcoal/10 text-xs">No image</span>
+                </div>
+              )}
             </div>
 
             <h3
