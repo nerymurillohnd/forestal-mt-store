@@ -39,6 +39,13 @@ export default [
     },
   },
   {
-    ignores: ["dist/", ".astro/", "node_modules/", ".playwright-mcp/", "api-worker/"],
+    ignores: [
+      "dist/",
+      ".astro/",
+      "node_modules/",
+      ".playwright-mcp/",
+      "api-worker/",
+      ".worktrees/",
+    ],
   },
 ];
