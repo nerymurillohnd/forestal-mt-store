@@ -433,7 +433,7 @@ pnpm is the sole package manager. Installed as a standalone binary (`@pnpm/exe`)
 
 - uses: actions/setup-node@v4
   with:
-    node-version: 22
+    node-version: 24
     cache: "pnpm"
 
 - run: pnpm install --frozen-lockfile
@@ -447,14 +447,16 @@ pnpm is the sole package manager. Installed as a standalone binary (`@pnpm/exe`)
 
 ### GitHub Actions
 
-| Stage           | Trigger        | Actions                                                |
-| --------------- | -------------- | ------------------------------------------------------ |
-| **Lint**        | Push, PR       | ESLint, Prettier, Astro check                          |
-| **Build**       | Push, PR       | `astro build` — validates SSG pages, checks types      |
-| **E2E Tests**   | Push, PR       | Playwright against local build (Chromium)              |
-| **E2E Preview** | PR only        | Playwright against Cloudflare Pages preview deployment |
-| **Lighthouse**  | Push, PR       | Lighthouse CI (performance >= 90, SEO >= 95)           |
-| **Deploy**      | Push to `main` | Cloudflare Pages deployment via `wrangler`             |
+Cloudflare Pages auto-deploy is **disabled**. GH Actions `wrangler pages deploy` (Direct Upload) is the sole deploy path. All quality gates must pass before production deployment.
+
+| Stage                    | Trigger        | Actions                                                               |
+| ------------------------ | -------------- | --------------------------------------------------------------------- |
+| **1. Lint**              | Push, PR       | ESLint (with jsx-a11y for islands), Prettier, Astro check             |
+| **2. Build**             | Push, PR       | `astro build` — validates SSG pages, uploads Sentry source maps       |
+| **3. E2E Tests**         | Push, PR       | Playwright against local build — 17 pages, axe-core a11y on all       |
+| **4. Lighthouse**        | Push, PR       | Lighthouse CI against localhost (3 runs, 8 URLs, desktop preset)      |
+| **5. Deploy**            | Push to `main` | `wrangler pages deploy` — only runs if stages 1-4 pass                |
+| **6. Lighthouse (Prod)** | Push to `main` | Lighthouse CI against production URLs (continue-on-error, monitoring) |
 
 ### Playwright (E2E Testing)
 
@@ -467,34 +469,48 @@ Functional end-to-end testing via `@playwright/test`. Validates that pages rende
 | CDP integration   | Native `CDPSession` API — performance metrics, network emulation, JS coverage |
 | Visual regression | Screenshot comparison with `toHaveScreenshot()`                               |
 | Browsers          | Chromium (CI), Firefox + WebKit (local)                                       |
-| Preview testing   | Tests run against Cloudflare Pages preview URLs via `PLAYWRIGHT_BASE_URL`     |
+| CI testing        | Tests run against localhost build via `PLAYWRIGHT_BASE_URL`                   |
 | Hydration         | Wait for Astro island hydration before interacting with Preact components     |
 
 **CDP (Chrome DevTools Protocol)** is built into Playwright — no separate plugin. Provides `Performance.getMetrics`, network condition emulation (slow 3G), JavaScript coverage analysis, and HAR recording. Only works with Chromium.
 
-**Testing product pages:** Tests run against Cloudflare Pages preview deployments (real R2 CDN). For local development, `pnpm preview` runs `wrangler pages dev`. When SSR is activated for future pages, D1/KV bindings will be available via `platformProxy`.
+**Testing product pages:** E2E tests run against a local static server (`serve@14`) serving the built `dist/`. For local development with CF bindings, `pnpm preview` runs `wrangler pages dev`. When SSR is activated for future pages, D1/KV bindings will be available via `platformProxy`.
 
 ### Lighthouse CI
 
-Automated performance and SEO audits on every PR via `@lhci/cli`. Scores below threshold block merge. GitHub App integration posts score comments on PRs.
+Two Lighthouse configurations:
+
+| Config                        | Target     | Runs | Gate?                | URLs |
+| ----------------------------- | ---------- | ---- | -------------------- | ---- |
+| `lighthouserc.cjs`            | localhost  | 3    | Yes — blocks deploy  | 8    |
+| `lighthouserc.production.cjs` | production | 3    | No — monitoring only | 8    |
+
+GitHub App integration posts score comments on PRs. Production Lighthouse runs post-deploy with `continue-on-error: true`.
 
 **Playwright and Lighthouse CI are complementary:**
 
 - **Lighthouse CI** = quality gate for aggregate scores (performance, SEO, accessibility, best practices)
-- **Playwright** = functional validation (pages render, interactions work, SSR returns data, visual regressions detected)
+- **Playwright** = functional validation (pages render, interactions work, structured data present, a11y passes)
 
 ### Deploy Flow
 
 ```
-Push to main → GitHub Actions → Lint → Build → E2E Tests → Lighthouse → Deploy
-                                                                          ↓
-                                                                forestal-mt.com
+Push to main → Lint → Build → E2E (17 pages) → Lighthouse (localhost)
+                                                       │
+                                                  All pass?
+                                                       │
+                                              YES ─────┴───── NO → Pipeline fails, no deploy
+                                                       │
+                                              wrangler pages deploy
+                                                       │
+                                              forestal-mt.com updated
+                                                       │
+                                              Lighthouse (production) ← monitoring, never blocks
 
-PR → Build → Deploy Preview → E2E against preview URL
-                             → Lighthouse against preview URL
+PR to main → Same stages 1-4 run. No deploy. No preview deploys.
 ```
 
-Preview deployments on PRs via Cloudflare Pages branch previews. Playwright and Lighthouse run against the preview URL to validate before merge.
+CF Pages auto-deploy and preview deploys are **disabled**. All deploys go through GH Actions quality gates.
 
 ---
 

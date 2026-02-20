@@ -22,10 +22,10 @@ Copies of the main spec docs live in this repo root for quick reference:
 
 This repo is a pnpm workspace with two packages:
 
-| Package             | Directory     | Deployment                                                    |
-| ------------------- | ------------- | ------------------------------------------------------------- |
-| `forestal-mt-store` | `/` (root)    | Cloudflare Pages — auto-deploys on push to `main`             |
-| `fmt-ecommerce-api` | `api-worker/` | Cloudflare Worker — manual (`pnpm deploy:prod` or GH Actions) |
+| Package             | Directory     | Deployment                                                     |
+| ------------------- | ------------- | -------------------------------------------------------------- |
+| `forestal-mt-store` | `/` (root)    | Cloudflare Pages — deploys via GH Actions after all gates pass |
+| `fmt-ecommerce-api` | `api-worker/` | Cloudflare Worker — manual (`pnpm deploy:prod` or GH Actions)  |
 
 Shared lockfile (`pnpm-lock.yaml`) at root. Both packages have their own `CLAUDE.md`.
 
@@ -57,10 +57,11 @@ pnpm format           # Prettier write
 pnpm format:check     # Prettier check (CI)
 pnpm test:e2e         # Playwright end-to-end tests
 pnpm test:e2e:ui      # Playwright with interactive UI
-pnpm lighthouse       # Lighthouse CI audit (requires built dist/)
+pnpm lighthouse       # Lighthouse CI audit (localhost, requires built dist/)
+pnpm lighthouse:prod  # Lighthouse CI audit (production URLs)
 ```
 
-**CI gates:** `pnpm format:check`, `pnpm lint`, and `pnpm build` all run in GitHub Actions. Any failure blocks deploy.
+**CI gates (6 stages):** Lint (ESLint + Prettier + Astro check) → Build → E2E (17 pages) → Lighthouse (localhost) → Deploy (`wrangler pages deploy`) → Lighthouse (production, monitoring only). Any failure in stages 1-4 blocks deploy. CF Pages auto-deploy is **disabled** — GH Actions is the sole deploy path.
 
 **Local quality protocol (Husky enforced):**
 
@@ -80,7 +81,7 @@ pnpm lighthouse       # Lighthouse CI audit (requires built dist/)
 | CSS             | Tailwind CSS 4+       | `@tailwindcss/vite` plugin (NOT `@astrojs/tailwind`, NOT PostCSS)           |
 | SSR adapter     | `@astrojs/cloudflare` | `platformProxy: { enabled: true }` for local D1/KV/R2                       |
 | Package manager | pnpm 10+ standalone   | `"packageManager": "pnpm@10.29.3"` in package.json                          |
-| Hosting         | Cloudflare Pages      | Project: `forestal-mt-store`, auto-deploy on push to main                   |
+| Hosting         | Cloudflare Pages      | Project: `forestal-mt-store`, deploy gated by GH Actions CI                 |
 | Database        | Cloudflare D1         | Binding: `DB` → `fmt-products-database` (pending — SSR not yet enabled)     |
 | Object storage  | Cloudflare R2         | Binding: `R2` → `assets` bucket, CDN: `cdn.forestal-mt.com`                 |
 | Sessions        | Cloudflare KV         | Binding: `SESSION` → namespace `SESSION` (pending)                          |
