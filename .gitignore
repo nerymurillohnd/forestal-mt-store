@@ -37,6 +37,10 @@ playwright-report/
 # playwright mcp
 .playwright-mcp/
 
+# git worktrees
+.worktrees/
+worktrees/
+
 # screenshots (temp visual testing)
 *.png
 !public/**/*.png
