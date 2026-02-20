@@ -30,6 +30,12 @@ interface Props {
     id: string;
     mode?: string;
   }>;
+  preloadHints?: Array<{
+    href: string;
+    as: "image" | "video" | "font" | "script" | "style";
+    type?: string;
+    crossorigin?: boolean;
+  }>;
 }
 
 const {
@@ -41,6 +47,7 @@ const {
   og,
   twitter,
   schemas,
+  preloadHints = [],
 } = Astro.props;
 
 const jsonLdString = buildPageGraph(schemas, {
@@ -52,6 +59,18 @@ const jsonLdString = buildPageGraph(schemas, {
 ---
 
 <meta charset="utf-8" />
+
+{
+  preloadHints.map((hint) => (
+    <link
+      rel="preload"
+      href={hint.href}
+      as={hint.as}
+      type={hint.type}
+      crossorigin={hint.crossorigin ? "" : undefined}
+    />
+  ))
+}
 
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="index, follow" />

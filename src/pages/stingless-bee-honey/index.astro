@@ -15,10 +15,16 @@ import AudienceWholesaleSplit from "../../components/AudienceWholesaleSplit.astr
 import CollectionNav from "../../components/CollectionNav.astro";
 import TrustMarquee from "../../components/TrustMarquee.astro";
 import { getEntry } from "astro:content";
+import { getStreamPoster } from "../../data/stream-videos";
 
 const page = await getEntry("pages", "stingless-bee-honey");
 if (!page) throw new Error("Missing content: pages/stingless-bee-honey");
 const { data } = page;
+
+const heroPosterSrc =
+  data.hero.background?.type === "video"
+    ? getStreamPoster(data.hero.background.stream, 1920, 1080)
+    : null;
 
 const origin = {
   origin: "Honduran rainforests",
@@ -147,6 +153,7 @@ const originMetadata = Object.entries(origin).map(([key, value]) => ({
     og={data.og}
     twitter={data.twitter}
     schemas={data.schemas}
+    preloadHints={heroPosterSrc ? [{ href: heroPosterSrc, as: "image" }] : []}
   />
 
   {

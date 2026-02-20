@@ -13,10 +13,16 @@ import GoldTopCard from "../components/GoldTopCard.astro";
 import TrustMarquee from "../components/TrustMarquee.astro";
 import OriginPulseIsland from "../components/islands/OriginPulseIsland.tsx";
 import { getEntry } from "astro:content";
+import { getStreamPoster } from "../data/stream-videos";
 
 const page = await getEntry("pages", "/");
 if (!page) throw new Error("Missing content: pages/home");
 const { data } = page;
+
+const heroPosterSrc =
+  data.hero.background?.type === "video"
+    ? getStreamPoster(data.hero.background.stream, 1920, 1080)
+    : null;
 
 /* ── Section data extracted from MDX content ──────────────────── */
 
@@ -79,6 +85,7 @@ const commitments = [
     og={data.og}
     twitter={data.twitter}
     schemas={data.schemas}
+    preloadHints={heroPosterSrc ? [{ href: heroPosterSrc, as: "image" }] : []}
   />
 
   {

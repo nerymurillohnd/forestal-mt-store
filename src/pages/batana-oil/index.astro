@@ -19,10 +19,16 @@ import TrustMarquee from "../../components/TrustMarquee.astro";
 import ImpactBarIsland from "../../components/islands/ImpactBarIsland";
 import BatanaBenefitsIsland from "../../components/islands/BatanaBenefitsIsland";
 import { getEntry } from "astro:content";
+import { getStreamPoster } from "../../data/stream-videos";
 
 const page = await getEntry("pages", "batana-oil");
 if (!page) throw new Error("Missing content: pages/batana-oil");
 const { data } = page;
+
+const heroPosterSrc =
+  data.hero.background?.type === "video"
+    ? getStreamPoster(data.hero.background.stream, 1920, 1080)
+    : null;
 
 import mediaFile from "../../data/jsonld/products/media.json";
 
@@ -273,6 +279,7 @@ const reviews = [
     og={data.og}
     twitter={data.twitter}
     schemas={data.schemas}
+    preloadHints={heroPosterSrc ? [{ href: heroPosterSrc, as: "image" }] : []}
   />
 
   {
