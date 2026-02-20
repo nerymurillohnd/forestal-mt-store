@@ -125,7 +125,8 @@ export default function HerbScrollIsland({ herbs }: Props) {
         </svg>
       </button>
 
-      {/* Scrollable container */}
+      {/* Scrollable container — drag-to-scroll is progressive enhancement; prev/next buttons provide accessible navigation */}
+      {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
       <div
         ref={scrollRef}
         class="scroll-snap-x flex gap-4 px-2 pb-4 lg:px-8"

@@ -9,6 +9,12 @@ const LIVE_PAGES = [
   { path: "/traditional-herbs/", title: "Traditional Herbs" },
   { path: "/contact/", title: "Contact" },
   { path: "/wholesale/", title: "Wholesale" },
+  { path: "/community/", title: "Community" },
+  { path: "/community/faqs/", title: "FAQ" },
+  { path: "/community/blog/", title: "Blog" },
+  { path: "/community/testimonials/", title: "Testimonials" },
+  { path: "/community/docs/", title: "Documentation" },
+  { path: "/products/", title: "Products" },
   { path: "/terms/", title: "Terms" },
   { path: "/privacy/", title: "Privacy" },
   { path: "/disclaimer/", title: "Disclaimer" },
@@ -48,7 +54,7 @@ test.describe("SEO essentials", () => {
 });
 
 test.describe("Accessibility — axe-core", () => {
-  for (const page of LIVE_PAGES.slice(0, 4)) {
+  for (const page of LIVE_PAGES) {
     test(`${page.path} has no critical a11y violations`, async ({ page: p }) => {
       await p.goto(page.path);
       const results = await new AxeBuilder({ page: p }).withTags(["wcag2a", "wcag2aa"]).analyze();

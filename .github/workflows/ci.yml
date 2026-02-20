@@ -84,7 +84,7 @@ jobs:
           name: dist
           path: dist/
       - name: Start static server
-        run: npx -y serve dist -l 4321 &
+        run: npx -y serve@14 dist -l 4321 &
       - name: Wait for server
         run: npx -y wait-on http://localhost:4321 --timeout 30000
       - name: Run E2E tests
@@ -149,6 +149,27 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+  # ── Stage 6: Lighthouse (Production) ──────────────────────────
+  lighthouse-prod:
+    name: Lighthouse (Production)
+    needs: deploy
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Wait for CDN propagation
+        run: sleep 60
+      - name: Lighthouse CI (Production)
+        run: pnpm lighthouse:prod
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 
   # ── Claude Auto-Fix (on failure) ──────────────────────────────
   claude-fix:

@@ -1,7 +1,7 @@
 name = "forestal-mt-store"
 pages_build_output_dir = "dist"
 compatibility_flags = ["nodejs_compat"]
-compatibility_date = "2024-09-23"
+compatibility_date = "2026-02-19"
 
 # Sentry auto-detects Cloudflare Pages deployment version
 [version_metadata]
