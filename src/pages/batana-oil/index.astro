@@ -1,18 +1,23 @@
 ---
 /**
- * BATANA OIL — Catalog Landing Page
- * Botanical Field Journal aesthetic. MDX content as DATA.
+ * BATANA OIL — Catalog Landing Page (Full Redesign)
+ * Editorial documentary experience: National Geographic × premium beauty × ethnobotanical journal.
+ * 13 sections. 7 authentic origin photos. Hard authority data. Miskito partnership narrative.
  */
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Head from "../../components/Head.astro";
 import Breadcrumb from "../../components/Breadcrumb.astro";
 import Hero from "../../components/Hero.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
+import BotanicalSection from "../../components/BotanicalSection.astro";
 import OriginChapter from "../../components/OriginChapter.astro";
-import ProcessFlow from "../../components/ProcessFlow.astro";
+import SplitEditorial from "../../components/SplitEditorial.astro";
+import PullQuote from "../../components/PullQuote.astro";
 import AudienceWholesaleSplit from "../../components/AudienceWholesaleSplit.astro";
 import CollectionNav from "../../components/CollectionNav.astro";
 import TrustMarquee from "../../components/TrustMarquee.astro";
+import ImpactBarIsland from "../../components/islands/ImpactBarIsland";
+import BatanaBenefitsIsland from "../../components/islands/BatanaBenefitsIsland";
 import { getEntry } from "astro:content";
 
 const page = await getEntry("pages", "batana-oil");
@@ -21,6 +26,7 @@ const { data } = page;
 
 import mediaFile from "../../data/jsonld/products/media.json";
 
+const CDN = "https://cdn.forestal-mt.com";
 const mediaMap = new Map(mediaFile.products.map((m) => [m.handler, m.image.url]));
 
 const products = [
@@ -58,32 +64,42 @@ const products = [
   },
 ];
 
-const benefits = {
-  hair: [
-    "Supports the appearance of stronger, healthier hair",
-    "Helps reduce breakage and dryness",
-    "Encourages softness, shine, and moisture retention",
-    "Promotes scalp comfort and nourishment",
-    "Helps protect against sun, heat, and environmental stressors",
-  ],
-  skin: [
-    "Deep, lasting hydration that feels natural",
-    "Supports renewal with beta-carotene",
-    "Helps improve the look of uneven skin tone",
-    "Vitamin E contributes to protection and resilience",
-    "Helps restore the skin's natural lipid barrier",
-  ],
-  beard: [
-    "Softens coarse facial hair",
-    "Helps reduce dryness and flaking beneath the beard",
-    "Enhances grooming, smoothness, and manageability",
-  ],
-};
+const benefitCategories = [
+  {
+    label: "Hair",
+    items: [
+      "Supports the appearance of stronger, healthier hair",
+      "Helps reduce breakage and dryness",
+      "Encourages softness, shine, and moisture retention",
+      "Promotes scalp comfort and nourishment",
+      "Helps protect against sun, heat, and environmental stressors",
+    ],
+  },
+  {
+    label: "Skin",
+    items: [
+      "Deep, lasting hydration that feels natural",
+      "Supports renewal with beta-carotene",
+      "Helps improve the look of uneven skin tone",
+      "Vitamin E contributes to protection and resilience",
+      "Helps restore the skin's natural lipid barrier",
+    ],
+  },
+  {
+    label: "Beard",
+    items: [
+      "Softens coarse facial hair",
+      "Helps reduce dryness and flaking beneath the beard",
+      "Enhances grooming, smoothness, and manageability",
+    ],
+  },
+];
 
 const comparison = [
   {
     oil: "Batana Oil",
     feel: "Rich",
+    dots: 3,
     best: "Deep nourishment and moisture",
     works: "Curly, coily, dry, or damaged hair",
     highlight: true,
@@ -91,6 +107,7 @@ const comparison = [
   {
     oil: "Argan Oil",
     feel: "Medium",
+    dots: 2,
     best: "Shine and softness",
     works: "Hair needing lightweight moisture",
     highlight: false,
@@ -98,6 +115,7 @@ const comparison = [
   {
     oil: "Coconut Oil",
     feel: "Medium",
+    dots: 2,
     best: "Moisture sealing",
     works: "Dry hair and skin routines",
     highlight: false,
@@ -105,6 +123,7 @@ const comparison = [
   {
     oil: "Jojoba Oil",
     feel: "Light",
+    dots: 1,
     best: "Scalp balance support",
     works: "Oily scalp, sensitive skin routines",
     highlight: false,
@@ -115,24 +134,31 @@ const processes = [
   {
     title: "Traditional Miskito Processing",
     tag: "Ancestral Method",
+    image: `${CDN}/pages/batana-oil/batana-miracle-oil.jpg`,
+    imageAlt:
+      "Hand plunged into dark batana oil in a burlap-lined barrel — traditional Miskito processing",
     description:
       "Slow heat and natural separation produce a warm, aromatic oil with the deep restorative character the Miskito have valued for generations. Batana Oil in its most culturally authentic form.",
   },
   {
     title: "Cold-Pressed Extraction",
     tag: "Modern Precision",
+    image: `${CDN}/pages/batana-oil/elaeis-oleifera-batana-oil.jpg`,
+    imageAlt:
+      "Raw batana paste and concentrate separating in a blue barrel — cold-pressed extraction",
     description:
       "A solvent-free approach that preserves the oil's natural nutrients while delivering a clean, consistent profile — ideal for cosmetic and wellness formulations.",
   },
 ];
 
 const audience = [
+  "First-time entrepreneurs launching their own brand",
   "Premium hair care and beauty brands",
   "Barbershops and grooming studios",
   "Natural cosmetics and clean beauty formulators",
-  "Treatment-focused and functional product developers",
+  "International distributors and wholesalers",
   "Private label and OEM partners",
-  "Bulk ingredient buyers and distributors",
+  "Direct consumers seeking the authentic Miskito miracle oil",
 ];
 
 const origin = {
@@ -146,6 +172,13 @@ const originMetadata = Object.entries(origin).map(([key, value]) => ({
   label: key.replace(/([A-Z])/g, " $1").trim(),
   value,
 }));
+
+const authorityStats = [
+  { target: 65, suffix: "K+", label: "Annual Capacity (kg)" },
+  { target: 48, prefix: "<", suffix: "h", label: "Order to Dispatch" },
+  { target: 7, suffix: " days", label: "Worldwide Delivery" },
+  { target: 4, label: "Handcrafted Products" },
+];
 ---
 
 <BaseLayout>
@@ -162,8 +195,8 @@ const originMetadata = Object.entries(origin).map(([key, value]) => ({
 
   {
     /* ═══════════════════════════════════════════════════════════════
-      HERO — Video background, cinematic
-  ═══════════════════════════════════════════════════════════════ */
+      1. HERO — Video background, cinematic
+    ═══════════════════════════════════════════════════════════════ */
   }
   <Hero
     background={data.hero.background}
@@ -175,38 +208,49 @@ const originMetadata = Object.entries(origin).map(([key, value]) => ({
     ctas={data.hero.ctas}
   />
 
+  {/* 2. BREADCRUMB */}
   <Breadcrumb pageName={data.pageName} />
 
   {
     /* ═══════════════════════════════════════════════════════════════
-      INTRO — Collection narrative
-  ═══════════════════════════════════════════════════════════════ */
+      3. IMMERSIVE BOTANICAL INTRO — Full-bleed photographic section
+    ═══════════════════════════════════════════════════════════════ */
   }
-  <section class="surface-warm py-24">
+  <BotanicalSection
+    image={`${CDN}/pages/batana-oil/batana-kernels-palm-nuts.jpg`}
+    alt="Hands holding Elaeis oleifera fruit cluster with lush forest canopy backdrop — Forestal MT batana oil origin"
+    overlay="from-charcoal/90 via-charcoal/70 to-charcoal/80"
+  >
     <div class="mx-auto max-w-3xl px-6 text-center lg:px-12">
-      <SectionHeader eyebrow="The Collection" heading="The Batana Oil Collection" align="center" />
       <p
-        class="reveal-on-scroll mt-8 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70"
+        class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80"
       >
+        The Collection
+      </p>
+      <h2
+        class="mt-4 font-[family-name:var(--font-display)] text-[clamp(2rem,4vw,3rem)] font-normal text-white"
+      >
+        The Batana Oil Collection
+      </h2>
+      <hr class="gold-rule" />
+      <p class="mt-8 font-[family-name:var(--font-body)] text-[15px] leading-[1.9] text-white/65">
         For generations, the Miskito people of La Mosquitia have been known for their striking,
         healthy hair. Their secret lives in the rainforest — in the fruit of the American Palm,
         transformed into a deeply restorative oil through techniques handed down for as long as
         anyone can remember.
       </p>
-      <p
-        class="reveal-on-scroll mt-4 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70"
-      >
+      <p class="mt-4 font-[family-name:var(--font-body)] text-[15px] leading-[1.9] text-white/65">
         Every batch begins with wild-harvested palm nuts gathered by Miskito harvesters who know
         these trees intimately. From harvest to finished product, we protect what makes this oil
         extraordinary: a true place, a true practice, and a true origin you can trace.
       </p>
     </div>
-  </section>
+  </BotanicalSection>
 
   {
     /* ═══════════════════════════════════════════════════════════════
-      ORIGIN — OriginChapter asymmetric with amber accent
-  ═══════════════════════════════════════════════════════════════ */
+      4. ORIGIN STORY — Fixed image + enhanced narrative
+    ═══════════════════════════════════════════════════════════════ */
   }
   <OriginChapter
     eyebrow="A Tradition Worth Knowing"
@@ -216,8 +260,8 @@ const originMetadata = Object.entries(origin).map(([key, value]) => ({
       "We collaborate directly with Miskito harvesters who continue these sustainable wild-harvesting practices. No anonymous supply chains. No guesswork about where your oil comes from.",
     ]}
     image={{
-      src: "https://cdn.forestal-mt.com/pages/batana-oil/origin.jpg",
-      alt: "Miskito harvesters with Elaeis oleifera palm nuts in La Mosquitia",
+      src: `${CDN}/pages/batana-oil/honduras-batana-oil.jpg`,
+      alt: "Miskito hands processing batana oil in a burlap barrel with palm nut clusters in background — La Mosquitia, Honduras",
     }}
     metadata={originMetadata}
     catalogAccent="batana"
@@ -226,81 +270,190 @@ const originMetadata = Object.entries(origin).map(([key, value]) => ({
 
   {
     /* ═══════════════════════════════════════════════════════════════
-      PROCESSING — ProcessFlow horizontal connected steps
-  ═══════════════════════════════════════════════════════════════ */
+      5. MISKITO PARTNERSHIP — SplitEditorial + PullQuote
+    ═══════════════════════════════════════════════════════════════ */
   }
-  <ProcessFlow
-    eyebrow="Two Methods, Both Honored"
-    heading="From Palm to Oil"
-    steps={processes.map((proc, i) => ({
-      number: String(i + 1).padStart(2, "0"),
-      title: proc.title,
-      description: proc.description,
-      tag: proc.tag,
-    }))}
-    footnote="Forestal MT offers both methods — heritage-driven craftsmanship and refined purity. Each with authentic origin and full traceability."
+  <section class="surface-warm py-24">
+    <SplitEditorial
+      eyebrow="Direct from Source"
+      heading="From the Rainforest,<br/>Not a Warehouse"
+      paragraphs={[
+        "We are not intermediaries, brokers, or traders. Forestal MT sources directly from Miskito communities in La Mosquitia — the birthplace of batana oil. Every kilogram is traceable to its origin.",
+        "Our alliances with indigenous harvesters are built on fair prices, long-term partnerships, and shared responsibility. When you buy from us, the value reaches the hands that made it.",
+      ]}
+      image={`${CDN}/pages/batana-oil/batana-from-miskitos-partners.jpg`}
+      imageAlt="Smiling Miskito woman on a boat holding two bottles of batana oil with river and mangroves behind her"
+      direction="right"
+      variant="light"
+    />
+  </section>
+
+  <PullQuote
+    quote="No anonymous supply chains. No middlemen. No guesswork about where your oil comes from. From the Miskito rainforest to your hands — that’s the only path it takes."
+    variant="light"
   />
 
   {
     /* ═══════════════════════════════════════════════════════════════
-      PRODUCTS — Specimen cards
-  ═══════════════════════════════════════════════════════════════ */
+      6. PROCESSING JOURNEY — Image-driven cards
+    ═══════════════════════════════════════════════════════════════ */
   }
-  <section class="surface-warm py-24">
+  <section class="surface-dark grain py-24">
     <div class="mx-auto max-w-7xl px-6 lg:px-12">
-      <div class="reveal-on-scroll text-center">
-        <p
-          class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]"
-        >
-          Our Products
-        </p>
-        <h2
-          class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-[#333]"
-        >
-          The Batana Oil Collection
-        </h2>
-        <hr class="gold-rule" />
-      </div>
+      <SectionHeader
+        eyebrow="Two Methods, Both Honored"
+        heading="From Palm to Oil"
+        variant="dark"
+        align="center"
+      />
 
-      <div class="stagger-children mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="stagger-children mt-16 grid grid-cols-1 gap-8 md:grid-cols-2">
         {
-          products.map((product) => (
-            <div class="card-hover group border-t-[3px] border-[#F3C00D]/50 bg-white shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-shadow duration-300 hover:shadow-md">
-              <div class="aspect-square bg-[#F2F2F2] p-6">
+          processes.map((proc) => (
+            <div class="process-image-card overflow-hidden rounded-[2px] border border-white/10 bg-white/[0.03] backdrop-blur-sm transition-colors duration-300">
+              <div class="aspect-[4/3] overflow-hidden">
                 <img
-                  src={`/cdn-cgi/image/width=400,format=webp/${mediaMap.get(product.handler)}`}
-                  alt={product.name}
-                  width={400}
-                  height={400}
-                  class="h-full w-full object-contain"
+                  src={proc.image}
+                  alt={proc.imageAlt}
+                  class="h-full w-full object-cover"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
-              <div class="p-6">
-                <p class="font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.2em] text-[#A18500]">
-                  {product.sku}
-                </p>
-                <h3 class="mt-2 font-[family-name:var(--font-heading)] text-[1rem] font-normal text-[#333]">
-                  {product.name}
+              <div class="border-l-[3px] border-[#F3C00D]/50 p-8">
+                <span class="inline-block font-[family-name:var(--font-heading)] text-[10px] uppercase tracking-[0.25em] text-[#F3C00D]/70">
+                  {proc.tag}
+                </span>
+                <h3 class="mt-3 font-[family-name:var(--font-display)] text-[1.25rem] font-normal text-white">
+                  {proc.title}
                 </h3>
-                <p class="mt-0.5 font-[family-name:var(--font-body)] text-[12px] italic text-[#333]/50">
-                  {product.tag}
-                </p>
-                <p class="mt-3 font-[family-name:var(--font-body)] text-[13px] leading-[1.75] text-[#333]/60">
-                  {product.description}
+                <p class="mt-3 font-[family-name:var(--font-body)] text-[14px] leading-[1.8] text-white/55">
+                  {proc.description}
                 </p>
               </div>
             </div>
           ))
         }
       </div>
+
+      <p
+        class="mt-10 text-center font-[family-name:var(--font-body)] text-[12px] italic text-white/30"
+      >
+        Forestal MT offers both methods — heritage-driven craftsmanship and refined purity. Each
+        with authentic origin and full traceability.
+      </p>
     </div>
   </section>
 
   {
     /* ═══════════════════════════════════════════════════════════════
-      BENEFITS — Hair / Skin / Beard categories
-  ═══════════════════════════════════════════════════════════════ */
+      7. AUTHORITY STRIP — Animated counters
+    ═══════════════════════════════════════════════════════════════ */
+  }
+  <section class="surface-dark grain py-24">
+    <div class="mx-auto max-w-7xl px-6 lg:px-12">
+      <div class="reveal-on-scroll text-center">
+        <p
+          class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80"
+        >
+          Honduras&rsquo; Largest Batana Oil Supplier
+        </p>
+      </div>
+
+      <div class="mt-12">
+        <ImpactBarIsland stats={authorityStats} client:visible />
+      </div>
+
+      <p
+        class="mt-12 text-center font-[family-name:var(--font-body)] text-[14px] italic text-white/40"
+      >
+        From La Mosquitia to every continent. Dispatched in hours, delivered in days.
+      </p>
+    </div>
+  </section>
+
+  {
+    /* ═══════════════════════════════════════════════════════════════
+      8. PRODUCT SHOWCASE — Lifestyle banner + enhanced grid
+    ═══════════════════════════════════════════════════════════════ */
+  }
+  <section class="surface-warm py-0">
+    {/* Lifestyle banner */}
+    <div class="lifestyle-banner relative">
+      <div class="aspect-[21/9] overflow-hidden">
+        <img
+          src={`${CDN}/pages/batana-oil/batana-soap-products.jpg`}
+          alt="Artisanal Batana Oil soap bars and hair care bottles with gold caps arranged on rustic wood"
+          class="h-full w-full object-cover"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+      <div class="absolute inset-0 flex items-end px-8 pb-10 md:px-12">
+        <p
+          class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-white/80"
+        >
+          Handcrafted by Miskito Artisans
+        </p>
+      </div>
+    </div>
+
+    <div class="py-16 pb-24">
+      <div class="mx-auto max-w-7xl px-6 lg:px-12">
+        <p
+          class="reveal-on-scroll mx-auto max-w-3xl text-center font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/65"
+        >
+          Every product in this collection is 100% natural, handcrafted by Miskito artisans using
+          ancestral methods. As prepared at origin, so delivered to you — nothing added, nothing
+          removed.
+        </p>
+
+        <div class="stagger-children mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {
+            products.map((product) => (
+              <a
+                href={`/products/${product.handler}/`}
+                class="card-hover group block border-t-[3px] border-[#F3C00D]/50 bg-white shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-shadow duration-300 hover:shadow-md"
+              >
+                <div class="aspect-square overflow-hidden bg-[#F2F2F2] p-6">
+                  <img
+                    src={`/cdn-cgi/image/width=400,format=webp/${mediaMap.get(product.handler)}`}
+                    alt={product.name}
+                    width={400}
+                    height={400}
+                    class="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="p-6">
+                  <p class="font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.2em] text-[#A18500]">
+                    {product.sku}
+                  </p>
+                  <h3 class="mt-2 font-[family-name:var(--font-heading)] text-[1rem] font-normal text-[#333]">
+                    {product.name}
+                  </h3>
+                  <p class="mt-0.5 font-[family-name:var(--font-body)] text-[12px] italic text-[#333]/50">
+                    {product.tag}
+                  </p>
+                  <p class="mt-3 font-[family-name:var(--font-body)] text-[13px] leading-[1.75] text-[#333]/60">
+                    {product.description}
+                  </p>
+                  <p class="mt-4 font-[family-name:var(--font-ui)] text-[11px] font-semibold uppercase tracking-[0.15em] text-[#206D03] opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                    View Product &rarr;
+                  </p>
+                </div>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {
+    /* ═══════════════════════════════════════════════════════════════
+      9. BENEFITS — Interactive tabs (Preact island)
+    ═══════════════════════════════════════════════════════════════ */
   }
   <section class="accent-batana py-24">
     <div class="mx-auto max-w-7xl px-6 lg:px-12">
@@ -308,7 +461,7 @@ const originMetadata = Object.entries(origin).map(([key, value]) => ({
         <p
           class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]"
         >
-          Naturally Rich in Essential Fatty Acids, Antioxidants & Vitamin E
+          Naturally Rich in Essential Fatty Acids, Antioxidants &amp; Vitamin E
         </p>
         <h2
           class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-[#333]"
@@ -318,47 +471,20 @@ const originMetadata = Object.entries(origin).map(([key, value]) => ({
         <hr class="gold-rule" />
       </div>
 
-      <div class="stagger-children mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
-        {
-          [
-            { title: "For Your Hair", items: benefits.hair, number: "01" },
-            { title: "For Your Skin", items: benefits.skin, number: "02" },
-            { title: "For Your Beard", items: benefits.beard, number: "03" },
-          ].map((cat) => (
-            <div class="bg-white p-8 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
-              <span class="font-[family-name:var(--font-heading)] text-[13px] text-[#F3C00D]/40">
-                {cat.number}
-              </span>
-              <h3 class="mt-2 font-[family-name:var(--font-heading)] text-[1rem] font-normal text-[#333]">
-                {cat.title}
-              </h3>
-              <div class="mt-3 h-px w-8 bg-[#F3C00D]/30" />
-              <ul class="mt-5 space-y-3">
-                {cat.items.map((item) => (
-                  <li class="flex items-start gap-2.5 font-[family-name:var(--font-body)] text-[13px] leading-relaxed text-[#333]/65">
-                    <span class="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-[#206D03]/50" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))
-        }
+      <div class="mt-12">
+        <BatanaBenefitsIsland
+          categories={benefitCategories}
+          disclaimer="These reflect traditional and cosmetic applications. Batana Oil is not a medical product and is not intended to diagnose, treat, cure, or prevent any disease."
+          client:visible
+        />
       </div>
-
-      <p
-        class="mt-8 text-center font-[family-name:var(--font-body)] text-[12px] italic text-[#333]/40"
-      >
-        These reflect traditional and cosmetic applications. Batana Oil is not a medical product and
-        is not intended to diagnose, treat, cure, or prevent any disease.
-      </p>
     </div>
   </section>
 
   {
     /* ═══════════════════════════════════════════════════════════════
-      COMPARISON TABLE
-  ═══════════════════════════════════════════════════════════════ */
+      10. OIL COMPARISON — Styled cards (pure CSS, no island)
+    ═══════════════════════════════════════════════════════════════ */
   }
   <section class="surface-warm py-24">
     <div class="mx-auto max-w-5xl px-6 lg:px-12">
@@ -376,122 +502,127 @@ const originMetadata = Object.entries(origin).map(([key, value]) => ({
         <hr class="gold-rule" />
       </div>
 
-      <div class="mt-16 overflow-x-auto">
-        <table class="w-full min-w-[600px]">
-          <thead>
-            <tr>
-              <th
-                class="border-b-2 border-[#D6E8D3] px-4 py-3 text-left font-[family-name:var(--font-heading)] text-[10px] font-semibold uppercase tracking-[0.1em] text-[#333]"
+      <div class="stagger-children mt-16 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          comparison.map((card) => (
+            <div
+              class:list={[
+                "card-hover flex flex-col gap-4 border border-[#D6E8D3] p-6",
+                card.highlight ? "comparison-card-highlight" : "bg-white",
+              ]}
+            >
+              {card.highlight && (
+                <span class="self-start rounded-[2px] bg-[#206D03] px-2 py-0.5 font-[family-name:var(--font-ui)] text-[9px] font-semibold uppercase tracking-[0.15em] text-white">
+                  Our Pick
+                </span>
+              )}
+              <h3
+                class:list={[
+                  "font-[family-name:var(--font-heading)] text-[1rem] font-normal",
+                  card.highlight ? "text-[#206D03]" : "text-[#333]",
+                ]}
               >
-                Oil
-              </th>
-              <th
-                class="border-b-2 border-[#D6E8D3] px-4 py-3 text-left font-[family-name:var(--font-heading)] text-[10px] font-semibold uppercase tracking-[0.1em] text-[#333]"
-              >
-                Feel
-              </th>
-              <th
-                class="border-b-2 border-[#D6E8D3] px-4 py-3 text-left font-[family-name:var(--font-heading)] text-[10px] font-semibold uppercase tracking-[0.1em] text-[#333]"
-              >
-                Best Known For
-              </th>
-              <th
-                class="border-b-2 border-[#D6E8D3] px-4 py-3 text-left font-[family-name:var(--font-heading)] text-[10px] font-semibold uppercase tracking-[0.1em] text-[#333]"
-              >
-                Works Well On
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              comparison.map((row) => (
-                <tr class:list={[row.highlight ? "bg-[#206D03]/[0.04]" : ""]}>
-                  <td
+                {card.oil}
+              </h3>
+              <div class="flex gap-1">
+                {Array.from({ length: 3 }).map((_, i) => (
+                  <span
                     class:list={[
-                      "border-b border-[#D6E8D3]/50 px-4 py-3.5 font-[family-name:var(--font-ui)] text-[13px]",
-                      row.highlight ? "font-semibold text-[#206D03]" : "text-[#333]/70",
+                      "h-2 w-2 rounded-full",
+                      i < card.dots ? "bg-[#F3C00D]" : "bg-[#F3C00D]/20",
                     ]}
-                  >
-                    {row.oil}
-                  </td>
-                  <td class="border-b border-[#D6E8D3]/50 px-4 py-3.5 font-[family-name:var(--font-ui)] text-[13px] text-[#333]/70">
-                    {row.feel}
-                  </td>
-                  <td class="border-b border-[#D6E8D3]/50 px-4 py-3.5 font-[family-name:var(--font-body)] text-[13px] text-[#333]/70">
-                    {row.best}
-                  </td>
-                  <td class="border-b border-[#D6E8D3]/50 px-4 py-3.5 font-[family-name:var(--font-body)] text-[13px] text-[#333]/70">
-                    {row.works}
-                  </td>
-                </tr>
-              ))
-            }
-          </tbody>
-        </table>
+                    aria-hidden="true"
+                  />
+                ))}
+                <span class="sr-only">Feel: {card.feel}</span>
+              </div>
+              <div>
+                <p class="font-[family-name:var(--font-ui)] text-[10px] font-semibold uppercase tracking-[0.12em] text-[#A18500]">
+                  Best For
+                </p>
+                <p class="mt-1 font-[family-name:var(--font-body)] text-[13px] text-[#333]/70">
+                  {card.best}
+                </p>
+              </div>
+              <div>
+                <p class="font-[family-name:var(--font-ui)] text-[10px] font-semibold uppercase tracking-[0.12em] text-[#A18500]">
+                  Works On
+                </p>
+                <p class="mt-1 font-[family-name:var(--font-body)] text-[13px] text-[#333]/70">
+                  {card.works}
+                </p>
+              </div>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
 
   {
     /* ═══════════════════════════════════════════════════════════════
-      MARKET + QUALITY — Dark statement
-  ═══════════════════════════════════════════════════════════════ */
+      11. MARKET STATEMENT — Authenticity manifesto
+    ═══════════════════════════════════════════════════════════════ */
   }
-  <section class="surface-dark grain relative overflow-hidden py-24">
-    <div class="reveal-on-scroll relative z-10 mx-auto max-w-4xl px-6 text-center lg:px-12">
+  <BotanicalSection
+    image={`${CDN}/pages/batana-oil/batana-oil-bulk-shipping.jpg`}
+    alt="Two large Forestal MT branded bulk shipping drums on pallets with blue sky behind — export-scale batana oil supply"
+    overlay="from-charcoal/90 via-charcoal/70 to-charcoal/85"
+  >
+    <div class="reveal-on-scroll mx-auto max-w-4xl px-6 text-center lg:px-12">
       <p
         class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80"
       >
-        A Growing Global Ingredient
+        In a World of Imitations
       </p>
       <h2
         class="mt-6 font-[family-name:var(--font-display)] text-[clamp(1.75rem,4vw,2.75rem)] font-normal leading-[1.15] text-white"
       >
-        We Don't Compete on Being<br />the Cheapest. We Compete<br />on Being Real.
+        In a Market Flooded with Adulterated,<br />Synthetic, and Fake Products &mdash;<br />We
+        Stand for the Real Thing.
       </h2>
       <hr class="gold-rule" />
       <p
-        class="mx-auto mt-8 max-w-2xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-white/50"
+        class="mx-auto mt-8 max-w-2xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-white/55"
       >
-        Batana Oil is gaining international recognition as a premium botanical ingredient. Forestal
-        MT is Honduras' largest supplier — offering a true Miskito, traceable, culturally authentic
-        ingredient. Not a commodity. The real thing.
+        Authenticity. Traceability. Verifiable origin. That&rsquo;s what made us Honduras&rsquo; #1
+        batana oil supplier. Not the cheapest — the most real.
       </p>
-    </div>
 
-    <div class="relative z-10 mx-auto mt-16 flex max-w-4xl flex-wrap justify-center gap-4 px-6">
-      {
-        [
-          "Clean beauty",
-          "Ancestral ingredients",
-          "Wild-harvested oils",
-          "Textured-hair care",
-          "Men's grooming",
-          "Transparent supply chains",
-        ].map((trend) => (
-          <span class="tag-hover rounded-[2px] border border-white/10 px-4 py-2 font-[family-name:var(--font-ui)] text-[11px] text-white/40">
-            {trend}
-          </span>
-        ))
-      }
+      <div class="mt-12 flex flex-wrap justify-center gap-3">
+        {
+          [
+            "Verifiable Origin",
+            "Anti-Counterfeit",
+            "Clean Beauty",
+            "Wild-Harvested",
+            "Ancestral Ingredients",
+            "Transparent Supply Chain",
+          ].map((tag) => (
+            <span class="tag-hover rounded-[2px] border border-white/10 px-4 py-2 font-[family-name:var(--font-ui)] text-[11px] text-white/40">
+              {tag}
+            </span>
+          ))
+        }
+      </div>
     </div>
-  </section>
+  </BotanicalSection>
 
   {
     /* ═══════════════════════════════════════════════════════════════
-      AUDIENCE + WHOLESALE CTA
-  ═══════════════════════════════════════════════════════════════ */
+      12. AUDIENCE + WHOLESALE — Enhanced data
+    ═══════════════════════════════════════════════════════════════ */
   }
   <AudienceWholesaleSplit
     audienceHeading="Built for Brands<br />That Value Origin"
     audienceItems={audience}
-    wholesaleBody="Bulk ingredients, private label solutions, and international distribution. Export-ready from Honduras."
+    wholesaleBody="From 1 unit to 65,000+ kilograms. Bulk ingredients, private label solutions, and worldwide distribution. Export-ready from Honduras — dispatched in under 48 hours."
   />
 
   {
     /* ═══════════════════════════════════════════════════════════════
-      TRUST MARQUEE + COLLECTION NAV
-  ═══════════════════════════════════════════════════════════════ */
+      13. TRUST MARQUEE + COLLECTION NAV
+    ═══════════════════════════════════════════════════════════════ */
   }
   <TrustMarquee variant="dark" />
   <CollectionNav exclude="batana-oil" />
