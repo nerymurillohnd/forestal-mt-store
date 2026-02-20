@@ -57,11 +57,11 @@ export default function WholesaleMapIsland({
 
     if (mq.matches) return;
 
-    const interval = setInterval(() => {
+    const interval = window.setInterval(() => {
       setCycle((c) => c + 1);
-    }, 6000) as unknown as number;
+    }, 6000);
 
-    return () => clearInterval(interval);
+    return () => window.clearInterval(interval);
   }, []);
 
   return (
