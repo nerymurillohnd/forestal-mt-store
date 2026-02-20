@@ -213,6 +213,22 @@
     var(--color-parchment);
 }
 
+/* Batana Oil — deep mahogany surface: evokes the oil's natural reddish-brown */
+.surface-batana {
+  background:
+    radial-gradient(
+      ellipse at 15% 40%,
+      color-mix(in srgb, var(--color-deep-amber) 35%, transparent) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse at 85% 70%,
+      color-mix(in srgb, var(--color-gold) 5%, transparent) 0%,
+      transparent 40%
+    ),
+    #1e0d06;
+}
+
 /* Catalog-specific accent washes */
 .accent-batana {
   background:
