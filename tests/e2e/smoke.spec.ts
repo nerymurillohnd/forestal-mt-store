@@ -13,7 +13,7 @@ const LIVE_PAGES = [
   { path: "/community/faqs/", title: "FAQ" },
   { path: "/community/blog/", title: "Blog" },
   { path: "/community/testimonials/", title: "Testimonials" },
-  { path: "/community/docs/", title: "Documentation" },
+  { path: "/community/docs/", title: "TDS & SDS" },
   { path: "/products/", title: "Products" },
   { path: "/terms/", title: "Terms" },
   { path: "/privacy/", title: "Privacy" },
