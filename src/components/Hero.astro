@@ -12,6 +12,7 @@
  * Both fill the container edge-to-edge.
  */
 import { getStreamHls, getStreamPoster } from "../data/stream-videos";
+import { cdnImage } from "../lib/image";
 
 interface CTA {
   label: string;
@@ -88,7 +89,7 @@ const posterSrc = hasVideo ? getStreamPoster(background.stream, 1920, 1080) : nu
     {
       hasImage && (
         <img
-          src={background.url}
+          src={cdnImage(background.url, { w: 1920, f: "auto" })}
           alt={background.alt ?? ""}
           class="h-full w-full object-cover"
           loading="eager"

@@ -3,6 +3,8 @@
  * BotanicalSection — Full-width section with R2 botanical image background.
  * Gradient overlay + slot content. Used for immersive botanical sections.
  */
+import { cdnImage } from "../lib/image";
+
 interface Props {
   image: string;
   alt?: string;
@@ -20,7 +22,7 @@ const {
 
 <section class:list={["grain relative overflow-hidden py-24", className]}>
   <img
-    src={image}
+    src={cdnImage(image, { w: 1920, f: "auto" })}
     alt={alt}
     class="absolute inset-0 h-full w-full object-cover"
     loading="lazy"

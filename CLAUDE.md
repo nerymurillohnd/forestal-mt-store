@@ -135,10 +135,11 @@ Unknown types silently return null (no crash). Add new cases to the switch when 
 
 ### Hero Component (`src/components/Hero.astro`)
 
-Data-driven from frontmatter `hero.*`. Two background modes:
+Data-driven from frontmatter `hero.*`. Three background modes:
 
-- `background.type: "image"` → `<img>` from R2 CDN
 - `background.type: "video"` → HLS via hls.js from Cloudflare Stream
+- `background.type: "image"` → `<img>` from R2 CDN
+- No `background` field (omit entirely) → dark gradient only — used for community subpages and legal pages
 
 Video UIDs in `src/data/stream-videos.ts`. Hero images: 1920×1080 (16:9). Hero videos: 3200×1792.
 
@@ -307,6 +308,18 @@ Two-package split — mandatory for Cloudflare Pages:
 | Build (source maps) | `@sentry/astro` plugin | `astro.config.mjs`         |
 
 Do NOT use `@sentry/node` — incompatible with CF Workers V8 isolates.
+
+---
+
+## Analytics
+
+**Cloudflare Zaraz** manages all analytics. Tool: `XLZY` (Google Analytics 4).
+
+- Measurement ID: `G-FHNE3TBXMW` (Property: Forestal MT, Account: Nery Samuel Murillo)
+- `autoInjectScript: true` — Zaraz injects the GA4 beacon automatically
+
+**DO NOT** add manual `<script>` GA4 tags in `Head.astro` or anywhere in code — Zaraz handles this.
+Zaraz also handles the `stats.g.doubleclick.net` connection (required in CSP `connect-src`).
 
 ---
 

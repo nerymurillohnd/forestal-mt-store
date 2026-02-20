@@ -2,7 +2,18 @@
 import logoSvg from "../assets/logos/logo.svg";
 import logoLight from "../assets/logos/logo-light.png";
 
-const navLinks = [
+interface NavChild {
+  label: string;
+  href: string;
+}
+
+interface NavLink {
+  label: string;
+  href: string;
+  children?: NavChild[];
+}
+
+const navLinks: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about/" },
   { label: "Shop", href: "/products/" },
@@ -10,11 +21,52 @@ const navLinks = [
   { label: "Batana", href: "/batana-oil/" },
   { label: "Honey", href: "/stingless-bee-honey/" },
   { label: "Herbs", href: "/traditional-herbs/" },
-  { label: "Community", href: "/community/" },
+  {
+    label: "Community",
+    href: "/community/",
+    children: [
+      { label: "Blog", href: "/community/blog/" },
+      { label: "FAQs", href: "/community/faqs/" },
+      { label: "Testimonials", href: "/community/testimonials/" },
+      { label: "Docs", href: "/community/docs/" },
+    ],
+  },
   { label: "Contact", href: "/contact/" },
 ];
 
 const currentPath = Astro.url.pathname;
+
+// Flatten nav links for mobile menu — community children are inlined below parent
+interface MobileItem {
+  label: string;
+  href: string;
+  topIndex: number | null;
+  isChild: boolean;
+  isParentWithChildren: boolean;
+}
+
+const mobileItems: MobileItem[] = [];
+let topIndex = 0;
+for (const link of navLinks) {
+  mobileItems.push({
+    label: link.label,
+    href: link.href,
+    topIndex: ++topIndex,
+    isChild: false,
+    isParentWithChildren: !!link.children,
+  });
+  if (link.children) {
+    for (const child of link.children) {
+      mobileItems.push({
+        label: child.label,
+        href: child.href,
+        topIndex: null,
+        isChild: true,
+        isParentWithChildren: false,
+      });
+    }
+  }
+}
 ---
 
 <header
@@ -53,16 +105,48 @@ const currentPath = Astro.url.pathname;
     <ul class="hidden items-center gap-5 font-[family-name:var(--font-ui)] text-[13px] lg:flex">
       {
         navLinks.map((link) => (
-          <li>
+          <li class:list={[link.children ? "group relative" : ""]}>
             <a
               href={link.href}
               class:list={[
-                "transition-colors hover:text-leaf-green",
-                currentPath === link.href ? "font-semibold text-leaf-green" : "text-graphite",
+                "flex items-center gap-1 transition-colors hover:text-leaf-green",
+                (link.children ? currentPath.startsWith(link.href) : currentPath === link.href)
+                  ? "font-semibold text-leaf-green"
+                  : "text-graphite",
               ]}
             >
               {link.label}
+              {link.children && (
+                <svg
+                  class="h-2.5 w-2.5 transition-transform duration-200 group-hover:rotate-180"
+                  viewBox="0 0 10 10"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M5 6.5L0.5 2h9L5 6.5z" />
+                </svg>
+              )}
             </a>
+
+            {link.children && (
+              <ul class="pointer-events-none invisible absolute left-0 top-full z-50 mt-2 w-48 overflow-hidden rounded-md border border-gray-100 bg-white py-1 opacity-0 shadow-xl transition-all duration-200 group-hover:pointer-events-auto group-hover:visible group-hover:opacity-100">
+                {link.children.map((child) => (
+                  <li>
+                    <a
+                      href={child.href}
+                      class:list={[
+                        "block px-4 py-2.5 text-[12px] transition-colors hover:bg-parchment hover:text-leaf-green",
+                        currentPath === child.href
+                          ? "font-semibold text-leaf-green"
+                          : "text-graphite",
+                      ]}
+                    >
+                      {child.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
           </li>
         ))
       }
@@ -99,20 +183,37 @@ const currentPath = Astro.url.pathname;
     <nav>
       <ul>
         {
-          navLinks.map((link, i) => (
+          mobileItems.map((item) => (
             <li class="mobile-nav-item border-b border-white/[0.07]">
               <a
-                href={link.href}
+                href={item.href}
                 class:list={[
-                  "group flex items-center gap-5 py-[0.85rem] transition-colors duration-200",
-                  currentPath === link.href ? "text-[#F3C00D]" : "text-white/50 hover:text-white",
+                  "group flex items-center transition-colors duration-200",
+                  item.isChild ? "gap-3 py-2 pl-10" : "gap-5 py-[0.85rem]",
+                  (
+                    item.isParentWithChildren
+                      ? currentPath.startsWith(item.href)
+                      : currentPath === item.href
+                  )
+                    ? "text-[#F3C00D]"
+                    : item.isChild
+                      ? "text-white/55 hover:text-white"
+                      : "text-white/50 hover:text-white",
                 ]}
               >
-                <span class="w-5 shrink-0 text-right font-[family-name:var(--font-ui)] text-[9px] uppercase tracking-[0.25em] text-white/20">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span class="font-[family-name:var(--font-heading)] text-[1.6rem] font-normal leading-none tracking-wide">
-                  {link.label}
+                {!item.isChild && (
+                  <span class="w-5 shrink-0 text-right font-[family-name:var(--font-ui)] text-[9px] uppercase tracking-[0.25em] text-white/20">
+                    {String(item.topIndex!).padStart(2, "0")}
+                  </span>
+                )}
+                <span
+                  class:list={[
+                    item.isChild
+                      ? "font-[family-name:var(--font-ui)] text-[0.85rem] tracking-wider"
+                      : "font-[family-name:var(--font-heading)] text-[1.6rem] font-normal leading-none tracking-wide",
+                  ]}
+                >
+                  {item.label}
                 </span>
               </a>
             </li>
@@ -176,82 +277,82 @@ const currentPath = Astro.url.pathname;
 </style>
 
 <script>
-  const btn = document.getElementById("mobile-menu-btn") as HTMLButtonElement;
-  const menu = document.getElementById("mobile-menu") as HTMLElement;
-  const header = document.getElementById("site-header") as HTMLElement;
-  const items = menu.querySelectorAll<HTMLElement>(".mobile-nav-item");
+  document.addEventListener("astro:page-load", () => {
+    const btn = document.getElementById("mobile-menu-btn") as HTMLButtonElement | null;
+    const menu = document.getElementById("mobile-menu") as HTMLElement | null;
+    const header = document.getElementById("site-header") as HTMLElement | null;
+    if (!btn || !menu || !header) return;
 
-  let isOpen = false;
+    const items = menu.querySelectorAll<HTMLElement>(".mobile-nav-item");
+    let isOpen = false;
 
-  function openMenu() {
-    isOpen = true;
+    // Use AbortController to clean up all listeners before the next navigation
+    const ac = new AbortController();
+    const { signal } = ac;
+    document.addEventListener("astro:before-swap", () => ac.abort(), { once: true });
 
-    // Show overlay
-    menu.style.transition = "opacity 0.3s ease, visibility 0s linear";
-    menu.style.visibility = "visible";
-    menu.style.opacity = "1";
-    menu.setAttribute("aria-hidden", "false");
-    btn.setAttribute("aria-expanded", "true");
+    function openMenu() {
+      isOpen = true;
 
-    // Header goes dark
-    header.classList.add("menu-open");
+      menu!.style.transition = "opacity 0.3s ease, visibility 0s linear";
+      menu!.style.visibility = "visible";
+      menu!.style.opacity = "1";
+      menu!.setAttribute("aria-hidden", "false");
+      btn!.setAttribute("aria-expanded", "true");
 
-    // Hamburger → X
-    const bars = btn.querySelectorAll(".bar");
-    bars[0].classList.add("bar-top");
-    bars[1].classList.add("bar-mid");
-    bars[2].classList.add("bar-bot");
+      header!.classList.add("menu-open");
 
-    // Lock body scroll
-    document.body.style.overflow = "hidden";
+      const bars = btn!.querySelectorAll(".bar");
+      bars[0].classList.add("bar-top");
+      bars[1].classList.add("bar-mid");
+      bars[2].classList.add("bar-bot");
 
-    // Stagger nav items in
-    items.forEach((item, i) => {
-      item.classList.remove("item-visible");
-      item.style.transitionDelay = "0ms";
-      setTimeout(() => {
-        item.style.transitionDelay = `${i * 40}ms`;
-        item.classList.add("item-visible");
-      }, 60);
-    });
-  }
+      document.body.style.overflow = "hidden";
 
-  function closeMenu() {
-    isOpen = false;
+      items.forEach((item, i) => {
+        item.classList.remove("item-visible");
+        item.style.transitionDelay = "0ms";
+        setTimeout(() => {
+          item.style.transitionDelay = `${i * 40}ms`;
+          item.classList.add("item-visible");
+        }, 60);
+      });
+    }
 
-    // Hide overlay
-    menu.style.transition = "opacity 0.25s ease, visibility 0s linear 0.25s";
-    menu.style.opacity = "0";
-    menu.style.visibility = "hidden";
-    menu.setAttribute("aria-hidden", "true");
-    btn.setAttribute("aria-expanded", "false");
+    function closeMenu() {
+      isOpen = false;
 
-    // Header reverts
-    header.classList.remove("menu-open");
+      menu!.style.transition = "opacity 0.25s ease, visibility 0s linear 0.25s";
+      menu!.style.opacity = "0";
+      menu!.style.visibility = "hidden";
+      menu!.setAttribute("aria-hidden", "true");
+      btn!.setAttribute("aria-expanded", "false");
 
-    // X → hamburger
-    const bars = btn.querySelectorAll(".bar");
-    bars[0].classList.remove("bar-top");
-    bars[1].classList.remove("bar-mid");
-    bars[2].classList.remove("bar-bot");
+      header!.classList.remove("menu-open");
 
-    // Unlock body scroll
-    document.body.style.overflow = "";
+      const bars = btn!.querySelectorAll(".bar");
+      bars[0].classList.remove("bar-top");
+      bars[1].classList.remove("bar-mid");
+      bars[2].classList.remove("bar-bot");
 
-    // Reset item states for next open
-    items.forEach((item) => {
-      item.classList.remove("item-visible");
-      item.style.transitionDelay = "0ms";
-    });
-  }
+      document.body.style.overflow = "";
 
-  btn.addEventListener("click", () => (isOpen ? closeMenu() : openMenu()));
+      items.forEach((item) => {
+        item.classList.remove("item-visible");
+        item.style.transitionDelay = "0ms";
+      });
+    }
 
-  // Close when a nav link is clicked
-  menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeMenu));
+    btn.addEventListener("click", () => (isOpen ? closeMenu() : openMenu()), { signal });
 
-  // Close on Escape
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && isOpen) closeMenu();
+    menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeMenu, { signal }));
+
+    document.addEventListener(
+      "keydown",
+      (e) => {
+        if (e.key === "Escape" && isOpen) closeMenu();
+      },
+      { signal },
+    );
   });
 </script>
