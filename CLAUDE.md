@@ -81,20 +81,22 @@ pnpm lighthouse:prod  # Lighthouse CI audit (production URLs)
 
 ## Stack
 
-| Layer           | Technology            | Key Detail                                                                  |
-| --------------- | --------------------- | --------------------------------------------------------------------------- |
-| Framework       | Astro 5.7+            | Islands Architecture, `static` output mode                                  |
-| Content         | MDX                   | `@astrojs/mdx` — component imports in content files                         |
-| UI framework    | Preact                | `@astrojs/preact` — interactive islands only                                |
-| CSS             | Tailwind CSS 4+       | `@tailwindcss/vite` plugin (NOT `@astrojs/tailwind`, NOT PostCSS)           |
-| SSR adapter     | `@astrojs/cloudflare` | `platformProxy: { enabled: true }` for local D1/KV/R2                       |
-| Package manager | pnpm 10+ standalone   | `"packageManager": "pnpm@10.29.3"` in package.json                          |
-| Hosting         | Cloudflare Pages      | Project: `forestal-mt-store`, deploy gated by GH Actions CI                 |
-| Database        | Cloudflare D1         | Binding: `DB` → `fmt-products-database` (pending — SSR not yet enabled)     |
-| Object storage  | Cloudflare R2         | Binding: `R2` → `assets` bucket, CDN: `cdn.forestal-mt.com`                 |
-| Sessions        | Cloudflare KV         | Binding: `SESSION` → namespace `SESSION` (pending)                          |
-| Icons           | astro-icon            | `@iconify-json/fa6-brands` (social), `@iconify-json/logos` (payment brands) |
-| Observability   | Sentry                | `@sentry/astro` (client) + `@sentry/cloudflare` (server)                    |
+| Layer            | Technology            | Key Detail                                                                  |
+| ---------------- | --------------------- | --------------------------------------------------------------------------- |
+| Framework        | Astro 5.7+            | Islands Architecture, `static` output mode                                  |
+| Content          | MDX                   | `@astrojs/mdx` — component imports in content files                         |
+| UI framework     | Preact                | `@astrojs/preact` — interactive islands only                                |
+| CSS              | Tailwind CSS 4+       | `@tailwindcss/vite` plugin (NOT `@astrojs/tailwind`, NOT PostCSS)           |
+| SSR adapter      | `@astrojs/cloudflare` | `platformProxy: { enabled: true }` for local D1/KV/R2                       |
+| Package manager  | pnpm 10+ standalone   | `"packageManager": "pnpm@10.29.3"` in package.json                          |
+| Hosting          | Cloudflare Pages      | Project: `forestal-mt-store`, deploy gated by GH Actions CI                 |
+| Database         | Cloudflare D1         | Binding: `DB` → `fmt-products-database` (pending — SSR not yet enabled)     |
+| Object storage   | Cloudflare R2         | Binding: `R2` → `assets` bucket, CDN: `cdn.forestal-mt.com`                 |
+| Sessions         | Cloudflare KV         | Binding: `SESSION` → namespace `SESSION` (pending)                          |
+| Icons            | astro-icon            | `@iconify-json/fa6-brands` (social), `@iconify-json/logos` (payment brands) |
+| Observability    | Sentry                | `@sentry/astro` (client) + `@sentry/cloudflare` (server)                    |
+| Email            | Resend                | Transactional email from `@forestal-mt.com` — `RESEND_API_KEY` env var      |
+| Phone validation | libphonenumber-js     | Country-aware phone validation in `ContactFormIsland`                       |
 
 ### Tailwind CSS 4 Setup
 
@@ -110,6 +112,7 @@ No `tailwind.config.mjs`, no PostCSS. Config via `@tailwindcss/vite` plugin. Des
 | ------------------ | ------------------------------------------------------------------------------ | ----------------------------------- |
 | **SSG — content**  | Home, About, Contact, Wholesale, 3 Catalogs, Community hub + 4 subpages, Legal | Content Collections (`pages/*.mdx`) |
 | **SSG — products** | Shop (`/products/`), 46 PDPs (`/products/{handler}/`)                          | 6 JSON files in `src/data/`         |
+| **SSR — API**      | `/api/contact` (POST — not a page, not indexed)                                | Request payload → Resend            |
 | **Future scope**   | Account, Admin, Cart, Checkout, Auth pages                                     | SSR + D1 + KV — not yet built       |
 
 ### Content Collections
@@ -168,15 +171,16 @@ Accepts `pageName` and optional `parent?: { name: string; href: string }` for 3-
 
 Interactive components hydrated on demand. All islands use Preact (not React).
 
-| Island                   | Directive        | Purpose                    |
-| ------------------------ | ---------------- | -------------------------- |
-| `AccordionIsland.tsx`    | `client:visible` | Collapsible content panels |
-| `CountUpIsland.tsx`      | `client:visible` | Animated number counters   |
-| `HerbScrollIsland.tsx`   | `client:visible` | Herbs scrolling list       |
-| `ImpactBarIsland.tsx`    | `client:visible` | Animated metric bars       |
-| `OriginPulseIsland.tsx`  | `client:visible` | Map/pulse animation        |
-| `ScrollRevealIsland.tsx` | `client:visible` | Scroll-triggered reveals   |
-| `TabSwitcherIsland.tsx`  | `client:idle`    | Tabbed content switcher    |
+| Island                   | Directive        | Purpose                                    |
+| ------------------------ | ---------------- | ------------------------------------------ |
+| `AccordionIsland.tsx`    | `client:visible` | Collapsible content panels                 |
+| `ContactFormIsland.tsx`  | `client:visible` | Contact form with country/phone validation |
+| `CountUpIsland.tsx`      | `client:visible` | Animated number counters                   |
+| `HerbScrollIsland.tsx`   | `client:visible` | Herbs scrolling list                       |
+| `ImpactBarIsland.tsx`    | `client:visible` | Animated metric bars                       |
+| `OriginPulseIsland.tsx`  | `client:visible` | Map/pulse animation                        |
+| `ScrollRevealIsland.tsx` | `client:visible` | Scroll-triggered reveals                   |
+| `TabSwitcherIsland.tsx`  | `client:idle`    | Tabbed content switcher                    |
 
 ---
 
@@ -348,6 +352,20 @@ Do NOT use `@sentry/node` — incompatible with CF Workers V8 isolates.
 
 **DO NOT** add manual `<script>` GA4 tags in `Head.astro` or anywhere in code — Zaraz handles this.
 Zaraz also handles the `stats.g.doubleclick.net` connection (required in CSP `connect-src`).
+
+---
+
+## Email & Contact Form
+
+**Outbound (Resend):** Domain `forestal-mt.com` verified. `RESEND_API_KEY` stored in CF Pages env + GH Actions secret. `POST /api/contact` maps `sendTo` labels (sales/support/admin) to `@forestal-mt.com` addresses server-side — addresses are never exposed to the client.
+
+**Inbound (CF Email Routing):** `admin@`, `sales@`, `support@forestal-mt.com` all forward to `forestalmt.hn@gmail.com`. Gmail "Send mail as" configured via `smtp.resend.com:465` for all three addresses.
+
+**Contact form data:**
+
+- `src/pages/api/contact.ts` — SSR endpoint (`prerender = false`), validates payload, sends via Resend
+- `src/components/islands/ContactFormIsland.tsx` — Preact island (`client:visible`), fields: First Name, Last Name, Company (optional), Email, Country, Phone (dial code + per-country validation via `libphonenumber-js`), Subject (optional), Send To, Message
+- `src/data/countries.ts` — exports `COUNTRIES` array and `PRIORITY_COUNTRY_CODES` (16 priority markets)
 
 ---
 

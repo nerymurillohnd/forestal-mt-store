@@ -1,6 +1,6 @@
 # Forestal MT — Site Technical Specification
 
-**Document version:** 2.3
+**Document version:** 2.4
 **Last updated:** 2026-02-21
 **Language:** English
 **Applies to:** forestal-mt.com and all related Forestal MT web projects
@@ -22,6 +22,8 @@
 | Video               | Cloudflare Stream     | Hero videos only                                                |
 | Sessions            | Cloudflare KV         | Namespace: `SESSION`                                            |
 | External API        | Cloudflare Workers    | `fmt-ecommerce-api` (cart, orders, inventory — not yet active)  |
+| Transactional email | Resend                | Outbound email from `@forestal-mt.com` addresses                |
+| Phone validation    | libphonenumber-js     | Country-aware phone number validation in contact form           |
 | DNS                 | Cloudflare            | Zone: `forestal-mt.com`                                         |
 | E2E testing         | Playwright            | Functional testing, visual regression, accessibility (axe-core) |
 | Performance testing | Lighthouse CI         | Automated scores, SEO audits, PR status checks                  |
@@ -89,7 +91,7 @@ Professional yet warm. Heritage-focused. Transparency-driven. Globally positione
 
 ### Static (SSG) — Built at deploy time
 
-The site uses `output: "static"`. All 64 deployed pages are generated at build time. Cloudflare Pages serves static HTML from CDN edge. The `@astrojs/cloudflare` adapter is active (required for future SSR transition and `platformProxy` in local dev).
+The site uses `output: "static"` with one SSR exception. All 64 deployed HTML pages are generated at build time. Cloudflare Pages serves static HTML from CDN edge. The `@astrojs/cloudflare` adapter is active (required for the SSR API endpoint and `platformProxy` in local dev).
 
 **Content pages (17 pages) — driven by MDX frontmatter:**
 
@@ -107,6 +109,16 @@ The site uses `output: "static"`. All 64 deployed pages are generated at build t
 **Catalogue pages are informational and educational.** They describe what the products are, their origin, sourcing methods, traditional uses, and cultural significance. They do NOT display prices, stock levels, variant selectors, or any runtime data. They link to the Shop page and individual PDPs.
 
 **Product data at build time:** `[handler].astro` imports all 6 JSON files from `src/data/` and statically generates one HTML page per product. Inventory and pricing in the static HTML reflect the JSON snapshot at deploy time.
+
+### SSR API Endpoint
+
+`src/pages/api/contact.ts` uses `export const prerender = false`, making it the sole SSR route in an otherwise fully static site. Astro adds `/api/*` to `_routes.json` include list at build time — these requests are routed through `_worker.js` instead of served as static files. All 64 HTML pages remain SSG.
+
+| Endpoint       | Method | Handler                    | Purpose                            |
+| -------------- | ------ | -------------------------- | ---------------------------------- |
+| `/api/contact` | POST   | `src/pages/api/contact.ts` | Contact form submission via Resend |
+
+The endpoint validates payload, maps the `sendTo` destination label to the correct `@forestal-mt.com` address (label-to-address mapping is server-side only — email addresses are never exposed to the client), and sends the message via Resend with `From: selected-address@forestal-mt.com` and `Reply-To: submitter email`. Returns `{ success: boolean }` JSON.
 
 ### E-Commerce Layer (client-side, not SSR)
 
@@ -400,7 +412,43 @@ R2 bucket (assets) → cdn.forestal-mt.com → referenced in static HTML and OG 
 
 ---
 
-## 10. Performance Targets
+## 10. Email Infrastructure
+
+### Outbound — Resend
+
+Transactional email is handled by Resend. Domain `forestal-mt.com` is verified with full authentication.
+
+| Setting         | Value                                                            |
+| --------------- | ---------------------------------------------------------------- |
+| SDK             | `resend` npm package (workspace root)                            |
+| API key env var | `RESEND_API_KEY` — stored in CF Pages env + GH Actions secret    |
+| From addresses  | `sales@`, `support@`, `admin@forestal-mt.com`                    |
+| Return-path     | `send.forestal-mt.com` → `feedback-smtp.us-east-1.amazonses.com` |
+| Account         | forestalmt.hn@gmail.com                                          |
+
+DNS records added for Resend:
+
+| Type | Name                | Value                                          |
+| ---- | ------------------- | ---------------------------------------------- |
+| TXT  | `resend._domainkey` | Resend DKIM key                                |
+| MX   | `send`              | `feedback-smtp.us-east-1.amazonses.com` (p=10) |
+| TXT  | `send`              | `v=spf1 include:amazonses.com ~all`            |
+
+Root SPF updated to include amazonses.com: `v=spf1 include:_spf.mx.cloudflare.net include:amazonses.com include:_spf.google.com ~all`
+
+### Inbound — Cloudflare Email Routing
+
+`admin@`, `sales@`, and `support@forestal-mt.com` are active inbound addresses. All three forward to `forestalmt.hn@gmail.com`. Gmail "Send mail as" is configured for all three addresses via `smtp.resend.com:465` (SSL) — Nery can compose and reply as any `@forestal-mt.com` address from Gmail.
+
+### Contact Form
+
+The contact form (`/contact/`) is handled by `ContactFormIsland.tsx` (Preact, `client:visible`). Form fields: First Name, Last Name, Company (optional), Email, Country (drives phone dial code), Phone (validated per-country via `libphonenumber-js`), Subject (optional), Send To (maps to sales/support/admin — labels only, addresses never exposed), Message. States: idle, submitting, success, error. Submits to `POST /api/contact`.
+
+Country and dial-code data lives in `src/data/countries.ts`: exports `COUNTRIES` array (full list with ISO codes, dial codes, phone placeholders) and `PRIORITY_COUNTRY_CODES` (16 priority markets pinned at top of selector).
+
+---
+
+## 11. Performance Targets
 
 | Metric                          | Target  | Tool            |
 | ------------------------------- | ------- | --------------- |
@@ -413,7 +461,7 @@ R2 bucket (assets) → cdn.forestal-mt.com → referenced in static HTML and OG 
 
 ---
 
-## 11. Package Manager
+## 12. Package Manager
 
 ### pnpm (standalone)
 
@@ -447,7 +495,7 @@ pnpm is the sole package manager. Installed as a standalone binary (`@pnpm/exe`)
 
 ---
 
-## 12. CI/CD Pipeline
+## 13. CI/CD Pipeline
 
 ### GitHub Actions
 
@@ -518,7 +566,7 @@ CF Pages auto-deploy and preview deploys are **disabled**. All deploys go throug
 
 ---
 
-## 13. Development Model
+## 14. Development Model
 
 ### Claude Code Integration
 

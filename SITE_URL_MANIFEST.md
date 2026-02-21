@@ -2,21 +2,22 @@
 
 **SITE_URL**: https://forestal-mt.com
 **Total Pages**: 64 (63 indexable)
-**Last Updated**: 2026-02-19
+**Last Updated**: 2026-02-21
 
 ---
 
 ## Overview
 
-forestal-mt.com is an SEO-first, UX-driven e-commerce platform for Forestal MT's ethnobotanical product catalog. Built with Astro 5 on Cloudflare Pages with `output: "static"` — all 64 deployed pages are generated at build time (SSG). Content pages are driven by MDX frontmatter; product pages (Shop + 46 PDPs) are generated from 6 JSON data files in `src/data/`. Real-time commerce data (inventory, cart, orders) will be served by client-side Preact islands fetching from `fmt-ecommerce-api` Cloudflare Worker when e-commerce is activated.
+forestal-mt.com is an SEO-first, UX-driven e-commerce platform for Forestal MT's ethnobotanical product catalog. Built with Astro 5 on Cloudflare Pages with `output: "static"` — all 64 deployed HTML pages are generated at build time (SSG). Content pages are driven by MDX frontmatter; product pages (Shop + 46 PDPs) are generated from 6 JSON data files in `src/data/`. One SSR endpoint exists (`POST /api/contact`) for the contact form, served via `_worker.js`. Real-time commerce data (inventory, cart, orders) will be served by client-side Preact islands fetching from `fmt-ecommerce-api` Cloudflare Worker when e-commerce is activated.
 
 ### Architecture
 
-| Layer                        | Rendering            | Content Source                        | Pages                                                                         |
-| ---------------------------- | -------------------- | ------------------------------------- | ----------------------------------------------------------------------------- |
-| **Static (SSG) — content**   | Built at deploy time | MDX frontmatter + Astro project files | Home, About, Wholesale, Contact, Community, Legal, 3 Catalogue pages, Utility |
-| **Static (SSG) — products**  | Built at deploy time | 6 JSON data files in `src/data/`      | Shop (`/products/`), 46 PDPs (`/products/{handler}/`)                         |
-| **Future scope (not built)** | SSR when implemented | D1 + KV sessions                      | Account, Admin, Cart, Checkout, Auth pages                                    |
+| Layer                        | Rendering              | Content Source                        | Pages                                                                         |
+| ---------------------------- | ---------------------- | ------------------------------------- | ----------------------------------------------------------------------------- |
+| **Static (SSG) — content**   | Built at deploy time   | MDX frontmatter + Astro project files | Home, About, Wholesale, Contact, Community, Legal, 3 Catalogue pages, Utility |
+| **Static (SSG) — products**  | Built at deploy time   | 6 JSON data files in `src/data/`      | Shop (`/products/`), 46 PDPs (`/products/{handler}/`)                         |
+| **SSR — API endpoints**      | Runtime (`_worker.js`) | Request payload                       | `/api/contact` (POST only — not a page, not indexed)                          |
+| **Future scope (not built)** | SSR when implemented   | D1 + KV sessions                      | Account, Admin, Cart, Checkout, Auth pages                                    |
 
 **Catalogue pages** (Batana Oil, Stingless Bee Honey, Traditional Herbs) are **static**. They are informational and educational — what these products are, their origin, sourcing, traditional uses, and cultural significance. They do not display prices, stock levels, or any runtime data. They link to the Shop and individual PDPs.
 
@@ -96,6 +97,16 @@ Full image manifest with URLs, alt text, captions, and dimensions: see `products
 | #   | Page Name     | URL                          | Description               | Indexing       |
 | --- | ------------- | ---------------------------- | ------------------------- | -------------- |
 | 1   | 404 Not Found | https://forestal-mt.com/404/ | Custom branded error page | noindex,follow |
+
+---
+
+# API ENDPOINTS (not pages — not in sitemap)
+
+These are server-side endpoints served by `_worker.js`. They are not HTML pages, not indexed, and not included in the sitemap count.
+
+| #   | Endpoint       | Method | Handler                    | Description                                              |
+| --- | -------------- | ------ | -------------------------- | -------------------------------------------------------- |
+| 1   | `/api/contact` | POST   | `src/pages/api/contact.ts` | Contact form submission — validates and sends via Resend |
 
 ---
 
