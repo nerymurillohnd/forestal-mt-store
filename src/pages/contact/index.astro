@@ -13,6 +13,7 @@ import GoldTopCard from "../../components/GoldTopCard.astro";
 import CollectionNav from "../../components/CollectionNav.astro";
 import TrustMarquee from "../../components/TrustMarquee.astro";
 import { getEntry } from "astro:content";
+import ContactFormIsland from "../../components/islands/ContactFormIsland";
 
 const page = await getEntry("pages", "contact");
 if (!page) throw new Error("Missing content: pages/contact");
@@ -51,16 +52,6 @@ const contactCards = [
       },
     ],
   },
-];
-
-const subjectOptions = [
-  "General Inquiry",
-  "Product Question",
-  "Wholesale Inquiry",
-  "Order Support",
-  "Partnership",
-  "Documentation Request",
-  "Other",
 ];
 
 const socials = [
@@ -237,114 +228,7 @@ const faqs = [
         Share your project, questions, or requirements. We aim to respond within 1-2 business days.
       </p>
 
-      <form id="contact-form" class="mt-12 space-y-6" onsubmit="return false;">
-        {/* Name */}
-        <div>
-          <label
-            for="name"
-            class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]"
-          >
-            Name <span class="text-[#A18500]">*</span>
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            required
-            autocomplete="name"
-            class="mt-2 w-full rounded-[3px] border border-[#D6E8D3] bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-[#333] outline-none transition-colors focus:border-[#206D03] focus:ring-1 focus:ring-[#206D03]/20"
-            placeholder="Your full name"
-          />
-        </div>
-
-        {/* Email */}
-        <div>
-          <label
-            for="email"
-            class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]"
-          >
-            Email <span class="text-[#A18500]">*</span>
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            autocomplete="email"
-            class="mt-2 w-full rounded-[3px] border border-[#D6E8D3] bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-[#333] outline-none transition-colors focus:border-[#206D03] focus:ring-1 focus:ring-[#206D03]/20"
-            placeholder="you@company.com"
-          />
-        </div>
-
-        {/* Phone / WhatsApp */}
-        <div>
-          <label
-            for="phone"
-            class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]"
-          >
-            Phone / WhatsApp <span class="text-[#333]/40 normal-case tracking-normal"
-              >(optional)</span
-            >
-          </label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            autocomplete="tel"
-            class="mt-2 w-full rounded-[3px] border border-[#D6E8D3] bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-[#333] outline-none transition-colors focus:border-[#206D03] focus:ring-1 focus:ring-[#206D03]/20"
-            placeholder="+1 (555) 000-0000"
-          />
-        </div>
-
-        {/* Subject */}
-        <div>
-          <label
-            for="subject"
-            class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]"
-          >
-            Subject <span class="text-[#A18500]">*</span>
-          </label>
-          <select
-            id="subject"
-            name="subject"
-            required
-            autocomplete="off"
-            class="mt-2 w-full rounded-[3px] border border-[#D6E8D3] bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-[#333] outline-none transition-colors focus:border-[#206D03] focus:ring-1 focus:ring-[#206D03]/20"
-          >
-            <option value="" disabled selected>Select an inquiry type</option>
-            {subjectOptions.map((opt) => <option value={opt}>{opt}</option>)}
-          </select>
-        </div>
-
-        {/* Message */}
-        <div>
-          <label
-            for="message"
-            class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]"
-          >
-            Message <span class="text-[#A18500]">*</span>
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            required
-            rows={6}
-            autocomplete="off"
-            class="mt-2 w-full resize-y rounded-[3px] border border-[#D6E8D3] bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-[#333] outline-none transition-colors focus:border-[#206D03] focus:ring-1 focus:ring-[#206D03]/20"
-            placeholder="Describe your project, questions, or requirements. Include brand name, target market, products of interest, volumes, and timeline if applicable."
-          ></textarea>
-        </div>
-
-        {/* Submit */}
-        <button
-          type="submit"
-          id="submit-btn"
-          name="submit"
-          class="w-full rounded-[3px] bg-[#206D03] px-8 py-3.5 font-[family-name:var(--font-ui)] text-[13px] font-semibold tracking-wide text-white transition-all duration-300 hover:bg-[#54B006] hover:shadow-lg hover:shadow-[#206D03]/25"
-        >
-          Send Message
-        </button>
-      </form>
+      <ContactFormIsland client:visible />
     </div>
   </section>
 

@@ -14,6 +14,7 @@ import CollectionNav from "../../components/CollectionNav.astro";
 import TrustMarquee from "../../components/TrustMarquee.astro";
 import { getEntry } from "astro:content";
 import { cdnImage } from "../../lib/image";
+import ContactFormIsland from "../../components/islands/ContactFormIsland";
 
 const page = await getEntry("pages", "wholesale");
 if (!page) throw new Error("Missing content: pages/wholesale");
@@ -389,122 +390,7 @@ const pricingFactors = [
         Share your details and we will respond with pricing, logistics options, and next steps.
       </p>
 
-      <form class="mt-12 space-y-6" onsubmit="return false;">
-        {/* Name */}
-        <div>
-          <label
-            for="ws-name"
-            class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]"
-          >
-            Name <span class="text-[#A18500]">*</span>
-          </label>
-          <input
-            type="text"
-            id="ws-name"
-            name="name"
-            required
-            class="mt-2 w-full rounded-[3px] border border-[#D6E8D3] bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-[#333] outline-none transition-colors focus:border-[#206D03] focus:ring-1 focus:ring-[#206D03]/20"
-            placeholder="Your full name"
-          />
-        </div>
-
-        {/* Company */}
-        <div>
-          <label
-            for="ws-company"
-            class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]"
-          >
-            Company <span class="text-[#333]/40 normal-case tracking-normal">(optional)</span>
-          </label>
-          <input
-            type="text"
-            id="ws-company"
-            name="company"
-            class="mt-2 w-full rounded-[3px] border border-[#D6E8D3] bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-[#333] outline-none transition-colors focus:border-[#206D03] focus:ring-1 focus:ring-[#206D03]/20"
-            placeholder="Company or brand name"
-          />
-        </div>
-
-        {/* Email */}
-        <div>
-          <label
-            for="ws-email"
-            class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]"
-          >
-            Email <span class="text-[#A18500]">*</span>
-          </label>
-          <input
-            type="email"
-            id="ws-email"
-            name="email"
-            required
-            class="mt-2 w-full rounded-[3px] border border-[#D6E8D3] bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-[#333] outline-none transition-colors focus:border-[#206D03] focus:ring-1 focus:ring-[#206D03]/20"
-            placeholder="you@company.com"
-          />
-        </div>
-
-        {/* Phone */}
-        <div>
-          <label
-            for="ws-phone"
-            class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]"
-          >
-            Phone <span class="text-[#A18500]">*</span>
-          </label>
-          <input
-            type="tel"
-            id="ws-phone"
-            name="phone"
-            required
-            class="mt-2 w-full rounded-[3px] border border-[#D6E8D3] bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-[#333] outline-none transition-colors focus:border-[#206D03] focus:ring-1 focus:ring-[#206D03]/20"
-            placeholder="+1 (555) 000-0000"
-          />
-        </div>
-
-        {/* Country */}
-        <div>
-          <label
-            for="ws-country"
-            class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]"
-          >
-            Country <span class="text-[#A18500]">*</span>
-          </label>
-          <input
-            type="text"
-            id="ws-country"
-            name="country"
-            required
-            class="mt-2 w-full rounded-[3px] border border-[#D6E8D3] bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-[#333] outline-none transition-colors focus:border-[#206D03] focus:ring-1 focus:ring-[#206D03]/20"
-            placeholder="Destination country"
-          />
-        </div>
-
-        {/* Message */}
-        <div>
-          <label
-            for="ws-message"
-            class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]"
-          >
-            Message <span class="text-[#A18500]">*</span>
-          </label>
-          <textarea
-            id="ws-message"
-            name="message"
-            required
-            rows={6}
-            class="mt-2 w-full resize-y rounded-[3px] border border-[#D6E8D3] bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-[#333] outline-none transition-colors focus:border-[#206D03] focus:ring-1 focus:ring-[#206D03]/20"
-            placeholder="Products of interest, approximate volumes, packaging needs, timeline, and any specific documentation requirements."
-          ></textarea>
-        </div>
-
-        {/* Submit */}
-        <button
-          type="submit"
-          class="w-full rounded-[3px] bg-[#F3C00D] px-8 py-3.5 font-[family-name:var(--font-ui)] text-[13px] font-semibold tracking-wide text-[#333] transition-all duration-300 hover:bg-[#F3C00D]/90 hover:shadow-lg hover:shadow-[#F3C00D]/20"
-        >
-          Submit Wholesale Inquiry
-        </button>
-      </form>
+      <ContactFormIsland client:visible />
     </div>
   </section>
 

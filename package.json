@@ -34,7 +34,9 @@
     "astro-icon": "^1.1.5",
     "drizzle-orm": "^0.40.1",
     "hls.js": "^1.6.15",
-    "preact": "^10.28.3"
+    "libphonenumber-js": "^1.12.37",
+    "preact": "^10.28.3",
+    "resend": "^6.9.2"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.6",
