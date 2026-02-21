@@ -11,10 +11,10 @@ module.exports = {
         "http://localhost:4321/contact/",
         "http://localhost:4321/products/",
       ],
-      startServerCommand: "npx -y serve@14 dist -l 4321",
+      startServerCommand: "./node_modules/.bin/serve dist -l 4321",
       startServerReadyPattern: "Accepting connections",
       startServerReadyTimeout: 30000,
-      numberOfRuns: 3,
+      numberOfRuns: 1,
       settings: {
         preset: "desktop",
         chromeFlags: "--headless --no-sandbox",
