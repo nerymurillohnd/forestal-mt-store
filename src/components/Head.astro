@@ -36,6 +36,7 @@ interface Props {
     type?: string;
     crossorigin?: boolean;
   }>;
+  robots?: string;
 }
 
 const {
@@ -48,6 +49,7 @@ const {
   twitter,
   schemas,
   preloadHints = [],
+  robots = "index, follow",
 } = Astro.props;
 
 const jsonLdString = buildPageGraph(schemas, {
@@ -73,7 +75,8 @@ const jsonLdString = buildPageGraph(schemas, {
 }
 
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="robots" content="index, follow" />
+<meta name="robots" content={robots} />
+<meta name="google-site-verification" content="67pOUrpXBrk2ZCJXhsfseePwRVyBOdN6RYBLlbzTwF4" />
 
 <title>{appendBrand ? `${title} | Forestal MT` : title}</title>
 <meta name="description" content={description} />
@@ -86,6 +89,12 @@ const jsonLdString = buildPageGraph(schemas, {
 <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/manifest.webmanifest" />
+<link rel="sitemap" type="application/xml" href="/fmt-sitemap-index.xml" />
+<meta name="application-name" content="Forestal MT" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-title" content="Forestal MT" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="msapplication-config" content="/browserconfig.xml" />
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#206D03" />
 <meta name="msapplication-TileColor" content="#206D03" />
 <meta name="theme-color" content="#206D03" />
