@@ -141,7 +141,7 @@ export default function ContactFormIsland() {
       <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
         <div>
           <label
-            for="firstName"
+            htmlFor="firstName"
             class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]"
           >
             First Name <span class="text-[#A18500]">*</span>
@@ -158,7 +158,7 @@ export default function ContactFormIsland() {
         </div>
         <div>
           <label
-            for="lastName"
+            htmlFor="lastName"
             class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]"
           >
             Last Name <span class="text-[#A18500]">*</span>
@@ -178,7 +178,7 @@ export default function ContactFormIsland() {
       {/* Company */}
       <div>
         <label
-          for="company"
+          htmlFor="company"
           class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]"
         >
           Company <span class="normal-case tracking-normal text-[#333]/40">(optional)</span>
@@ -196,7 +196,7 @@ export default function ContactFormIsland() {
       {/* Email */}
       <div>
         <label
-          for="email"
+          htmlFor="email"
           class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]"
         >
           Email <span class="text-[#A18500]">*</span>
@@ -217,7 +217,7 @@ export default function ContactFormIsland() {
         {/* Country */}
         <div>
           <label
-            for="country"
+            htmlFor="country"
             class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]"
           >
             Country <span class="text-[#A18500]">*</span>
@@ -253,7 +253,7 @@ export default function ContactFormIsland() {
         {/* Phone */}
         <div>
           <label
-            for="phone"
+            htmlFor="phone"
             class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]"
           >
             Phone <span class="text-[#A18500]">*</span>
@@ -295,7 +295,7 @@ export default function ContactFormIsland() {
       {/* Subject */}
       <div>
         <label
-          for="subject"
+          htmlFor="subject"
           class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]"
         >
           Subject <span class="normal-case tracking-normal text-[#333]/40">(optional)</span>
@@ -312,7 +312,7 @@ export default function ContactFormIsland() {
       {/* Destination */}
       <div>
         <label
-          for="destination"
+          htmlFor="destination"
           class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]"
         >
           Send To <span class="text-[#A18500]">*</span>
@@ -337,7 +337,7 @@ export default function ContactFormIsland() {
       {/* Message */}
       <div>
         <label
-          for="message"
+          htmlFor="message"
           class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]"
         >
           Message <span class="text-[#A18500]">*</span>
