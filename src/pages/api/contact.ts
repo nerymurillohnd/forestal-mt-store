@@ -1,3 +1,6 @@
+export const prerender = false;
+
+import type { APIRoute } from "astro";
 import { Resend } from "resend";
 
 interface ContactPayload {
@@ -26,7 +29,7 @@ const DESTINATION_LABELS: Record<string, string> = {
 
 function buildEmailHtml(data: ContactPayload): string {
   const destinationLabel = DESTINATION_LABELS[data.destination] ?? data.destination;
-  const rows = [
+  const rows: [string, string][] = [
     ["Name", `${data.firstName} ${data.lastName}`],
     ["Company", data.company || "—"],
     ["Email", data.email],
@@ -120,48 +123,31 @@ function validatePayload(body: unknown): ContactPayload | null {
   };
 }
 
-interface Env {
-  RESEND_API_KEY: string;
-}
-
-interface PagesContext {
-  request: Request;
-  env: Env;
-}
-
-export const onRequestPost = async (context: PagesContext): Promise<Response> => {
-  const corsHeaders = {
-    "Access-Control-Allow-Origin": "https://forestal-mt.com",
-    "Content-Type": "application/json",
-  };
+export const POST: APIRoute = async ({ request, locals }) => {
+  const json = (body: object, status = 200) =>
+    new Response(JSON.stringify(body), {
+      status,
+      headers: { "Content-Type": "application/json" },
+    });
 
   let body: unknown;
   try {
-    body = await context.request.json();
+    body = await request.json();
   } catch {
-    return new Response(JSON.stringify({ success: false, error: "Invalid request body." }), {
-      status: 400,
-      headers: corsHeaders,
-    });
+    return json({ success: false, error: "Invalid request body." }, 400);
   }
 
   const data = validatePayload(body);
   if (!data) {
-    return new Response(
-      JSON.stringify({ success: false, error: "Missing or invalid required fields." }),
-      {
-        status: 422,
-        headers: corsHeaders,
-      },
-    );
+    return json({ success: false, error: "Missing or invalid required fields." }, 422);
   }
 
-  const apiKey = context.env.RESEND_API_KEY;
+  const apiKey =
+    (locals as { runtime?: { env?: { RESEND_API_KEY?: string } } }).runtime?.env?.RESEND_API_KEY ??
+    import.meta.env.RESEND_API_KEY;
+
   if (!apiKey) {
-    return new Response(JSON.stringify({ success: false, error: "Service configuration error." }), {
-      status: 500,
-      headers: corsHeaders,
-    });
+    return json({ success: false, error: "Service configuration error." }, 500);
   }
 
   const resend = new Resend(apiKey);
@@ -180,28 +166,8 @@ export const onRequestPost = async (context: PagesContext): Promise<Response> =>
 
   if (error) {
     console.error("Resend error:", error);
-    return new Response(
-      JSON.stringify({ success: false, error: "Failed to send message. Please try again." }),
-      {
-        status: 502,
-        headers: corsHeaders,
-      },
-    );
+    return json({ success: false, error: "Failed to send message. Please try again." }, 502);
   }
 
-  return new Response(JSON.stringify({ success: true }), {
-    status: 200,
-    headers: corsHeaders,
-  });
-};
-
-export const onRequestOptions = async (): Promise<Response> => {
-  return new Response(null, {
-    status: 204,
-    headers: {
-      "Access-Control-Allow-Origin": "https://forestal-mt.com",
-      "Access-Control-Allow-Methods": "POST, OPTIONS",
-      "Access-Control-Allow-Headers": "Content-Type",
-    },
-  });
+  return json({ success: true });
 };
