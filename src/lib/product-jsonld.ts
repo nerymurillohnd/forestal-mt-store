@@ -224,8 +224,7 @@ export function buildProductPageGraph(opts: {
     });
   }
   if (additionalProperties.length) {
-    productGroupNode.additionalProperty =
-      additionalProperties.length === 1 ? additionalProperties[0] : additionalProperties;
+    productGroupNode.additionalProperty = additionalProperties;
   }
 
   if (content.audience) {
