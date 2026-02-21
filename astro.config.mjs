@@ -48,7 +48,7 @@ export default defineConfig({
 
       // Split by content type — crawl budget segmentation
       // products: fmt-sitemap-products-0.xml (47 URLs)
-      // unmatched → "pages" chunk: fmt-sitemap-pages-0.xml (17 URLs)
+      // unmatched → "pages" chunk: fmt-sitemap-pages-0.xml (16 URLs)
       chunks: {
         products: (item) => {
           if (item.url.includes("/products/")) return item;
