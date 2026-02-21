@@ -34,6 +34,14 @@ Shared lockfile (`pnpm-lock.yaml`) at root. Both packages have their own `CLAUDE
 - Astro pages, content, components, SEO → start from `forestal-mt-store/` (here)
 - API routes, D1 schema, Hono handlers, DHL → start from `forestal-mt-store/api-worker/`
 
+**HARD RULE — API Worker session boundary:**
+If Nery requests, or the task requires, any of the following while in a session started from this root directory:
+implementing Hono routes, modifying `api-worker/src/`, editing `schema.ts`, running D1 migrations, integrating DHL, or any substantive `api-worker/` development —
+**STOP immediately. Do not execute. Say explicitly:**
+
+> "This must be done from a session started in `api-worker/`. Open a new terminal, `cd api-worker/`, and start Claude Code from there."
+> The only exceptions allowed from root: editing `api-worker/package.json`, `api-worker/wrangler.toml`, or `api-worker/CLAUDE.md` when the change is a one-liner with no architectural decisions involved.
+
 **Cross-workspace commands (run from root without cd):**
 
 ```bash
