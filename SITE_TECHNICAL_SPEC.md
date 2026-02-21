@@ -506,8 +506,8 @@ Cloudflare Pages auto-deploy is **disabled**. GH Actions `wrangler pages deploy`
 | **1. Lint**              | Push, PR       | ESLint (with jsx-a11y for islands), Prettier, Astro check             |
 | **2. Build**             | Push, PR       | `astro build` — validates SSG pages, uploads Sentry source maps       |
 | **3. E2E Tests**         | Push, PR       | Playwright against local build — 17 pages, axe-core a11y on all       |
-| **4. Lighthouse**        | Push, PR       | Lighthouse CI against localhost (3 runs, 8 URLs, desktop preset)      |
-| **5. Deploy**            | Push to `main` | `wrangler pages deploy` — only runs if stages 1-4 pass                |
+| **4. Lighthouse**        | Push, PR       | Lighthouse CI against localhost (1 run, 8 URLs, desktop preset)       |
+| **5. Deploy**            | Push to `main` | `pnpm exec wrangler pages deploy` — only runs if stages 1-4 pass      |
 | **6. Lighthouse (Prod)** | Push to `main` | Lighthouse CI against production URLs (continue-on-error, monitoring) |
 
 ### Playwright (E2E Testing)
@@ -534,8 +534,8 @@ Two Lighthouse configurations:
 
 | Config                        | Target     | Runs | Gate?                | URLs |
 | ----------------------------- | ---------- | ---- | -------------------- | ---- |
-| `lighthouserc.cjs`            | localhost  | 3    | Yes — blocks deploy  | 8    |
-| `lighthouserc.production.cjs` | production | 3    | No — monitoring only | 8    |
+| `lighthouserc.cjs`            | localhost  | 1    | Yes — blocks deploy  | 8    |
+| `lighthouserc.production.cjs` | production | 1    | No — monitoring only | 8    |
 
 GitHub App integration posts score comments on PRs. Production Lighthouse runs post-deploy with `continue-on-error: true`.
 
@@ -553,7 +553,7 @@ Push to main → Lint → Build → E2E (17 pages) → Lighthouse (localhost)
                                                        │
                                               YES ─────┴───── NO → Pipeline fails, no deploy
                                                        │
-                                              wrangler pages deploy
+                                              pnpm exec wrangler pages deploy
                                                        │
                                               forestal-mt.com updated
                                                        │
