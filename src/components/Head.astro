@@ -110,4 +110,4 @@ const jsonLdString = buildPageGraph(schemas, {
 <meta name="twitter:image:alt" content={og.image.alt} />
 
 <!-- JSON-LD Structured Data -->
-{jsonLdString && <script type="application/ld+json" set:html={jsonLdString} />}
+{jsonLdString && <script is:inline type="application/ld+json" set:html={jsonLdString} />}

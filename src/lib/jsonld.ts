@@ -14,6 +14,7 @@ import VideoObjectStinglessBeeHoneyHero from "../data/jsonld/VideoObject-stingle
 import VideoObjectTraditionalHerbsHero from "../data/jsonld/VideoObject-traditional-herbs-hero.json";
 import ServiceWholesale from "../data/jsonld/Service-wholesale.json";
 import OnlineStoreFull from "../data/jsonld/OnlineStore.json";
+import OfferShippingDetailsAll from "../data/jsonld/OfferShippingDetails.json";
 
 import { SITE_URL, OrganizationCompact, BrandCompact } from "./jsonld-shared";
 
@@ -161,6 +162,13 @@ function resolveSchema(
       const match = (ServiceWholesale as Record<string, unknown>[]).find((s) => s["@id"] === id);
       return match ?? null;
     }
+
+    case "OnlineStore":
+      return OnlineStoreFull;
+
+    case "OfferShippingDetails":
+      // Returns all shipping zones as an array — buildPageGraph spreads them into @graph
+      return OfferShippingDetailsAll;
 
     default:
       return null;
