@@ -67,7 +67,7 @@ test.describe("Layout components", () => {
   test("Header is present with logo", async ({ page }) => {
     await page.goto("/");
     await expect(page.locator("header")).toBeVisible();
-    await expect(page.locator("header nav a[href='/'] img")).toBeVisible();
+    await expect(page.locator("header nav a[href='/'] img").first()).toBeVisible();
   });
 
   test("Footer is present with social links", async ({ page }) => {
