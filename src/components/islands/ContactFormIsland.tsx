@@ -1,12 +1,28 @@
-import { useState, useCallback } from "preact/hooks";
+import { useState, useCallback, useEffect, useRef } from "preact/hooks";
 import { parsePhoneNumberFromString, type CountryCode } from "libphonenumber-js";
 import { COUNTRIES, PRIORITY_COUNTRY_CODES } from "../../data/countries";
+import { CONTACT_LIMITS } from "../../lib/contact-limits";
+
+// Turnstile global — loaded via explicit-render script in contact page head
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (container: HTMLElement | string, options: Record<string, unknown>) => string;
+      reset: (widgetId: string) => void;
+      remove: (widgetId: string) => void;
+    };
+  }
+}
+
+const TURNSTILE_SITE_KEY = "0x4AAAAAACgQlC6ggwNZCxCV";
 
 const DESTINATION_OPTIONS = [
   { label: "Sales / Wholesale Inquiries", value: "sales" },
   { label: "Customer Support", value: "support" },
   { label: "General / Administration", value: "admin" },
 ] as const;
+
+const LIMITS = CONTACT_LIMITS;
 
 type FormState = "idle" | "submitting" | "success" | "error";
 
@@ -19,8 +35,44 @@ export default function ContactFormIsland() {
   const [selectedCountry, setSelectedCountry] = useState("");
   const [phoneValue, setPhoneValue] = useState("");
   const [phoneError, setPhoneError] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState("");
+
+  const turnstileContainerRef = useRef<HTMLDivElement>(null);
+  const widgetIdRef = useRef<string>("");
 
   const currentCountry = COUNTRIES.find((c) => c.code === selectedCountry);
+
+  // Render Turnstile widget on mount (explicit rendering for SPA/island)
+  useEffect(() => {
+    const renderWidget = () => {
+      if (!turnstileContainerRef.current || !window.turnstile) return;
+      widgetIdRef.current = window.turnstile.render(turnstileContainerRef.current, {
+        sitekey: TURNSTILE_SITE_KEY,
+        callback: (token: string) => setTurnstileToken(token),
+        "expired-callback": () => setTurnstileToken(""),
+        "error-callback": () => setTurnstileToken(""),
+        execution: "render",
+      });
+    };
+
+    if (window.turnstile) {
+      renderWidget();
+    } else {
+      // Script not yet loaded — attach to its load event
+      const script = document.querySelector<HTMLScriptElement>(
+        'script[src*="challenges.cloudflare.com/turnstile"]',
+      );
+      if (script) {
+        script.addEventListener("load", renderWidget, { once: true });
+      }
+    }
+
+    return () => {
+      if (widgetIdRef.current && window.turnstile) {
+        window.turnstile.remove(widgetIdRef.current);
+      }
+    };
+  }, []);
 
   const validatePhone = useCallback((value: string, countryCode: string): boolean => {
     if (!value || !countryCode) return true;
@@ -76,6 +128,12 @@ export default function ContactFormIsland() {
       }
     }
 
+    if (!turnstileToken) {
+      setFormState("error");
+      setErrorMessage("Security verification not ready. Please wait a moment and try again.");
+      return;
+    }
+
     setFormState("submitting");
     setErrorMessage("");
 
@@ -90,6 +148,7 @@ export default function ContactFormIsland() {
         subject: data.get("subject"),
         destination: data.get("destination"),
         message: data.get("message"),
+        turnstileToken,
       };
 
       const res = await fetch("/api/contact", {
@@ -108,6 +167,11 @@ export default function ContactFormIsland() {
     } catch (err) {
       setFormState("error");
       setErrorMessage(err instanceof Error ? err.message : "An unexpected error occurred.");
+      // Reset widget so user gets a fresh token for retry
+      if (widgetIdRef.current && window.turnstile) {
+        window.turnstile.reset(widgetIdRef.current);
+        setTurnstileToken("");
+      }
     }
   };
 
@@ -151,6 +215,7 @@ export default function ContactFormIsland() {
             id="firstName"
             name="firstName"
             required
+            maxLength={LIMITS.firstName}
             autocomplete="given-name"
             class="mt-2 w-full rounded-[3px] border border-[#D6E8D3] bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-[#333] outline-none transition-colors focus:border-[#206D03] focus:ring-1 focus:ring-[#206D03]/20"
             placeholder="First name"
@@ -168,6 +233,7 @@ export default function ContactFormIsland() {
             id="lastName"
             name="lastName"
             required
+            maxLength={LIMITS.lastName}
             autocomplete="family-name"
             class="mt-2 w-full rounded-[3px] border border-[#D6E8D3] bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-[#333] outline-none transition-colors focus:border-[#206D03] focus:ring-1 focus:ring-[#206D03]/20"
             placeholder="Last name"
@@ -187,6 +253,7 @@ export default function ContactFormIsland() {
           type="text"
           id="company"
           name="company"
+          maxLength={LIMITS.company}
           autocomplete="organization"
           class="mt-2 w-full rounded-[3px] border border-[#D6E8D3] bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-[#333] outline-none transition-colors focus:border-[#206D03] focus:ring-1 focus:ring-[#206D03]/20"
           placeholder="Company or brand name"
@@ -206,6 +273,7 @@ export default function ContactFormIsland() {
           id="email"
           name="email"
           required
+          maxLength={LIMITS.email}
           autocomplete="email"
           class="mt-2 w-full rounded-[3px] border border-[#D6E8D3] bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-[#333] outline-none transition-colors focus:border-[#206D03] focus:ring-1 focus:ring-[#206D03]/20"
           placeholder="you@company.com"
@@ -269,6 +337,7 @@ export default function ContactFormIsland() {
               id="phone"
               name="phone"
               required
+              maxLength={LIMITS.phoneNational}
               autocomplete="tel-national"
               value={phoneValue}
               onInput={handlePhoneChange}
@@ -304,6 +373,7 @@ export default function ContactFormIsland() {
           type="text"
           id="subject"
           name="subject"
+          maxLength={LIMITS.subject}
           class="mt-2 w-full rounded-[3px] border border-[#D6E8D3] bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-[#333] outline-none transition-colors focus:border-[#206D03] focus:ring-1 focus:ring-[#206D03]/20"
           placeholder="Brief subject line"
         />
@@ -347,10 +417,14 @@ export default function ContactFormIsland() {
           name="message"
           required
           rows={6}
+          maxLength={LIMITS.message}
           class="mt-2 w-full resize-y rounded-[3px] border border-[#D6E8D3] bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-[#333] outline-none transition-colors focus:border-[#206D03] focus:ring-1 focus:ring-[#206D03]/20"
           placeholder="Describe your inquiry, project, or requirements."
         />
       </div>
+
+      {/* Turnstile widget container (invisible widget — no visual output for legitimate users) */}
+      <div ref={turnstileContainerRef} />
 
       {/* Error message */}
       {formState === "error" && (

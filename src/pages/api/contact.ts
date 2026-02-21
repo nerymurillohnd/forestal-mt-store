@@ -2,6 +2,7 @@ export const prerender = false;
 
 import type { APIRoute } from "astro";
 import { Resend } from "resend";
+import { CONTACT_LIMITS } from "../../lib/contact-limits";
 
 interface ContactPayload {
   firstName: string;
@@ -13,6 +14,7 @@ interface ContactPayload {
   subject?: string;
   destination: "sales" | "support" | "admin";
   message: string;
+  turnstileToken: string;
 }
 
 const DESTINATION_MAP: Record<string, string> = {
@@ -26,6 +28,32 @@ const DESTINATION_LABELS: Record<string, string> = {
   support: "Customer Support",
   admin: "General / Administration",
 };
+
+const FIELD_LIMITS = {
+  ...CONTACT_LIMITS,
+  phone: CONTACT_LIMITS.phoneFull,
+};
+
+// RFC 5322 simplified — catches obvious invalid emails missed by includes("@")
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+async function verifyTurnstile(token: string, secretKey: string, ip?: string): Promise<boolean> {
+  if (!token || token.length > 2048) return false;
+  const form = new FormData();
+  form.append("secret", secretKey);
+  form.append("response", token);
+  if (ip) form.append("remoteip", ip);
+  try {
+    const res = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+      method: "POST",
+      body: form,
+    });
+    const data = (await res.json()) as { success: boolean };
+    return data.success === true;
+  } catch {
+    return false;
+  }
+}
 
 function buildEmailHtml(data: ContactPayload): string {
   const destinationLabel = DESTINATION_LABELS[data.destination] ?? data.destination;
@@ -94,32 +122,51 @@ function validatePayload(body: unknown): ContactPayload | null {
   if (
     typeof b.firstName !== "string" ||
     !b.firstName.trim() ||
+    b.firstName.trim().length > FIELD_LIMITS.firstName ||
     typeof b.lastName !== "string" ||
     !b.lastName.trim() ||
+    b.lastName.trim().length > FIELD_LIMITS.lastName ||
     typeof b.email !== "string" ||
-    !b.email.includes("@") ||
+    !EMAIL_REGEX.test(b.email.trim()) ||
+    b.email.trim().length > FIELD_LIMITS.email ||
     typeof b.country !== "string" ||
     !b.country.trim() ||
+    b.country.trim().length > FIELD_LIMITS.country ||
     typeof b.phone !== "string" ||
     !b.phone.trim() ||
+    b.phone.trim().length > FIELD_LIMITS.phone ||
     typeof b.destination !== "string" ||
     !DESTINATION_MAP[b.destination] ||
     typeof b.message !== "string" ||
-    !b.message.trim()
+    !b.message.trim() ||
+    b.message.trim().length > FIELD_LIMITS.message ||
+    typeof b.turnstileToken !== "string" ||
+    !b.turnstileToken
   ) {
     return null;
   }
 
+  const company =
+    typeof b.company === "string" && b.company.trim().length <= FIELD_LIMITS.company
+      ? b.company.trim()
+      : undefined;
+
+  const subject =
+    typeof b.subject === "string" && b.subject.trim().length <= FIELD_LIMITS.subject
+      ? b.subject.trim()
+      : undefined;
+
   return {
     firstName: b.firstName.trim(),
     lastName: b.lastName.trim(),
-    company: typeof b.company === "string" ? b.company.trim() : undefined,
+    company,
     email: b.email.trim(),
     country: b.country.trim(),
     phone: b.phone.trim(),
-    subject: typeof b.subject === "string" ? b.subject.trim() : undefined,
+    subject,
     destination: b.destination as ContactPayload["destination"],
     message: b.message.trim(),
+    turnstileToken: b.turnstileToken,
   };
 }
 
@@ -140,6 +187,22 @@ export const POST: APIRoute = async ({ request, locals }) => {
   const data = validatePayload(body);
   if (!data) {
     return json({ success: false, error: "Missing or invalid required fields." }, 422);
+  }
+
+  // Turnstile verification — first gate, before any downstream calls
+  const turnstileSecret =
+    (locals as { runtime?: { env?: { TURNSTILE_SECRET_KEY?: string } } }).runtime?.env
+      ?.TURNSTILE_SECRET_KEY ?? import.meta.env.TURNSTILE_SECRET_KEY;
+
+  if (!turnstileSecret) {
+    console.error("TURNSTILE_SECRET_KEY not configured");
+    return json({ success: false, error: "Service configuration error." }, 500);
+  }
+
+  const remoteIp = request.headers.get("CF-Connecting-IP") ?? undefined;
+  const turnstileOk = await verifyTurnstile(data.turnstileToken, turnstileSecret, remoteIp);
+  if (!turnstileOk) {
+    return json({ success: false, error: "Security verification failed. Please try again." }, 403);
   }
 
   const apiKey =

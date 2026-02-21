@@ -91,16 +91,24 @@ const faqs = [
 ---
 
 <BaseLayout>
-  <Head
-    slot="head"
-    title={data.title}
-    description={data.description}
-    canonicalUrl={data.canonicalUrl}
-    pageName={data.pageName}
-    og={data.og}
-    twitter={data.twitter}
-    schemas={data.schemas}
-  />
+  <Fragment slot="head">
+    <Head
+      title={data.title}
+      description={data.description}
+      canonicalUrl={data.canonicalUrl}
+      pageName={data.pageName}
+      og={data.og}
+      twitter={data.twitter}
+      schemas={data.schemas}
+    />
+    {/* Turnstile: preconnect for early handshake, explicit-render script for SPA island control */}
+    <link rel="preconnect" href="https://challenges.cloudflare.com" />
+    <script
+      is:inline
+      src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+      async
+      defer></script>
+  </Fragment>
 
   {
     /* ═══════════════════════════════════════════════════════════════
