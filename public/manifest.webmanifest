@@ -5,6 +5,7 @@
   "lang": "en",
   "display": "standalone",
   "orientation": "portrait",
+  "id": "/",
   "scope": "/",
   "start_url": "/",
   "categories": ["shopping", "health"],

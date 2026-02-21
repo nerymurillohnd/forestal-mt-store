@@ -9,3 +9,7 @@ https://forestal-mt-store.pages.dev/*
 
 https://*.forestal-mt-store.pages.dev/*
   X-Robots-Tag: noindex
+
+# Hashed Astro assets — filenames change on every build, safe to cache forever
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
