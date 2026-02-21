@@ -14,7 +14,6 @@ import VideoObjectStinglessBeeHoneyHero from "../data/jsonld/VideoObject-stingle
 import VideoObjectTraditionalHerbsHero from "../data/jsonld/VideoObject-traditional-herbs-hero.json";
 import ServiceWholesale from "../data/jsonld/Service-wholesale.json";
 import OnlineStoreFull from "../data/jsonld/OnlineStore.json";
-import OfferShippingDetailsAll from "../data/jsonld/OfferShippingDetails.json";
 
 import { SITE_URL, OrganizationCompact, BrandCompact } from "./jsonld-shared";
 
@@ -166,9 +165,9 @@ function resolveSchema(
     case "OnlineStore":
       return OnlineStoreFull;
 
-    case "OfferShippingDetails":
-      // Returns all shipping zones as an array — buildPageGraph spreads them into @graph
-      return OfferShippingDetailsAll;
+    // OfferShippingDetails intentionally omitted — shippingRate is required by Google for
+    // shipping rich results but must be a fixed MonetaryAmount. DHL Express rates are
+    // dynamic (weight/dimensions/destination). Activate when DHL API Worker is integrated.
 
     default:
       return null;
