@@ -234,6 +234,14 @@ All images served from R2 via `cdn.forestal-mt.com`. The ONLY images in `public/
 
 **Never use Astro's `<Image>` component for R2 URLs** — `passthroughImageService()` is configured, Sharp is disabled. Use plain `<img>` tags.
 
+### R2 Asset Isolation Rule
+
+Every page uses **only its own R2 folder**. A page at `/wholesale/` may only reference images under `pages/wholesale/`. Cross-folder references are forbidden — they create orphan dependencies and make audits impossible.
+
+**The only exception:** catalog collection card images (preview cards linking to Batana Oil, Stingless Bee Honey, and Traditional Herbs) pull their hero/card image from `products/{ProductGroup}/` — the same ProductGroup image used in the PDP. This is intentional and the only allowed cross-folder reference.
+
+If an image does not exist in the page's own R2 folder, the correct fix is to **upload the correct asset to that folder** — never borrow from another page's folder.
+
 ---
 
 ## Live Pages (64 deployed — 63 indexable)
