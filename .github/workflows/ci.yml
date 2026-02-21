@@ -140,6 +140,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
       - name: Download build artifact
         uses: actions/download-artifact@v4
         with:
@@ -150,7 +155,6 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          wranglerVersion: "4.66.0"
           command: pages deploy dist --project-name=forestal-mt-store --branch=main --commit-dirty=true
 
   # ── Stage 6: Lighthouse (Production) ──────────────────────────
