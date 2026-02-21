@@ -123,6 +123,9 @@ function resolveSchema(
         caption: pageData.ogImage.alt,
         width: pageData.ogImage.width,
         height: pageData.ogImage.height,
+        acquireLicensePage: `${SITE_URL}/terms/`,
+        copyrightNotice: "© 2026 Forestal Murillo Tejada S. de R.L. All Rights Reserved.",
+        creditText: "Forestal MT",
       };
     }
 

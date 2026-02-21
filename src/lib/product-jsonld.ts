@@ -158,6 +158,9 @@ export function buildProductPageGraph(opts: {
     height: media.image.height,
     encodingFormat: media.image.encodingFormat,
     creator: { "@id": `${SITE_URL}/#organization` },
+    acquireLicensePage: `${SITE_URL}/terms/`,
+    copyrightNotice: "© 2026 Forestal Murillo Tejada S. de R.L. All Rights Reserved.",
+    creditText: "Forestal MT",
   };
   graph.push(imageNode);
 
@@ -223,6 +226,28 @@ export function buildProductPageGraph(opts: {
     const prodVariant = productVariants.find((v) => v.sku === pv.sku);
     const variantImage = media.variantImages.find((v) => v.sku === pv.sku);
 
+    // Build variant ImageObject node and push to graph
+    const variantImageId = variantImage
+      ? `${canonicalUrl}#image-${pv.sku}`
+      : `${canonicalUrl}#image`;
+
+    if (variantImage) {
+      graph.push({
+        "@type": "ImageObject",
+        "@id": variantImageId,
+        url: variantImage.url,
+        contentUrl: variantImage.url,
+        caption: variantImage.alt,
+        width: 1200,
+        height: 1200,
+        encodingFormat: "image/png",
+        creator: { "@id": `${SITE_URL}/#organization` },
+        acquireLicensePage: `${SITE_URL}/terms/`,
+        copyrightNotice: "© 2026 Forestal Murillo Tejada S. de R.L. All Rights Reserved.",
+        creditText: "Forestal MT",
+      });
+    }
+
     const variantNode: Record<string, unknown> = {
       "@type": "Product",
       "@id": variantId,
@@ -239,7 +264,7 @@ export function buildProductPageGraph(opts: {
           unitCode: "KGM",
         },
       }),
-      image: variantImage?.url ?? media.image.url,
+      image: { "@id": variantImageId },
       isVariantOf: { "@id": `${canonicalUrl}#product-group` },
       offers: {
         "@type": "Offer",

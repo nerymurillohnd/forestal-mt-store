@@ -73,7 +73,6 @@
       { "@type": "DefinedRegion", "addressCountry": "GY" },
       { "@type": "DefinedRegion", "addressCountry": "SR" },
       { "@type": "DefinedRegion", "addressCountry": "GF" },
-      { "@type": "DefinedRegion", "addressCountry": "CU" },
       { "@type": "DefinedRegion", "addressCountry": "DO" },
       { "@type": "DefinedRegion", "addressCountry": "PR" },
       { "@type": "DefinedRegion", "addressCountry": "JM" },
@@ -92,7 +91,16 @@
       { "@type": "DefinedRegion", "addressCountry": "KY" },
       { "@type": "DefinedRegion", "addressCountry": "TC" },
       { "@type": "DefinedRegion", "addressCountry": "VG" },
-      { "@type": "DefinedRegion", "addressCountry": "VI" }
+      { "@type": "DefinedRegion", "addressCountry": "VI" },
+      { "@type": "DefinedRegion", "addressCountry": "GP" },
+      { "@type": "DefinedRegion", "addressCountry": "MQ" },
+      { "@type": "DefinedRegion", "addressCountry": "MF" },
+      { "@type": "DefinedRegion", "addressCountry": "BL" },
+      { "@type": "DefinedRegion", "addressCountry": "SX" },
+      { "@type": "DefinedRegion", "addressCountry": "BQ" },
+      { "@type": "DefinedRegion", "addressCountry": "AI" },
+      { "@type": "DefinedRegion", "addressCountry": "MS" },
+      { "@type": "DefinedRegion", "addressCountry": "PM" }
     ],
     "deliveryTime": {
       "@type": "ShippingDeliveryTime",
@@ -153,16 +161,24 @@
       { "@type": "DefinedRegion", "addressCountry": "MK" },
       { "@type": "DefinedRegion", "addressCountry": "MD" },
       { "@type": "DefinedRegion", "addressCountry": "UA" },
-      { "@type": "DefinedRegion", "addressCountry": "BY" },
       { "@type": "DefinedRegion", "addressCountry": "GE" },
       { "@type": "DefinedRegion", "addressCountry": "AM" },
       { "@type": "DefinedRegion", "addressCountry": "AZ" },
       { "@type": "DefinedRegion", "addressCountry": "TR" },
-      { "@type": "DefinedRegion", "addressCountry": "RU" },
       { "@type": "DefinedRegion", "addressCountry": "MC" },
       { "@type": "DefinedRegion", "addressCountry": "AD" },
       { "@type": "DefinedRegion", "addressCountry": "LI" },
-      { "@type": "DefinedRegion", "addressCountry": "XK" }
+      { "@type": "DefinedRegion", "addressCountry": "XK" },
+      { "@type": "DefinedRegion", "addressCountry": "SM" },
+      { "@type": "DefinedRegion", "addressCountry": "VA" },
+      { "@type": "DefinedRegion", "addressCountry": "GI" },
+      { "@type": "DefinedRegion", "addressCountry": "JE" },
+      { "@type": "DefinedRegion", "addressCountry": "GG" },
+      { "@type": "DefinedRegion", "addressCountry": "IM" },
+      { "@type": "DefinedRegion", "addressCountry": "FO" },
+      { "@type": "DefinedRegion", "addressCountry": "GL" },
+      { "@type": "DefinedRegion", "addressCountry": "AX" },
+      { "@type": "DefinedRegion", "addressCountry": "SJ" }
     ],
     "deliveryTime": {
       "@type": "ShippingDeliveryTime",
@@ -195,11 +211,8 @@
       { "@type": "DefinedRegion", "addressCountry": "JO" },
       { "@type": "DefinedRegion", "addressCountry": "LB" },
       { "@type": "DefinedRegion", "addressCountry": "IQ" },
-      { "@type": "DefinedRegion", "addressCountry": "IR" },
       { "@type": "DefinedRegion", "addressCountry": "YE" },
-      { "@type": "DefinedRegion", "addressCountry": "SY" },
-      { "@type": "DefinedRegion", "addressCountry": "PS" },
-      { "@type": "DefinedRegion", "addressCountry": "CY" }
+      { "@type": "DefinedRegion", "addressCountry": "PS" }
     ],
     "deliveryTime": {
       "@type": "ShippingDeliveryTime",
@@ -274,7 +287,10 @@
       { "@type": "DefinedRegion", "addressCountry": "SS" },
       { "@type": "DefinedRegion", "addressCountry": "ST" },
       { "@type": "DefinedRegion", "addressCountry": "KM" },
-      { "@type": "DefinedRegion", "addressCountry": "RE" }
+      { "@type": "DefinedRegion", "addressCountry": "RE" },
+      { "@type": "DefinedRegion", "addressCountry": "MR" },
+      { "@type": "DefinedRegion", "addressCountry": "GN" },
+      { "@type": "DefinedRegion", "addressCountry": "YT" }
     ],
     "deliveryTime": {
       "@type": "ShippingDeliveryTime",
@@ -364,7 +380,14 @@
       { "@type": "DefinedRegion", "addressCountry": "KI" },
       { "@type": "DefinedRegion", "addressCountry": "FM" },
       { "@type": "DefinedRegion", "addressCountry": "MH" },
-      { "@type": "DefinedRegion", "addressCountry": "PW" }
+      { "@type": "DefinedRegion", "addressCountry": "PW" },
+      { "@type": "DefinedRegion", "addressCountry": "NR" },
+      { "@type": "DefinedRegion", "addressCountry": "TV" },
+      { "@type": "DefinedRegion", "addressCountry": "WF" },
+      { "@type": "DefinedRegion", "addressCountry": "CK" },
+      { "@type": "DefinedRegion", "addressCountry": "NU" },
+      { "@type": "DefinedRegion", "addressCountry": "NF" },
+      { "@type": "DefinedRegion", "addressCountry": "TK" }
     ],
     "deliveryTime": {
       "@type": "ShippingDeliveryTime",
