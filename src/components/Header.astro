@@ -1,6 +1,5 @@
 ---
 import logoSvg from "../assets/logos/logo.svg";
-import logoLight from "../assets/logos/logo-light.png";
 
 interface NavChild {
   label: string;
@@ -76,23 +75,7 @@ for (const link of navLinks) {
   <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-8">
     <!-- Logo -->
     <a href="/" class="flex shrink-0 items-center gap-2">
-      <div class="relative h-10 w-10">
-        <img
-          src={logoSvg.src}
-          alt=""
-          aria-hidden="true"
-          width="40"
-          height="40"
-          class="logo-dark absolute inset-0 h-10 w-10 transition-opacity duration-300"
-        />
-        <img
-          src={logoLight.src}
-          alt=""
-          width="40"
-          height="40"
-          class="logo-light absolute inset-0 h-10 w-10 opacity-0 transition-opacity duration-300"
-        />
-      </div>
+      <img src={logoSvg.src} alt="" aria-hidden="true" width="40" height="40" class="h-10 w-10" />
       <span
         id="logo-label"
         class="hidden font-[family-name:var(--font-heading)] text-lg font-semibold text-leaf-green transition-colors duration-300 sm:inline"
@@ -251,12 +234,6 @@ for (const link of navLinks) {
   }
   #site-header.menu-open #logo-label {
     color: white !important;
-  }
-  #site-header.menu-open .logo-dark {
-    opacity: 0 !important;
-  }
-  #site-header.menu-open .logo-light {
-    opacity: 1 !important;
   }
   #site-header.menu-open #mobile-menu-btn {
     color: white !important;
