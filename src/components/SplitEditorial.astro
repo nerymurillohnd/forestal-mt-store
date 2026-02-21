@@ -3,6 +3,8 @@
  * SplitEditorial — 50/50 image + text editorial block.
  * Simpler than OriginChapter — no metadata, pure narrative.
  */
+import { cdnImage } from "../lib/image";
+
 interface Props {
   eyebrow?: string;
   heading: string;
@@ -42,7 +44,7 @@ const textColor = isDark ? "text-white/55" : "text-[#333]/70";
     ]}
   >
     <img
-      src={image}
+      src={cdnImage(image, { w: 1200 })}
       alt={imageAlt}
       class="parallax-image h-full w-full object-cover"
       loading="lazy"

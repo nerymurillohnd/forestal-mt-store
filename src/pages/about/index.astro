@@ -17,6 +17,7 @@ import LeadershipCard from "../../components/LeadershipCard.astro";
 import ChannelSplit from "../../components/ChannelSplit.astro";
 import FeatureList from "../../components/FeatureList.astro";
 import ImpactBarIsland from "../../components/islands/ImpactBarIsland.tsx";
+import { cdnImage } from "../../lib/image";
 import { getEntry } from "astro:content";
 
 const page = await getEntry("pages", "about");
@@ -203,7 +204,7 @@ const leadership = [
       {/* Image — 2/3 width, natural aspect ratio, no cropping */}
       <div class="overflow-hidden rounded-[2px]">
         <img
-          src={`${R2_ABOUT}/murillo-tejada-family.jpg`}
+          src={cdnImage(`${R2_ABOUT}/murillo-tejada-family.jpg`, { w: 1200 })}
           alt="The Murillo Tejada family — founders of Forestal MT"
           class="h-auto w-full"
           loading="lazy"
@@ -454,15 +455,19 @@ const leadership = [
 
   {/* ── 13. COMMUNITY IMPACT + COMMITMENT ── */}
   <section class="surface-parchment py-16">
-    <div class="mx-auto max-w-4xl px-6 lg:px-12">
-      <SectionHeader eyebrow="Why It Matters" heading="Community Impact" />
-      <p
-        class="reveal-on-scroll mx-auto mt-6 max-w-2xl text-center font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70"
-      >
-        Every purchase supports real people in rural Honduras. Not a charity — a business built on
-        fair partnerships where everyone benefits.
-      </p>
-      <div class="reveal-on-scroll mx-auto mt-10 max-w-2xl">
+    <SplitEditorial
+      eyebrow="Why It Matters"
+      heading="From Forest to Family:<br />The Real Chain of Custody"
+      paragraphs={[
+        "Every purchase supports real people in rural Honduras. Not a charity — a business built on fair partnerships where everyone benefits.",
+        "We source directly from Miskito communities in La Mosquitia and indigenous harvesters in Olancho. No intermediaries, no anonymous sourcing. The people who grow and gather our products are paid fairly, and the ecosystems they steward are protected.",
+      ]}
+      image={cdnImage(`${R2_ABOUT}/sourced-from-origin.jpg`, { w: 1200 })}
+      imageAlt="Forestal MT sourcing directly from origin communities in Honduras"
+      direction="left"
+      variant="light"
+    >
+      <div class="mt-8">
         <FeatureList
           items={[
             "<strong>Direct partnerships:</strong> No intermediaries — harvesters get paid fairly",
@@ -472,7 +477,7 @@ const leadership = [
           ]}
         />
       </div>
-    </div>
+    </SplitEditorial>
   </section>
 
   {/* ── 14. LEADERSHIP ── */}

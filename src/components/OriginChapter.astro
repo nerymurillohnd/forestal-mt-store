@@ -5,6 +5,7 @@
  * Used on all 3 catalog pages.
  */
 import OriginMetadata from "./OriginMetadata.astro";
+import { cdnImage } from "../lib/image";
 
 interface Props {
   eyebrow: string;
@@ -46,7 +47,7 @@ const imageFirst = direction === "image-left";
       ]}
     >
       <img
-        src={image.src}
+        src={cdnImage(image.src, { w: 1200 })}
         alt={image.alt}
         class="parallax-image h-full w-full object-cover"
         loading="lazy"
