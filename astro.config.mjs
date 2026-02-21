@@ -72,6 +72,11 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()],
+    build: {
+      // Target modern browsers — avoids injecting polyfills for features
+      // already in Baseline (e.g. Array.from), reducing JS payload.
+      target: "es2020",
+    },
   },
 
   experimental: {

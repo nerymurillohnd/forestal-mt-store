@@ -406,7 +406,9 @@ const sustainability = [
     og={data.og}
     twitter={data.twitter}
     schemas={data.schemas}
-    preloadHints={heroPosterSrc ? [{ href: heroPosterSrc, as: "image" }] : []}
+    preloadHints={heroPosterSrc
+      ? [{ href: heroPosterSrc, as: "image", fetchpriority: "high" }]
+      : []}
   />
 
   {

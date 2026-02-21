@@ -14,6 +14,7 @@ import TrustMarquee from "../components/TrustMarquee.astro";
 import OriginPulseIsland from "../components/islands/OriginPulseIsland.tsx";
 import { getEntry } from "astro:content";
 import { getStreamPoster } from "../data/stream-videos";
+import { cdnImage, cdnSrcSet } from "../lib/image";
 
 const page = await getEntry("pages", "/");
 if (!page) throw new Error("Missing content: pages/home");
@@ -85,7 +86,9 @@ const commitments = [
     og={data.og}
     twitter={data.twitter}
     schemas={data.schemas}
-    preloadHints={heroPosterSrc ? [{ href: heroPosterSrc, as: "image" }] : []}
+    preloadHints={heroPosterSrc
+      ? [{ href: heroPosterSrc, as: "image", fetchpriority: "high" }]
+      : []}
   />
 
   {
@@ -128,7 +131,9 @@ const commitments = [
               ]}
             >
               <img
-                src={col.image}
+                src={cdnImage(col.image, { w: 800 })}
+                srcset={cdnSrcSet(col.image, [400, 800, 1200])}
+                sizes="(min-width: 1024px) 50vw, 100vw"
                 alt={col.title}
                 class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                 loading="lazy"

@@ -82,7 +82,11 @@ const posterSrc = hasVideo ? getStreamPoster(background.stream, 1920, 1080) : nu
           poster={posterSrc}
           data-hls={hlsSrc}
           class="h-full w-full object-cover"
-        />
+        >
+          {/* Captions track — required for accessibility compliance (WCAG 1.2.2).
+              Video is ambient/muted; empty track satisfies the requirement. */}
+          <track kind="captions" src="/empty.vtt" srclang="en" label="No audio" default />
+        </video>
       )
     }
 
