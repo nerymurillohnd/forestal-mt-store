@@ -24,7 +24,42 @@ export default defineConfig({
 
   integrations: [
     preact(),
-    sitemap(),
+    sitemap({
+      // Rename — forces Google to read as new, cleans GSC history slate
+      // Confirmed types in node_modules/@astrojs/sitemap/dist/index.d.ts
+      filenameBase: "fmt-sitemap",
+
+      // Exclude 404 + all future e-commerce/auth paths per SEO_STRUCTURED_DATA_SPEC.md §1
+      // These pages don't exist yet but will be noindex when built — filter now prevents
+      // any future build from accidentally adding them to the sitemap.
+      filter: (page) =>
+        !page.endsWith("/404/") &&
+        !page.endsWith("/404") &&
+        !page.includes("/cart/") &&
+        !page.includes("/checkout/") &&
+        !page.includes("/account/") &&
+        !page.includes("/admin/") &&
+        !page.includes("/login/") &&
+        !page.includes("/register/") &&
+        !page.includes("/forgot-password/") &&
+        !page.includes("/reset-password/") &&
+        !page.includes("/order-confirmation/") &&
+        !page.includes("/order-tracking/"),
+
+      // Split by content type — crawl budget segmentation
+      // products: fmt-sitemap-products-0.xml (47 URLs)
+      // unmatched → "pages" chunk: fmt-sitemap-pages-0.xml (17 URLs)
+      chunks: {
+        products: (item) => {
+          if (item.url.includes("/products/")) return item;
+        },
+      },
+
+      // lastmod intentionally omitted:
+      // No date fields in MDX frontmatter or content schema.
+      // Google docs: fake/build-time lastmod reduces crawler trust over time.
+      // Future: add lastmod to content schema when accurate dates are tracked.
+    }),
     mdx(),
     icon(),
     sentry({
