@@ -3,7 +3,7 @@
  * and compact entity stubs used across page and product builders.
  */
 
-export const SITE_URL = "https://forestal-mt.com";
+export const SITE_URL = import.meta.env.SITE_URL;
 
 /** Compact Organization stub for non-home pages */
 export const OrganizationCompact = {

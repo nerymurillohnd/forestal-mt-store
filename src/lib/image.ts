@@ -17,7 +17,7 @@
  *   </picture>
  */
 
-const TRANSFORM_ORIGIN = "https://forestal-mt.com";
+const TRANSFORM_ORIGIN = import.meta.env.SITE_URL;
 
 type ImageFormat = "webp" | "avif" | "auto" | "json";
 type Fit = "scale-down" | "contain" | "cover" | "crop" | "pad";

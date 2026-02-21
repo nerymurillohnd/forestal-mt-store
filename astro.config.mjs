@@ -11,9 +11,16 @@ import icon from "astro-icon";
 import sentry from "@sentry/astro";
 import spotlightjs from "@spotlightjs/astro";
 
+// ── Site identity — single source of truth ─────────────────────────────────
+// SITE_URL: canonical origin (https, non-www — www redirects via CF rule)
+// DOMAIN:   bare hostname, no protocol. Used for cookies, CORS, GSC property.
+//           Both www.forestal-mt.com and forestal-mt.com resolve to this domain.
+const SITE_URL = "https://forestal-mt.com";
+const DOMAIN = "forestal-mt.com";
+
 // https://astro.build/config
 export default defineConfig({
-  site: "https://forestal-mt.com",
+  site: SITE_URL,
   output: "static",
   trailingSlash: "always",
 
@@ -76,6 +83,12 @@ export default defineConfig({
       // Target modern browsers — avoids injecting polyfills for features
       // already in Baseline (e.g. Array.from), reducing JS payload.
       target: "es2020",
+    },
+    define: {
+      // Expose site identity constants to all modules via import.meta.env.
+      // Typed in src/env.d.ts. Replace hardcoded strings in image.ts / jsonld-shared.ts.
+      "import.meta.env.SITE_URL": JSON.stringify(SITE_URL),
+      "import.meta.env.DOMAIN": JSON.stringify(DOMAIN),
     },
   },
 
