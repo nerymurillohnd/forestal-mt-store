@@ -58,12 +58,20 @@ export default function ContactFormIsland() {
     if (window.turnstile) {
       renderWidget();
     } else {
-      // Script not yet loaded — attach to its load event
-      const script = document.querySelector<HTMLScriptElement>(
+      // Lazy-inject the Turnstile script on island mount (client:visible).
+      // Loading here instead of <head> prevents the _cfuvid third-party cookie
+      // from being set on page load — Lighthouse never sees it.
+      const existing = document.querySelector<HTMLScriptElement>(
         'script[src*="challenges.cloudflare.com/turnstile"]',
       );
-      if (script) {
+      if (existing) {
+        existing.addEventListener("load", renderWidget, { once: true });
+      } else {
+        const script = document.createElement("script");
+        script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+        script.async = true;
         script.addEventListener("load", renderWidget, { once: true });
+        document.head.appendChild(script);
       }
     }
 
