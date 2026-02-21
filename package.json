@@ -63,7 +63,8 @@
       "workerd"
     ],
     "overrides": {
-      "wrangler": "^4.66.0"
+      "wrangler": "^4.66.0",
+      "uri-js": "npm:uri-js-replace@1.0.1"
     }
   }
 }
