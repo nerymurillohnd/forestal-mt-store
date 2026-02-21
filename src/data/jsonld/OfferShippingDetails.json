@@ -381,29 +381,5 @@
         "unitCode": "d"
       }
     }
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "OfferShippingDetails",
-    "@id": "https://forestal-mt.com/#shipping-worldwide",
-    "shippingDestination": {
-      "@type": "DefinedRegion",
-      "addressCountry": "Worldwide"
-    },
-    "deliveryTime": {
-      "@type": "ShippingDeliveryTime",
-      "handlingTime": {
-        "@type": "QuantitativeValue",
-        "minValue": 1,
-        "maxValue": 2,
-        "unitCode": "d"
-      },
-      "transitTime": {
-        "@type": "QuantitativeValue",
-        "minValue": 4,
-        "maxValue": 10,
-        "unitCode": "d"
-      }
-    }
   }
 ]

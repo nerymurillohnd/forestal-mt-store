@@ -299,6 +299,16 @@ DHL Express handles all shipping: shipment creation, Air Waybill (AWB) generatio
 real-time tracking, and delivery confirmation. Integration lives entirely in `fmt-ecommerce-api` —
 called at order confirmation. Shipper origin: Honduras (`countryCode: "HN"`), DAP incoterms.
 
+### JSON-LD Schema — Deferred Until DHL Integration
+
+Two schema fields in `src/data/jsonld/OfferShippingDetails.json` are intentionally omitted until
+the DHL Express API is active:
+
+- **`shippingRate`** — shipping costs are dynamic, calculated per-order by DHL API. Do NOT hardcode rates.
+- **`priceValidUntil`** in `Offer` nodes (`src/lib/product-jsonld.ts`) — renewal cadence is a business decision. Do not change without explicit instruction from Nery.
+
+Do not add these fields speculatively. They require live DHL API data to be accurate.
+
 ---
 
 ## SSR Migration Checklist

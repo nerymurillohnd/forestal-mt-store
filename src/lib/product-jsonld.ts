@@ -13,7 +13,7 @@ import OfferShippingDetailsRaw from "../data/jsonld/OfferShippingDetails.json";
 import OrganizationFull from "../data/jsonld/Organization.json";
 import OnlineStoreFull from "../data/jsonld/OnlineStore.json";
 
-import { SITE_URL, OrganizationCompact, BrandCompact } from "./jsonld-shared";
+import { SITE_URL, OrganizationCompact, BrandCompact, OnlineStoreCompact } from "./jsonld-shared";
 
 // ─── Shipping details (strip @context for graph embedding) ──────────────────
 
@@ -25,6 +25,20 @@ const shippingIdRefs = shippingNodes.map((n) => ({ "@id": n["@id"] as string }))
 
 // ─── Return policy (extracted from Organization.json) ───────────────────────
 
+// Derive applicableCountry from shipping nodes — all unique ISO 3166-1 alpha-2 codes.
+// Keeps return policy coverage in sync with shipping coverage automatically.
+const shippingCountries: string[] = [
+  ...new Set(
+    shippingNodes.flatMap((n) => {
+      const dest = (n as Record<string, unknown>).shippingDestination;
+      const regions = Array.isArray(dest) ? dest : [dest];
+      return (regions as Record<string, unknown>[])
+        .map((r) => r.addressCountry as string)
+        .filter((c) => typeof c === "string" && c.length === 2);
+    }),
+  ),
+].sort();
+
 const returnPolicyNode = (() => {
   const org = OrganizationFull as Record<string, unknown>;
   if (!org.hasMerchantReturnPolicy) {
@@ -34,7 +48,7 @@ const returnPolicyNode = (() => {
   }
   const rp = org.hasMerchantReturnPolicy as Record<string, unknown>;
   const { "@context": _, ...rest } = rp;
-  return rest;
+  return { ...rest, applicableCountry: shippingCountries } as Record<string, unknown>;
 })();
 
 const returnPolicyRef = { "@id": returnPolicyNode["@id"] as string };
@@ -130,7 +144,10 @@ export function buildProductPageGraph(opts: {
   // 2. Brand compact stub
   graph.push(BrandCompact);
 
-  // 3. ImageObject — product group main image
+  // 3. OnlineStore compact stub
+  graph.push(OnlineStoreCompact);
+
+  // 4. ImageObject — product group main image
   const imageNode = {
     "@type": "ImageObject",
     "@id": `${canonicalUrl}#image`,
@@ -144,52 +161,11 @@ export function buildProductPageGraph(opts: {
   };
   graph.push(imageNode);
 
-  // 4. Product variants (one per SKU)
-  const variantIds: Array<{ "@id": string }> = [];
+  // 5. ProductGroup — root product node (must precede variants)
+  const variantIds: Array<{ "@id": string }> = pricingVariants.map((pv) => ({
+    "@id": `${canonicalUrl}#variant-${pv.sku}`,
+  }));
 
-  for (const pv of pricingVariants) {
-    const variantId = `${canonicalUrl}#variant-${pv.sku}`;
-    variantIds.push({ "@id": variantId });
-
-    const prodVariant = productVariants.find((v) => v.sku === pv.sku);
-    const variantImage = media.variantImages.find((v) => v.sku === pv.sku);
-
-    const variantNode: Record<string, unknown> = {
-      "@type": "Product",
-      "@id": variantId,
-      name: pv.skuName,
-      sku: pv.sku,
-      size: prodVariant?.size,
-      ...(prodVariant?.weightKg != null && {
-        weight: {
-          "@type": "QuantitativeValue",
-          value: prodVariant.weightKg,
-          unitCode: "KGM",
-        },
-      }),
-      image: variantImage?.url ?? media.image.url,
-      isVariantOf: { "@id": `${canonicalUrl}#product-group` },
-      offers: {
-        "@type": "Offer",
-        price: pv.price,
-        priceCurrency: pv.currency,
-        availability:
-          prodVariant?.availability === "OutOfStock"
-            ? "https://schema.org/OutOfStock"
-            : "https://schema.org/InStock",
-        itemCondition: "https://schema.org/NewCondition",
-        priceValidUntil: "2026-12-31",
-        url: canonicalUrl,
-        seller: { "@id": `${SITE_URL}/#organization` },
-        shippingDetails: shippingIdRefs,
-        hasMerchantReturnPolicy: returnPolicyRef,
-      },
-    };
-
-    graph.push(variantNode);
-  }
-
-  // 5. ProductGroup — root product node
   const productGroupNode: Record<string, unknown> = {
     "@type": "ProductGroup",
     "@id": `${canonicalUrl}#product-group`,
@@ -241,7 +217,51 @@ export function buildProductPageGraph(opts: {
 
   graph.push(productGroupNode);
 
-  // 6. OfferShippingDetails x9
+  // 6. Product variants — full nodes, sorted by size (order matches pricingVariants)
+  for (const pv of pricingVariants) {
+    const variantId = `${canonicalUrl}#variant-${pv.sku}`;
+    const prodVariant = productVariants.find((v) => v.sku === pv.sku);
+    const variantImage = media.variantImages.find((v) => v.sku === pv.sku);
+
+    const variantNode: Record<string, unknown> = {
+      "@type": "Product",
+      "@id": variantId,
+      name: pv.skuName,
+      description: content.shortDescription,
+      sku: pv.sku,
+      brand: { "@id": `${SITE_URL}/#brand` },
+      category: content.category,
+      size: prodVariant?.size,
+      ...(prodVariant?.weightKg != null && {
+        weight: {
+          "@type": "QuantitativeValue",
+          value: prodVariant.weightKg,
+          unitCode: "KGM",
+        },
+      }),
+      image: variantImage?.url ?? media.image.url,
+      isVariantOf: { "@id": `${canonicalUrl}#product-group` },
+      offers: {
+        "@type": "Offer",
+        price: pv.price,
+        priceCurrency: pv.currency,
+        availability:
+          prodVariant?.availability === "OutOfStock"
+            ? "https://schema.org/OutOfStock"
+            : "https://schema.org/InStock",
+        itemCondition: "https://schema.org/NewCondition",
+        priceValidUntil: "2026-12-31",
+        url: canonicalUrl,
+        seller: { "@id": `${SITE_URL}/#organization` },
+        shippingDetails: shippingIdRefs,
+        hasMerchantReturnPolicy: returnPolicyRef,
+      },
+    };
+
+    graph.push(variantNode);
+  }
+
+  // 7. OfferShippingDetails x8
   graph.push(...shippingNodes);
 
   // 7. MerchantReturnPolicy

@@ -11,10 +11,7 @@ export const OrganizationCompact = {
   "@id": `${SITE_URL}/#organization`,
   name: "Forestal MT",
   url: SITE_URL,
-  logo: {
-    "@type": "ImageObject" as const,
-    url: `${SITE_URL}/android-chrome-512x512.png`,
-  },
+  logo: { "@id": `${SITE_URL}/#logo` },
 };
 
 /** Compact Brand stub for non-home pages */
@@ -23,4 +20,13 @@ export const BrandCompact = {
   "@id": `${SITE_URL}/#brand`,
   name: "Forestal MT",
   url: SITE_URL,
+};
+
+/** Compact OnlineStore stub for PDP pages */
+export const OnlineStoreCompact = {
+  "@type": "OnlineStore" as const,
+  "@id": `${SITE_URL}/#online-store`,
+  name: "Forestal MT Shop",
+  url: `${SITE_URL}/products/`,
+  parentOrganization: { "@id": `${SITE_URL}/#organization` },
 };

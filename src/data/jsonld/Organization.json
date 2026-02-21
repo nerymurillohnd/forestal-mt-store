@@ -432,7 +432,6 @@
     "@id": "https://forestal-mt.com/#return-policy",
     "name": "30-Day Return Policy",
     "merchantReturnLink": "https://forestal-mt.com/shipping/",
-    "applicableCountry": "HN",
     "returnPolicyCountry": "HN",
     "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
     "merchantReturnDays": 30,
