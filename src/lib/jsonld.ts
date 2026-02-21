@@ -162,6 +162,13 @@ function resolveSchema(
       return match ?? null;
     }
 
+    case "OnlineStore":
+      return OnlineStoreFull;
+
+    // OfferShippingDetails intentionally omitted — shippingRate is required by Google for
+    // shipping rich results but must be a fixed MonetaryAmount. DHL Express rates are
+    // dynamic (weight/dimensions/destination). Activate when DHL API Worker is integrated.
+
     default:
       return null;
   }

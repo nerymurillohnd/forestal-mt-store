@@ -153,7 +153,7 @@ const isInStock = inventory.availability === "InStock";
     schemas={[]}
   />
   {/* PDP JSON-LD — custom ProductGroup graph, not the generic buildPageGraph */}
-  <script slot="head" type="application/ld+json" set:html={jsonLdString} />
+  <script is:inline slot="head" type="application/ld+json" set:html={jsonLdString} />
 
   <Breadcrumb pageName={product.name} parent={catalogParent} />
 
