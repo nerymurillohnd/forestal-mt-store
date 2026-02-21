@@ -57,7 +57,7 @@ const allProductsForGraph = products.map((p) => ({
 
 const jsonLdString = buildShopPageGraph(allProductsForGraph);
 
-const canonicalUrl = "https://forestal-mt.com/products/";
+const canonicalUrl = `${import.meta.env.SITE_URL}/products/`;
 const seoTitle = "Shop Batana Oil, Honey & Herbs - All Products";
 const seoDescription =
   "Explore our full collection of authentic ethnobotanicals, including Batana oil, stingless bee honey, and traditional herbs sourced directly from origin.";

@@ -66,7 +66,7 @@ export function getStaticPaths() {
 
 const { product, content, media, seo, pricing, inventory } = Astro.props;
 
-const canonicalUrl = `https://forestal-mt.com/products/${product.handler}/`;
+const canonicalUrl = `${import.meta.env.SITE_URL}/products/${product.handler}/`;
 
 // Build JSON-LD graph
 const productData: ProductData = {
