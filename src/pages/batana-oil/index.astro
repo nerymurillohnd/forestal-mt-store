@@ -1072,7 +1072,11 @@ const reviews = [
         {
           reviews.map((review) => (
             <div class="card-hover bg-white p-8 shadow-[0_1px_4px_rgba(0,0,0,0.06)]">
-              <div class="mb-6 flex gap-0.5" aria-label={`${review.rating} out of 5 stars`}>
+              <div
+                class="mb-6 flex gap-0.5"
+                role="img"
+                aria-label={`${review.rating} out of 5 stars`}
+              >
                 {Array.from({ length: review.rating }).map(() => (
                   <span class="text-[18px] text-[#F3C00D]" aria-hidden="true">
                     &#9733;
