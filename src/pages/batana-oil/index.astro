@@ -20,6 +20,7 @@ import ImpactBarIsland from "../../components/islands/ImpactBarIsland";
 import BatanaBenefitsIsland from "../../components/islands/BatanaBenefitsIsland";
 import { getEntry } from "astro:content";
 import { getStreamPoster } from "../../data/stream-videos";
+import { cdnImage } from "../../lib/image";
 
 const page = await getEntry("pages", "batana-oil");
 if (!page) throw new Error("Missing content: pages/batana-oil");
@@ -492,7 +493,9 @@ const reviews = [
       {/* Image — portrait of Miskito woman pouring oil */}
       <div class="relative min-h-[400px] lg:min-h-[580px]">
         <img
-          src={`${CDN}/pages/batana-oil/miskito-woman-pouring-batana-oil.jpg`}
+          src={cdnImage(`${CDN}/pages/batana-oil/miskito-woman-pouring-batana-oil.jpg`, {
+            w: 1200,
+          })}
           alt="Miskito woman carefully pouring batana oil — ancestral application ritual, La Mosquitia"
           class="absolute inset-0 h-full w-full object-cover"
           loading="lazy"
@@ -566,7 +569,7 @@ const reviews = [
     <div class="lifestyle-banner relative">
       <div class="aspect-[21/9] overflow-hidden">
         <img
-          src={`${CDN}/pages/batana-oil/batana-soap-products.jpg`}
+          src={cdnImage(`${CDN}/pages/batana-oil/batana-soap-products.jpg`, { w: 1200 })}
           alt="Artisanal Batana Oil soap bars and hair care bottles with gold caps arranged on rustic wood"
           class="h-full w-full object-cover"
           loading="lazy"
@@ -728,7 +731,7 @@ const reviews = [
   }
   <div class="relative aspect-[21/7] overflow-hidden">
     <img
-      src={`${CDN}/pages/batana-oil/authentic-miskito-raw-batana-oil.jpg`}
+      src={cdnImage(`${CDN}/pages/batana-oil/authentic-miskito-raw-batana-oil.jpg`, { w: 1200 })}
       alt="Authentic Miskito raw batana oil — rich amber concentrate from La Mosquitia, Honduras"
       class="h-full w-full object-cover"
       loading="lazy"
@@ -940,7 +943,9 @@ const reviews = [
         <div class="reveal-on-scroll">
           <div class="relative overflow-hidden">
             <img
-              src={`${CDN}/pages/batana-oil/batana-conditioner-soap-shampoo.jpg`}
+              src={cdnImage(`${CDN}/pages/batana-oil/batana-conditioner-soap-shampoo.jpg`, {
+                w: 1200,
+              })}
               alt="Batana Oil conditioner, soap, and shampoo line — private label ready products from Forestal MT"
               class="h-[400px] w-full object-cover object-center"
               loading="lazy"

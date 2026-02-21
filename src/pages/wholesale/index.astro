@@ -13,6 +13,7 @@ import ProcessFlow from "../../components/ProcessFlow.astro";
 import CollectionNav from "../../components/CollectionNav.astro";
 import TrustMarquee from "../../components/TrustMarquee.astro";
 import { getEntry } from "astro:content";
+import { cdnImage } from "../../lib/image";
 
 const page = await getEntry("pages", "wholesale");
 if (!page) throw new Error("Missing content: pages/wholesale");
@@ -197,7 +198,7 @@ const pricingFactors = [
             >
               <div class="relative aspect-[16/9] overflow-hidden">
                 <img
-                  src={col.image}
+                  src={cdnImage(col.image, { w: 800 })}
                   alt={col.title}
                   class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                   loading="lazy"
@@ -281,6 +282,20 @@ const pricingFactors = [
             </div>
           ))
         }
+      </div>
+
+      <div class="mt-12 overflow-hidden rounded-[2px]">
+        <img
+          src={cdnImage(
+            "https://cdn.forestal-mt.com/pages/wholesale/global-reach-dhl-express.jpg",
+            { w: 1200 },
+          )}
+          alt="DHL Express global delivery network — Forestal MT ships worldwide from Honduras"
+          class="w-full object-cover"
+          loading="lazy"
+          width="1200"
+          height="675"
+        />
       </div>
 
       <p class="mt-8 text-center font-[family-name:var(--font-body)] text-[13px] text-[#333]/60">

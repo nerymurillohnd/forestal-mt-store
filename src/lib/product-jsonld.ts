@@ -54,6 +54,13 @@ export interface ContentData {
   category: string;
   shortDescription: string;
   howToUse?: string[];
+  material?: string;
+  tags?: string[];
+  qualityBadge?: string;
+  audience?: {
+    suggestedGender?: string;
+    suggestedMinAge?: number;
+  };
 }
 
 export interface MediaData {
@@ -197,14 +204,42 @@ export function buildProductPageGraph(opts: {
     productGroupID: product.productGroupId,
     countryOfOrigin: { "@type": "Country", name: "Honduras" },
     category: content.category,
+    ...(content.material && { material: content.material }),
+    ...(content.tags?.length && { keywords: content.tags.join(", ") }),
   };
+
+  const additionalProperties: Record<string, unknown>[] = [];
   if (product.botanicalName) {
-    productGroupNode.additionalProperty = {
+    additionalProperties.push({
       "@type": "PropertyValue",
       name: "Botanical Name",
       value: product.botanicalName,
+    });
+  }
+  if (content.qualityBadge) {
+    additionalProperties.push({
+      "@type": "PropertyValue",
+      name: "Quality",
+      value: content.qualityBadge,
+    });
+  }
+  if (additionalProperties.length) {
+    productGroupNode.additionalProperty =
+      additionalProperties.length === 1 ? additionalProperties[0] : additionalProperties;
+  }
+
+  if (content.audience) {
+    productGroupNode.audience = {
+      "@type": "PeopleAudience",
+      ...(content.audience.suggestedGender && {
+        suggestedGender: content.audience.suggestedGender,
+      }),
+      ...(content.audience.suggestedMinAge != null && {
+        suggestedMinAge: content.audience.suggestedMinAge,
+      }),
     };
   }
+
   graph.push(productGroupNode);
 
   // 6. OfferShippingDetails x9
@@ -280,7 +315,7 @@ export function buildShopPageGraph(
   graph.push({
     "@type": "CollectionPage",
     "@id": `${shopUrl}#collection`,
-    name: "Shop All Products",
+    name: "Products",
     url: shopUrl,
     isPartOf: { "@id": `${SITE_URL}/#website` },
     about: { "@id": `${SITE_URL}/#organization` },
@@ -311,13 +346,13 @@ export function buildShopPageGraph(
   // MerchantReturnPolicy
   graph.push(returnPolicyNode);
 
-  // BreadcrumbList — Home → Shop All Products
+  // BreadcrumbList — Home → Products
   graph.push({
     "@type": "BreadcrumbList",
     "@id": `${shopUrl}#breadcrumb`,
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
-      { "@type": "ListItem", position: 2, name: "Shop All Products" },
+      { "@type": "ListItem", position: 2, name: "Products" },
     ],
   });
 
