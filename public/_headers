@@ -7,7 +7,7 @@
 https://forestal-mt-store.pages.dev/*
   X-Robots-Tag: noindex
 
-https://*.forestal-mt-store.pages.dev/*
+https://:branch.forestal-mt-store.pages.dev/*
   X-Robots-Tag: noindex
 
 # Hashed Astro assets — filenames change on every build, safe to cache forever

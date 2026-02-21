@@ -320,7 +320,8 @@ When switching from `output: "static"` to `"hybrid"` for D1 product pages:
 3. Bind D1/KV in Cloudflare Pages dashboard (prod + preview)
 4. Change `output: "static"` → `"hybrid"` in `astro.config.mjs`
 5. Verify `nodejs_compat` flag active in CF Pages dashboard
-6. Test with `pnpm preview` (wrangler + local bindings)
+6. **Move security headers from `public/_headers` to `functions/_middleware.js`** — `_headers` does NOT apply to Pages Functions responses (SSR pages). All headers for SSR routes must be set in middleware code.
+7. Test with `pnpm preview` (wrangler + local bindings)
 
 ---
 

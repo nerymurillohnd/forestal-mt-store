@@ -1,7 +1,7 @@
 # Forestal MT — SEO & Structured Data Specification
 
-**Document version:** 2.1
-**Last updated:** 2026-02-19
+**Document version:** 2.2
+**Last updated:** 2026-02-21
 **Language:** English
 **Parent document:** `SITE_TECHNICAL_SPEC.md`
 **Applies to:** forestal-mt.com and all related Forestal MT web projects
@@ -27,7 +27,8 @@ A custom `<Head>` Astro component handles all meta tag generation. No third-part
 - Every page must have `og:title`, `og:description`, `og:image`, `og:url`, `og:type`
 - Product OG images: `cdn.forestal-mt.com/products/og/{handler}.png` (from `media.json`)
 - Static page OG images: `cdn.forestal-mt.com/pages/{slug}/og.jpg`
-- All OG images: 1200x630, PNG
+- Content page OG images: 1200x630, JPG (`cdn.forestal-mt.com/pages/{slug}/og.jpg`)
+- Product OG images: 1200x630, PNG (`cdn.forestal-mt.com/products/og/{handler}.png`)
 
 ### Twitter Cards
 
@@ -49,10 +50,12 @@ A custom `<Head>` Astro component handles all meta tag generation. No third-part
 
 Generated via `@astrojs/sitemap` integration. All 63 indexable pages are SSG — `@astrojs/sitemap` auto-discovers all static routes at build time. No custom endpoint needed.
 
+- **Filename:** `fmt-sitemap-index.xml` (custom `filenameBase` — forces Google to re-read as new, cleans GSC history)
+- **Chunks:** Split by content type — `fmt-sitemap-products-0.xml` (47 URLs) + `fmt-sitemap-pages-0.xml` (16 URLs)
 - **Auto-discovered:** All 63 pages at build time (17 content pages + Shop + 46 PDPs)
 - **Excluded:** 404 page (noindex, not in sitemap)
 - **Filter:** Precautionary guard for future-scope pages (cart, checkout, account, admin, auth) that are not yet built but will be `noindex` when implemented
-- **Discovery:** `<link rel="sitemap">` in `<head>` + `Sitemap:` directive in `robots.txt`
+- **Discovery:** `<link rel="sitemap" href="/fmt-sitemap-index.xml">` in `<head>` + `Sitemap:` directive in `robots.txt`
 - Submitted to Google Search Console and Bing Webmaster Tools
 
 ```js
@@ -63,7 +66,10 @@ export default defineConfig({
   site: "https://forestal-mt.com",
   integrations: [
     sitemap({
+      filenameBase: "fmt-sitemap",
       filter: (page) =>
+        !page.endsWith("/404/") &&
+        !page.endsWith("/404") &&
         !page.includes("/cart/") &&
         !page.includes("/checkout/") &&
         !page.includes("/account/") &&
@@ -74,6 +80,11 @@ export default defineConfig({
         !page.includes("/reset-password/") &&
         !page.includes("/order-confirmation/") &&
         !page.includes("/order-tracking/"),
+      chunks: {
+        products: (item) => {
+          if (item.url.includes("/products/")) return item;
+        },
+      },
     }),
   ],
 });
