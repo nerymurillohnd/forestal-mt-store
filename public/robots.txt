@@ -1,4 +1,79 @@
+# =============================================================
+# robots.txt — forestal-mt.com
+# Policy: Allow all crawlers except AI training scrapers + unknown bots
+# Reference: developers.cloudflare.com/ai-crawl-control/reference/bots/
+# Last updated: 2026-02-21
+# =============================================================
+
+# Default: all crawlers allowed, 404 excluded
+# Covers: Googlebot, bingbot, OAI-SearchBot, ChatGPT-User, PerplexityBot,
+#         Perplexity-User, Claude-SearchBot, Claude-User, Google-Extended,
+#         DuckAssistBot, Applebot, meta-externalfetcher, meta-externalagent,
+#         FacebookBot, MistralAI-User, and all other unlisted crawlers.
 User-agent: *
+Disallow: /404
 Allow: /
 
-Sitemap: https://forestal-mt.com/sitemap-index.xml
+Sitemap: https://forestal-mt.com/fmt-sitemap-index.xml
+
+# =============================================================
+# AI TRAINING CRAWLERS — BLOCKED
+# These scrape for LLM training. No referral value.
+# Separate crawlers exist for each operator's search/referral use (allowed via * above).
+# =============================================================
+
+# OpenAI model training — separate from OAI-SearchBot and ChatGPT-User
+User-agent: GPTBot
+Disallow: /
+
+# Anthropic model training — separate from Claude-SearchBot and Claude-User
+User-agent: ClaudeBot
+Disallow: /
+
+# Common Crawl — primary training dataset for most LLMs (C4, The Pile, ROOTS)
+User-agent: CCBot
+Disallow: /
+
+# ByteDance / TikTok AI training
+User-agent: Bytespider
+Disallow: /
+
+# Amazon AI training
+User-agent: Amazonbot
+Disallow: /
+
+# Google Vertex AI training — separate from Googlebot and Google-Extended
+User-agent: Google-CloudVertexBot
+Disallow: /
+
+# Huawei Petal Search — no relevant market overlap, aggressive crawler
+User-agent: PetalBot
+Disallow: /
+
+# Internet Archive — controls public version history of live business pages
+User-agent: archive.org_bot
+Disallow: /
+
+# =============================================================
+# UNKNOWN / UNVERIFIED BOTS — BLOCKED
+# Not in Cloudflare's verified reference. UA strings may be spoofed.
+# Real enforcement: Cloudflare AI Crawl Control → Crawlers → Block in dashboard.
+# =============================================================
+
+User-agent: Timpibot
+Disallow: /
+
+User-agent: Novellum AI Crawl
+Disallow: /
+
+User-agent: ProRataBot
+Disallow: /
+
+User-agent: Terracotta Bot
+Disallow: /
+
+User-agent: ManusBot
+Disallow: /
+
+User-agent: AnchorBot
+Disallow: /
