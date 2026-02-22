@@ -1,0 +1,344 @@
+{
+  "_metadata": {
+    "file": "wholesale.json",
+    "version": "1.0.0",
+    "brand": "Forestal MT",
+    "created": "2026-02-21",
+    "lastUpdated": "2026-02-21",
+    "description": "Wholesale availability per ProductGroup. wholesalePricing is always 'by_quote' when wholesaleAvailable is true.",
+    "parent": "products.json",
+    "fields": {
+      "wholesaleAvailable": "Whether the product is offered for wholesale purchase",
+      "wholesalePricing": "Pricing model. 'by_quote' = contact sales team. null = not available."
+    },
+    "counts": {
+      "productGroups": 46,
+      "wholesaleAvailable": 24,
+      "wholesaleNotAvailable": 22
+    }
+  },
+  "products": [
+    {
+      "handler": "amaranth-greens",
+      "productGroupId": "FMT-TH-BL",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": false,
+      "wholesalePricing": null
+    },
+    {
+      "handler": "batana-oil-hair-conditioner",
+      "productGroupId": "FMT-BO-CO",
+      "catalog": "Batana Oil",
+      "wholesaleAvailable": true,
+      "wholesalePricing": "by_quote"
+    },
+    {
+      "handler": "batana-oil-hair-wash",
+      "productGroupId": "FMT-BO-SH",
+      "catalog": "Batana Oil",
+      "wholesaleAvailable": true,
+      "wholesalePricing": "by_quote"
+    },
+    {
+      "handler": "batana-oil-true-soap-bar",
+      "productGroupId": "FMT-BO-SB",
+      "catalog": "Batana Oil",
+      "wholesaleAvailable": true,
+      "wholesalePricing": "by_quote"
+    },
+    {
+      "handler": "bay-leaves",
+      "productGroupId": "FMT-TH-BY",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": false,
+      "wholesalePricing": null
+    },
+    {
+      "handler": "bitter-melon-cundeamor",
+      "productGroupId": "FMT-TH-CA",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": false,
+      "wholesalePricing": null
+    },
+    {
+      "handler": "blessed-holy-thistle",
+      "productGroupId": "FMT-TH-HT",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": false,
+      "wholesalePricing": null
+    },
+    {
+      "handler": "cassia-pods",
+      "productGroupId": "FMT-TH-CF",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": false,
+      "wholesalePricing": null
+    },
+    {
+      "handler": "cats-claw",
+      "productGroupId": "FMT-TH-CC",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": true,
+      "wholesalePricing": "by_quote"
+    },
+    {
+      "handler": "cocolmeca-root",
+      "productGroupId": "FMT-TH-CR",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": true,
+      "wholesalePricing": "by_quote"
+    },
+    {
+      "handler": "contribo",
+      "productGroupId": "FMT-TH-CT",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": false,
+      "wholesalePricing": null
+    },
+    {
+      "handler": "cows-foot-leaves",
+      "productGroupId": "FMT-TH-CW",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": false,
+      "wholesalePricing": null
+    },
+    {
+      "handler": "dragons-blood-bark",
+      "productGroupId": "FMT-TH-DB",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": true,
+      "wholesalePricing": "by_quote"
+    },
+    {
+      "handler": "duck-flower",
+      "productGroupId": "FMT-TH-DF",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": true,
+      "wholesalePricing": "by_quote"
+    },
+    {
+      "handler": "eucalyptus-leaves",
+      "productGroupId": "FMT-TH-EU",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": true,
+      "wholesalePricing": "by_quote"
+    },
+    {
+      "handler": "guaco-leaves",
+      "productGroupId": "FMT-TH-GU",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": true,
+      "wholesalePricing": "by_quote"
+    },
+    {
+      "handler": "guava-leaves",
+      "productGroupId": "FMT-TH-GL",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": false,
+      "wholesalePricing": null
+    },
+    {
+      "handler": "gumbo-limbo-bark",
+      "productGroupId": "FMT-TH-GLB",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": true,
+      "wholesalePricing": "by_quote"
+    },
+    {
+      "handler": "gumbo-limbo-leaves",
+      "productGroupId": "FMT-TH-AL",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": true,
+      "wholesalePricing": "by_quote"
+    },
+    {
+      "handler": "hibiscus-flowers",
+      "productGroupId": "FMT-TH-HF",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": false,
+      "wholesalePricing": null
+    },
+    {
+      "handler": "jimerito",
+      "productGroupId": "FMT-SBH-JM",
+      "catalog": "Stingless Bee Honey",
+      "wholesaleAvailable": true,
+      "wholesalePricing": "by_quote"
+    },
+    {
+      "handler": "kalawalla-root",
+      "productGroupId": "FMT-TH-KR",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": true,
+      "wholesalePricing": "by_quote"
+    },
+    {
+      "handler": "leaf-of-life-miracle-leaf",
+      "productGroupId": "FMT-TH-LV",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": false,
+      "wholesalePricing": null
+    },
+    {
+      "handler": "lemongrass",
+      "productGroupId": "FMT-TH-LG",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": true,
+      "wholesalePricing": "by_quote"
+    },
+    {
+      "handler": "linden-tilia",
+      "productGroupId": "FMT-TH-TL",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": false,
+      "wholesalePricing": null
+    },
+    {
+      "handler": "mango-leaves",
+      "productGroupId": "FMT-TH-ML",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": false,
+      "wholesalePricing": null
+    },
+    {
+      "handler": "moringa-leaves",
+      "productGroupId": "FMT-TH-MO",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": false,
+      "wholesalePricing": null
+    },
+    {
+      "handler": "muicle-herb",
+      "productGroupId": "FMT-TH-MU",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": false,
+      "wholesalePricing": null
+    },
+    {
+      "handler": "neem-leaves",
+      "productGroupId": "FMT-TH-NM",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": true,
+      "wholesalePricing": "by_quote"
+    },
+    {
+      "handler": "nettle-leaves",
+      "productGroupId": "FMT-TH-NL",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": false,
+      "wholesalePricing": null
+    },
+    {
+      "handler": "palo-guaco",
+      "productGroupId": "FMT-TH-PG",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": false,
+      "wholesalePricing": null
+    },
+    {
+      "handler": "palo-santo",
+      "productGroupId": "FMT-TH-PS",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": false,
+      "wholesalePricing": null
+    },
+    {
+      "handler": "pau-darco-bark",
+      "productGroupId": "FMT-TH-PC",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": false,
+      "wholesalePricing": null
+    },
+    {
+      "handler": "pine-needles",
+      "productGroupId": "FMT-TH-PN",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": true,
+      "wholesalePricing": "by_quote"
+    },
+    {
+      "handler": "plantain-leaf",
+      "productGroupId": "FMT-TH-PL",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": false,
+      "wholesalePricing": null
+    },
+    {
+      "handler": "possum-grape-cissus",
+      "productGroupId": "FMT-TH-CI",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": false,
+      "wholesalePricing": null
+    },
+    {
+      "handler": "quassia-bitter-wood",
+      "productGroupId": "FMT-TH-HG",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": false,
+      "wholesalePricing": null
+    },
+    {
+      "handler": "raw-batana-oil",
+      "productGroupId": "FMT-BO-RBO",
+      "catalog": "Batana Oil",
+      "wholesaleAvailable": true,
+      "wholesalePricing": "by_quote"
+    },
+    {
+      "handler": "sarsaparilla",
+      "productGroupId": "FMT-TH-SR",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": false,
+      "wholesalePricing": null
+    },
+    {
+      "handler": "sensitive-plant",
+      "productGroupId": "FMT-TH-DO",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": true,
+      "wholesalePricing": "by_quote"
+    },
+    {
+      "handler": "snake-plant",
+      "productGroupId": "FMT-TH-SN",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": true,
+      "wholesalePricing": "by_quote"
+    },
+    {
+      "handler": "soursop-leaves",
+      "productGroupId": "FMT-TH-SL",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": true,
+      "wholesalePricing": "by_quote"
+    },
+    {
+      "handler": "stonebreaker",
+      "productGroupId": "FMT-TH-SP",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": false,
+      "wholesalePricing": null
+    },
+    {
+      "handler": "taro-malanga-leaf",
+      "productGroupId": "FMT-TH-MA",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": true,
+      "wholesalePricing": "by_quote"
+    },
+    {
+      "handler": "thuja-cedar-leaves",
+      "productGroupId": "FMT-TH-CD",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": false,
+      "wholesalePricing": null
+    },
+    {
+      "handler": "trumpet-tree-leaves",
+      "productGroupId": "FMT-TH-TT",
+      "catalog": "Traditional Herbs",
+      "wholesaleAvailable": true,
+      "wholesalePricing": "by_quote"
+    }
+  ]
+}

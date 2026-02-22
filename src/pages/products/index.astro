@@ -2,61 +2,86 @@
 /**
  * SHOP PAGE — All Products
  *
- * Product grid grouped by catalog. JSON-LD CollectionPage + ItemList.
+ * SSG shell. Builds ShopProduct[] from 7 JSON files at build time, passes to
+ * ShopFilterIsland (client:load) for client-side filter + grid rendering.
+ * JSON-LD CollectionPage + ItemList generated server-side.
  */
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Head from "../../components/Head.astro";
 import Hero from "../../components/Hero.astro";
 import Breadcrumb from "../../components/Breadcrumb.astro";
+import ShopFilterIsland from "../../components/islands/ShopFilterIsland";
+import type { ShopProduct } from "../../components/islands/ShopFilterIsland";
 import { buildShopPageGraph } from "../../lib/product-jsonld";
 
 import productsFile from "../../data/jsonld/products/products.json";
+import pricingFile from "../../data/jsonld/products/pricing.json";
+import inventoryFile from "../../data/jsonld/products/inventory.json";
+import contentFile from "../../data/jsonld/products/content.json";
 import mediaFile from "../../data/jsonld/products/media.json";
 import seoFile from "../../data/jsonld/products/seo.json";
+import wholesaleFile from "../../data/jsonld/products/wholesale.json";
 
-interface ProductEntry {
-  handler: string;
-  name: string;
-  catalog: string;
-  price_range_usd: { low: string; high: string };
-  variant_count: number;
-}
-
-interface MediaEntry {
-  handler: string;
-  image: { url: string; alt: string };
-}
-
-// Only include published products
-const publishedHandlers = new Set(
-  seoFile.products.filter((s) => s.published === true).map((s) => s.handler),
-);
-const products = (productsFile.products as ProductEntry[]).filter((p) =>
-  publishedHandlers.has(p.handler),
-);
-const mediaMap = new Map((mediaFile.products as MediaEntry[]).map((m) => [m.handler, m]));
-
-// Group by catalog
+// ─── Catalog slug map ────────────────────────────────────────────────────────
 const catalogs = [
   { name: "Batana Oil", slug: "batana-oil" },
   { name: "Stingless Bee Honey", slug: "stingless-bee-honey" },
   { name: "Traditional Herbs", slug: "traditional-herbs" },
 ];
 
-const productsByCatalog = catalogs.map((cat) => ({
-  ...cat,
-  products: products.filter((p) => p.catalog === cat.name),
-}));
+// ─── Build lookup maps ───────────────────────────────────────────────────────
+const pricingMap = new Map(
+  pricingFile.products.map((p) => [p.ProductGroup.handler, p.ProductGroup]),
+);
+const inventoryMap = new Map(inventoryFile.products.map((p) => [p.handler, p]));
+const contentMap = new Map(contentFile.products.map((p) => [p.handler, p]));
+const mediaMap = new Map(mediaFile.products.map((p) => [p.handler, p]));
+const wholesaleMap = new Map(wholesaleFile.products.map((p) => [p.handler, p]));
 
-// Build JSON-LD
-const allProductsForGraph = products.map((p) => ({
+// ─── Published filter ────────────────────────────────────────────────────────
+const publishedHandlers = new Set(
+  seoFile.products.filter((s) => s.published === true).map((s) => s.handler),
+);
+
+// ─── Build ShopProduct[] ─────────────────────────────────────────────────────
+const shopProducts: ShopProduct[] = productsFile.products
+  .filter((p) => publishedHandlers.has(p.handler))
+  .map((p) => {
+    const pricing = pricingMap.get(p.handler);
+    const prices = pricing?.variants.map((v) => v.price) ?? [0];
+    const inv = inventoryMap.get(p.handler);
+    const cont = contentMap.get(p.handler);
+    const med = mediaMap.get(p.handler);
+    return {
+      handler: p.handler,
+      productGroupId: p.productGroupId,
+      name: p.name,
+      catalog: p.catalog,
+      catalogSlug: catalogs.find((c) => c.name === p.catalog)?.slug ?? "",
+      minPrice: Math.min(...prices),
+      maxPrice: Math.max(...prices),
+      qualityBadge: cont?.qualityBadge ?? "",
+      availability: (inv?.availability ?? "InStock") as "InStock" | "OutOfStock",
+      imageUrl: med?.image.url ?? "",
+      imageAlt: med?.image.alt ?? p.name,
+      variantCount: p.variant_count,
+      wholesaleAvailable: wholesaleMap.get(p.handler)?.wholesaleAvailable ?? false,
+    };
+  })
+  .sort((a, b) => a.productGroupId.localeCompare(b.productGroupId));
+
+const globalMinPrice = Math.min(...shopProducts.map((p) => p.minPrice));
+const globalMaxPrice = Math.max(...shopProducts.map((p) => p.maxPrice));
+
+// ─── JSON-LD ─────────────────────────────────────────────────────────────────
+const allProductsForGraph = shopProducts.map((p) => ({
   handler: p.handler,
   name: p.name,
-  imageUrl: mediaMap.get(p.handler)?.image.url ?? "",
+  imageUrl: p.imageUrl,
 }));
-
 const jsonLdString = buildShopPageGraph(allProductsForGraph);
 
+// ─── SEO ─────────────────────────────────────────────────────────────────────
 const canonicalUrl = `${import.meta.env.SITE_URL}/products/`;
 const seoTitle = "Shop Batana Oil, Honey & Herbs - All Products";
 const seoDescription =
@@ -104,68 +129,12 @@ const ogImageUrl = "https://cdn.forestal-mt.com/pages/products/og.jpg";
 
   <section class="surface-warm">
     <div class="mx-auto max-w-7xl px-4 py-12 lg:px-8">
-      {/* Catalog Sections */}
-      {
-        productsByCatalog.map((cat) => (
-          <section class="mb-16">
-            <div class="mb-8 flex items-center gap-4">
-              <h2 class="font-[family-name:var(--font-heading)] text-xl uppercase tracking-wider text-charcoal">
-                {cat.name}
-              </h2>
-              <span class="font-[family-name:var(--font-ui)] text-sm text-graphite/50">
-                {cat.products.length} {cat.products.length === 1 ? "product" : "products"}
-              </span>
-              <a
-                href={`/${cat.slug}/`}
-                class="ml-auto font-[family-name:var(--font-ui)] text-sm text-leaf-green transition-colors hover:text-grass-green"
-              >
-                View Collection &rarr;
-              </a>
-            </div>
-
-            <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {cat.products.map((p) => {
-                const m = mediaMap.get(p.handler);
-                const priceRange =
-                  p.price_range_usd.low === p.price_range_usd.high
-                    ? `$${p.price_range_usd.low}`
-                    : `$${p.price_range_usd.low} – $${p.price_range_usd.high}`;
-
-                return (
-                  <a
-                    href={`/products/${p.handler}/`}
-                    class="card-hover group block overflow-hidden rounded-lg"
-                  >
-                    <div class="aspect-square overflow-hidden bg-parchment">
-                      <img
-                        src={`/cdn-cgi/image/width=400,format=auto/${m?.image.url ?? ""}`}
-                        alt={m?.image.alt ?? p.name}
-                        width={400}
-                        height={400}
-                        class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div class="p-4">
-                      <h3 class="font-[family-name:var(--font-heading)] text-sm text-charcoal">
-                        {p.name}
-                      </h3>
-                      <div class="mt-2 flex items-baseline justify-between">
-                        <span class="font-[family-name:var(--font-ui)] text-sm font-medium text-charcoal">
-                          {priceRange}
-                        </span>
-                        <span class="font-[family-name:var(--font-ui)] text-xs text-graphite/50">
-                          {p.variant_count} {p.variant_count === 1 ? "size" : "sizes"}
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                );
-              })}
-            </div>
-          </section>
-        ))
-      }
+      <ShopFilterIsland
+        client:load
+        products={shopProducts}
+        globalMinPrice={globalMinPrice}
+        globalMaxPrice={globalMaxPrice}
+      />
     </div>
   </section>
 </BaseLayout>
