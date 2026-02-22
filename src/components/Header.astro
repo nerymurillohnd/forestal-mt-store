@@ -1,5 +1,54 @@
 ---
 import logoSvg from "../assets/logos/logo.svg";
+import SearchIsland from "./islands/SearchIsland";
+import type { SearchEntry } from "../lib/search";
+import { normalize } from "../lib/search";
+
+import productsFile from "../data/jsonld/products/products.json";
+import mediaFile from "../data/jsonld/products/media.json";
+import contentFile from "../data/jsonld/products/content.json";
+
+// Priority by catalog — star products surface first on tied scores
+const CATALOG_PRIORITY: Record<string, number> = {
+  "batana-oil": 9,
+  "stingless-bee-honey": 8,
+  "traditional-herbs": 3,
+};
+
+const catalogSlugMap: Record<string, string> = {
+  "Batana Oil": "batana-oil",
+  "Stingless Bee Honey": "stingless-bee-honey",
+  "Traditional Herbs": "traditional-herbs",
+};
+
+const mediaMap = new Map(mediaFile.products.map((p) => [p.handler, p]));
+const contentMap = new Map(contentFile.products.map((p) => [p.handler, p]));
+
+const searchIndex: SearchEntry[] = productsFile.products.map((p) => {
+  const med = mediaMap.get(p.handler);
+  const cont = contentMap.get(p.handler);
+  const catalogSlug = catalogSlugMap[p.catalog] ?? "traditional-herbs";
+
+  const keywords: string[] = [];
+  if (cont?.botanical) keywords.push(normalize(cont.botanical as string));
+  if (Array.isArray(cont?.commonNames)) {
+    for (const cn of cont.commonNames as string[]) {
+      keywords.push(normalize(cn));
+    }
+  }
+
+  return {
+    handler: p.handler,
+    name: p.name,
+    nameLower: normalize(p.name),
+    catalog: p.catalog,
+    catalogSlug,
+    imageUrl: (med?.image as { url: string } | undefined)?.url ?? "",
+    url: `/products/${p.handler}/`,
+    keywords,
+    priority: CATALOG_PRIORITY[catalogSlug] ?? 0,
+  };
+});
 
 interface NavChild {
   label: string;
@@ -135,6 +184,9 @@ for (const link of navLinks) {
       }
     </ul>
 
+    <!-- Search island (lupa button + overlay, all pages) -->
+    <SearchIsland client:load entries={searchIndex} />
+
     <!-- Hamburger button -->
     <button
       id="mobile-menu-btn"
@@ -213,6 +265,12 @@ for (const link of navLinks) {
 </div>
 
 <style is:global>
+  /* Hide desktop nav links while search overlay is open */
+  html.search-open #site-header ul {
+    opacity: 0;
+    pointer-events: none;
+  }
+
   /* Hamburger bars → X */
   .bar-top {
     transform: translateY(6.5px) rotate(45deg) !important;
