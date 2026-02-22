@@ -1,9 +1,8 @@
 ---
 /**
- * TRADITIONAL HERBS — Catalog Landing Page v2
- * 18-section apothecary redesign. All 7 R2 images used.
- * New: HerbFilterIsland, Dr. Sebi editorial, BotanicalSection,
- *      SplitEditorial, ImpactBarIsland, PullQuote, process photos.
+ * TRADITIONAL HERBS — Catalog Landing Page v3
+ * 18-section narrative: WHO → WHY → HOW → CATALOG → BUSINESS
+ * All 7 R2 images used. HerbScrollIsland (horizontal scroll).
  */
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Head from "../../components/Head.astro";
@@ -17,7 +16,7 @@ import DarkFrostedCard from "../../components/DarkFrostedCard.astro";
 import AudienceWholesaleSplit from "../../components/AudienceWholesaleSplit.astro";
 import CollectionNav from "../../components/CollectionNav.astro";
 import TrustMarquee from "../../components/TrustMarquee.astro";
-import HerbFilterIsland from "../../components/islands/HerbFilterIsland.tsx";
+import HerbScrollIsland from "../../components/islands/HerbScrollIsland.tsx";
 import ImpactBarIsland from "../../components/islands/ImpactBarIsland";
 import { getEntry } from "astro:content";
 import { getStreamPoster } from "../../data/stream-videos";
@@ -36,30 +35,21 @@ const heroPosterSrc =
 
 const CDN = "https://cdn.forestal-mt.com";
 
-// Build handler + image maps from product data
+// Build SKU → image URL map from product data
 const mediaMap = new Map(mediaFile.products.map((m) => [m.handler, m.image.url]));
-const herbProductMap = new Map(
+const skuToImage = new Map(
   productsFile.products
     .filter((p) => p.catalog === "Traditional Herbs")
-    .map((p) => [p.productGroupId, { handler: p.handler, image: mediaMap.get(p.handler) ?? "" }]),
+    .map((p) => [p.productGroupId, mediaMap.get(p.handler) ?? ""]),
 );
 
-type Category = "all" | "respiratory" | "digestive" | "immune" | "skin" | "cleansing" | "wellness";
-
-const herbs: {
-  name: string;
-  localName: string;
-  sku: string;
-  description: string;
-  categories: Category[];
-}[] = [
+const herbs = [
   {
     name: "Amaranth Greens",
     localName: "Bledo",
     sku: "FMT-TH-BL",
     description:
       "Nutrient-dense traditional green rich in minerals and antioxidants. Shade-dried for culinary and wellness use.",
-    categories: ["wellness"],
   },
   {
     name: "Bay Leaves",
@@ -67,7 +57,6 @@ const herbs: {
     sku: "FMT-TH-BY",
     description:
       "Aromatic and potent, used across kitchens and herbal traditions. Shade-dried to preserve fragrance.",
-    categories: ["digestive", "wellness"],
   },
   {
     name: "Bitter Melon",
@@ -75,7 +64,6 @@ const herbs: {
     sku: "FMT-TH-CA",
     description:
       "Traditional herb valued for digestive wellness and blood sugar balance. Distinctive bitter character.",
-    categories: ["digestive", "immune"],
   },
   {
     name: "Blessed Thistle",
@@ -83,7 +71,6 @@ const herbs: {
     sku: "FMT-TH-HT",
     description:
       "A classic herbal bitter traditionally used to support digestion and gentle detoxification.",
-    categories: ["digestive", "cleansing"],
   },
   {
     name: "Cassia Pods",
@@ -91,7 +78,6 @@ const herbs: {
     sku: "FMT-TH-CF",
     description:
       "Long used in traditional herbalism as a gentle digestive cleanser with naturally sweet pulp.",
-    categories: ["digestive", "cleansing"],
   },
   {
     name: "Cat's Claw",
@@ -99,7 +85,6 @@ const herbs: {
     sku: "FMT-TH-CC",
     description:
       "One of Central America's most respected herbs. Traditionally valued for immune and joint support.",
-    categories: ["immune", "wellness"],
   },
   {
     name: "Cocolmeca Root",
@@ -107,7 +92,6 @@ const herbs: {
     sku: "FMT-TH-CR",
     description:
       "Traditional energy tonic and blood-supporting root. Shade-dried for potency, used in decoctions.",
-    categories: ["skin", "wellness"],
   },
   {
     name: "Contribo",
@@ -115,7 +99,6 @@ const herbs: {
     sku: "FMT-TH-CT",
     description:
       "Wildcrafted bitter tonic traditionally used for digestive support and cleansing in Honduran herbalism.",
-    categories: ["digestive", "cleansing"],
   },
   {
     name: "Cow's Foot Leaves",
@@ -123,7 +106,6 @@ const herbs: {
     sku: "FMT-TH-CW",
     description:
       "Named for its leaf shape. Traditional tea herb valued for blood sugar balance and metabolic support.",
-    categories: ["digestive", "wellness"],
   },
   {
     name: "Dragon's Blood Bark",
@@ -131,7 +113,6 @@ const herbs: {
     sku: "FMT-TH-DB",
     description:
       "Known for its deep red resin. Traditionally used for wound care and digestive comfort.",
-    categories: ["skin", "digestive"],
   },
   {
     name: "Duck Flower",
@@ -139,7 +120,6 @@ const herbs: {
     sku: "FMT-TH-DF",
     description:
       "Traditional cleansing herb with growing popularity. Used in digestive reset rituals, shade-dried.",
-    categories: ["cleansing", "digestive"],
   },
   {
     name: "Eucalyptus Leaves",
@@ -147,7 +127,6 @@ const herbs: {
     sku: "FMT-TH-EU",
     description:
       "Familiar and aromatic. Traditionally used for respiratory comfort and seasonal wellness support.",
-    categories: ["respiratory"],
   },
   {
     name: "Guaco Leaves",
@@ -155,7 +134,6 @@ const herbs: {
     sku: "FMT-TH-GU",
     description:
       "Respected respiratory herb in Central American traditions for bronchial comfort and immune wellness.",
-    categories: ["respiratory", "immune"],
   },
   {
     name: "Guava Leaves",
@@ -163,7 +141,6 @@ const herbs: {
     sku: "FMT-TH-GL",
     description:
       "One of Honduras' most widely used traditional teas. Valued for digestive wellness.",
-    categories: ["digestive", "wellness"],
   },
   {
     name: "Gumbo Limbo Bark",
@@ -171,7 +148,6 @@ const herbs: {
     sku: "FMT-TH-GLB",
     description:
       "Bark traditionally valued for skin comfort and soothing applications in folk herbalism.",
-    categories: ["skin", "wellness"],
   },
   {
     name: "Gumbo Limbo Leaves",
@@ -179,7 +155,6 @@ const herbs: {
     sku: "FMT-TH-AL",
     description:
       "Shade-dried leaves traditionally used in tea and wellness rituals from Central American folk herbalism.",
-    categories: ["wellness"],
   },
   {
     name: "Hibiscus Flowers",
@@ -187,7 +162,6 @@ const herbs: {
     sku: "FMT-TH-HF",
     description:
       "Vibrant, tart, and refreshing. One of the world's most beloved herbal teas, rich in antioxidants.",
-    categories: ["wellness", "immune"],
   },
   {
     name: "Kalawalla Root",
@@ -195,7 +169,6 @@ const herbs: {
     sku: "FMT-TH-KR",
     description:
       "A fern root with long history in Central American herbalism for skin wellness and immune modulation.",
-    categories: ["skin", "immune"],
   },
   {
     name: "Leaf of Life",
@@ -203,7 +176,6 @@ const herbs: {
     sku: "FMT-TH-LV",
     description:
       "Named for remarkable resilience — new plants grow from fallen leaves. Used for respiratory comfort.",
-    categories: ["respiratory", "skin"],
   },
   {
     name: "Lemongrass",
@@ -211,7 +183,6 @@ const herbs: {
     sku: "FMT-TH-LG",
     description:
       "Aromatic and calming. Staple herbal tea across Central America for digestion and relaxation.",
-    categories: ["digestive", "wellness"],
   },
   {
     name: "Linden",
@@ -219,7 +190,6 @@ const herbs: {
     sku: "FMT-TH-TL",
     description:
       "A calming classic traditionally brewed for stress relief, sleep support, and gentle relaxation.",
-    categories: ["wellness"],
   },
   {
     name: "Mango Leaves",
@@ -227,7 +197,6 @@ const herbs: {
     sku: "FMT-TH-ML",
     description:
       "Often overlooked, yet traditionally valued as a tea for blood sugar support and antioxidant benefit.",
-    categories: ["digestive", "immune"],
   },
   {
     name: "Moringa Leaves",
@@ -235,7 +204,6 @@ const herbs: {
     sku: "FMT-TH-MO",
     description:
       "Known worldwide as a nutritional powerhouse. Rich in vitamins, minerals, and plant protein.",
-    categories: ["immune", "wellness"],
   },
   {
     name: "Muicle",
@@ -243,7 +211,6 @@ const herbs: {
     sku: "FMT-TH-MU",
     description:
       "Traditional Mesoamerican herb valued as a blood tonic and for supporting women's wellness.",
-    categories: ["wellness", "cleansing"],
   },
   {
     name: "Neem Leaves",
@@ -251,7 +218,6 @@ const herbs: {
     sku: "FMT-TH-NM",
     description:
       "Potent botanical with a long global history for skin health, detoxification, and antibacterial properties.",
-    categories: ["skin", "immune", "cleansing"],
   },
   {
     name: "Nettle Leaves",
@@ -259,7 +225,6 @@ const herbs: {
     sku: "FMT-TH-NL",
     description:
       "Mineral-rich and deeply nourishing. Traditional tea herb for allergy comfort and joint health.",
-    categories: ["immune", "skin", "wellness"],
   },
   {
     name: "Palo Guaco",
@@ -267,7 +232,6 @@ const herbs: {
     sku: "FMT-TH-PG",
     description:
       "Traditional respiratory support herb for bronchial comfort and immune wellness. Wildcrafted and shade-dried.",
-    categories: ["respiratory", "immune"],
   },
   {
     name: "Palo Santo",
@@ -275,7 +239,6 @@ const herbs: {
     sku: "FMT-TH-PS",
     description:
       "Sacred wood for spiritual cleansing, aromatherapy, and meditation. Warm, grounding fragrance.",
-    categories: ["wellness"],
   },
   {
     name: "Pau D'Arco Bark",
@@ -283,7 +246,6 @@ const herbs: {
     sku: "FMT-TH-PC",
     description:
       "One of the most studied traditional barks in the Americas for immune support and antifungal properties.",
-    categories: ["immune", "cleansing"],
   },
   {
     name: "Pine Needles",
@@ -291,7 +253,6 @@ const herbs: {
     sku: "FMT-TH-PN",
     description:
       "Vitamin C-rich herbal tea with a clean, forest-fresh taste for respiratory health and immune support.",
-    categories: ["respiratory", "immune"],
   },
   {
     name: "Plantain Leaf",
@@ -299,7 +260,6 @@ const herbs: {
     sku: "FMT-TH-PL",
     description:
       "A gentle, soothing herb used across cultures for wound care, respiratory comfort, and digestive wellness.",
-    categories: ["respiratory", "digestive", "skin"],
   },
   {
     name: "Possum Grape",
@@ -307,7 +267,6 @@ const herbs: {
     sku: "FMT-TH-CI",
     description:
       "Traditional herb for bone and joint health. Used in folk herbalism for fracture recovery and tendon support.",
-    categories: ["wellness"],
   },
   {
     name: "Quassia — Bitter Wood",
@@ -315,7 +274,6 @@ const herbs: {
     sku: "FMT-TH-HG",
     description:
       "One of the most intensely bitter woods in the tropics. Used as a digestive bitter and for cleansing.",
-    categories: ["digestive", "cleansing"],
   },
   {
     name: "Sarsaparilla",
@@ -323,7 +281,6 @@ const herbs: {
     sku: "FMT-TH-SR",
     description:
       "Traditional blood-purifying root valued for skin health and hormonal balance in Central American herbalism.",
-    categories: ["skin", "cleansing"],
   },
   {
     name: "Sensitive Plant",
@@ -331,7 +288,6 @@ const herbs: {
     sku: "FMT-TH-DO",
     description:
       "Named for leaves that fold when touched. Traditional calming herb for anxiety relief and nervous system.",
-    categories: ["wellness"],
   },
   {
     name: "Snake Plant",
@@ -339,7 +295,6 @@ const herbs: {
     sku: "FMT-TH-SN",
     description:
       "Traditional respiratory herb for lung health and immune support. Shade-dried to preserve character.",
-    categories: ["respiratory"],
   },
   {
     name: "Soursop Leaves",
@@ -347,7 +302,6 @@ const herbs: {
     sku: "FMT-TH-SL",
     description:
       "One of the most popular herbal teas in the Caribbean and Central America for immune support.",
-    categories: ["immune", "wellness"],
   },
   {
     name: "Stonebreaker",
@@ -355,7 +309,6 @@ const herbs: {
     sku: "FMT-TH-SP",
     description:
       "The name says it all. Traditional herb for kidney and urinary health across Latin America.",
-    categories: ["cleansing", "digestive"],
   },
   {
     name: "Taro Leaf",
@@ -363,7 +316,6 @@ const herbs: {
     sku: "FMT-TH-MA",
     description:
       "Nutritious traditional green used in soups and herbal preparations for culinary and wellness uses.",
-    categories: ["wellness", "digestive"],
   },
   {
     name: "Thuja — Cedar Leaves",
@@ -371,7 +323,6 @@ const herbs: {
     sku: "FMT-TH-CD",
     description:
       "Aromatic evergreen herb for respiratory support and immune wellness with a forest-fresh character.",
-    categories: ["respiratory", "immune"],
   },
   {
     name: "Trumpet Tree Leaves",
@@ -379,15 +330,8 @@ const herbs: {
     sku: "FMT-TH-TT",
     description:
       "Distinctive Honduran forest tree traditionally used as a tea for blood sugar balance and prostate health.",
-    categories: ["digestive", "wellness"],
   },
 ];
-
-// Enrich herbs with image and handler from product data
-const enrichedHerbs = herbs.map((h) => {
-  const product = herbProductMap.get(h.sku);
-  return { ...h, handler: product?.handler ?? "", image: product?.image ?? "" };
-});
 
 const originMetadata = [
   { label: "Origin", value: "Olancho and La Mosquitia, Honduras" },
@@ -403,7 +347,7 @@ const herbStats = [
   { target: 40, prefix: "+", label: "Wildcrafted Varieties" },
   { target: 2, label: "Harvest Regions" },
   { target: 5, label: "Processing Formats" },
-  { target: 6, label: "Wellness Categories" },
+  { target: 8, label: "Plant Material Types" },
 ];
 
 const processPhotos = [
@@ -522,36 +466,35 @@ const formats = ["Whole", "Chopped", "Cut", "Cubed", "Crushed"];
 
   {
     /* ══════════════════════════════════════════════════════════════════
-       3. THE COLLECTION — Full-bleed classification image
+       3. BOTANICAL DIVERSITY — Honduras as ecological crossroads
     ══════════════════════════════════════════════════════════════════ */
   }
   <BotanicalSection
     image={`${CDN}/pages/traditional-herbs/classification-of-herbs-forestal-mt.jpg`}
-    alt="Classification of traditional herbs — wildcrafted ethnobotanical varieties by Forestal MT in Honduras"
+    alt="Classification of wildcrafted ethnobotanical varieties by Forestal MT in Honduras"
     overlay="from-charcoal/90 via-charcoal/68 to-charcoal/78"
   >
     <div class="mx-auto max-w-3xl px-6 text-center lg:px-12">
       <p
         class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80"
       >
-        The Ethnobotanical Apothecary
+        An Ecological Crossroads
       </p>
       <h2
         class="mt-4 font-[family-name:var(--font-display)] text-[clamp(2rem,4vw,3rem)] font-normal text-white"
       >
-        The Traditional Herbs Collection
+        Where Botanical Diversity<br />Meets Ancestral Knowledge
       </h2>
       <hr class="gold-rule" />
       <p class="mt-8 font-[family-name:var(--font-body)] text-[15px] leading-[1.9] text-white/65">
-        A living archive of ethnobotanical wisdom accumulated across millennia by indigenous
-        cultures of Central America and the Caribbean — preserved through wildcrafted, shade-dried
-        plants sourced directly from the landscapes where they have always grown.
+        Honduras sits at the convergence of North America, South America, and the Caribbean. Cloud
+        forests, tropical lowlands, river corridors, and coastal ecosystems create extraordinary
+        botanical diversity — the foundation of this collection.
       </p>
       <p class="mt-4 font-[family-name:var(--font-body)] text-[15px] leading-[1.9] text-white/65">
-        Honduras sits at a unique ecological crossroads. Cloud forests, tropical lowlands, river
-        corridors, and coastal ecosystems converge here to create extraordinary botanical diversity.
-        The plants in this collection have never been treated as commodities — they are integral to
-        cultural identity, daily life, and ancestral practice.
+        The plants that grow in these landscapes have never been treated as commodities. They are
+        integral to cultural identity, daily life, and ancestral practice — stewarded by indigenous
+        and mestizo communities for centuries.
       </p>
     </div>
   </BotanicalSection>
@@ -565,7 +508,7 @@ const formats = ["Whole", "Chopped", "Cut", "Cubed", "Crushed"];
     eyebrow="Rooted in Place and Practice"
     heading="Heritage Rooted<br />in the Landscape"
     paragraphs={[
-      "Forestal MT’s Traditional Herbs Collection reflects the wisdom of healers, midwives, herbalists, and indigenous knowledge keepers who have stewarded this botanical understanding for centuries. Every herb carries a verifiable connection to its native ecosystem.",
+      "Forestal MT's Traditional Herbs Collection reflects the wisdom of healers, midwives, herbalists, and indigenous knowledge keepers who have stewarded this botanical understanding for centuries. Every herb carries a verifiable connection to its native ecosystem.",
       "By working directly with local harvesters in Olancho and La Mosquitia, we help preserve both botanical diversity and the cultural heritage that has protected it for generations. No anonymous supply chains. No intermediaries. Just the plant, the place, and the people.",
     ]}
     image={{
@@ -584,11 +527,11 @@ const formats = ["Whole", "Chopped", "Cut", "Cubed", "Crushed"];
   }
   <section class="surface-dark grain py-24">
     <SplitEditorial
-      eyebrow="A Tribute to Dr. Sebi’s Legacy"
+      eyebrow="A Tribute to Dr. Sebi's Legacy"
       heading="The Herbalist Who<br />Showed the World Honduras"
       paragraphs={[
         "Alfredo Darrington Bowman — known worldwide as Dr. Sebi — was born in Ilanga, La Ceiba, Honduras in 1933. A self-taught herbalist, he devoted his life to the plant wisdom of Central America and the Caribbean, bringing global attention to botanical traditions practiced in these landscapes for centuries.",
-        "Many of the plants in this collection — cocolmeca root, contribo, sarsaparilla, stonebreaker, guaco, and more — were central to his teachings. Dr. Sebi didn’t invent these traditions. He honored them, as communities in Honduras have honored them for generations. This collection honors that same lineage: wild, uncompromised, rooted in place.",
+        "Many of the plants in this collection — cocolmeca root, contribo, sarsaparilla, stonebreaker, guaco, and more — were central to his teachings. Dr. Sebi didn't invent these traditions. He honored them, as communities in Honduras have honored them for generations. This collection honors that same lineage: wild, uncompromised, rooted in place.",
       ]}
       image={`${CDN}/pages/traditional-herbs/a-tribute-to-dr-sebi-legacy.webp`}
       imageAlt="Dr. Sebi — Alfredo Darrington Bowman — Honduran herbalist who brought global attention to Central American plant traditions"
@@ -627,7 +570,7 @@ const formats = ["Whole", "Chopped", "Cut", "Cubed", "Crushed"];
 
   {
     /* ══════════════════════════════════════════════════════════════════
-       7. WILDCRAFTED NATURE — Dandelion full-bleed manifesto
+       7. WILDCRAFTED MANIFESTO — Dandelion full-bleed
     ══════════════════════════════════════════════════════════════════ */
   }
   <BotanicalSection
@@ -680,7 +623,6 @@ const formats = ["Whole", "Chopped", "Cut", "Cubed", "Crushed"];
   }
   <section class="surface-dark grain relative overflow-hidden py-24">
     <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
-      {/* Header */}
       <div class="reveal-on-scroll mb-16 text-center">
         <p
           class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80"
@@ -695,7 +637,6 @@ const formats = ["Whole", "Chopped", "Cut", "Cubed", "Crushed"];
         <hr class="gold-rule" />
       </div>
 
-      {/* Process photo cards */}
       <div class="stagger-children mb-12 grid grid-cols-1 gap-8 md:grid-cols-2">
         {
           processPhotos.map((proc) => (
@@ -725,7 +666,6 @@ const formats = ["Whole", "Chopped", "Cut", "Cubed", "Crushed"];
         }
       </div>
 
-      {/* 4 numbered process steps */}
       <div class="stagger-children grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {
           processSteps.map((step) => (
@@ -770,17 +710,17 @@ const formats = ["Whole", "Chopped", "Cut", "Cubed", "Crushed"];
     ══════════════════════════════════════════════════════════════════ */
   }
   <PullQuote
-    quote="An apothecary of ethnobotanical wisdom, preserved across millennia by cultures who understood that healing begins where the plant grows — not where it’s packaged."
+    quote="An apothecary of ethnobotanical wisdom, preserved across millennia by cultures who understood that healing begins where the plant grows — not where it's packaged."
     variant="light"
   />
 
   {
     /* ══════════════════════════════════════════════════════════════════
-       11. HERB FILTER CATALOG — Filterable grid island
+       11. HERB CATALOG — Horizontal scrolling botanical field cards
     ══════════════════════════════════════════════════════════════════ */
   }
-  <section class="accent-herbs py-24">
-    <div class="mx-auto mb-12 max-w-7xl px-6 lg:px-12">
+  <section class="surface-warm py-24">
+    <div class="mx-auto max-w-7xl px-6 lg:px-12">
       <div class="text-center">
         <p
           class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-gold-dark"
@@ -794,15 +734,20 @@ const formats = ["Whole", "Chopped", "Cut", "Cubed", "Crushed"];
         </h2>
         <hr class="gold-rule" />
         <p
-          class="mx-auto mt-4 max-w-xl font-[family-name:var(--font-body)] text-[14px] leading-relaxed text-charcoal/55"
+          class="mx-auto mt-6 max-w-2xl font-[family-name:var(--font-body)] text-[14px] leading-relaxed text-charcoal/55"
         >
-          Filter by wellness category or browse the full collection. Each herb carries its local
-          name, its traditional context, and the care of the people who gathered it.
+          Each herb carries its local name, its traditional context, and the care of the people who
+          gathered it.
         </p>
       </div>
     </div>
 
-    <HerbFilterIsland client:visible herbs={enrichedHerbs} />
+    <div class="mt-16">
+      <HerbScrollIsland
+        client:visible
+        herbs={herbs.map((h) => ({ ...h, image: skuToImage.get(h.sku) ?? "" }))}
+      />
+    </div>
   </section>
 
   {
