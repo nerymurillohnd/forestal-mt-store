@@ -89,19 +89,3 @@ export function cdnSrcSet(
 ): string {
   return widths.map((w) => `${cdnImage(imageUrl, { w, f: format })} ${w}w`).join(", ");
 }
-
-/**
- * Generate a complete <picture> sources object.
- * Returns srcset strings for avif, webp, and a fallback src.
- */
-export function cdnPicture(
-  imageUrl: string,
-  widths: number[] = [400, 800, 1200],
-  fallbackWidth = 800,
-) {
-  return {
-    avif: cdnSrcSet(imageUrl, widths, "avif"),
-    webp: cdnSrcSet(imageUrl, widths, "webp"),
-    fallback: cdnImage(imageUrl, { w: fallbackWidth }),
-  };
-}

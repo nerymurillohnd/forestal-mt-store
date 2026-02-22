@@ -119,10 +119,29 @@ export interface ProductVariantData {
 // ─── Catalog URL mapping ────────────────────────────────────────────────────
 
 const catalogUrls: Record<string, string> = {
-  "Batana Oil": `${SITE_URL}/batana-oil/`,
-  "Stingless Bee Honey": `${SITE_URL}/stingless-bee-honey/`,
-  "Traditional Herbs": `${SITE_URL}/traditional-herbs/`,
+  "batana-oil": `${SITE_URL}/batana-oil/`,
+  "stingless-bee-honey": `${SITE_URL}/stingless-bee-honey/`,
+  "traditional-herbs": `${SITE_URL}/traditional-herbs/`,
 };
+
+const catalogNameToSlug: Record<string, string> = {
+  "batana oil": "batana-oil",
+  "stingless bee honey": "stingless-bee-honey",
+  "traditional herbs": "traditional-herbs",
+};
+
+export function resolveCatalogUrl(rawCatalog: string): string {
+  const normalizedCatalog = rawCatalog.trim().toLowerCase();
+  const catalogSlug = catalogUrls[normalizedCatalog]
+    ? normalizedCatalog
+    : catalogNameToSlug[normalizedCatalog];
+
+  if (!catalogSlug) {
+    throw new Error(`Unknown catalog "${rawCatalog}". Add it to catalog mapping.`);
+  }
+
+  return catalogUrls[catalogSlug];
+}
 
 // ─── PDP @graph builder ─────────────────────────────────────────────────────
 
@@ -293,7 +312,7 @@ export function buildProductPageGraph(opts: {
   graph.push(returnPolicyNode);
 
   // 8. BreadcrumbList — Home → Catalog → Product Name
-  const catalogUrl = catalogUrls[product.catalog] ?? `${SITE_URL}/products/`;
+  const catalogUrl = resolveCatalogUrl(product.catalog);
   graph.push({
     "@type": "BreadcrumbList",
     "@id": `${canonicalUrl}#breadcrumb`,
