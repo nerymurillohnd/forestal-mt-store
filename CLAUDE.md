@@ -45,22 +45,23 @@ pnpm dev              # Dev server (kills port 4321 first, no CF bindings)
 pnpm build            # Production build — run after every significant change
 pnpm preview          # Preview with wrangler --remote (local Cloudflare bindings)
 pnpm check            # Astro TypeScript type checking
-pnpm lint             # ESLint — runs in CI, must pass before push
+pnpm lint             # ESLint — runs in CI, must pass before merge
 pnpm lint:fix         # ESLint with auto-fix
 pnpm format           # Prettier write
-pnpm format:check     # Prettier check (CI)
+pnpm format:check     # Prettier check (local hook + manual verification)
+pnpm quality:prepush   # Husky pre-push gate: format:check + lint + check
 pnpm test:e2e         # Playwright end-to-end tests
 pnpm test:e2e:ui      # Playwright with interactive UI
 pnpm lighthouse       # Lighthouse CI audit (localhost, requires built dist/)
 pnpm lighthouse:prod  # Lighthouse CI audit (production URLs)
 ```
 
-**CI pipeline (6 stages):** Lint → Build → E2E → Lighthouse (localhost) → Deploy → Lighthouse (production, monitoring). Stages 1-4 are blocking gates. CF Pages auto-deploy is **disabled** — GH Actions is the sole deploy path.
+**CI pipeline (6 jobs):** Lint → Build → E2E → Lighthouse (localhost, push-only) → Deploy → Lighthouse (production, monitoring). Deploy is for push-to-main only. On PRs, Stages 1-3 are blocking, stage 4 is naturally skipped, then stage 6 requires deploy completion.
 
 **Local quality (Husky):**
 
-- Pre-commit: `pnpm format` + `git add -u`
-- Pre-push: `pnpm lint && pnpm check`
+- Pre-commit: `pnpm lint`
+- Pre-push: `pnpm quality:prepush`
 - PostToolUse hook: Prettier auto-runs on every file write
 
 ---

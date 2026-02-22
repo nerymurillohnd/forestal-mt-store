@@ -13,12 +13,13 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
+    "quality:prepush": "pnpm format:check && pnpm lint && pnpm check",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "lighthouse": "lhci autorun",
     "lighthouse:prod": "lhci autorun --config=lighthouserc.production.cjs",
     "astro": "astro",
-    "prepare": "husky || true"
+    "prepare": "node .husky/install.mjs"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^12.6.12",
