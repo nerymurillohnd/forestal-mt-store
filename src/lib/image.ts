@@ -17,7 +17,22 @@
  *   </picture>
  */
 
-const TRANSFORM_ORIGIN = import.meta.env.SITE_URL;
+export function sanitizeOrigin(rawSiteUrl: string | undefined): string {
+  if (!rawSiteUrl) {
+    throw new Error("SITE_URL is required");
+  }
+
+  let parsedUrl: URL;
+  try {
+    parsedUrl = new URL(rawSiteUrl);
+  } catch {
+    throw new Error("SITE_URL must be a valid URL");
+  }
+
+  return parsedUrl.origin;
+}
+
+const TRANSFORM_ORIGIN = sanitizeOrigin(import.meta.env.SITE_URL);
 
 type ImageFormat = "webp" | "avif" | "auto" | "json";
 type Fit = "scale-down" | "contain" | "cover" | "crop" | "pad";
