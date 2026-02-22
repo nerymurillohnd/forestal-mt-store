@@ -40,6 +40,7 @@ export default function ShopFilterIsland({
   globalMinPrice,
   globalMaxPrice,
 }: ShopFilterIslandProps) {
+  const [searchQuery, setSearchQuery] = useState("");
   const [selectedCatalogs, setSelectedCatalogs] = useState<Set<string>>(new Set());
   const [priceMin, setPriceMin] = useState(globalMinPrice);
   const [priceMax, setPriceMax] = useState(globalMaxPrice);
@@ -48,6 +49,12 @@ export default function ShopFilterIsland({
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
   const [wishlisted, setWishlisted] = useState<Set<string>>(new Set());
+
+  // Read ?q= from URL on mount (Google Sitelinks SearchAction entry point)
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search).get("q");
+    if (q) setSearchQuery(q.trim());
+  }, []);
 
   // Scroll lock when mobile filter overlay is open
   useEffect(() => {
@@ -64,7 +71,7 @@ export default function ShopFilterIsland({
   // Reset pagination when filters change
   useEffect(() => {
     setShowCount(PAGE_SIZE);
-  }, [selectedCatalogs, priceMin, priceMax, inStockOnly]);
+  }, [searchQuery, selectedCatalogs, priceMin, priceMax, inStockOnly]);
 
   // Catalog counts (total, not filtered)
   const catalogCounts = products.reduce<Record<string, number>>((acc, p) => {
@@ -73,7 +80,9 @@ export default function ShopFilterIsland({
   }, {});
 
   // Filter logic
+  const q = searchQuery.toLowerCase().trim();
   const filtered = products.filter((p) => {
+    if (q && !p.name.toLowerCase().includes(q) && !p.catalogSlug.includes(q)) return false;
     if (selectedCatalogs.size > 0 && !selectedCatalogs.has(p.catalogSlug)) return false;
     if (p.minPrice > priceMax || p.maxPrice < priceMin) return false;
     if (inStockOnly && p.availability !== "InStock") return false;
@@ -85,6 +94,7 @@ export default function ShopFilterIsland({
 
   // Active filter count for mobile badge
   const activeFilterCount =
+    (searchQuery.trim() ? 1 : 0) +
     selectedCatalogs.size +
     (inStockOnly ? 1 : 0) +
     (priceMin !== globalMinPrice || priceMax !== globalMaxPrice ? 1 : 0);
@@ -112,6 +122,7 @@ export default function ShopFilterIsland({
   };
 
   const clearFilters = () => {
+    setSearchQuery("");
     setSelectedCatalogs(new Set());
     setPriceMin(globalMinPrice);
     setPriceMax(globalMaxPrice);
@@ -138,6 +149,60 @@ export default function ShopFilterIsland({
   // Sidebar filter panel (shared between desktop and mobile overlay)
   const FilterPanel = () => (
     <div class="space-y-6">
+      {/* Search */}
+      <div>
+        <p
+          id="shop-search-label"
+          class="mb-2 font-[family-name:var(--font-heading)] text-xs uppercase tracking-widest text-charcoal"
+        >
+          Search
+        </p>
+        <div class="flex items-center rounded border border-gold/20 bg-white px-3 py-2 focus-within:border-leaf-green/50">
+          <svg
+            class="mr-2 h-3.5 w-3.5 shrink-0 text-graphite/40"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+            />
+          </svg>
+          <input
+            id="shop-search"
+            type="search"
+            aria-label="Search products"
+            aria-labelledby="shop-search-label"
+            placeholder="Search products…"
+            value={searchQuery}
+            onInput={(e) => setSearchQuery((e.target as HTMLInputElement).value)}
+            class="w-full bg-transparent font-[family-name:var(--font-ui)] text-xs text-charcoal placeholder:text-graphite/40 outline-none"
+          />
+          {searchQuery && (
+            <button
+              type="button"
+              onClick={() => setSearchQuery("")}
+              aria-label="Clear search"
+              class="ml-1 shrink-0 text-graphite/40 hover:text-charcoal"
+            >
+              <svg
+                class="h-3.5 w-3.5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+              </svg>
+            </button>
+          )}
+        </div>
+      </div>
+
       {/* Price Range */}
       <div>
         <h3 class="mb-3 font-[family-name:var(--font-heading)] text-xs uppercase tracking-widest text-charcoal">
