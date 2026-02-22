@@ -1,22 +1,27 @@
 ---
 /**
- * TRADITIONAL HERBS — Catalog Landing Page
- * Ethnobotanical apothecary aesthetic. MDX content as DATA.
+ * TRADITIONAL HERBS — Catalog Landing Page v2
+ * 18-section apothecary redesign. All 7 R2 images used.
+ * New: HerbFilterIsland, Dr. Sebi editorial, BotanicalSection,
+ *      SplitEditorial, ImpactBarIsland, PullQuote, process photos.
  */
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Head from "../../components/Head.astro";
 import Breadcrumb from "../../components/Breadcrumb.astro";
 import Hero from "../../components/Hero.astro";
-import SectionHeader from "../../components/SectionHeader.astro";
-import DarkFrostedCard from "../../components/DarkFrostedCard.astro";
+import BotanicalSection from "../../components/BotanicalSection.astro";
 import OriginChapter from "../../components/OriginChapter.astro";
-import ProcessFlow from "../../components/ProcessFlow.astro";
+import SplitEditorial from "../../components/SplitEditorial.astro";
+import PullQuote from "../../components/PullQuote.astro";
+import DarkFrostedCard from "../../components/DarkFrostedCard.astro";
 import AudienceWholesaleSplit from "../../components/AudienceWholesaleSplit.astro";
 import CollectionNav from "../../components/CollectionNav.astro";
 import TrustMarquee from "../../components/TrustMarquee.astro";
-import HerbScrollIsland from "../../components/islands/HerbScrollIsland.tsx";
+import HerbFilterIsland from "../../components/islands/HerbFilterIsland.tsx";
+import ImpactBarIsland from "../../components/islands/ImpactBarIsland";
 import { getEntry } from "astro:content";
 import { getStreamPoster } from "../../data/stream-videos";
+import { cdnImage } from "../../lib/image";
 import productsFile from "../../data/jsonld/products/products.json";
 import mediaFile from "../../data/jsonld/products/media.json";
 
@@ -29,21 +34,32 @@ const heroPosterSrc =
     ? getStreamPoster(data.hero.background.stream, 1920, 1080)
     : null;
 
-// Build SKU → image URL map from product data
+const CDN = "https://cdn.forestal-mt.com";
+
+// Build handler + image maps from product data
 const mediaMap = new Map(mediaFile.products.map((m) => [m.handler, m.image.url]));
-const skuToImage = new Map(
+const herbProductMap = new Map(
   productsFile.products
     .filter((p) => p.catalog === "Traditional Herbs")
-    .map((p) => [p.productGroupId, mediaMap.get(p.handler) ?? ""]),
+    .map((p) => [p.productGroupId, { handler: p.handler, image: mediaMap.get(p.handler) ?? "" }]),
 );
 
-const herbs = [
+type Category = "all" | "respiratory" | "digestive" | "immune" | "skin" | "cleansing" | "wellness";
+
+const herbs: {
+  name: string;
+  localName: string;
+  sku: string;
+  description: string;
+  categories: Category[];
+}[] = [
   {
-    name: "Gumbo Limbo Leaves",
-    localName: "Mulato, Indio Desnudo",
-    sku: "FMT-TH-AL",
+    name: "Amaranth Greens",
+    localName: "Bledo",
+    sku: "FMT-TH-BL",
     description:
-      "Shade-dried leaves traditionally used in tea and wellness rituals from Central American folk herbalism.",
+      "Nutrient-dense traditional green rich in minerals and antioxidants. Shade-dried for culinary and wellness use.",
+    categories: ["wellness"],
   },
   {
     name: "Bay Leaves",
@@ -51,6 +67,7 @@ const herbs = [
     sku: "FMT-TH-BY",
     description:
       "Aromatic and potent, used across kitchens and herbal traditions. Shade-dried to preserve fragrance.",
+    categories: ["digestive", "wellness"],
   },
   {
     name: "Bitter Melon",
@@ -58,6 +75,7 @@ const herbs = [
     sku: "FMT-TH-CA",
     description:
       "Traditional herb valued for digestive wellness and blood sugar balance. Distinctive bitter character.",
+    categories: ["digestive", "immune"],
   },
   {
     name: "Blessed Thistle",
@@ -65,6 +83,7 @@ const herbs = [
     sku: "FMT-TH-HT",
     description:
       "A classic herbal bitter traditionally used to support digestion and gentle detoxification.",
+    categories: ["digestive", "cleansing"],
   },
   {
     name: "Cassia Pods",
@@ -72,6 +91,7 @@ const herbs = [
     sku: "FMT-TH-CF",
     description:
       "Long used in traditional herbalism as a gentle digestive cleanser with naturally sweet pulp.",
+    categories: ["digestive", "cleansing"],
   },
   {
     name: "Cat's Claw",
@@ -79,6 +99,7 @@ const herbs = [
     sku: "FMT-TH-CC",
     description:
       "One of Central America's most respected herbs. Traditionally valued for immune and joint support.",
+    categories: ["immune", "wellness"],
   },
   {
     name: "Cocolmeca Root",
@@ -86,6 +107,7 @@ const herbs = [
     sku: "FMT-TH-CR",
     description:
       "Traditional energy tonic and blood-supporting root. Shade-dried for potency, used in decoctions.",
+    categories: ["skin", "wellness"],
   },
   {
     name: "Contribo",
@@ -93,6 +115,7 @@ const herbs = [
     sku: "FMT-TH-CT",
     description:
       "Wildcrafted bitter tonic traditionally used for digestive support and cleansing in Honduran herbalism.",
+    categories: ["digestive", "cleansing"],
   },
   {
     name: "Cow's Foot Leaves",
@@ -100,6 +123,7 @@ const herbs = [
     sku: "FMT-TH-CW",
     description:
       "Named for its leaf shape. Traditional tea herb valued for blood sugar balance and metabolic support.",
+    categories: ["digestive", "wellness"],
   },
   {
     name: "Dragon's Blood Bark",
@@ -107,6 +131,7 @@ const herbs = [
     sku: "FMT-TH-DB",
     description:
       "Known for its deep red resin. Traditionally used for wound care and digestive comfort.",
+    categories: ["skin", "digestive"],
   },
   {
     name: "Duck Flower",
@@ -114,6 +139,7 @@ const herbs = [
     sku: "FMT-TH-DF",
     description:
       "Traditional cleansing herb with growing popularity. Used in digestive reset rituals, shade-dried.",
+    categories: ["cleansing", "digestive"],
   },
   {
     name: "Eucalyptus Leaves",
@@ -121,6 +147,7 @@ const herbs = [
     sku: "FMT-TH-EU",
     description:
       "Familiar and aromatic. Traditionally used for respiratory comfort and seasonal wellness support.",
+    categories: ["respiratory"],
   },
   {
     name: "Guaco Leaves",
@@ -128,6 +155,7 @@ const herbs = [
     sku: "FMT-TH-GU",
     description:
       "Respected respiratory herb in Central American traditions for bronchial comfort and immune wellness.",
+    categories: ["respiratory", "immune"],
   },
   {
     name: "Guava Leaves",
@@ -135,6 +163,7 @@ const herbs = [
     sku: "FMT-TH-GL",
     description:
       "One of Honduras' most widely used traditional teas. Valued for digestive wellness.",
+    categories: ["digestive", "wellness"],
   },
   {
     name: "Gumbo Limbo Bark",
@@ -142,13 +171,15 @@ const herbs = [
     sku: "FMT-TH-GLB",
     description:
       "Bark traditionally valued for skin comfort and soothing applications in folk herbalism.",
+    categories: ["skin", "wellness"],
   },
   {
-    name: "Amaranth Greens",
-    localName: "Bledo",
-    sku: "FMT-TH-BL",
+    name: "Gumbo Limbo Leaves",
+    localName: "Mulato, Indio Desnudo",
+    sku: "FMT-TH-AL",
     description:
-      "Nutrient-dense traditional green rich in minerals and antioxidants. Shade-dried for culinary and wellness use.",
+      "Shade-dried leaves traditionally used in tea and wellness rituals from Central American folk herbalism.",
+    categories: ["wellness"],
   },
   {
     name: "Hibiscus Flowers",
@@ -156,6 +187,7 @@ const herbs = [
     sku: "FMT-TH-HF",
     description:
       "Vibrant, tart, and refreshing. One of the world's most beloved herbal teas, rich in antioxidants.",
+    categories: ["wellness", "immune"],
   },
   {
     name: "Kalawalla Root",
@@ -163,6 +195,7 @@ const herbs = [
     sku: "FMT-TH-KR",
     description:
       "A fern root with long history in Central American herbalism for skin wellness and immune modulation.",
+    categories: ["skin", "immune"],
   },
   {
     name: "Leaf of Life",
@@ -170,6 +203,7 @@ const herbs = [
     sku: "FMT-TH-LV",
     description:
       "Named for remarkable resilience — new plants grow from fallen leaves. Used for respiratory comfort.",
+    categories: ["respiratory", "skin"],
   },
   {
     name: "Lemongrass",
@@ -177,6 +211,7 @@ const herbs = [
     sku: "FMT-TH-LG",
     description:
       "Aromatic and calming. Staple herbal tea across Central America for digestion and relaxation.",
+    categories: ["digestive", "wellness"],
   },
   {
     name: "Linden",
@@ -184,6 +219,7 @@ const herbs = [
     sku: "FMT-TH-TL",
     description:
       "A calming classic traditionally brewed for stress relief, sleep support, and gentle relaxation.",
+    categories: ["wellness"],
   },
   {
     name: "Mango Leaves",
@@ -191,6 +227,7 @@ const herbs = [
     sku: "FMT-TH-ML",
     description:
       "Often overlooked, yet traditionally valued as a tea for blood sugar support and antioxidant benefit.",
+    categories: ["digestive", "immune"],
   },
   {
     name: "Moringa Leaves",
@@ -198,6 +235,7 @@ const herbs = [
     sku: "FMT-TH-MO",
     description:
       "Known worldwide as a nutritional powerhouse. Rich in vitamins, minerals, and plant protein.",
+    categories: ["immune", "wellness"],
   },
   {
     name: "Muicle",
@@ -205,6 +243,7 @@ const herbs = [
     sku: "FMT-TH-MU",
     description:
       "Traditional Mesoamerican herb valued as a blood tonic and for supporting women's wellness.",
+    categories: ["wellness", "cleansing"],
   },
   {
     name: "Neem Leaves",
@@ -212,6 +251,7 @@ const herbs = [
     sku: "FMT-TH-NM",
     description:
       "Potent botanical with a long global history for skin health, detoxification, and antibacterial properties.",
+    categories: ["skin", "immune", "cleansing"],
   },
   {
     name: "Nettle Leaves",
@@ -219,6 +259,7 @@ const herbs = [
     sku: "FMT-TH-NL",
     description:
       "Mineral-rich and deeply nourishing. Traditional tea herb for allergy comfort and joint health.",
+    categories: ["immune", "skin", "wellness"],
   },
   {
     name: "Palo Guaco",
@@ -226,6 +267,7 @@ const herbs = [
     sku: "FMT-TH-PG",
     description:
       "Traditional respiratory support herb for bronchial comfort and immune wellness. Wildcrafted and shade-dried.",
+    categories: ["respiratory", "immune"],
   },
   {
     name: "Palo Santo",
@@ -233,6 +275,7 @@ const herbs = [
     sku: "FMT-TH-PS",
     description:
       "Sacred wood for spiritual cleansing, aromatherapy, and meditation. Warm, grounding fragrance.",
+    categories: ["wellness"],
   },
   {
     name: "Pau D'Arco Bark",
@@ -240,6 +283,7 @@ const herbs = [
     sku: "FMT-TH-PC",
     description:
       "One of the most studied traditional barks in the Americas for immune support and antifungal properties.",
+    categories: ["immune", "cleansing"],
   },
   {
     name: "Pine Needles",
@@ -247,6 +291,7 @@ const herbs = [
     sku: "FMT-TH-PN",
     description:
       "Vitamin C-rich herbal tea with a clean, forest-fresh taste for respiratory health and immune support.",
+    categories: ["respiratory", "immune"],
   },
   {
     name: "Plantain Leaf",
@@ -254,6 +299,7 @@ const herbs = [
     sku: "FMT-TH-PL",
     description:
       "A gentle, soothing herb used across cultures for wound care, respiratory comfort, and digestive wellness.",
+    categories: ["respiratory", "digestive", "skin"],
   },
   {
     name: "Possum Grape",
@@ -261,6 +307,7 @@ const herbs = [
     sku: "FMT-TH-CI",
     description:
       "Traditional herb for bone and joint health. Used in folk herbalism for fracture recovery and tendon support.",
+    categories: ["wellness"],
   },
   {
     name: "Quassia — Bitter Wood",
@@ -268,6 +315,7 @@ const herbs = [
     sku: "FMT-TH-HG",
     description:
       "One of the most intensely bitter woods in the tropics. Used as a digestive bitter and for cleansing.",
+    categories: ["digestive", "cleansing"],
   },
   {
     name: "Sarsaparilla",
@@ -275,6 +323,7 @@ const herbs = [
     sku: "FMT-TH-SR",
     description:
       "Traditional blood-purifying root valued for skin health and hormonal balance in Central American herbalism.",
+    categories: ["skin", "cleansing"],
   },
   {
     name: "Sensitive Plant",
@@ -282,6 +331,7 @@ const herbs = [
     sku: "FMT-TH-DO",
     description:
       "Named for leaves that fold when touched. Traditional calming herb for anxiety relief and nervous system.",
+    categories: ["wellness"],
   },
   {
     name: "Snake Plant",
@@ -289,6 +339,7 @@ const herbs = [
     sku: "FMT-TH-SN",
     description:
       "Traditional respiratory herb for lung health and immune support. Shade-dried to preserve character.",
+    categories: ["respiratory"],
   },
   {
     name: "Soursop Leaves",
@@ -296,6 +347,7 @@ const herbs = [
     sku: "FMT-TH-SL",
     description:
       "One of the most popular herbal teas in the Caribbean and Central America for immune support.",
+    categories: ["immune", "wellness"],
   },
   {
     name: "Stonebreaker",
@@ -303,6 +355,7 @@ const herbs = [
     sku: "FMT-TH-SP",
     description:
       "The name says it all. Traditional herb for kidney and urinary health across Latin America.",
+    categories: ["cleansing", "digestive"],
   },
   {
     name: "Taro Leaf",
@@ -310,6 +363,7 @@ const herbs = [
     sku: "FMT-TH-MA",
     description:
       "Nutritious traditional green used in soups and herbal preparations for culinary and wellness uses.",
+    categories: ["wellness", "digestive"],
   },
   {
     name: "Thuja — Cedar Leaves",
@@ -317,6 +371,7 @@ const herbs = [
     sku: "FMT-TH-CD",
     description:
       "Aromatic evergreen herb for respiratory support and immune wellness with a forest-fresh character.",
+    categories: ["respiratory", "immune"],
   },
   {
     name: "Trumpet Tree Leaves",
@@ -324,35 +379,15 @@ const herbs = [
     sku: "FMT-TH-TT",
     description:
       "Distinctive Honduran forest tree traditionally used as a tea for blood sugar balance and prostate health.",
+    categories: ["digestive", "wellness"],
   },
 ];
 
-const processes = [
-  {
-    number: "01",
-    title: "Gathered From Where They Grow",
-    description:
-      "Every plant is collected in its natural habitat — no farms, no synthetic inputs. Sourced from biodiverse regions aligned with ancestral gathering sites.",
-  },
-  {
-    number: "02",
-    title: "Harvested With Care",
-    description:
-      "Handpicked at peak maturity, often in early morning. Only abundant species collected, root systems preserved, harvest sites rotated.",
-  },
-  {
-    number: "03",
-    title: "Sorting & Drying",
-    description:
-      "Sorted by hand, spread on ventilated drying beds. Natural shade drying in cool, well-ventilated spaces prevents the breakdown of volatile oils.",
-  },
-  {
-    number: "04",
-    title: "Final Processing",
-    description:
-      "Once fully dry, remaining stems and debris are removed. Stored in airtight containers away from light. Leaves kept whole to preserve volatile compounds.",
-  },
-];
+// Enrich herbs with image and handler from product data
+const enrichedHerbs = herbs.map((h) => {
+  const product = herbProductMap.get(h.sku);
+  return { ...h, handler: product?.handler ?? "", image: product?.image ?? "" };
+});
 
 const originMetadata = [
   { label: "Origin", value: "Olancho and La Mosquitia, Honduras" },
@@ -364,7 +399,81 @@ const originMetadata = [
   },
 ];
 
-const formats = ["Whole", "Chopped", "Cut", "Cubed", "Crushed"];
+const herbStats = [
+  { target: 41, label: "Wildcrafted Varieties" },
+  { target: 2, label: "Harvest Regions" },
+  { target: 5, label: "Processing Formats" },
+  { target: 132, label: "SKUs Available" },
+];
+
+const processPhotos = [
+  {
+    image: `${CDN}/pages/traditional-herbs/guarumo-leaves-processing-method-shade-dried.jpg`,
+    alt: "Guarumo leaves being shade-dried in Olancho, Honduras — traditional wildcrafted herb processing",
+    tag: "Steps 01 — 03",
+    title: "From Canopy to Drying Bed",
+    description:
+      "Gathered in native habitat, sorted by hand, and laid in single layers on ventilated beds. The slow, indirect process begins — protecting every volatile oil from heat and light.",
+  },
+  {
+    image: `${CDN}/pages/traditional-herbs/kalanchoe-shade-dry-process-forestal-mt.jpg`,
+    alt: "Kalanchoe leaves fully shade-dried and preserved — Forestal MT traditional herbs processing",
+    tag: "Step 04",
+    title: "Preserved at the Peak",
+    description:
+      "Once fully dry and brittle, herbs are taken down, cleaned of remaining stems, and stored in airtight containers. Leaves kept whole to protect natural volatile compounds until use.",
+  },
+];
+
+const processSteps = [
+  {
+    number: "01",
+    title: "Gathered From Where They Grow",
+    description:
+      "Every plant collected in its natural habitat — no farms, no synthetic inputs. Sourced from biodiverse regions aligned with ancestral gathering sites.",
+  },
+  {
+    number: "02",
+    title: "Harvested With Care",
+    description:
+      "Handpicked at peak maturity, often in early morning. Only abundant species collected; root systems preserved; harvest sites rotated to maintain ecosystem health.",
+  },
+  {
+    number: "03",
+    title: "Natural Shade Drying",
+    description:
+      "Hung in bundles or spread on ventilated drying beds. Slow, indirect drying in cool, well-shaded spaces prevents breakdown of volatile oils — preserving aroma, color, and botanical character.",
+  },
+  {
+    number: "04",
+    title: "Final Processing & Storage",
+    description:
+      "Once fully dry, remaining stems and debris are removed. Stored in airtight containers away from light and moisture. Leaves kept whole to preserve volatile compounds.",
+  },
+];
+
+const sustainability = [
+  {
+    title: "Sustainable Wild-Harvesting",
+    description:
+      "Rotation of sites, selective collection, and population monitoring ensure long-term ecosystem health.",
+  },
+  {
+    title: "Fair Compensation",
+    description:
+      "Economic support for indigenous and rural communities who share their knowledge and labor.",
+  },
+  {
+    title: "Habitat Protection",
+    description:
+      "Making forest preservation economically viable through direct value creation at origin.",
+  },
+  {
+    title: "Cultural Respect",
+    description:
+      "Direct partnerships with herbalists, healers, and traditional practitioners — not anonymous supply chains.",
+  },
+];
 
 const audience = [
   "Herbalists and apothecaries",
@@ -375,25 +484,7 @@ const audience = [
   "Consumers who value cultural heritage and nature-based traditions",
 ];
 
-const sustainability = [
-  {
-    title: "Sustainable Wild-Harvesting",
-    description: "Rotation of sites, selective collection, and population monitoring",
-  },
-  {
-    title: "Fair Compensation",
-    description:
-      "Economic support for indigenous and rural communities who share their knowledge and labor",
-  },
-  {
-    title: "Habitat Protection",
-    description: "Making forest preservation economically viable through value creation",
-  },
-  {
-    title: "Cultural Respect",
-    description: "Direct partnerships with herbalists, healers, and traditional practitioners",
-  },
-];
+const formats = ["Whole", "Chopped", "Cut", "Cubed", "Crushed"];
 ---
 
 <BaseLayout>
@@ -412,9 +503,9 @@ const sustainability = [
   />
 
   {
-    /* ═══════════════════════════════════════════════════════════════
-      HERO — Video background, cinematic
-  ═══════════════════════════════════════════════════════════════ */
+    /* ══════════════════════════════════════════════════════════════════
+       1. HERO — Video background, cinematic
+    ══════════════════════════════════════════════════════════════════ */
   }
   <Hero
     background={data.hero.background}
@@ -426,54 +517,60 @@ const sustainability = [
     ctas={data.hero.ctas}
   />
 
+  {/* 2. BREADCRUMB */}
   <Breadcrumb pageName={data.pageName} />
 
   {
-    /* ═══════════════════════════════════════════════════════════════
-      INTRO — 41 Wildcrafted Varieties centered narrative
-  ═══════════════════════════════════════════════════════════════ */
+    /* ══════════════════════════════════════════════════════════════════
+       3. THE COLLECTION — Full-bleed classification image
+    ══════════════════════════════════════════════════════════════════ */
   }
-  <section class="surface-warm py-24">
+  <BotanicalSection
+    image={`${CDN}/pages/traditional-herbs/classification-of-herbs-forestal-mt.jpg`}
+    alt="Classification of traditional herbs — 41 wildcrafted ethnobotanical varieties by Forestal MT in Honduras"
+    overlay="from-charcoal/90 via-charcoal/68 to-charcoal/78"
+  >
     <div class="mx-auto max-w-3xl px-6 text-center lg:px-12">
-      <SectionHeader
-        eyebrow="The Collection"
-        heading="41 Wildcrafted Varieties from<br />Honduran Landscapes"
-        variant="light"
-        align="center"
-      />
       <p
-        class="reveal-on-scroll mt-8 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-charcoal/70"
+        class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80"
       >
+        The Ethnobotanical Apothecary
+      </p>
+      <h2
+        class="mt-4 font-[family-name:var(--font-display)] text-[clamp(2rem,4vw,3rem)] font-normal text-white"
+      >
+        The Traditional Herbs Collection
+      </h2>
+      <hr class="gold-rule" />
+      <p class="mt-8 font-[family-name:var(--font-body)] text-[15px] leading-[1.9] text-white/65">
         A living archive of ethnobotanical wisdom accumulated across millennia by indigenous
         cultures of Central America and the Caribbean — preserved through wildcrafted, shade-dried
         plants sourced directly from the landscapes where they have always grown.
       </p>
-      <p
-        class="reveal-on-scroll mt-4 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-charcoal/70"
-      >
+      <p class="mt-4 font-[family-name:var(--font-body)] text-[15px] leading-[1.9] text-white/65">
         Honduras sits at a unique ecological crossroads. Cloud forests, tropical lowlands, river
         corridors, and coastal ecosystems converge here to create extraordinary botanical diversity.
         The plants in this collection have never been treated as commodities — they are integral to
         cultural identity, daily life, and ancestral practice.
       </p>
     </div>
-  </section>
+  </BotanicalSection>
 
   {
-    /* ═══════════════════════════════════════════════════════════════
-      ORIGIN — OriginChapter asymmetric with green accent
-  ═══════════════════════════════════════════════════════════════ */
+    /* ══════════════════════════════════════════════════════════════════
+       4. ORIGIN — Heritage narrative + metadata
+    ══════════════════════════════════════════════════════════════════ */
   }
   <OriginChapter
     eyebrow="Rooted in Place and Practice"
     heading="Heritage Rooted<br />in the Landscape"
     paragraphs={[
       "Forestal MT's Traditional Herbs Collection reflects the wisdom of healers, midwives, herbalists, and indigenous knowledge keepers who have stewarded this botanical understanding for centuries. Every herb carries a verifiable connection to its native ecosystem.",
-      "By working directly with local harvesters in Olancho and La Mosquitia, we help preserve both botanical diversity and the cultural heritage that has protected it for generations.",
+      "By working directly with local harvesters in Olancho and La Mosquitia, we help preserve both botanical diversity and the cultural heritage that has protected it for generations. No anonymous supply chains. No intermediaries. Just the plant, the place, and the people.",
     ]}
     image={{
-      src: "https://cdn.forestal-mt.com/pages/traditional-herbs/origin.jpg",
-      alt: "Wildcrafted herbs drying in shade in Olancho, Honduras",
+      src: `${CDN}/pages/traditional-herbs/origin.jpg`,
+      alt: "Wildcrafted herbs drying in shade in Olancho, Honduras — Forestal MT traditional sourcing",
     }}
     metadata={originMetadata}
     catalogAccent="herbs"
@@ -481,65 +578,280 @@ const sustainability = [
   />
 
   {
-    /* ═══════════════════════════════════════════════════════════════
-      PROCESS — ProcessFlow horizontal connected steps
-  ═══════════════════════════════════════════════════════════════ */
-  }
-  <ProcessFlow
-    eyebrow="Origin-Grounded Process"
-    heading="How We Work: Wildcrafted<br />and Shade-Dried"
-    steps={processes}
-  />
-
-  {
-    /* ═══════════════════════════════════════════════════════════════
-      HERB CATALOG — Horizontal scrolling botanical field cards
-  ═══════════════════════════════════════════════════════════════ */
+    /* ══════════════════════════════════════════════════════════════════
+       5. SPLIT EDITORIAL — Gathered from nature (quassia image)
+    ══════════════════════════════════════════════════════════════════ */
   }
   <section class="surface-warm py-24">
-    <div class="mx-auto max-w-7xl px-6 lg:px-12">
-      <SectionHeader
-        eyebrow="41 Varieties, All Wildcrafted in Honduras"
-        heading="Our Herbs"
-        variant="light"
-        align="center"
-      />
-      <p
-        class="mx-auto mt-6 max-w-2xl text-center font-[family-name:var(--font-body)] text-[14px] leading-relaxed text-charcoal/55"
-      >
-        Each herb carries its local name, its traditional context, and the care of the people who
-        gathered it.
-      </p>
-    </div>
+    <SplitEditorial
+      eyebrow="Gathered From Where They Grow"
+      heading="Where Wild Plants<br />Still Know Their Names"
+      paragraphs={[
+        "Every plant in this collection is collected in its natural habitat — no farms, no cultivation, no synthetic inputs. Sourced from biodiverse regions aligned with ancestral gathering sites, by people who know these plants by name, season, and place.",
+        "Harvest sites are rotated. Root systems are preserved when possible. Only a small portion of any plant population is taken — a practice of restraint that has kept these landscapes productive for generations. This is wildcrafting as it was always meant to be.",
+      ]}
+      image={`${CDN}/pages/traditional-herbs/quassia-hombre-grande-tree-flourish.jpg`}
+      imageAlt="Quassia Hombre Grande tree in full flourish in Honduran forest — wildcrafted botanical used in traditional herbalism"
+      direction="right"
+      variant="light"
+    />
+  </section>
 
-    <div class="mt-16">
-      <HerbScrollIsland
-        client:visible
-        herbs={herbs.map((h) => ({ ...h, image: skuToImage.get(h.sku) ?? "" }))}
-      />
+  {
+    /* ══════════════════════════════════════════════════════════════════
+       6. IMPACT STATS — Dark authority strip
+    ══════════════════════════════════════════════════════════════════ */
+  }
+  <section class="surface-dark grain py-24">
+    <div class="mx-auto max-w-7xl px-6 lg:px-12">
+      <div class="reveal-on-scroll mb-12 text-center">
+        <p
+          class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80"
+        >
+          Honduras&rsquo; Largest Traditional Herbs Supplier
+        </p>
+      </div>
+      <ImpactBarIsland stats={herbStats} client:visible />
+      <p
+        class="mt-12 text-center font-[family-name:var(--font-body)] text-[14px] italic text-white/35"
+      >
+        From Olancho and La Mosquitia — the most biodiverse harvest regions in Central America.
+      </p>
     </div>
   </section>
 
   {
-    /* ═══════════════════════════════════════════════════════════════
-      FORMATS — Available formats as horizontal tags
-  ═══════════════════════════════════════════════════════════════ */
+    /* ══════════════════════════════════════════════════════════════════
+       7. PROCESS WITH PHOTOS — Wildcrafted and shade-dried
+    ══════════════════════════════════════════════════════════════════ */
+  }
+  <section class="surface-dark grain relative overflow-hidden py-24">
+    <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
+      {/* Header */}
+      <div class="reveal-on-scroll mb-16 text-center">
+        <p
+          class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80"
+        >
+          Origin-Grounded Process
+        </p>
+        <h2
+          class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-white"
+        >
+          How We Work: Wildcrafted<br />and Shade-Dried
+        </h2>
+        <hr class="gold-rule" />
+      </div>
+
+      {/* Process photo cards */}
+      <div class="stagger-children mb-12 grid grid-cols-1 gap-8 md:grid-cols-2">
+        {
+          processPhotos.map((proc) => (
+            <div class="overflow-hidden border border-white/10 bg-white/[0.03] backdrop-blur-sm">
+              <div class="aspect-[4/3] overflow-hidden">
+                <img
+                  src={cdnImage(proc.image, { w: 1200 })}
+                  alt={proc.alt}
+                  class="h-full w-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="border-l-[3px] border-[#F3C00D]/40 p-8">
+                <span class="inline-block font-[family-name:var(--font-heading)] text-[10px] uppercase tracking-[0.25em] text-[#F3C00D]/70">
+                  {proc.tag}
+                </span>
+                <h3 class="mt-3 font-[family-name:var(--font-display)] text-[1.2rem] font-normal text-white">
+                  {proc.title}
+                </h3>
+                <p class="mt-3 font-[family-name:var(--font-body)] text-[14px] leading-[1.8] text-white/55">
+                  {proc.description}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      {/* 4 numbered process steps */}
+      <div class="stagger-children grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          processSteps.map((step) => (
+            <DarkFrostedCard number={step.number} heading={step.title} body={step.description} />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {
+    /* ══════════════════════════════════════════════════════════════════
+       8. CINEMATIC BREAK — Bark close-up image
+    ══════════════════════════════════════════════════════════════════ */
+  }
+  <div class="relative aspect-[21/7] overflow-hidden">
+    <img
+      src={cdnImage(`${CDN}/pages/traditional-herbs/bark-corteza-gumbo-limbo-palo-mulato.jpg`, {
+        w: 1920,
+      })}
+      alt="Gumbo Limbo bark — corteza de Palo Mulato — wildcrafted bark from Olancho, Honduras"
+      class="h-full w-full object-cover"
+      loading="lazy"
+      decoding="async"
+    />
+    <div
+      class="absolute inset-0 bg-gradient-to-b from-[#1A1A1A]/35 via-transparent to-[#1A1A1A]/55"
+    >
+    </div>
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+      <p
+        class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.5em] text-white/90 drop-shadow-lg"
+      >
+        Wild-crafted &middot; Shade-dried &middot; Preserved at Origin
+      </p>
+    </div>
+  </div>
+
+  {
+    /* ══════════════════════════════════════════════════════════════════
+       9. PULL QUOTE
+    ══════════════════════════════════════════════════════════════════ */
+  }
+  <PullQuote
+    quote="An apothecary of ethnobotanical wisdom, preserved across millennia by cultures who understood that healing begins where the plant grows — not where it’s packaged."
+    variant="light"
+  />
+
+  {
+    /* ══════════════════════════════════════════════════════════════════
+       10. HERB FILTER CATALOG — New filterable grid island
+    ══════════════════════════════════════════════════════════════════ */
+  }
+  <section class="accent-herbs py-24">
+    <div class="mx-auto mb-12 max-w-7xl px-6 lg:px-12">
+      <div class="text-center">
+        <p
+          class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-gold-dark"
+        >
+          41 Varieties, All Wildcrafted in Honduras
+        </p>
+        <h2
+          class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-charcoal"
+        >
+          Our Herbs
+        </h2>
+        <hr class="gold-rule" />
+        <p
+          class="mx-auto mt-4 max-w-xl font-[family-name:var(--font-body)] text-[14px] leading-relaxed text-charcoal/55"
+        >
+          Filter by wellness category or browse all 41 varieties. Each herb carries its local name,
+          its traditional context, and the care of the people who gathered it.
+        </p>
+      </div>
+    </div>
+
+    <HerbFilterIsland client:visible herbs={enrichedHerbs} />
+  </section>
+
+  {
+    /* ══════════════════════════════════════════════════════════════════
+       11. WILDCRAFTED NATURE — Dandelion full-bleed section
+    ══════════════════════════════════════════════════════════════════ */
+  }
+  <BotanicalSection
+    image={`${CDN}/pages/traditional-herbs/wild-diente-de-leon-dandelion.jpg`}
+    alt="Wild dandelion growing free in the Honduran landscape — representative of wildcrafted botanical diversity"
+    overlay="from-[#0d3b00]/82 via-[#0d3b00]/58 to-[#1A1A1A]/72"
+  >
+    <div class="reveal-on-scroll mx-auto max-w-4xl px-6 text-center lg:px-12">
+      <p
+        class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80"
+      >
+        Wildcrafted. Not Farmed.
+      </p>
+      <h2
+        class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,4vw,2.75rem)] font-normal leading-[1.15] text-white"
+      >
+        These Plants Grow Wild<br />Because They Were Never Tamed.
+      </h2>
+      <hr class="gold-rule" />
+      <p
+        class="mx-auto mt-8 max-w-2xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-white/60"
+      >
+        No monocultures. No pesticides. No greenhouses. Every plant in this collection grows exactly
+        where it has always grown — in native ecosystems that have shaped its character over
+        centuries. That&rsquo;s what &ldquo;wildcrafted&rdquo; means. And that&rsquo;s the only way
+        we source.
+      </p>
+      <div class="mt-10 flex flex-wrap justify-center gap-3">
+        {
+          [
+            "Native Ecosystems",
+            "Zero Synthetic Inputs",
+            "Ancestral Harvest Sites",
+            "Population Monitoring",
+            "Seasonal Collection",
+          ].map((tag) => (
+            <span class="tag-hover rounded-[2px] border border-white/15 px-4 py-2 font-[family-name:var(--font-ui)] text-[11px] text-white/50">
+              {tag}
+            </span>
+          ))
+        }
+      </div>
+    </div>
+  </BotanicalSection>
+
+  {
+    /* ══════════════════════════════════════════════════════════════════
+       12. DR. SEBI LEGACY — Editorial dark section
+    ══════════════════════════════════════════════════════════════════ */
+  }
+  <section class="surface-dark grain py-24">
+    <SplitEditorial
+      eyebrow="A Tribute to Dr. Sebi's Legacy"
+      heading="The Herbalist Who<br />Showed the World Honduras"
+      paragraphs={[
+        "Alfredo Darrington Bowman — known worldwide as Dr. Sebi — was born in Ilanga, La Ceiba, Honduras in 1933. A self-taught herbalist, he devoted his life to the plant wisdom of Central America and the Caribbean, bringing global attention to botanical traditions practiced in these landscapes for centuries.",
+        "Many of the plants in this collection — cocolmeca root, contribo, sarsaparilla, stonebreaker, guaco, and more — were central to his teachings. Dr. Sebi didn't invent these traditions. He honored them, as communities in Honduras have honored them for generations. This collection honors that same lineage: wild, uncompromised, rooted in place.",
+      ]}
+      image={`${CDN}/pages/traditional-herbs/a-tribute-to-dr-sebi-legacy.webp`}
+      imageAlt="Dr. Sebi — Alfredo Darrington Bowman — Honduran herbalist who brought global attention to Central American plant traditions"
+      direction="left"
+      variant="dark"
+    >
+      <p
+        class="mt-8 font-[family-name:var(--font-body)] text-[12px] italic leading-relaxed text-white/30"
+      >
+        This tribute reflects historical and cultural context only. These products are not medical
+        treatments and are not affiliated with or endorsed by the estate of Alfredo Darrington
+        Bowman.
+      </p>
+    </SplitEditorial>
+  </section>
+
+  {
+    /* ══════════════════════════════════════════════════════════════════
+       13. AVAILABLE FORMATS
+    ══════════════════════════════════════════════════════════════════ */
   }
   <section class="accent-herbs py-24">
     <div class="mx-auto max-w-4xl px-6 text-center lg:px-12">
-      <SectionHeader
-        eyebrow="Prepared for Traditional and Commercial Use"
-        heading="Available Formats"
-        variant="light"
-        align="center"
-      />
+      <p
+        class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-gold-dark"
+      >
+        Prepared for Traditional and Commercial Use
+      </p>
+      <h2
+        class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-charcoal"
+      >
+        Available Formats
+      </h2>
+      <hr class="gold-rule" />
       <p
         class="mx-auto mt-6 max-w-xl font-[family-name:var(--font-body)] text-[14px] leading-relaxed text-charcoal/60"
       >
         These formats support traditional herbal preparations, botanical product development, and
         specialty retail.
       </p>
-
       <div class="mt-12 flex flex-wrap justify-center gap-4">
         {
           formats.map((format) => (
@@ -553,27 +865,31 @@ const sustainability = [
   </section>
 
   {
-    /* ═══════════════════════════════════════════════════════════════
-      SUSTAINABILITY — Protecting What We Harvest (dark)
-  ═══════════════════════════════════════════════════════════════ */
+    /* ══════════════════════════════════════════════════════════════════
+       14. SUSTAINABILITY — Stewardship at Every Step
+    ══════════════════════════════════════════════════════════════════ */
   }
   <section class="surface-dark grain relative overflow-hidden py-24">
     <div class="relative z-10 mx-auto max-w-4xl px-6 text-center lg:px-12">
-      <SectionHeader
-        eyebrow="Stewardship at Every Step"
-        heading="Protecting What<br />We Harvest"
-        variant="dark"
-        align="center"
-      />
+      <p
+        class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80"
+      >
+        Stewardship at Every Step
+      </p>
+      <h2
+        class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-white"
+      >
+        Protecting What<br />We Harvest
+      </h2>
+      <hr class="gold-rule" />
       <p
         class="reveal-on-scroll mx-auto mt-8 max-w-2xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-white/50"
       >
         As ecosystem pressures grow across Central America, Forestal MT promotes stewardship through
-        every step of our work. This collection highlights Honduras' extraordinary ethnobotanical
-        wealth — and the traditions that protect it.
+        every step of our work. This collection highlights Honduras&rsquo; extraordinary
+        ethnobotanical wealth — and the traditions that protect it.
       </p>
     </div>
-
     <div
       class="stagger-children relative z-10 mx-auto mt-16 grid max-w-7xl grid-cols-1 gap-6 px-6 sm:grid-cols-2 lg:grid-cols-4 lg:px-12"
     >
@@ -586,9 +902,9 @@ const sustainability = [
   </section>
 
   {
-    /* ═══════════════════════════════════════════════════════════════
-      AUDIENCE + WHOLESALE CTA
-  ═══════════════════════════════════════════════════════════════ */
+    /* ══════════════════════════════════════════════════════════════════
+       15. AUDIENCE + WHOLESALE CTA
+    ══════════════════════════════════════════════════════════════════ */
   }
   <AudienceWholesaleSplit
     audienceHeading="Built for Brands<br />That Value Origin"
@@ -597,9 +913,9 @@ const sustainability = [
   />
 
   {
-    /* ═══════════════════════════════════════════════════════════════
-      DISCLAIMER
-  ═══════════════════════════════════════════════════════════════ */
+    /* ══════════════════════════════════════════════════════════════════
+       16. DISCLAIMER
+    ══════════════════════════════════════════════════════════════════ */
   }
   <section class="border-t border-[#D6E8D3] bg-[#F8F8F0] py-8">
     <div class="mx-auto max-w-4xl px-6 text-center lg:px-12">
@@ -610,11 +926,9 @@ const sustainability = [
     </div>
   </section>
 
-  {
-    /* ═══════════════════════════════════════════════════════════════
-      TRUST MARQUEE + COLLECTION NAV
-  ═══════════════════════════════════════════════════════════════ */
-  }
+  {/* 17. TRUST MARQUEE */}
   <TrustMarquee variant="dark" />
+
+  {/* 18. COLLECTION NAV */}
   <CollectionNav exclude="traditional-herbs" />
 </BaseLayout>
