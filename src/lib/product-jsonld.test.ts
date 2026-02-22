@@ -19,8 +19,6 @@ describe("resolveCatalogUrl", () => {
   });
 
   it("throws when catalog is unknown", () => {
-    expect(() => resolveCatalogUrl("unknown-catalog")).toThrow(
-      'Unknown catalog "unknown-catalog"',
-    );
+    expect(() => resolveCatalogUrl("unknown-catalog")).toThrow('Unknown catalog "unknown-catalog"');
   });
 });
