@@ -11,7 +11,7 @@
  * Images: 1920×1080 (16:9) — rendered with object-cover.
  * Both fill the container edge-to-edge.
  */
-import { getStreamHls, getStreamPoster } from "../data/stream-videos";
+import { getStreamHls, getStreamMp4, getStreamPoster } from "../data/stream-videos";
 import { cdnImage } from "../lib/image";
 
 interface CTA {
@@ -55,6 +55,7 @@ const hasVideo = background?.type === "video" && background.stream;
 const hasImage = background?.type === "image" && background.url;
 
 const hlsSrc = hasVideo ? getStreamHls(background.stream) : null;
+const mp4Src = hasVideo ? getStreamMp4(background.stream) : null;
 const posterSrc = hasVideo ? getStreamPoster(background.stream, 1920, 1080) : null;
 ---
 
@@ -62,7 +63,7 @@ const posterSrc = hasVideo ? getStreamPoster(background.stream, 1920, 1080) : nu
   class:list={[
     "grain relative flex overflow-hidden bg-charcoal",
     hasVideo || hasImage
-      ? "h-[56.25vw] max-h-screen items-end"
+      ? "h-[100svh] md:h-[56.25vw] md:max-h-screen items-end"
       : "min-h-[360px] items-center py-24 md:py-32",
     overlayClass,
   ]}
@@ -77,10 +78,11 @@ const posterSrc = hasVideo ? getStreamPoster(background.stream, 1920, 1080) : nu
           muted
           loop
           playsinline
-          preload="auto"
+          preload="metadata"
           disablepictureinpicture
           poster={posterSrc}
           data-hls={hlsSrc}
+          data-mp4={mp4Src}
           class="h-full w-full object-cover"
         >
           {/* Captions track — required for accessibility compliance (WCAG 1.2.2).
@@ -209,18 +211,24 @@ const posterSrc = hasVideo ? getStreamPoster(background.stream, 1920, 1080) : nu
   document.addEventListener("astro:page-load", () => {
     const video = document.getElementById("hero-video") as HTMLVideoElement | null;
     if (!video) return;
-    const src = video.dataset.hls;
-    if (!src) return;
+    const hlsSrc = video.dataset.hls;
+    if (!hlsSrc) return;
 
     if (video.canPlayType("application/vnd.apple.mpegurl")) {
-      video.src = src;
+      // Native HLS — Safari / iOS
+      video.src = hlsSrc;
     } else {
       import("hls.js").then((mod) => {
         const Hls = mod.default;
-        if (!Hls.isSupported()) return;
-        const hls = new Hls({ enableWorker: false });
-        hls.loadSource(src);
-        hls.attachMedia(video);
+        if (Hls.isSupported()) {
+          const hls = new Hls({ enableWorker: false });
+          hls.loadSource(hlsSrc);
+          hls.attachMedia(video);
+        } else {
+          // Last resort: MP4 direct download (requires CF Stream downloads enabled)
+          const mp4 = video.dataset.mp4;
+          if (mp4) video.src = mp4;
+        }
       });
     }
   });

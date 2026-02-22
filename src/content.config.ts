@@ -29,6 +29,15 @@ const pages = defineCollection({
         width: z.number(),
         height: z.number(),
       }),
+      video: z
+        .object({
+          url: z.string(),
+          secureUrl: z.string().optional(),
+          type: z.string().optional(),
+          width: z.number().optional(),
+          height: z.number().optional(),
+        })
+        .optional(),
     }),
     twitter: z.object({
       card: z.string(),

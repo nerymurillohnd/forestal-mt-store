@@ -95,12 +95,17 @@ export function getStreamThumbAt(
 // <video> tag attributes for hero background videos
 // ---------------------------------------------------------------------------
 
+/** MP4 download URL — requires "Allow Downloads" enabled per video in CF Stream dashboard. */
+export function getStreamMp4(uid: string): string {
+  return `https://${STREAM}/${uid}/downloads/default.mp4`;
+}
+
 /** HTML attributes for autoplay background video. */
 export const heroVideoAttrs = {
   autoplay: true,
   loop: true,
   muted: true,
   playsinline: true,
-  preload: "auto" as const,
+  preload: "metadata" as const,
   disablePictureInPicture: true,
 } as const;
