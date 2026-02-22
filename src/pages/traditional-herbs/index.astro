@@ -333,6 +333,14 @@ const herbs = [
   },
 ];
 
+const herbCards = herbs.map((h) => {
+  const sourceImage = skuToImage.get(h.sku) ?? "";
+  return {
+    ...h,
+    image: sourceImage ? cdnImage(sourceImage, { w: 280 }) : "",
+  };
+});
+
 const originMetadata = [
   { label: "Origin", value: "Olancho and La Mosquitia, Honduras" },
   { label: "Source", value: "Native and long-naturalized medicinal plants" },
@@ -741,10 +749,7 @@ const formats = ["Whole", "Chopped", "Cut", "Cubed", "Crushed"];
     </div>
 
     <div class="mt-16">
-      <HerbScrollIsland
-        client:visible
-        herbs={herbs.map((h) => ({ ...h, image: skuToImage.get(h.sku) ?? "" }))}
-      />
+      <HerbScrollIsland client:visible herbs={herbCards} />
     </div>
   </section>
 

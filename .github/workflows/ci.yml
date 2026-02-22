@@ -14,11 +14,9 @@ concurrency:
   cancel-in-progress: true
 
 # ── Pinned versions ──────────────────────────────────────────────
-# Node: 24.13.1 (LTS)   — matches local dev environment
+# Node: from .node-version (24.13.1) — matches local dev environment
 # pnpm: 10.29.3          — locked via package.json "packageManager"
 # Wrangler: 4.66.0       — pinned in deploy job
-env:
-  NODE_VERSION: "24.13.1"
 
 jobs:
   # ── Stage 1: Lint ──────────────────────────────────────────────
@@ -30,22 +28,38 @@ jobs:
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version-file: .node-version
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - name: ESLint
         run: pnpm lint
 
-  # ── Stage 2: Build ─────────────────────────────────────────────
-  build:
-    name: Build
+  # ── Stage 2: Unit Tests ────────────────────────────────────────
+  test:
+    name: Unit Tests
+    needs: lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version-file: .node-version
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test
+
+  # ── Stage 3: Build ─────────────────────────────────────────────
+  build:
+    name: Build
+    needs: [test]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - name: Astro check
@@ -61,7 +75,7 @@ jobs:
           path: dist/
           retention-days: 1
 
-  # ── Stage 3: E2E Tests ─────────────────────────────────────────
+  # ── Stage 4: E2E Tests ─────────────────────────────────────────
   e2e:
     name: E2E Tests
     needs: build
@@ -71,7 +85,7 @@ jobs:
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version-file: .node-version
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - name: Cache Playwright browsers
@@ -103,7 +117,7 @@ jobs:
           path: playwright-report/
           retention-days: 7
 
-  # ── Stage 4: Lighthouse ────────────────────────────────────────
+  # ── Stage 5: Lighthouse ────────────────────────────────────────
   lighthouse:
     name: Lighthouse
     needs: build
@@ -114,7 +128,7 @@ jobs:
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version-file: .node-version
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - name: Download build artifact
@@ -127,7 +141,7 @@ jobs:
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 
-  # ── Stage 5: Deploy ────────────────────────────────────────────
+  # ── Stage 6: Deploy ────────────────────────────────────────────
   deploy:
     name: Deploy
     needs: [lint, build, e2e, lighthouse]
@@ -141,7 +155,7 @@ jobs:
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version-file: .node-version
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - name: Download build artifact
@@ -155,7 +169,7 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
-  # ── Stage 6: Lighthouse (Production) ──────────────────────────
+  # ── Stage 7: Lighthouse (Production) ──────────────────────────
   lighthouse-prod:
     name: Lighthouse (Production)
     needs: deploy
@@ -166,7 +180,7 @@ jobs:
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version-file: .node-version
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - name: Wait for CDN propagation

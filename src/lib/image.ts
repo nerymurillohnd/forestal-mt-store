@@ -73,6 +73,7 @@ function buildParams(opts: ImageOptions): string {
  * Guard: if the URL already contains /cdn-cgi/image/, return it unchanged to prevent double-wrapping.
  */
 export function cdnImage(imageUrl: string, opts: ImageOptions = {}): string {
+  if (imageUrl === "") return "";
   if (imageUrl.includes("/cdn-cgi/image/")) return imageUrl;
   const params = buildParams({ f: "auto", ...opts });
   return `${TRANSFORM_ORIGIN}/cdn-cgi/image/${params}/${imageUrl}`;

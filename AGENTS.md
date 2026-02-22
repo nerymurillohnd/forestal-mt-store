@@ -14,6 +14,21 @@
 
 ## Build, Test, and Development Commands
 
+- Execution environment baseline:
+  - Project runs in WSL2 (`Linux`), `Ubuntu 24.04 LTS`.
+  - Working shell: `bash`.
+  - Package manager mode: `pnpm standalone` only (`/home/nmurillo/.local/share/pnpm/pnpm`).
+  - Never run project workflows with `npm`/`yarn`; use `pnpm` and `pnpm exec` consistently to avoid mismatched execution.
+
+- Workspace scope is explicit:
+  - Root workspace: `.` (site app)
+  - API workspace: `api-worker/` (Cloudflare Worker/API package)
+
+### Workspace execution rule
+
+- Commands for `api-worker` must be run only from a session started inside `api-worker/` (e.g. `cd api-worker && pnpm ...`).
+- Do not run `api-worker`-specific commands from repository root unless explicitly scoped with workspace filters.
+
 - `pnpm install` — install dependencies with the workspace lockfile.
 - `pnpm dev` — run Astro dev server (port 4321; predev clears stale port processes).
 - `pnpm build` — production build to `dist/` (required before PRs).
@@ -24,6 +39,7 @@
 - `pnpm quality:prepush` — local pre-push quality gate (`format:check`, `lint`, `check`) used by `.husky/pre-push`.
 - `pnpm test:e2e` / `pnpm test:e2e:ui` — Playwright e2e tests (UI mode optional).
 - `pnpm lighthouse` and `pnpm lighthouse:prod` — performance/audit checks (local vs production config).
+- `pnpm -C api-worker ...` is avoided by policy; use session-local execution inside `api-worker/`.
 
 ## Coding Style & Naming Conventions
 

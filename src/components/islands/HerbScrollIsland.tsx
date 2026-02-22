@@ -147,7 +147,7 @@ export default function HerbScrollIsland({ herbs }: Props) {
             <div class="aspect-[4/3] rounded-[2px] bg-parchment mb-4 overflow-hidden">
               {herb.image ? (
                 <img
-                  src={`/cdn-cgi/image/width=280,format=auto/${herb.image}`}
+                  src={herb.image}
                   alt={herb.name}
                   width={280}
                   height={210}
