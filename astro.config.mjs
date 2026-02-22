@@ -13,13 +13,14 @@ import sentry from "@sentry/astro";
 import spotlightjs from "@spotlightjs/astro";
 
 // ── Sitemap image/video data — loaded at build time ──────────────────────────
+/** @type {any} */
 const _mediaRaw = JSON.parse(
   readFileSync(new URL("./src/data/jsonld/products/media.json", import.meta.url), "utf-8"),
 );
 
-/** handler → [{url, caption, title}] for product image sitemap entries */
+/** @type {Record<string, {url: string; caption: string; title: string}[]>} */
 const _productImgMap = Object.fromEntries(
-  _mediaRaw.products.map((p) => [
+  _mediaRaw.products.map((/** @type {any} */ p) => [
     `https://forestal-mt.com/products/${p.handler}/`,
     [{ url: p.image.url, caption: p.image.caption, title: p.image.alt }],
   ]),
@@ -215,8 +216,10 @@ export default defineConfig({
 
       // Add image:image and video:video entries per URL
       serialize: (item) => {
-        const img = _pageImgMap[item.url] || _productImgMap[item.url] || undefined;
-        const video = _pageVideoMap[item.url] || undefined;
+        /** @type {Record<string, any[]>} */ const pageImgs = _pageImgMap;
+        /** @type {Record<string, any[]>} */ const pageVids = _pageVideoMap;
+        const img = pageImgs[item.url] || _productImgMap[item.url] || undefined;
+        const video = pageVids[item.url] || undefined;
         return { ...item, ...(img && { img }), ...(video && { video }) };
       },
 
