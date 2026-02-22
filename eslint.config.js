@@ -29,6 +29,7 @@ export default [
       globals: {
         module: "readonly",
         process: "readonly",
+        URL: "readonly",
       },
     },
   },
