@@ -400,10 +400,10 @@ const originMetadata = [
 ];
 
 const herbStats = [
-  { target: 41, label: "Wildcrafted Varieties" },
+  { target: 40, prefix: "+", label: "Wildcrafted Varieties" },
   { target: 2, label: "Harvest Regions" },
   { target: 5, label: "Processing Formats" },
-  { target: 132, label: "SKUs Available" },
+  { target: 6, label: "Wellness Categories" },
 ];
 
 const processPhotos = [
@@ -527,7 +527,7 @@ const formats = ["Whole", "Chopped", "Cut", "Cubed", "Crushed"];
   }
   <BotanicalSection
     image={`${CDN}/pages/traditional-herbs/classification-of-herbs-forestal-mt.jpg`}
-    alt="Classification of traditional herbs — 41 wildcrafted ethnobotanical varieties by Forestal MT in Honduras"
+    alt="Classification of traditional herbs — wildcrafted ethnobotanical varieties by Forestal MT in Honduras"
     overlay="from-charcoal/90 via-charcoal/68 to-charcoal/78"
   >
     <div class="mx-auto max-w-3xl px-6 text-center lg:px-12">
@@ -565,7 +565,7 @@ const formats = ["Whole", "Chopped", "Cut", "Cubed", "Crushed"];
     eyebrow="Rooted in Place and Practice"
     heading="Heritage Rooted<br />in the Landscape"
     paragraphs={[
-      "Forestal MT's Traditional Herbs Collection reflects the wisdom of healers, midwives, herbalists, and indigenous knowledge keepers who have stewarded this botanical understanding for centuries. Every herb carries a verifiable connection to its native ecosystem.",
+      "Forestal MT’s Traditional Herbs Collection reflects the wisdom of healers, midwives, herbalists, and indigenous knowledge keepers who have stewarded this botanical understanding for centuries. Every herb carries a verifiable connection to its native ecosystem.",
       "By working directly with local harvesters in Olancho and La Mosquitia, we help preserve both botanical diversity and the cultural heritage that has protected it for generations. No anonymous supply chains. No intermediaries. Just the plant, the place, and the people.",
     ]}
     image={{
@@ -579,7 +579,35 @@ const formats = ["Whole", "Chopped", "Cut", "Cubed", "Crushed"];
 
   {
     /* ══════════════════════════════════════════════════════════════════
-       5. SPLIT EDITORIAL — Gathered from nature (quassia image)
+       5. DR. SEBI LEGACY — Cultural authority anchor
+    ══════════════════════════════════════════════════════════════════ */
+  }
+  <section class="surface-dark grain py-24">
+    <SplitEditorial
+      eyebrow="A Tribute to Dr. Sebi’s Legacy"
+      heading="The Herbalist Who<br />Showed the World Honduras"
+      paragraphs={[
+        "Alfredo Darrington Bowman — known worldwide as Dr. Sebi — was born in Ilanga, La Ceiba, Honduras in 1933. A self-taught herbalist, he devoted his life to the plant wisdom of Central America and the Caribbean, bringing global attention to botanical traditions practiced in these landscapes for centuries.",
+        "Many of the plants in this collection — cocolmeca root, contribo, sarsaparilla, stonebreaker, guaco, and more — were central to his teachings. Dr. Sebi didn’t invent these traditions. He honored them, as communities in Honduras have honored them for generations. This collection honors that same lineage: wild, uncompromised, rooted in place.",
+      ]}
+      image={`${CDN}/pages/traditional-herbs/a-tribute-to-dr-sebi-legacy.webp`}
+      imageAlt="Dr. Sebi — Alfredo Darrington Bowman — Honduran herbalist who brought global attention to Central American plant traditions"
+      direction="left"
+      variant="dark"
+    >
+      <p
+        class="mt-8 font-[family-name:var(--font-body)] text-[12px] italic leading-relaxed text-white/30"
+      >
+        This tribute reflects historical and cultural context only. These products are not medical
+        treatments and are not affiliated with or endorsed by the estate of Alfredo Darrington
+        Bowman.
+      </p>
+    </SplitEditorial>
+  </section>
+
+  {
+    /* ══════════════════════════════════════════════════════════════════
+       6. SPLIT EDITORIAL — Wildcrafting philosophy (quassia image)
     ══════════════════════════════════════════════════════════════════ */
   }
   <section class="surface-warm py-24">
@@ -599,30 +627,55 @@ const formats = ["Whole", "Chopped", "Cut", "Cubed", "Crushed"];
 
   {
     /* ══════════════════════════════════════════════════════════════════
-       6. IMPACT STATS — Dark authority strip
+       7. WILDCRAFTED NATURE — Dandelion full-bleed manifesto
     ══════════════════════════════════════════════════════════════════ */
   }
-  <section class="surface-dark grain py-24">
-    <div class="mx-auto max-w-7xl px-6 lg:px-12">
-      <div class="reveal-on-scroll mb-12 text-center">
-        <p
-          class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80"
-        >
-          Honduras&rsquo; Largest Traditional Herbs Supplier
-        </p>
-      </div>
-      <ImpactBarIsland stats={herbStats} client:visible />
+  <BotanicalSection
+    image={`${CDN}/pages/traditional-herbs/wild-diente-de-leon-dandelion.jpg`}
+    alt="Wild dandelion growing free in the Honduran landscape — representative of wildcrafted botanical diversity"
+    overlay="from-[#0d3b00]/82 via-[#0d3b00]/58 to-[#1A1A1A]/72"
+  >
+    <div class="reveal-on-scroll mx-auto max-w-4xl px-6 text-center lg:px-12">
       <p
-        class="mt-12 text-center font-[family-name:var(--font-body)] text-[14px] italic text-white/35"
+        class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80"
       >
-        From Olancho and La Mosquitia — the most biodiverse harvest regions in Central America.
+        Wildcrafted. Not Farmed.
       </p>
+      <h2
+        class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,4vw,2.75rem)] font-normal leading-[1.15] text-white"
+      >
+        These Plants Grow Wild<br />Because They Were Never Tamed.
+      </h2>
+      <hr class="gold-rule" />
+      <p
+        class="mx-auto mt-8 max-w-2xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-white/60"
+      >
+        No monocultures. No pesticides. No greenhouses. Every plant in this collection grows exactly
+        where it has always grown — in native ecosystems that have shaped its character over
+        centuries. That&rsquo;s what &ldquo;wildcrafted&rdquo; means. And that&rsquo;s the only way
+        we source.
+      </p>
+      <div class="mt-10 flex flex-wrap justify-center gap-3">
+        {
+          [
+            "Native Ecosystems",
+            "Zero Synthetic Inputs",
+            "Ancestral Harvest Sites",
+            "Population Monitoring",
+            "Seasonal Collection",
+          ].map((tag) => (
+            <span class="tag-hover rounded-[2px] border border-white/15 px-4 py-2 font-[family-name:var(--font-ui)] text-[11px] text-white/50">
+              {tag}
+            </span>
+          ))
+        }
+      </div>
     </div>
-  </section>
+  </BotanicalSection>
 
   {
     /* ══════════════════════════════════════════════════════════════════
-       7. PROCESS WITH PHOTOS — Wildcrafted and shade-dried
+       8. PROCESS WITH PHOTOS — Wildcrafted and shade-dried
     ══════════════════════════════════════════════════════════════════ */
   }
   <section class="surface-dark grain relative overflow-hidden py-24">
@@ -685,7 +738,7 @@ const formats = ["Whole", "Chopped", "Cut", "Cubed", "Crushed"];
 
   {
     /* ══════════════════════════════════════════════════════════════════
-       8. CINEMATIC BREAK — Bark close-up image
+       9. CINEMATIC BREAK — Bark close-up image
     ══════════════════════════════════════════════════════════════════ */
   }
   <div class="relative aspect-[21/7] overflow-hidden">
@@ -713,7 +766,7 @@ const formats = ["Whole", "Chopped", "Cut", "Cubed", "Crushed"];
 
   {
     /* ══════════════════════════════════════════════════════════════════
-       9. PULL QUOTE
+       10. PULL QUOTE — Transition to catalog
     ══════════════════════════════════════════════════════════════════ */
   }
   <PullQuote
@@ -723,7 +776,7 @@ const formats = ["Whole", "Chopped", "Cut", "Cubed", "Crushed"];
 
   {
     /* ══════════════════════════════════════════════════════════════════
-       10. HERB FILTER CATALOG — New filterable grid island
+       11. HERB FILTER CATALOG — Filterable grid island
     ══════════════════════════════════════════════════════════════════ */
   }
   <section class="accent-herbs py-24">
@@ -732,7 +785,7 @@ const formats = ["Whole", "Chopped", "Cut", "Cubed", "Crushed"];
         <p
           class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-gold-dark"
         >
-          41 Varieties, All Wildcrafted in Honduras
+          All Wildcrafted in Honduras
         </p>
         <h2
           class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-charcoal"
@@ -743,8 +796,8 @@ const formats = ["Whole", "Chopped", "Cut", "Cubed", "Crushed"];
         <p
           class="mx-auto mt-4 max-w-xl font-[family-name:var(--font-body)] text-[14px] leading-relaxed text-charcoal/55"
         >
-          Filter by wellness category or browse all 41 varieties. Each herb carries its local name,
-          its traditional context, and the care of the people who gathered it.
+          Filter by wellness category or browse the full collection. Each herb carries its local
+          name, its traditional context, and the care of the people who gathered it.
         </p>
       </div>
     </div>
@@ -754,83 +807,7 @@ const formats = ["Whole", "Chopped", "Cut", "Cubed", "Crushed"];
 
   {
     /* ══════════════════════════════════════════════════════════════════
-       11. WILDCRAFTED NATURE — Dandelion full-bleed section
-    ══════════════════════════════════════════════════════════════════ */
-  }
-  <BotanicalSection
-    image={`${CDN}/pages/traditional-herbs/wild-diente-de-leon-dandelion.jpg`}
-    alt="Wild dandelion growing free in the Honduran landscape — representative of wildcrafted botanical diversity"
-    overlay="from-[#0d3b00]/82 via-[#0d3b00]/58 to-[#1A1A1A]/72"
-  >
-    <div class="reveal-on-scroll mx-auto max-w-4xl px-6 text-center lg:px-12">
-      <p
-        class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80"
-      >
-        Wildcrafted. Not Farmed.
-      </p>
-      <h2
-        class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,4vw,2.75rem)] font-normal leading-[1.15] text-white"
-      >
-        These Plants Grow Wild<br />Because They Were Never Tamed.
-      </h2>
-      <hr class="gold-rule" />
-      <p
-        class="mx-auto mt-8 max-w-2xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-white/60"
-      >
-        No monocultures. No pesticides. No greenhouses. Every plant in this collection grows exactly
-        where it has always grown — in native ecosystems that have shaped its character over
-        centuries. That&rsquo;s what &ldquo;wildcrafted&rdquo; means. And that&rsquo;s the only way
-        we source.
-      </p>
-      <div class="mt-10 flex flex-wrap justify-center gap-3">
-        {
-          [
-            "Native Ecosystems",
-            "Zero Synthetic Inputs",
-            "Ancestral Harvest Sites",
-            "Population Monitoring",
-            "Seasonal Collection",
-          ].map((tag) => (
-            <span class="tag-hover rounded-[2px] border border-white/15 px-4 py-2 font-[family-name:var(--font-ui)] text-[11px] text-white/50">
-              {tag}
-            </span>
-          ))
-        }
-      </div>
-    </div>
-  </BotanicalSection>
-
-  {
-    /* ══════════════════════════════════════════════════════════════════
-       12. DR. SEBI LEGACY — Editorial dark section
-    ══════════════════════════════════════════════════════════════════ */
-  }
-  <section class="surface-dark grain py-24">
-    <SplitEditorial
-      eyebrow="A Tribute to Dr. Sebi's Legacy"
-      heading="The Herbalist Who<br />Showed the World Honduras"
-      paragraphs={[
-        "Alfredo Darrington Bowman — known worldwide as Dr. Sebi — was born in Ilanga, La Ceiba, Honduras in 1933. A self-taught herbalist, he devoted his life to the plant wisdom of Central America and the Caribbean, bringing global attention to botanical traditions practiced in these landscapes for centuries.",
-        "Many of the plants in this collection — cocolmeca root, contribo, sarsaparilla, stonebreaker, guaco, and more — were central to his teachings. Dr. Sebi didn't invent these traditions. He honored them, as communities in Honduras have honored them for generations. This collection honors that same lineage: wild, uncompromised, rooted in place.",
-      ]}
-      image={`${CDN}/pages/traditional-herbs/a-tribute-to-dr-sebi-legacy.webp`}
-      imageAlt="Dr. Sebi — Alfredo Darrington Bowman — Honduran herbalist who brought global attention to Central American plant traditions"
-      direction="left"
-      variant="dark"
-    >
-      <p
-        class="mt-8 font-[family-name:var(--font-body)] text-[12px] italic leading-relaxed text-white/30"
-      >
-        This tribute reflects historical and cultural context only. These products are not medical
-        treatments and are not affiliated with or endorsed by the estate of Alfredo Darrington
-        Bowman.
-      </p>
-    </SplitEditorial>
-  </section>
-
-  {
-    /* ══════════════════════════════════════════════════════════════════
-       13. AVAILABLE FORMATS
+       12. AVAILABLE FORMATS
     ══════════════════════════════════════════════════════════════════ */
   }
   <section class="accent-herbs py-24">
@@ -861,6 +838,29 @@ const formats = ["Whole", "Chopped", "Cut", "Cubed", "Crushed"];
           ))
         }
       </div>
+    </div>
+  </section>
+
+  {
+    /* ══════════════════════════════════════════════════════════════════
+       13. IMPACT STATS — Collection facts
+    ══════════════════════════════════════════════════════════════════ */
+  }
+  <section class="surface-dark grain py-24">
+    <div class="mx-auto max-w-7xl px-6 lg:px-12">
+      <div class="reveal-on-scroll mb-12 text-center">
+        <p
+          class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80"
+        >
+          The Collection at a Glance
+        </p>
+      </div>
+      <ImpactBarIsland stats={herbStats} client:visible />
+      <p
+        class="mt-12 text-center font-[family-name:var(--font-body)] text-[14px] italic text-white/35"
+      >
+        From Olancho and La Mosquitia — the most biodiverse harvest regions in Central America.
+      </p>
     </div>
   </section>
 
