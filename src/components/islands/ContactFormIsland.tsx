@@ -36,6 +36,7 @@ export default function ContactFormIsland() {
   const [phoneValue, setPhoneValue] = useState("");
   const [phoneError, setPhoneError] = useState("");
   const [turnstileToken, setTurnstileToken] = useState("");
+  const [turnstileScriptFailed, setTurnstileScriptFailed] = useState(false);
 
   const turnstileContainerRef = useRef<HTMLDivElement>(null);
   const widgetIdRef = useRef<string>("");
@@ -55,6 +56,15 @@ export default function ContactFormIsland() {
       });
     };
 
+    const handleScriptError = () => {
+      setTurnstileScriptFailed(true);
+      setTurnstileToken("");
+      setFormState("error");
+      setErrorMessage(
+        "Security verification failed to load. Please refresh the page and try again.",
+      );
+    };
+
     if (window.turnstile) {
       renderWidget();
     } else {
@@ -66,11 +76,13 @@ export default function ContactFormIsland() {
       );
       if (existing) {
         existing.addEventListener("load", renderWidget, { once: true });
+        existing.addEventListener("error", handleScriptError, { once: true });
       } else {
         const script = document.createElement("script");
         script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
         script.async = true;
         script.addEventListener("load", renderWidget, { once: true });
+        script.addEventListener("error", handleScriptError, { once: true });
         document.head.appendChild(script);
       }
     }
@@ -134,6 +146,14 @@ export default function ContactFormIsland() {
         );
         return;
       }
+    }
+
+    if (turnstileScriptFailed) {
+      setFormState("error");
+      setErrorMessage(
+        "Security verification service is temporarily unavailable. Please refresh and try again.",
+      );
+      return;
     }
 
     if (!turnstileToken) {
