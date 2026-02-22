@@ -185,10 +185,10 @@ export default function ContactFormIsland() {
 
   if (formState === "success") {
     return (
-      <div class="mt-12 rounded-[3px] border border-[#D6E8D3] bg-white px-8 py-12 text-center">
-        <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#206D03]/10">
+      <div class="mt-12 rounded-[3px] border border-mint bg-white px-8 py-12 text-center">
+        <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-leaf-green/10">
           <svg
-            class="h-6 w-6 text-[#206D03]"
+            class="h-6 w-6 text-leaf-green"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -197,10 +197,10 @@ export default function ContactFormIsland() {
             <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h3 class="font-[family-name:var(--font-heading)] text-[18px] font-semibold text-[#333]">
+        <h3 class="font-[family-name:var(--font-heading)] text-[18px] font-semibold text-graphite">
           Message Sent
         </h3>
-        <p class="mt-2 font-[family-name:var(--font-body)] text-[14px] leading-relaxed text-[#333]/60">
+        <p class="mt-2 font-[family-name:var(--font-body)] text-[14px] leading-relaxed text-graphite/60">
           We have received your message and will respond within 1–2 business days.
         </p>
       </div>
@@ -214,9 +214,9 @@ export default function ContactFormIsland() {
         <div>
           <label
             htmlFor="firstName"
-            class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]"
+            class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-graphite"
           >
-            First Name <span class="text-[#A18500]">*</span>
+            First Name <span class="text-gold-dark">*</span>
           </label>
           <input
             type="text"
@@ -225,16 +225,16 @@ export default function ContactFormIsland() {
             required
             maxLength={LIMITS.firstName}
             autocomplete="given-name"
-            class="mt-2 w-full rounded-[3px] border border-[#D6E8D3] bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-[#333] outline-none transition-colors focus:border-[#206D03] focus:ring-1 focus:ring-[#206D03]/20"
+            class="mt-2 w-full rounded-[3px] border border-mint bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-graphite outline-none transition-colors focus:border-leaf-green focus:ring-1 focus:ring-leaf-green/20"
             placeholder="First name"
           />
         </div>
         <div>
           <label
             htmlFor="lastName"
-            class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]"
+            class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-graphite"
           >
-            Last Name <span class="text-[#A18500]">*</span>
+            Last Name <span class="text-gold-dark">*</span>
           </label>
           <input
             type="text"
@@ -243,7 +243,7 @@ export default function ContactFormIsland() {
             required
             maxLength={LIMITS.lastName}
             autocomplete="family-name"
-            class="mt-2 w-full rounded-[3px] border border-[#D6E8D3] bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-[#333] outline-none transition-colors focus:border-[#206D03] focus:ring-1 focus:ring-[#206D03]/20"
+            class="mt-2 w-full rounded-[3px] border border-mint bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-graphite outline-none transition-colors focus:border-leaf-green focus:ring-1 focus:ring-leaf-green/20"
             placeholder="Last name"
           />
         </div>
@@ -253,9 +253,9 @@ export default function ContactFormIsland() {
       <div>
         <label
           htmlFor="company"
-          class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]"
+          class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-graphite"
         >
-          Company <span class="normal-case tracking-normal text-[#333]/40">(optional)</span>
+          Company <span class="normal-case tracking-normal text-graphite/40">(optional)</span>
         </label>
         <input
           type="text"
@@ -263,7 +263,7 @@ export default function ContactFormIsland() {
           name="company"
           maxLength={LIMITS.company}
           autocomplete="organization"
-          class="mt-2 w-full rounded-[3px] border border-[#D6E8D3] bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-[#333] outline-none transition-colors focus:border-[#206D03] focus:ring-1 focus:ring-[#206D03]/20"
+          class="mt-2 w-full rounded-[3px] border border-mint bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-graphite outline-none transition-colors focus:border-leaf-green focus:ring-1 focus:ring-leaf-green/20"
           placeholder="Company or brand name"
         />
       </div>
@@ -272,9 +272,9 @@ export default function ContactFormIsland() {
       <div>
         <label
           htmlFor="email"
-          class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]"
+          class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-graphite"
         >
-          Email <span class="text-[#A18500]">*</span>
+          Email <span class="text-gold-dark">*</span>
         </label>
         <input
           type="email"
@@ -283,7 +283,7 @@ export default function ContactFormIsland() {
           required
           maxLength={LIMITS.email}
           autocomplete="email"
-          class="mt-2 w-full rounded-[3px] border border-[#D6E8D3] bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-[#333] outline-none transition-colors focus:border-[#206D03] focus:ring-1 focus:ring-[#206D03]/20"
+          class="mt-2 w-full rounded-[3px] border border-mint bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-graphite outline-none transition-colors focus:border-leaf-green focus:ring-1 focus:ring-leaf-green/20"
           placeholder="you@company.com"
         />
       </div>
@@ -294,17 +294,18 @@ export default function ContactFormIsland() {
         <div>
           <label
             htmlFor="country"
-            class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]"
+            class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-graphite"
           >
-            Country <span class="text-[#A18500]">*</span>
+            Country <span class="text-gold-dark">*</span>
           </label>
           <select
             id="country"
             name="country"
             required
+            autocomplete="country"
             value={selectedCountry}
             onChange={handleCountryChange}
-            class="mt-2 w-full rounded-[3px] border border-[#D6E8D3] bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-[#333] outline-none transition-colors focus:border-[#206D03] focus:ring-1 focus:ring-[#206D03]/20"
+            class="mt-2 w-full rounded-[3px] border border-mint bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-graphite outline-none transition-colors focus:border-leaf-green focus:ring-1 focus:ring-leaf-green/20"
           >
             <option value="" disabled selected>
               Select country
@@ -330,13 +331,13 @@ export default function ContactFormIsland() {
         <div>
           <label
             htmlFor="phone"
-            class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]"
+            class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-graphite"
           >
-            Phone <span class="text-[#A18500]">*</span>
+            Phone <span class="text-gold-dark">*</span>
           </label>
           <div class="relative mt-2">
             {currentCountry && (
-              <span class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 font-[family-name:var(--font-ui)] text-[14px] text-[#333]/50 select-none">
+              <span class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 font-[family-name:var(--font-ui)] text-[14px] text-graphite/50 select-none">
                 {currentCountry.dialCode}
               </span>
             )}
@@ -351,10 +352,10 @@ export default function ContactFormIsland() {
               onInput={handlePhoneChange}
               onBlur={handlePhoneBlur}
               disabled={!selectedCountry}
-              class={`w-full rounded-[3px] border bg-white py-3 font-[family-name:var(--font-ui)] text-[14px] text-[#333] outline-none transition-colors focus:ring-1 ${
+              class={`w-full rounded-[3px] border bg-white py-3 font-[family-name:var(--font-ui)] text-[14px] text-graphite outline-none transition-colors focus:ring-1 ${
                 phoneError
                   ? "border-red-400 focus:border-red-400 focus:ring-red-400/20"
-                  : "border-[#D6E8D3] focus:border-[#206D03] focus:ring-[#206D03]/20"
+                  : "border-mint focus:border-leaf-green focus:ring-leaf-green/20"
               } ${currentCountry ? "pl-[4.5rem] pr-4" : "px-4"} ${!selectedCountry ? "cursor-not-allowed opacity-50" : ""}`}
               placeholder={
                 currentCountry ? currentCountry.phonePlaceholder : "Select country first"
@@ -373,16 +374,16 @@ export default function ContactFormIsland() {
       <div>
         <label
           htmlFor="subject"
-          class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]"
+          class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-graphite"
         >
-          Subject <span class="normal-case tracking-normal text-[#333]/40">(optional)</span>
+          Subject <span class="normal-case tracking-normal text-graphite/40">(optional)</span>
         </label>
         <input
           type="text"
           id="subject"
           name="subject"
           maxLength={LIMITS.subject}
-          class="mt-2 w-full rounded-[3px] border border-[#D6E8D3] bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-[#333] outline-none transition-colors focus:border-[#206D03] focus:ring-1 focus:ring-[#206D03]/20"
+          class="mt-2 w-full rounded-[3px] border border-mint bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-graphite outline-none transition-colors focus:border-leaf-green focus:ring-1 focus:ring-leaf-green/20"
           placeholder="Brief subject line"
         />
       </div>
@@ -391,15 +392,15 @@ export default function ContactFormIsland() {
       <div>
         <label
           htmlFor="destination"
-          class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]"
+          class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-graphite"
         >
-          Send To <span class="text-[#A18500]">*</span>
+          Send To <span class="text-gold-dark">*</span>
         </label>
         <select
           id="destination"
           name="destination"
           required
-          class="mt-2 w-full rounded-[3px] border border-[#D6E8D3] bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-[#333] outline-none transition-colors focus:border-[#206D03] focus:ring-1 focus:ring-[#206D03]/20"
+          class="mt-2 w-full rounded-[3px] border border-mint bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-graphite outline-none transition-colors focus:border-leaf-green focus:ring-1 focus:ring-leaf-green/20"
         >
           <option value="" disabled selected>
             Select department
@@ -416,9 +417,9 @@ export default function ContactFormIsland() {
       <div>
         <label
           htmlFor="message"
-          class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-[#333]"
+          class="block font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.1em] text-graphite"
         >
-          Message <span class="text-[#A18500]">*</span>
+          Message <span class="text-gold-dark">*</span>
         </label>
         <textarea
           id="message"
@@ -426,7 +427,7 @@ export default function ContactFormIsland() {
           required
           rows={6}
           maxLength={LIMITS.message}
-          class="mt-2 w-full resize-y rounded-[3px] border border-[#D6E8D3] bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-[#333] outline-none transition-colors focus:border-[#206D03] focus:ring-1 focus:ring-[#206D03]/20"
+          class="mt-2 w-full resize-y rounded-[3px] border border-mint bg-white px-4 py-3 font-[family-name:var(--font-ui)] text-[14px] text-graphite outline-none transition-colors focus:border-leaf-green focus:ring-1 focus:ring-leaf-green/20"
           placeholder="Describe your inquiry, project, or requirements."
         />
       </div>
@@ -445,7 +446,7 @@ export default function ContactFormIsland() {
       <button
         type="submit"
         disabled={formState === "submitting"}
-        class="w-full rounded-[3px] bg-[#206D03] px-8 py-3.5 font-[family-name:var(--font-ui)] text-[13px] font-semibold tracking-wide text-white transition-all duration-300 hover:bg-[#54B006] hover:shadow-lg hover:shadow-[#206D03]/25 disabled:cursor-not-allowed disabled:opacity-60"
+        class="w-full rounded-[3px] bg-leaf-green px-8 py-3.5 font-[family-name:var(--font-ui)] text-[13px] font-semibold tracking-wide text-white transition-all duration-300 hover:bg-grass-green hover:shadow-lg hover:shadow-leaf-green/25 disabled:cursor-not-allowed disabled:opacity-60"
       >
         {formState === "submitting" ? "Sending…" : "Send Message"}
       </button>

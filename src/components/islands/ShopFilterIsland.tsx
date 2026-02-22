@@ -442,7 +442,7 @@ function ProductCard({ product, isWishlisted, onAddToCart, onToggleWishlist }: P
         href={`/products/${handler}/`}
         class="relative block aspect-square overflow-hidden bg-parchment"
         tabIndex={-1}
-        aria-hidden="true"
+        aria-label={name}
       >
         {optimizedSrc && (
           <img
@@ -470,15 +470,15 @@ function ProductCard({ product, isWishlisted, onAddToCart, onToggleWishlist }: P
       {/* Body */}
       <div class="flex flex-1 flex-col p-3 sm:p-4">
         {/* Product ID */}
-        <p class="mb-1 font-[family-name:var(--font-ui)] text-[10px] uppercase tracking-wider text-graphite/40">
+        <p class="mb-1 font-[family-name:var(--font-ui)] text-[10px] uppercase tracking-wider text-graphite/60">
           {productGroupId}
         </p>
 
         {/* Name — links to PDP */}
         <a href={`/products/${handler}/`} class="mb-2 block">
-          <h3 class="font-[family-name:var(--font-heading)] text-xs leading-snug text-charcoal transition-colors hover:text-leaf-green sm:text-sm">
+          <h2 class="font-[family-name:var(--font-heading)] text-xs leading-snug text-charcoal transition-colors hover:text-leaf-green sm:text-sm">
             {name}
-          </h3>
+          </h2>
         </a>
 
         {/* Quality badge */}
@@ -491,6 +491,7 @@ function ProductCard({ product, isWishlisted, onAddToCart, onToggleWishlist }: P
         {/* Rating stars (static placeholder) */}
         <div
           class="mb-1.5 flex items-center gap-0.5"
+          role="img"
           aria-label="5 out of 5 stars — pending reviews"
         >
           {[0, 1, 2, 3, 4].map((i) => (
@@ -507,7 +508,7 @@ function ProductCard({ product, isWishlisted, onAddToCart, onToggleWishlist }: P
         </div>
 
         {/* Brand */}
-        <p class="mb-2 font-[family-name:var(--font-ui)] text-[10px] text-graphite/50">
+        <p class="mb-2 font-[family-name:var(--font-ui)] text-[10px] text-graphite/70">
           Forestal MT
         </p>
 

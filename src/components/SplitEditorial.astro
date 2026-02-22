@@ -3,7 +3,7 @@
  * SplitEditorial — 50/50 image + text editorial block.
  * Simpler than OriginChapter — no metadata, pure narrative.
  */
-import { cdnImage } from "../lib/image";
+import { cdnImage, cdnSrcSet } from "../lib/image";
 
 interface Props {
   eyebrow?: string;
@@ -28,9 +28,9 @@ const {
 const imageFirst = direction === "left";
 const isDark = variant === "dark";
 
-const eyebrowColor = isDark ? "text-[#F3C00D]/80" : "text-gold-dark";
+const eyebrowColor = isDark ? "text-gold/80" : "text-gold-dark";
 const headingColor = isDark ? "text-white" : "text-charcoal";
-const textColor = isDark ? "text-white/55" : "text-[#333]/70";
+const textColor = isDark ? "text-white/55" : "text-graphite/70";
 ---
 
 <div
@@ -44,13 +44,15 @@ const textColor = isDark ? "text-white/55" : "text-[#333]/70";
     ]}
   >
     <img
-      src={cdnImage(image, { w: 1200 })}
+      src={cdnImage(image, { w: 800 })}
+      srcset={cdnSrcSet(image, [400, 640, 800])}
+      sizes="(min-width: 1024px) 50vw, 100vw"
       alt={imageAlt}
       class="parallax-image h-full w-full object-cover"
       loading="lazy"
       decoding="async"
     />
-    <div class="absolute inset-0 rounded-[2px] ring-1 ring-inset ring-[#F3C00D]/10"></div>
+    <div class="absolute inset-0 rounded-[2px] ring-1 ring-inset ring-gold/10"></div>
   </div>
 
   {/* Text */}

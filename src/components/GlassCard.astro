@@ -18,7 +18,7 @@ const { number, eyebrow, heading, body } = Astro.props;
 >
   {
     number && (
-      <span class="font-[family-name:var(--font-display)] text-[2rem] leading-none text-[#F3C00D]/30">
+      <span class="font-[family-name:var(--font-display)] text-[2rem] leading-none text-gold/30">
         {number}
       </span>
     )
@@ -27,7 +27,7 @@ const { number, eyebrow, heading, body } = Astro.props;
     eyebrow && (
       <p
         class:list={[
-          "font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.3em] text-[#F3C00D]/60",
+          "font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.3em] text-gold/60",
           number ? "mt-3" : "",
         ]}
       >
@@ -43,7 +43,7 @@ const { number, eyebrow, heading, body } = Astro.props;
   >
     {heading}
   </h3>
-  <div class="mt-3 h-px w-8 bg-[#F3C00D]/20"></div>
+  <div class="mt-3 h-px w-8 bg-gold/20"></div>
   <p class="mt-4 font-[family-name:var(--font-body)] text-[13px] leading-[1.85] text-white/55">
     {body}
   </p>

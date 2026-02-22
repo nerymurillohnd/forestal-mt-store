@@ -315,7 +315,7 @@ const reviews = [
   >
     <div class="mx-auto max-w-3xl px-6 text-center lg:px-12">
       <p
-        class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80"
+        class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-gold/80"
       >
         The Collection
       </p>
@@ -433,8 +433,8 @@ const reviews = [
                   decoding="async"
                 />
               </div>
-              <div class="border-l-[3px] border-[#F3C00D]/50 p-8">
-                <span class="inline-block font-[family-name:var(--font-heading)] text-[10px] uppercase tracking-[0.25em] text-[#F3C00D]/70">
+              <div class="border-l-[3px] border-gold/50 p-8">
+                <span class="inline-block font-[family-name:var(--font-heading)] text-[10px] uppercase tracking-[0.25em] text-gold/70">
                   {proc.tag}
                 </span>
                 <h3 class="mt-3 font-[family-name:var(--font-display)] text-[1.25rem] font-normal text-white">
@@ -467,7 +467,7 @@ const reviews = [
     <div class="mx-auto max-w-7xl px-6 lg:px-12">
       <div class="reveal-on-scroll text-center">
         <p
-          class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80"
+          class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-gold/80"
         >
           Honduras&rsquo; Largest Batana Oil Supplier
         </p>
@@ -512,7 +512,7 @@ const reviews = [
       {/* Steps */}
       <div class="flex flex-col justify-center px-8 py-20 lg:px-16">
         <p
-          class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80"
+          class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-gold/80"
         >
           Application Ritual
         </p>
@@ -527,7 +527,7 @@ const reviews = [
           {
             howToSteps.map((s) => (
               <div class="flex gap-5">
-                <span class="select-none font-[family-name:var(--font-heading)] text-[2rem] font-normal leading-none text-[#F3C00D]/25">
+                <span class="select-none font-[family-name:var(--font-heading)] text-[2rem] font-normal leading-none text-gold/25">
                   {s.step}
                 </span>
                 <div>
@@ -546,7 +546,7 @@ const reviews = [
         <div class="mt-12 flex flex-wrap gap-3">
           <a
             href="/products/raw-batana-oil/"
-            class="cta-glow inline-block bg-[#206D03] px-7 py-3 font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.15em] text-white transition-all duration-200 hover:bg-[#54B006]"
+            class="cta-glow inline-block bg-leaf-green px-7 py-3 font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.15em] text-white transition-all duration-200 hover:bg-grass-green"
           >
             Shop Batana Oil
           </a>
@@ -590,7 +590,7 @@ const reviews = [
     <div class="py-16 pb-24">
       <div class="mx-auto max-w-7xl px-6 lg:px-12">
         <p
-          class="reveal-on-scroll mx-auto max-w-3xl text-center font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/65"
+          class="reveal-on-scroll mx-auto max-w-3xl text-center font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-graphite/65"
         >
           Every product in this collection is 100% natural, handcrafted by Miskito artisans using
           ancestral methods. As prepared at origin, so delivered to you — nothing added, nothing
@@ -602,7 +602,7 @@ const reviews = [
             products.map((product) => (
               <a
                 href={`/products/${product.handler}/`}
-                class="card-hover group block border-t-[3px] border-[#F3C00D]/50 bg-white shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-shadow duration-300 hover:shadow-md"
+                class="card-hover group block border-t-[3px] border-gold/50 bg-white shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-shadow duration-300 hover:shadow-md"
               >
                 <div class="aspect-square overflow-hidden bg-[#F2F2F2] p-6">
                   <img
@@ -615,19 +615,19 @@ const reviews = [
                   />
                 </div>
                 <div class="p-6">
-                  <p class="font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.2em] text-[#A18500]">
+                  <p class="font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.2em] text-gold-dark">
                     {product.sku}
                   </p>
-                  <h3 class="mt-2 font-[family-name:var(--font-heading)] text-[1rem] font-normal text-[#333]">
+                  <h3 class="mt-2 font-[family-name:var(--font-heading)] text-[1rem] font-normal text-graphite">
                     {product.name}
                   </h3>
-                  <p class="mt-0.5 font-[family-name:var(--font-body)] text-[12px] italic text-[#333]/50">
+                  <p class="mt-0.5 font-[family-name:var(--font-body)] text-[12px] italic text-graphite/50">
                     {product.tag}
                   </p>
-                  <p class="mt-3 font-[family-name:var(--font-body)] text-[13px] leading-[1.75] text-[#333]/60">
+                  <p class="mt-3 font-[family-name:var(--font-body)] text-[13px] leading-[1.75] text-graphite/60">
                     {product.description}
                   </p>
-                  <p class="mt-4 font-[family-name:var(--font-ui)] text-[11px] font-semibold uppercase tracking-[0.15em] text-[#206D03] opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                  <p class="mt-4 font-[family-name:var(--font-ui)] text-[11px] font-semibold uppercase tracking-[0.15em] text-leaf-green opacity-0 transition-opacity duration-200 group-hover:opacity-100">
                     View Product &rarr;
                   </p>
                 </div>
@@ -639,13 +639,13 @@ const reviews = [
         <div class="mt-12 flex flex-wrap justify-center gap-4">
           <a
             href="/products/"
-            class="cta-glow inline-block bg-[#206D03] px-8 py-3 font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.15em] text-white transition-all duration-200 hover:bg-[#54B006]"
+            class="cta-glow inline-block bg-leaf-green px-8 py-3 font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.15em] text-white transition-all duration-200 hover:bg-grass-green"
           >
             View All Products
           </a>
           <a
             href="/wholesale/"
-            class="inline-block border border-[#206D03] px-8 py-3 font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.15em] text-[#206D03] transition-all duration-200 hover:bg-[#206D03] hover:text-white"
+            class="inline-block border border-leaf-green px-8 py-3 font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.15em] text-leaf-green transition-all duration-200 hover:bg-leaf-green hover:text-white"
           >
             Wholesale Inquiries
           </a>
@@ -663,12 +663,12 @@ const reviews = [
     <div class="mx-auto max-w-7xl px-6 lg:px-12">
       <div class="text-center">
         <p
-          class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]"
+          class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-gold-dark"
         >
           Naturally Rich in Essential Fatty Acids, Antioxidants &amp; Vitamin E
         </p>
         <h2
-          class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-[#333]"
+          class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-graphite"
         >
           What Batana Oil Does for You
         </h2>
@@ -694,12 +694,12 @@ const reviews = [
     <div class="mx-auto max-w-7xl px-6 lg:px-12">
       <div class="reveal-on-scroll mb-12 text-center">
         <p
-          class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]"
+          class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-gold-dark"
         >
           Why It Works
         </p>
         <h2
-          class="mt-3 font-[family-name:var(--font-display)] text-[clamp(1.5rem,3vw,2.25rem)] font-normal text-[#333]"
+          class="mt-3 font-[family-name:var(--font-display)] text-[clamp(1.5rem,3vw,2.25rem)] font-normal text-graphite"
         >
           Why Add Batana Oil to Your Routine
         </h2>
@@ -712,11 +712,11 @@ const reviews = [
         {
           whyRoutine.map((item) => (
             <div class="surface-parchment p-8">
-              <div class="mb-4 h-px w-8 bg-[#F3C00D]/70" />
-              <h3 class="font-[family-name:var(--font-heading)] text-[0.85rem] font-normal uppercase tracking-[0.1em] text-[#333]">
+              <div class="mb-4 h-px w-8 bg-gold/70" />
+              <h3 class="font-[family-name:var(--font-heading)] text-[0.85rem] font-normal uppercase tracking-[0.1em] text-graphite">
                 {item.label}
               </h3>
-              <p class="mt-3 font-[family-name:var(--font-body)] text-[13px] leading-[1.8] text-[#333]/60">
+              <p class="mt-3 font-[family-name:var(--font-body)] text-[13px] leading-[1.8] text-graphite/60">
                 {item.body}
               </p>
             </div>
@@ -740,7 +740,7 @@ const reviews = [
       decoding="async"
     />
     <div
-      class="absolute inset-0 flex items-center justify-center bg-gradient-to-b from-[#1A1A1A]/20 via-transparent to-[#F5F0E8]/60"
+      class="absolute inset-0 flex items-center justify-center bg-gradient-to-b from-charcoal/20 via-transparent to-parchment/60"
     >
     </div>
     <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
@@ -761,20 +761,20 @@ const reviews = [
     <div class="mx-auto max-w-5xl px-6 lg:px-12">
       <div class="reveal-on-scroll text-center">
         <p
-          class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]"
+          class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-gold-dark"
         >
           A Natural Choice for Every Hair Type
         </p>
         <h2
-          class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-[#333]"
+          class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-graphite"
         >
           How Batana Oil Compares
         </h2>
         <hr class="gold-rule" />
         <p
-          class="mx-auto mt-6 max-w-2xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/60"
+          class="mx-auto mt-6 max-w-2xl font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-graphite/60"
         >
-          Batana Oil is especially prized for <strong class="font-normal text-[#333]/85"
+          Batana Oil is especially prized for <strong class="font-normal text-graphite/85"
             >curly, coily, dry, and chemically treated hair</strong
           > — textures that demand deeper nourishment than most oils can provide. Its rich fatty acid
           profile delivers what lighter oils simply can't reach.
@@ -786,19 +786,19 @@ const reviews = [
           comparison.map((card) => (
             <div
               class:list={[
-                "card-hover flex flex-col gap-4 border border-[#D6E8D3] p-6",
+                "card-hover flex flex-col gap-4 border border-mint p-6",
                 card.highlight ? "comparison-card-highlight" : "bg-white",
               ]}
             >
               {card.highlight && (
-                <span class="self-start rounded-[2px] bg-[#206D03] px-2 py-0.5 font-[family-name:var(--font-ui)] text-[9px] font-semibold uppercase tracking-[0.15em] text-white">
+                <span class="self-start rounded-[2px] bg-leaf-green px-2 py-0.5 font-[family-name:var(--font-ui)] text-[9px] font-semibold uppercase tracking-[0.15em] text-white">
                   Our Pick
                 </span>
               )}
               <h3
                 class:list={[
                   "font-[family-name:var(--font-heading)] text-[1rem] font-normal",
-                  card.highlight ? "text-[#206D03]" : "text-[#333]",
+                  card.highlight ? "text-leaf-green" : "text-graphite",
                 ]}
               >
                 {card.oil}
@@ -806,28 +806,25 @@ const reviews = [
               <div class="flex gap-1">
                 {Array.from({ length: 3 }).map((_, i) => (
                   <span
-                    class:list={[
-                      "h-2 w-2 rounded-full",
-                      i < card.dots ? "bg-[#F3C00D]" : "bg-[#F3C00D]/20",
-                    ]}
+                    class:list={["h-2 w-2 rounded-full", i < card.dots ? "bg-gold" : "bg-gold/20"]}
                     aria-hidden="true"
                   />
                 ))}
                 <span class="sr-only">Feel: {card.feel}</span>
               </div>
               <div>
-                <p class="font-[family-name:var(--font-ui)] text-[10px] font-semibold uppercase tracking-[0.12em] text-[#A18500]">
+                <p class="font-[family-name:var(--font-ui)] text-[10px] font-semibold uppercase tracking-[0.12em] text-gold-dark">
                   Best For
                 </p>
-                <p class="mt-1 font-[family-name:var(--font-body)] text-[13px] text-[#333]/70">
+                <p class="mt-1 font-[family-name:var(--font-body)] text-[13px] text-graphite/70">
                   {card.best}
                 </p>
               </div>
               <div>
-                <p class="font-[family-name:var(--font-ui)] text-[10px] font-semibold uppercase tracking-[0.12em] text-[#A18500]">
+                <p class="font-[family-name:var(--font-ui)] text-[10px] font-semibold uppercase tracking-[0.12em] text-gold-dark">
                   Works On
                 </p>
-                <p class="mt-1 font-[family-name:var(--font-body)] text-[13px] text-[#333]/70">
+                <p class="mt-1 font-[family-name:var(--font-body)] text-[13px] text-graphite/70">
                   {card.works}
                 </p>
               </div>
@@ -847,7 +844,7 @@ const reviews = [
     <div class="mx-auto max-w-7xl px-6 lg:px-12">
       <div class="reveal-on-scroll mb-12 text-center">
         <p
-          class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80"
+          class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-gold/80"
         >
           A Growing Global Ingredient
         </p>
@@ -863,8 +860,8 @@ const reviews = [
       >
         {
           marketTrends.map((trend) => (
-            <div class="bg-[#1a1a1a] p-8 text-center">
-              <div class="mx-auto mb-3 h-px w-6 bg-[#F3C00D]/50" />
+            <div class="bg-charcoal p-8 text-center">
+              <div class="mx-auto mb-3 h-px w-6 bg-gold/50" />
               <p class="font-[family-name:var(--font-heading)] text-[0.8rem] font-normal uppercase tracking-[0.1em] text-white">
                 {trend.label}
               </p>
@@ -896,18 +893,18 @@ const reviews = [
         {/* Global Reach */}
         <div class="reveal-on-scroll">
           <p
-            class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]"
+            class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-gold-dark"
           >
             Export Ready
           </p>
           <h2
-            class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3vw,2.5rem)] font-normal text-[#333]"
+            class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3vw,2.5rem)] font-normal text-graphite"
           >
             Shipped to 7 Regions.<br />From La Mosquitia.
           </h2>
           <hr class="gold-rule-left mt-5" />
           <p
-            class="mt-6 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/65"
+            class="mt-6 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-graphite/65"
           >
             From 1 unit to 65,000+ kilograms. Export-ready from Honduras with full documentation —
             dispatched in under 48 hours, delivered worldwide in 7 days.
@@ -918,12 +915,12 @@ const reviews = [
           >
             {
               globalRegions.map((region) => (
-                <div class="flex items-center gap-2 border border-[#D6E8D3] bg-white px-4 py-3">
+                <div class="flex items-center gap-2 border border-mint bg-white px-4 py-3">
                   <span
-                    class="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#F3C00D] pulse-dot"
+                    class="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold pulse-dot"
                     aria-hidden="true"
                   />
-                  <span class="font-[family-name:var(--font-ui)] text-[11px] font-semibold uppercase tracking-[0.08em] text-[#333]">
+                  <span class="font-[family-name:var(--font-ui)] text-[11px] font-semibold uppercase tracking-[0.08em] text-graphite">
                     {region}
                   </span>
                 </div>
@@ -934,7 +931,7 @@ const reviews = [
           <div class="mt-10">
             <a
               href="/contact/"
-              class="cta-glow inline-block bg-[#206D03] px-8 py-3 font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.15em] text-white transition-all duration-200 hover:bg-[#54B006]"
+              class="cta-glow inline-block bg-leaf-green px-8 py-3 font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.15em] text-white transition-all duration-200 hover:bg-grass-green"
             >
               Get Export Quote
             </a>
@@ -954,11 +951,11 @@ const reviews = [
               decoding="async"
             />
             <div
-              class="absolute inset-0 flex items-end bg-gradient-to-t from-[#1A1A1A]/85 via-[#1A1A1A]/20 to-transparent p-8"
+              class="absolute inset-0 flex items-end bg-gradient-to-t from-charcoal/85 via-charcoal/20 to-transparent p-8"
             >
               <div>
                 <p
-                  class="font-[family-name:var(--font-heading)] text-[10px] uppercase tracking-[0.25em] text-[#F3C00D]/90"
+                  class="font-[family-name:var(--font-heading)] text-[10px] uppercase tracking-[0.25em] text-gold/90"
                 >
                   Private Label Available
                 </p>
@@ -971,9 +968,9 @@ const reviews = [
             </div>
           </div>
 
-          <div class="mt-6 border-l-[3px] border-[#F3C00D]/40 pl-6">
+          <div class="mt-6 border-l-[3px] border-gold/40 pl-6">
             <p
-              class="font-[family-name:var(--font-body)] text-[14px] leading-[1.85] text-[#333]/65"
+              class="font-[family-name:var(--font-body)] text-[14px] leading-[1.85] text-graphite/65"
             >
               Custom private label solutions for brands that demand verified Honduran origin — from
               bulk raw oil for formulation to finished, shelf-ready products under your own label.
@@ -981,7 +978,7 @@ const reviews = [
             </p>
             <a
               href="/wholesale/"
-              class="mt-5 inline-block border border-[#206D03] px-7 py-3 font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.15em] text-[#206D03] transition-all duration-200 hover:bg-[#206D03] hover:text-white"
+              class="mt-5 inline-block border border-leaf-green px-7 py-3 font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.15em] text-leaf-green transition-all duration-200 hover:bg-leaf-green hover:text-white"
             >
               Explore Private Label
             </a>
@@ -1003,7 +1000,7 @@ const reviews = [
   >
     <div class="reveal-on-scroll mx-auto max-w-4xl px-6 text-center lg:px-12">
       <p
-        class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80"
+        class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-gold/80"
       >
         In a World of Imitations
       </p>
@@ -1041,7 +1038,7 @@ const reviews = [
       <div class="mt-10">
         <a
           href="/contact/"
-          class="inline-block border border-white/40 px-8 py-3 font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.15em] text-white transition-all duration-200 hover:bg-white hover:text-[#1a1a1a]"
+          class="inline-block border border-white/40 px-8 py-3 font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.15em] text-white transition-all duration-200 hover:bg-white hover:text-charcoal"
         >
           Request Authenticity Documentation
         </a>
@@ -1058,12 +1055,12 @@ const reviews = [
     <div class="mx-auto max-w-7xl px-6 lg:px-12">
       <div class="reveal-on-scroll mb-14 text-center">
         <p
-          class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]"
+          class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-gold-dark"
         >
           What Our Customers Say
         </p>
         <h2
-          class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-[#333]"
+          class="mt-4 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-graphite"
         >
           Trusted by Brands, Buyers,<br />and Everyday Users
         </h2>
@@ -1080,19 +1077,19 @@ const reviews = [
                 aria-label={`${review.rating} out of 5 stars`}
               >
                 {Array.from({ length: review.rating }).map(() => (
-                  <span class="text-[18px] text-[#F3C00D]" aria-hidden="true">
+                  <span class="text-[18px] text-gold" aria-hidden="true">
                     &#9733;
                   </span>
                 ))}
               </div>
-              <p class="font-[family-name:var(--font-body)] text-[14px] italic leading-[1.85] text-[#333]/70">
+              <p class="font-[family-name:var(--font-body)] text-[14px] italic leading-[1.85] text-graphite/70">
                 &ldquo;{review.text}&rdquo;
               </p>
               <div class="mt-6 border-t border-[#E8DFD0] pt-5">
-                <p class="font-[family-name:var(--font-heading)] text-[0.85rem] font-normal text-[#333]">
+                <p class="font-[family-name:var(--font-heading)] text-[0.85rem] font-normal text-graphite">
                   {review.name}
                 </p>
-                <p class="font-[family-name:var(--font-ui)] text-[10px] uppercase tracking-[0.08em] text-[#A18500]">
+                <p class="font-[family-name:var(--font-ui)] text-[10px] uppercase tracking-[0.08em] text-gold-dark">
                   {review.role} &middot; {review.location}
                 </p>
               </div>

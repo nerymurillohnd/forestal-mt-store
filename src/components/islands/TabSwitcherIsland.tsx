@@ -18,8 +18,8 @@ export default function TabSwitcherIsland({ tabs, variant = "dark" }: Props) {
   const [active, setActive] = useState(0);
 
   const isDark = variant === "dark";
-  const bodyColor = isDark ? "text-white/55" : "text-[#333]/70";
-  const tabInactive = isDark ? "text-white/40" : "text-[#333]/40";
+  const bodyColor = isDark ? "text-white/55" : "text-graphite/70";
+  const tabInactive = isDark ? "text-white/40" : "text-graphite/40";
   const tabActive = isDark ? "text-white" : "text-charcoal";
 
   const handleKeyDown = (e: KeyboardEvent, index: number) => {
@@ -35,7 +35,7 @@ export default function TabSwitcherIsland({ tabs, variant = "dark" }: Props) {
   return (
     <div>
       {/* Tab bar */}
-      <div role="tablist" class="flex gap-1 border-b border-[#F3C00D]/10">
+      <div role="tablist" class="flex gap-1 border-b border-gold/10">
         {tabs.map((tab, i) => (
           <button
             key={i}
@@ -47,7 +47,7 @@ export default function TabSwitcherIsland({ tabs, variant = "dark" }: Props) {
             onKeyDown={(e) => handleKeyDown(e, i)}
             class={`cursor-pointer border-b-2 px-6 py-3 font-[family-name:var(--font-ui)] text-[12px] font-semibold uppercase tracking-[0.15em] transition-all duration-300 ${
               active === i
-                ? `${tabActive} border-[#F3C00D]`
+                ? `${tabActive} border-gold`
                 : `${tabInactive} border-transparent hover:text-white/60`
             }`}
           >

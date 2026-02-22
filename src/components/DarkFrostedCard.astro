@@ -16,14 +16,12 @@ const { number, eyebrow, heading, body } = Astro.props;
 <div class="border border-white/10 bg-white/[0.03] p-8 backdrop-blur-sm frosted-hover">
   {
     number && (
-      <span class="font-[family-name:var(--font-heading)] text-[13px] text-[#F3C00D]/40">
-        {number}
-      </span>
+      <span class="font-[family-name:var(--font-heading)] text-[13px] text-gold/40">{number}</span>
     )
   }
   {
     eyebrow && (
-      <p class="font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.3em] text-[#F3C00D]/60">
+      <p class="font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.3em] text-gold/60">
         {eyebrow}
       </p>
     )
@@ -36,7 +34,7 @@ const { number, eyebrow, heading, body } = Astro.props;
   >
     {heading}
   </h3>
-  <div class="mt-3 h-px w-8 bg-[#F3C00D]/20"></div>
+  <div class="mt-3 h-px w-8 bg-gold/20"></div>
   <p class="mt-4 font-[family-name:var(--font-body)] text-[13px] leading-[1.85] text-white/50">
     {body}
   </p>

@@ -85,11 +85,11 @@ const topics = [
   <Breadcrumb pageName={data.pageName} parent={{ name: "Community", href: "/community/" }} />
 
   {/* ── INTRO ── */}
-  <section class="surface-warm border-b border-[#F3C00D]/10 py-16">
+  <section class="surface-warm border-b border-gold/10 py-16">
     <div class="mx-auto max-w-3xl px-6 text-center lg:px-12">
       <SectionHeader eyebrow="Knowledge From Origin" heading="Stories Worth Reading" />
       <p
-        class="reveal-on-scroll mt-6 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-[#333]/70"
+        class="reveal-on-scroll mt-6 font-[family-name:var(--font-body)] text-[15px] leading-[1.85] text-graphite/70"
       >
         We publish when we have something worth saying. The articles below are in development — each
         one is original research written from direct field experience, not aggregated secondhand
@@ -104,20 +104,20 @@ const topics = [
       <div class="stagger-children grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {
           topics.map((topic) => (
-            <article class="group flex flex-col border-t-[3px] border-[#F3C00D]/40 bg-white p-7 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
+            <article class="group flex flex-col border-t-[3px] border-gold/40 bg-white p-7 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
               <div class="flex items-center justify-between">
-                <p class="font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.3em] text-[#A18500]">
+                <p class="font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.3em] text-gold-dark">
                   {topic.eyebrow}
                 </p>
-                <span class="rounded-full border border-[#206D03]/20 bg-[#206D03]/[0.05] px-3 py-0.5 font-[family-name:var(--font-ui)] text-[9px] font-semibold uppercase tracking-[0.2em] text-[#206D03]/70">
+                <span class="rounded-full border border-leaf-green/20 bg-leaf-green/[0.05] px-3 py-0.5 font-[family-name:var(--font-ui)] text-[9px] font-semibold uppercase tracking-[0.2em] text-leaf-green/70">
                   {topic.tag}
                 </span>
               </div>
-              <div class="mt-3 h-px w-6 bg-[#F3C00D]/30" />
+              <div class="mt-3 h-px w-6 bg-gold/30" />
               <h2 class="mt-4 font-[family-name:var(--font-heading)] text-[1.05rem] font-normal leading-snug text-charcoal">
                 {topic.title}
               </h2>
-              <p class="mt-3 flex-1 font-[family-name:var(--font-body)] text-[13px] leading-[1.85] text-[#333]/60">
+              <p class="mt-3 flex-1 font-[family-name:var(--font-body)] text-[13px] leading-[1.85] text-graphite/60">
                 {topic.teaser}
               </p>
             </article>
@@ -131,7 +131,7 @@ const topics = [
   <section class="surface-dark grain relative overflow-hidden py-20">
     <div class="reveal-on-scroll relative z-10 mx-auto max-w-2xl px-6 text-center lg:px-12">
       <p
-        class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/70"
+        class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-gold/70"
       >
         Want early access?
       </p>
@@ -147,7 +147,7 @@ const topics = [
       <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
         <a
           href="/contact/"
-          class="inline-block rounded-[3px] bg-[#F3C00D] px-7 py-3 font-[family-name:var(--font-ui)] text-[13px] font-semibold text-[#333] transition-all duration-300 hover:bg-[#F3C00D]/90"
+          class="inline-block rounded-[3px] bg-gold px-7 py-3 font-[family-name:var(--font-ui)] text-[13px] font-semibold text-graphite transition-all duration-300 hover:bg-gold/90"
         >
           Get in Touch
         </a>

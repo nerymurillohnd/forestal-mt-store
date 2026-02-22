@@ -47,7 +47,7 @@ export default function BatanaBenefitsIsland({ categories, disclaimer }: Props) 
       <div
         role="tablist"
         aria-label="Benefits by category"
-        class="flex justify-center gap-2 border-b border-[#333]/10"
+        class="flex justify-center gap-2 border-b border-graphite/10"
       >
         {categories.map((cat, i) => (
           <button
@@ -63,10 +63,10 @@ export default function BatanaBenefitsIsland({ categories, disclaimer }: Props) 
             onClick={() => setActive(i)}
             onKeyDown={(e) => handleKeyDown(e as KeyboardEvent, i)}
             class={[
-              "relative px-6 pb-4 pt-2 font-[family-name:var(--font-heading)] text-[11px] uppercase tracking-[0.25em] transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F3C00D]",
+              "relative px-6 pb-4 pt-2 font-[family-name:var(--font-heading)] text-[11px] uppercase tracking-[0.25em] transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold",
               active === i
-                ? "text-[#333] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-[#F3C00D]"
-                : "text-[#333]/40 hover:text-[#333]/70",
+                ? "text-graphite after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-gold"
+                : "text-graphite/40 hover:text-graphite/70",
             ].join(" ")}
           >
             {cat.label}
@@ -100,10 +100,10 @@ export default function BatanaBenefitsIsland({ categories, disclaimer }: Props) 
                 }
               >
                 <span
-                  class="mt-[0.45em] block h-px w-4 shrink-0 bg-[#A18500]/60"
+                  class="mt-[0.45em] block h-px w-4 shrink-0 bg-gold-dark/60"
                   aria-hidden="true"
                 />
-                <span class="font-[family-name:var(--font-body)] text-[14px] leading-[1.8] text-[#333]/70">
+                <span class="font-[family-name:var(--font-body)] text-[14px] leading-[1.8] text-graphite/70">
                   {item}
                 </span>
               </li>
@@ -114,7 +114,7 @@ export default function BatanaBenefitsIsland({ categories, disclaimer }: Props) 
 
       {/* Disclaimer */}
       {disclaimer && (
-        <p class="mt-10 text-center font-[family-name:var(--font-body)] text-[12px] italic text-[#333]/30">
+        <p class="mt-10 text-center font-[family-name:var(--font-body)] text-[12px] italic text-graphite/30">
           {disclaimer}
         </p>
       )}

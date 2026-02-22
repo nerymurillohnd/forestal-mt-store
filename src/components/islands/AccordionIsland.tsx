@@ -36,8 +36,8 @@ export default function AccordionIsland({
 
   const isDark = variant === "dark";
   const textColor = isDark ? "text-white" : "text-charcoal";
-  const bodyColor = isDark ? "text-white/55" : "text-[#333]/70";
-  const borderColor = "border-[#F3C00D]/10";
+  const bodyColor = isDark ? "text-white/55" : "text-graphite/70";
+  const borderColor = "border-gold/10";
 
   return (
     <div class={textColor}>
@@ -51,7 +51,7 @@ export default function AccordionIsland({
           >
             <span>{item.title}</span>
             <svg
-              class={`h-4 w-4 shrink-0 text-[#F3C00D]/60 transition-transform duration-300 ${open.has(i) ? "rotate-180" : ""}`}
+              class={`h-4 w-4 shrink-0 text-gold/60 transition-transform duration-300 ${open.has(i) ? "rotate-180" : ""}`}
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

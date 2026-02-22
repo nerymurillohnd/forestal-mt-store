@@ -1,48 +1,34 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Project instructions for Claude Code. This file is the operational guide for `forestal-mt.com`.
 
 ## What This Is
 
-Astro 5.7+ e-commerce site for forestal-mt.com. Deployed on Cloudflare Pages. This is a **clean rebuild** from finalized specifications. All architectural decisions are made — follow the specs, don't improvise.
+Astro 5.7+ e-commerce storefront for **Forestal MT** — live at `forestal-mt.com`, deployed on Cloudflare Pages. 64 pages (63 indexable), 46 products, 132 SKUs. GSC-verified, sitemap registered, actively crawled and indexed.
 
-## Canonical Source
-
-The `forestal-mt-suite` repository (`~/projects/forestal-mt-suite/`) is the **single source of truth** for all data, content, schemas, assets, and specifications. This project CONSUMES files from the suite — it never modifies them.
-
-Copies of the main spec docs live in this repo root for quick reference:
-
-- `SEO_STRUCTURED_DATA_SPEC.md` — JSON-LD architecture, schema.org types, meta tags
-- `SITE_TECHNICAL_SPEC.md` — Full stack, rendering model, fonts, CI/CD
-- `SITE_URL_MANIFEST.md` — Complete URL inventory (64 pages, 63 indexable)
+This is a **production business** competing against established players. Every change ships to real customers. No prototypes, no experiments on main.
 
 ---
 
 ## Workspace
 
-This repo is a pnpm workspace with two packages:
+pnpm monorepo with two packages:
 
-| Package             | Directory     | Deployment                                                     |
-| ------------------- | ------------- | -------------------------------------------------------------- |
-| `forestal-mt-store` | `/` (root)    | Cloudflare Pages — deploys via GH Actions after all gates pass |
-| `fmt-ecommerce-api` | `api-worker/` | Cloudflare Worker — manual (`pnpm deploy:prod` or GH Actions)  |
+| Package             | Directory     | Deployment                                  |
+| ------------------- | ------------- | ------------------------------------------- |
+| `forestal-mt-store` | `/` (root)    | Cloudflare Pages — GH Actions 6-stage gated |
+| `fmt-ecommerce-api` | `api-worker/` | Cloudflare Worker — manual or GH Actions    |
 
-Shared lockfile (`pnpm-lock.yaml`) at root. Both packages have their own `CLAUDE.md`.
+Shared `pnpm-lock.yaml` at root. Both packages have their own `CLAUDE.md`.
 
-**Claude Code session model:** Start Claude from the directory matching your task:
+**Session boundary:** Start Claude Code from the directory matching the task:
 
-- Astro pages, content, components, SEO → start from `forestal-mt-store/` (here)
-- API routes, D1 schema, Hono handlers, DHL → start from `forestal-mt-store/api-worker/`
+- Astro pages, content, components, SEO → `forestal-mt-store/` (here)
+- API routes, D1 schema, Hono handlers, DHL → `forestal-mt-store/api-worker/`
 
-**HARD RULE — API Worker session boundary:**
-If Nery requests, or the task requires, any of the following while in a session started from this root directory:
-implementing Hono routes, modifying `api-worker/src/`, editing `schema.ts`, running D1 migrations, integrating DHL, or any substantive `api-worker/` development —
-**STOP immediately. Do not execute. Say explicitly:**
+**HARD RULE:** If a task requires substantive `api-worker/` development (Hono routes, `schema.ts`, D1 migrations, DHL integration) — **STOP. Say explicitly:** "This must be done from a session started in `api-worker/`." Only exception: one-liner edits to `api-worker/package.json`, `wrangler.toml`, or `CLAUDE.md`.
 
-> "This must be done from a session started in `api-worker/`. Open a new terminal, `cd api-worker/`, and start Claude Code from there."
-> The only exceptions allowed from root: editing `api-worker/package.json`, `api-worker/wrangler.toml`, or `api-worker/CLAUDE.md` when the change is a one-liner with no architectural decisions involved.
-
-**Cross-workspace commands (run from root without cd):**
+**Cross-workspace commands:**
 
 ```bash
 pnpm --filter api-worker dev         # wrangler dev for the Worker
@@ -69,36 +55,39 @@ pnpm lighthouse       # Lighthouse CI audit (localhost, requires built dist/)
 pnpm lighthouse:prod  # Lighthouse CI audit (production URLs)
 ```
 
-**CI gates (6 stages):** Lint (ESLint + Prettier + Astro check) → Build → E2E (17 pages) → Lighthouse (localhost) → Deploy (`wrangler pages deploy`) → Lighthouse (production, monitoring only). Any failure in stages 1-4 blocks deploy. CF Pages auto-deploy is **disabled** — GH Actions is the sole deploy path.
+**CI pipeline (6 stages):** Lint → Build → E2E → Lighthouse (localhost) → Deploy → Lighthouse (production, monitoring). Stages 1-4 are blocking gates. CF Pages auto-deploy is **disabled** — GH Actions is the sole deploy path.
 
-**Local quality protocol (Husky enforced):**
+**Local quality (Husky):**
 
-- Pre-commit: `pnpm format` + `git add -u` (auto-stages reformatted files)
-- Pre-push: `pnpm lint && pnpm check` (ESLint + TypeScript)
-- PostToolUse hook: Prettier auto-runs on every file write (`.claude/settings.json`)
+- Pre-commit: `pnpm format` + `git add -u`
+- Pre-push: `pnpm lint && pnpm check`
+- PostToolUse hook: Prettier auto-runs on every file write
 
 ---
 
 ## Stack
 
-| Layer            | Technology            | Key Detail                                                                  |
-| ---------------- | --------------------- | --------------------------------------------------------------------------- |
-| Framework        | Astro 5.7+            | Islands Architecture, `static` output mode                                  |
-| Content          | MDX                   | `@astrojs/mdx` — component imports in content files                         |
-| UI framework     | Preact                | `@astrojs/preact` — interactive islands only                                |
-| CSS              | Tailwind CSS 4+       | `@tailwindcss/vite` plugin (NOT `@astrojs/tailwind`, NOT PostCSS)           |
-| SSR adapter      | `@astrojs/cloudflare` | `platformProxy: { enabled: true }` for local D1/KV/R2                       |
-| Package manager  | pnpm 10+ standalone   | `"packageManager": "pnpm@10.29.3"` in package.json                          |
-| Hosting          | Cloudflare Pages      | Project: `forestal-mt-store`, deploy gated by GH Actions CI                 |
-| Database         | Cloudflare D1         | Binding: `DB` → `fmt-products-database` (pending — SSR not yet enabled)     |
-| Object storage   | Cloudflare R2         | Binding: `R2` → `assets` bucket, CDN: `cdn.forestal-mt.com`                 |
-| Sessions         | Cloudflare KV         | Binding: `SESSION` → namespace `SESSION` (pending)                          |
-| Icons            | astro-icon            | `@iconify-json/fa6-brands` (social), `@iconify-json/logos` (payment brands) |
-| Observability    | Sentry                | `@sentry/astro` (client) + `@sentry/cloudflare` (server)                    |
-| Email            | Resend                | Transactional email from `@forestal-mt.com` — `RESEND_API_KEY` env var      |
-| Phone validation | libphonenumber-js     | Country-aware phone validation in `ContactFormIsland`                       |
+| Layer            | Technology            | Key Detail                                                               |
+| ---------------- | --------------------- | ------------------------------------------------------------------------ |
+| Framework        | Astro 5.7+            | Islands Architecture, `output: "static"`                                 |
+| Content          | MDX                   | `@astrojs/mdx` — component imports in content files                      |
+| UI framework     | Preact                | `@astrojs/preact` — interactive islands only (NOT React)                 |
+| CSS              | Tailwind CSS 4+       | `@tailwindcss/vite` plugin (NOT `@astrojs/tailwind`, NOT PostCSS)        |
+| SSR adapter      | `@astrojs/cloudflare` | `platformProxy: { enabled: true }` for local D1/KV/R2                    |
+| Package manager  | pnpm 10+ standalone   | `"packageManager": "pnpm@10.29.3"` — no Corepack                         |
+| Hosting          | Cloudflare Pages      | Project: `forestal-mt-store`, custom domains: `forestal-mt.com` + `www.` |
+| Database         | Cloudflare D1         | Binding: `DB` → `fmt-products-database` (pending — SSR not yet enabled)  |
+| Object storage   | Cloudflare R2         | Binding: `R2` → `assets` bucket, CDN: `cdn.forestal-mt.com`              |
+| Sessions         | Cloudflare KV         | Binding: `SESSION` → namespace `SESSION` (pending)                       |
+| Video            | Cloudflare Stream     | 4 HLS hero videos, MP4 downloads enabled                                 |
+| Icons            | astro-icon            | `@iconify-json/fa6-brands` (social), `@iconify-json/logos` (payment)     |
+| Observability    | Sentry                | `@sentry/astro` (client, error-only) + `@sentry/cloudflare` (server)     |
+| Email            | Resend                | Transactional from `@forestal-mt.com` — `RESEND_API_KEY` env var         |
+| Anti-abuse       | Cloudflare Turnstile  | Invisible widget on contact form + WAF rate limiting                     |
+| Phone validation | libphonenumber-js     | Country-aware validation in `ContactFormIsland`                          |
+| Analytics        | Cloudflare Zaraz      | GA4 `G-FHNE3TBXMW` — auto-injected, NO manual `<script>` tags            |
 
-### Tailwind CSS 4 Setup
+### Tailwind CSS 4
 
 No `tailwind.config.mjs`, no PostCSS. Config via `@tailwindcss/vite` plugin. Design tokens in `src/styles/global.css` using `@theme` directive.
 
@@ -108,18 +97,18 @@ No `tailwind.config.mjs`, no PostCSS. Config via `@tailwindcss/vite` plugin. Des
 
 ### Rendering Model
 
-| Type               | Pages                                                                          | Data Source                         |
-| ------------------ | ------------------------------------------------------------------------------ | ----------------------------------- |
-| **SSG — content**  | Home, About, Contact, Wholesale, 3 Catalogs, Community hub + 4 subpages, Legal | Content Collections (`pages/*.mdx`) |
-| **SSG — products** | Shop (`/products/`), 46 PDPs (`/products/{handler}/`)                          | 6 JSON files in `src/data/`         |
-| **SSR — API**      | `/api/contact` (POST — not a page, not indexed)                                | Request payload → Resend            |
-| **Future scope**   | Account, Admin, Cart, Checkout, Auth pages                                     | SSR + D1 + KV — not yet built       |
+| Type               | Pages                                                                          | Data Source                                     |
+| ------------------ | ------------------------------------------------------------------------------ | ----------------------------------------------- |
+| **SSG — content**  | Home, About, Contact, Wholesale, 3 Catalogs, Community hub + 4 subpages, Legal | Content Collections (`src/content/pages/*.mdx`) |
+| **SSG — products** | Shop (`/products/`), 46 PDPs (`/products/{handler}/`)                          | 7 JSON files in `src/data/jsonld/products/`     |
+| **SSR — API**      | `/api/contact` (POST — not a page, not indexed)                                | Request payload → Resend                        |
+| **Future scope**   | Account, Admin, Cart, Checkout, Auth                                           | SSR + D1 + KV — not yet built                   |
 
 ### Content Collections
 
-Schema defined in `src/content.config.ts`. Glob loader: `src/content/pages/**/*.{md,mdx}`.
+Schema: `src/content.config.ts`. Glob loader: `src/content/pages/**/*.{md,mdx}`.
 
-**Critical gotcha:** Astro's glob loader uses the frontmatter `slug` field as the collection entry ID. Query with the slug value, not the filename:
+**Critical:** Astro's glob loader uses the frontmatter `slug` field as the collection entry ID:
 
 ```ts
 // slug: community/faqs  → getEntry("pages", "community/faqs")
@@ -127,37 +116,49 @@ Schema defined in `src/content.config.ts`. Glob loader: `src/content/pages/**/*.
 const page = await getEntry("pages", "community/faqs");
 ```
 
-Every page file requires: `slug`, `pageName`, `canonicalUrl`, `title`, `description`, `og`, `twitter`, `schemas`, `hero`.
+Every MDX file requires: `slug`, `pageName`, `canonicalUrl`, `title`, `description`, `og`, `twitter`, `schemas`, `hero`.
+
+### Product Data (`src/data/jsonld/products/`)
+
+7 JSON files define all 46 products at build time:
+
+| File             | Content                                    |
+| ---------------- | ------------------------------------------ |
+| `products.json`  | Core product definitions, handlers, groups |
+| `content.json`   | Descriptions, materials, botanical info    |
+| `pricing.json`   | Prices per variant                         |
+| `inventory.json` | Stock levels, availability                 |
+| `media.json`     | Image URLs per product                     |
+| `seo.json`       | Meta titles, descriptions per product      |
+| `wholesale.json` | Wholesale-specific pricing and minimums    |
 
 ### JSON-LD Schema Builder (`src/lib/jsonld.ts`)
 
-`buildPageGraph(schemas, pageData)` resolves schema refs from page frontmatter into a `@graph` array. The switch in `resolveSchema()` handles these types:
+`buildPageGraph(schemas, pageData)` resolves schema refs from frontmatter into a `@graph` array. Supported types:
 
-| Frontmatter `type`                                                         | Produces                                                                                        |
-| -------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `Organization`, `Brand`                                                    | Full or compact stub (via `mode: compact`)                                                      |
-| `WebSite`, `SearchAction`                                                  | Global site schemas                                                                             |
-| `VideoObject`                                                              | Matched by `@id` from stream-videos lookup                                                      |
-| `BreadcrumbList`                                                           | Auto-built from `pageName` + `canonicalUrl` — detects community subpages for 3-level breadcrumb |
-| `ImageObject`                                                              | Built from `og.image` data                                                                      |
-| `AboutPage`, `Blog`, `CollectionPage`, `ContactPage`, `FAQPage`, `WebPage` | WebPage node variants                                                                           |
-| `OfferCatalog`, `Service`                                                  | Extracted from OnlineStore.json / Service-wholesale.json                                        |
+| Frontmatter `type`                                                         | Produces                                       |
+| -------------------------------------------------------------------------- | ---------------------------------------------- |
+| `Organization`, `Brand`                                                    | Full or compact stub (`mode: compact`)         |
+| `WebSite`, `SearchAction`                                                  | Global site schemas                            |
+| `VideoObject`                                                              | Matched by `@id` from stream-videos lookup     |
+| `BreadcrumbList`                                                           | Auto-built from `pageName` + `canonicalUrl`    |
+| `ImageObject`                                                              | Built from `og.image` data                     |
+| `AboutPage`, `Blog`, `CollectionPage`, `ContactPage`, `FAQPage`, `WebPage` | WebPage variants                               |
+| `OfferCatalog`, `Service`                                                  | From OnlineStore.json / Service-wholesale.json |
 
-Unknown types silently return null (no crash). Add new cases to the switch when new page types need schema support.
+Unknown types silently return null. Add new cases to the switch when needed.
 
 ### Hero Component (`src/components/Hero.astro`)
 
 Data-driven from frontmatter `hero.*`. Three background modes:
 
-- `background.type: "video"` → HLS via hls.js from Cloudflare Stream
+- `background.type: "video"` → HLS via hls.js from Cloudflare Stream (MP4 fallback via `getStreamMp4()`)
 - `background.type: "image"` → `<img>` from R2 CDN
-- No `background` field (omit entirely) → dark gradient only — used for community subpages and legal pages
+- No `background` field → dark gradient only (community subpages, legal pages)
 
-Video UIDs in `src/data/stream-videos.ts`. Hero images: 1920×1080 (16:9). Hero videos: 3200×1792.
+Video UIDs in `src/data/stream-videos.ts`. Hero images: 1920x1080 (16:9). Hero videos: 3200x1792. Video preload: `metadata` (not `auto`).
 
 ### Breadcrumb Component
-
-Accepts `pageName` and optional `parent?: { name: string; href: string }` for 3-level breadcrumbs:
 
 ```astro
 <!-- Top-level page -->
@@ -169,38 +170,41 @@ Accepts `pageName` and optional `parent?: { name: string; href: string }` for 3-
 
 ### Preact Islands (`src/components/islands/`)
 
-Interactive components hydrated on demand. All islands use Preact (not React).
+All islands use Preact (not React). Hydrated on demand.
 
-| Island                   | Directive        | Purpose                                    |
-| ------------------------ | ---------------- | ------------------------------------------ |
-| `AccordionIsland.tsx`    | `client:visible` | Collapsible content panels                 |
-| `ContactFormIsland.tsx`  | `client:visible` | Contact form with country/phone validation |
-| `CountUpIsland.tsx`      | `client:visible` | Animated number counters                   |
-| `HerbScrollIsland.tsx`   | `client:visible` | Herbs scrolling list                       |
-| `ImpactBarIsland.tsx`    | `client:visible` | Animated metric bars                       |
-| `OriginPulseIsland.tsx`  | `client:visible` | Map/pulse animation                        |
-| `ScrollRevealIsland.tsx` | `client:visible` | Scroll-triggered reveals                   |
-| `TabSwitcherIsland.tsx`  | `client:idle`    | Tabbed content switcher                    |
+| Island                     | Directive        | Purpose                                     |
+| -------------------------- | ---------------- | ------------------------------------------- |
+| `AccordionIsland.tsx`      | `client:visible` | Collapsible content panels                  |
+| `BatanaBenefitsIsland.tsx` | `client:visible` | Batana oil benefits interactive display     |
+| `ContactFormIsland.tsx`    | `client:visible` | Contact form + Turnstile + phone validation |
+| `CountUpIsland.tsx`        | `client:visible` | Animated number counters                    |
+| `HerbScrollIsland.tsx`     | `client:visible` | Horizontal herb catalog scroll              |
+| `ImpactBarIsland.tsx`      | `client:visible` | Animated metric bars                        |
+| `OriginPulseIsland.tsx`    | `client:visible` | Map/pulse animation                         |
+| `ScrollRevealIsland.tsx`   | `client:visible` | Scroll-triggered reveals                    |
+| `ShopFilterIsland.tsx`     | `client:visible` | Product filtering on shop page              |
+| `TabSwitcherIsland.tsx`    | `client:idle`    | Tabbed content switcher                     |
+| `WholesaleMapIsland.tsx`   | `client:visible` | Wholesale coverage map                      |
 
 ---
 
-## CSS Utility Classes
+## Design System
 
-Defined in `src/styles/global.css`. These are the primary layout and surface patterns — use them consistently:
+### CSS Utility Classes (`src/styles/global.css`)
 
-| Class                | Effect                                                                             |
-| -------------------- | ---------------------------------------------------------------------------------- |
-| `.surface-warm`      | Warm off-white background                                                          |
-| `.surface-parchment` | Parchment background (`#F5F0E8`)                                                   |
-| `.surface-dark`      | Charcoal background (`#1A1A1A`) with light text                                    |
-| `.grain`             | Noise texture overlay via `::before` pseudo-element (add to `relative` containers) |
-| `.gold-rule`         | Centered gold horizontal rule (decorative `<hr>`)                                  |
-| `.gold-rule-left`    | Left-aligned gold rule                                                             |
-| `.stagger-children`  | CSS animation: child elements fade-in with sequential delay (up to 6 children)     |
-| `.reveal-on-scroll`  | JS-driven scroll reveal — becomes visible when `.is-visible` is toggled            |
-| `.card-hover`        | White card with lift shadow + border transition on hover                           |
+| Class                | Effect                                                      |
+| -------------------- | ----------------------------------------------------------- |
+| `.surface-warm`      | Warm off-white background                                   |
+| `.surface-parchment` | Parchment background (`#F5F0E8`)                            |
+| `.surface-dark`      | Charcoal background (`#1A1A1A`) + light text                |
+| `.grain`             | Noise texture overlay (`::before`, needs `relative` parent) |
+| `.gold-rule`         | Centered gold decorative `<hr>`                             |
+| `.gold-rule-left`    | Left-aligned gold rule                                      |
+| `.stagger-children`  | Sequential fade-in animation (up to 6 children)             |
+| `.reveal-on-scroll`  | Scroll-triggered visibility (JS toggles `.is-visible`)      |
+| `.card-hover`        | White card with lift shadow + border on hover               |
 
-### Design Tokens (Tailwind CSS variables)
+### Color Tokens
 
 <!-- prettier-ignore -->
 ```
@@ -222,29 +226,39 @@ Defined in `src/styles/global.css`. These are the primary layout and surface pat
 --font-ui        /* Open Sans — Buttons, labels, UI elements */
 ```
 
-Usage pattern: `font-[family-name:var(--font-heading)]` in Tailwind class strings.
+Usage: `font-[family-name:var(--font-heading)]` in Tailwind classes.
+
+Fonts in `src/assets/fonts/` (woff2) — Astro `experimental.fonts` with `fontProviders.local()`.
 
 ---
 
 ## Images
 
-All images served from R2 via `cdn.forestal-mt.com`. The ONLY images in `public/` are favicons.
+All images served from R2 via `cdn.forestal-mt.com`. Only favicons live in `public/`.
 
-- Product images: `cdn.forestal-mt.com/products/{type}/{handler}.png`
-- Page hero images: `cdn.forestal-mt.com/pages/{slug}/hero.jpg`
-- Page OG images: `cdn.forestal-mt.com/pages/{slug}/og.jpg`
+- Product images: `cdn.forestal-mt.com/products/{type}/{handler}.png` (1200x1200)
+- Page hero images: `cdn.forestal-mt.com/pages/{slug}/hero.jpg` (1920x1080)
+- Page OG images: `cdn.forestal-mt.com/pages/{slug}/og.jpg` (1200x630)
 
-**Cloudflare Image Resizing** is active. Use `/cdn-cgi/image/width=X,format=webp/{full-url}` for optimized sizes.
+**Image Resizing** is active. Use `cdnImage()` from `src/lib/image.ts` — it applies `/cdn-cgi/image/width=X,format=auto/{url}` and guards against double-transforms.
 
-**Never use Astro's `<Image>` component for R2 URLs** — `passthroughImageService()` is configured, Sharp is disabled. Use plain `<img>` tags.
+**Never use Astro's `<Image>` for R2 URLs** — `passthroughImageService()` is configured, Sharp is disabled. Use plain `<img>` tags.
 
 ### R2 Asset Isolation Rule
 
-Every page uses **only its own R2 folder**. A page at `/wholesale/` may only reference images under `pages/wholesale/`. Cross-folder references are forbidden — they create orphan dependencies and make audits impossible.
+Each page uses **only its own R2 folder**. `/wholesale/` → `pages/wholesale/`. Cross-folder references are forbidden.
 
-**The only exception:** catalog collection card images (preview cards linking to Batana Oil, Stingless Bee Honey, and Traditional Herbs) pull their hero/card image from `products/{ProductGroup}/` — the same ProductGroup image used in the PDP. This is intentional and the only allowed cross-folder reference.
+**Only exception:** catalog collection cards pull hero images from `products/{ProductGroup}/` — the same ProductGroup image used in PDPs. This is intentional.
 
-If an image does not exist in the page's own R2 folder, the correct fix is to **upload the correct asset to that folder** — never borrow from another page's folder.
+---
+
+## Sitemap & SEO
+
+- **Sitemap**: `fmt-sitemap-index.xml` registered in GSC. `serialize()` in `astro.config.mjs` adds `<image:image>` entries (47 PDPs + 9 content pages) and `<video:video>` entries (4 hero video pages). Uses `media.json` at build time.
+- **og:video**: 4 pages have `og:video` meta (HLS URLs, `application/x-mpegURL`). Configured in MDX frontmatter + `Head.astro`.
+- **Canonical**: Every page has `<link rel="canonical">`. `trailingSlash: "always"` enforced.
+- **Redirects**: `public/_redirects` — 500+ rules covering legacy SKU URLs, trailing slash normalization, old page names. 301 permanent.
+- **robots.txt**: AI training crawlers blocked, search crawlers allowed, `archive.org_bot` currently blocked.
 
 ---
 
@@ -252,80 +266,27 @@ If an image does not exist in the page's own R2 folder, the correct fix is to **
 
 **Content pages (17):**
 
-| URL                        | Page                        |
-| -------------------------- | --------------------------- |
-| `/`                        | Home                        |
-| `/about/`                  | About                       |
-| `/batana-oil/`             | Batana Oil catalog          |
-| `/stingless-bee-honey/`    | Stingless Bee Honey catalog |
-| `/traditional-herbs/`      | Traditional Herbs catalog   |
-| `/contact/`                | Contact                     |
-| `/wholesale/`              | Wholesale Program           |
-| `/community/`              | Community hub               |
-| `/community/faqs/`         | FAQs                        |
-| `/community/blog/`         | Blog & Stories              |
-| `/community/testimonials/` | Testimonials                |
-| `/community/docs/`         | Documentation               |
-| `/terms/`                  | Terms & Conditions          |
-| `/privacy/`                | Privacy Policy              |
-| `/disclaimer/`             | Disclaimer                  |
-| `/shipping/`               | Shipping & Returns          |
-| `/404`                     | 404 Not Found (noindex)     |
+| URL                        | Page                    |
+| -------------------------- | ----------------------- |
+| `/`                        | Home                    |
+| `/about/`                  | About                   |
+| `/batana-oil/`             | Batana Oil catalog      |
+| `/stingless-bee-honey/`    | Stingless Bee Honey     |
+| `/traditional-herbs/`      | Traditional Herbs       |
+| `/contact/`                | Contact                 |
+| `/wholesale/`              | Wholesale Program       |
+| `/community/`              | Community hub           |
+| `/community/faqs/`         | FAQs                    |
+| `/community/blog/`         | Blog & Stories          |
+| `/community/testimonials/` | Testimonials            |
+| `/community/docs/`         | Documentation           |
+| `/terms/`                  | Terms & Conditions      |
+| `/privacy/`                | Privacy Policy          |
+| `/disclaimer/`             | Disclaimer              |
+| `/shipping/`               | Shipping & Returns      |
+| `/404`                     | 404 Not Found (noindex) |
 
-**Product pages (47):** Shop (`/products/`) + 46 PDPs (`/products/{handler}/`) — each generated at build time from 6 JSON files in `src/data/`. Full product URL list: `SITE_URL_MANIFEST.md`.
-
-**Future scope (not yet built):** Auth pages, Cart, Checkout, Account, Admin.
-
----
-
-## Pending: E-Commerce Activation
-
-**Full architecture spec:** `docs/architecture/pdp-ecommerce-architecture.md`
-
-The PDPs currently display static inventory/pricing from JSON files. Before activating the cart,
-these blocks must be replaced with Preact islands that fetch live data from `fmt-ecommerce-api`.
-**Do NOT switch to `output: "hybrid"` for PDPs** — SSG shell + client-side API is the correct model.
-
-### Required before cart launch
-
-- [ ] Replace static availability + price block in `src/pages/products/[handler].astro` with `ProductAvailabilityIsland`
-- [ ] Build API Worker endpoints: `GET /api/products/{handler}/availability`, `POST /api/cart`, `GET /api/cart`, `POST /api/orders`
-- [ ] Integrate DHL Express API in `fmt-ecommerce-api`: shipment creation, AWB generation, rates, tracking
-- [ ] Store AWB PDFs in R2 (`awbs/` prefix)
-- [ ] Add `api.forestal-mt.com` DNS A/CNAME record → `fmt-ecommerce-api` Worker route
-- [ ] Bind KV `SESSION` in Cloudflare Pages dashboard (prod + preview)
-- [ ] Add Worker secrets: `DHL_API_KEY`, `DHL_ACCOUNT_NUMBER`
-- [ ] Implement CORS on API Worker (allow `forestal-mt.com` origin)
-
-### DHL Express API
-
-DHL Express handles all shipping: shipment creation, Air Waybill (AWB) generation, label printing,
-real-time tracking, and delivery confirmation. Integration lives entirely in `fmt-ecommerce-api` —
-called at order confirmation. Shipper origin: Honduras (`countryCode: "HN"`), DAP incoterms.
-
-### JSON-LD Schema — Deferred Until DHL Integration
-
-Two schema fields in `src/data/jsonld/OfferShippingDetails.json` are intentionally omitted until
-the DHL Express API is active:
-
-- **`shippingRate`** — shipping costs are dynamic, calculated per-order by DHL API. Do NOT hardcode rates.
-- **`priceValidUntil`** in `Offer` nodes (`src/lib/product-jsonld.ts`) — renewal cadence is a business decision. Do not change without explicit instruction from Nery.
-
-Do not add these fields speculatively. They require live DHL API data to be accurate.
-
----
-
-## SSR Migration Checklist
-
-When switching from `output: "static"` to `"hybrid"` for D1 product pages:
-
-1. Uncomment `Sentry.d1Integration(context.env.DB)` in `functions/_middleware.js`
-2. Uncomment D1/KV bindings in `wrangler.toml`
-3. Bind D1/KV in Cloudflare Pages dashboard (prod + preview)
-4. Change `output: "static"` → `"hybrid"` in `astro.config.mjs`
-5. Verify `nodejs_compat` flag active in CF Pages dashboard
-6. **Move security headers from `public/_headers` to `functions/_middleware.js`** — `_headers` does NOT apply to Pages Functions responses (SSR pages). All headers for SSR routes must be set in middleware code.
-7. Test with `pnpm preview` (wrangler + local bindings)
+**Product pages (47):** `/products/` (shop) + 46 PDPs (`/products/{handler}/`). Full list in `SITE_URL_MANIFEST.md`.
 
 ---
 
@@ -333,55 +294,75 @@ When switching from `output: "static"` to `"hybrid"` for D1 product pages:
 
 Two-package split — mandatory for Cloudflare Pages:
 
-| Layer               | Package                | File                       |
-| ------------------- | ---------------------- | -------------------------- |
-| Client (browser)    | `@sentry/astro`        | `sentry.client.config.js`  |
-| Server (CF Workers) | `@sentry/cloudflare`   | `functions/_middleware.js` |
-| Build (source maps) | `@sentry/astro` plugin | `astro.config.mjs`         |
+| Layer               | Package              | File                       |
+| ------------------- | -------------------- | -------------------------- |
+| Client (browser)    | `@sentry/astro`      | `sentry.client.config.js`  |
+| Server (CF Workers) | `@sentry/cloudflare` | `functions/_middleware.js` |
+| Build (source maps) | `@sentry/astro`      | `astro.config.mjs`         |
 
-Do NOT use `@sentry/node` — incompatible with CF Workers V8 isolates.
-
----
-
-## Analytics
-
-**Cloudflare Zaraz** manages all analytics. Tool: `XLZY` (Google Analytics 4).
-
-- Measurement ID: `G-FHNE3TBXMW` (Property: Forestal MT, Account: Nery Samuel Murillo)
-- `autoInjectScript: true` — Zaraz injects the GA4 beacon automatically
-
-**DO NOT** add manual `<script>` GA4 tags in `Head.astro` or anywhere in code — Zaraz handles this.
-Zaraz also handles the `stats.g.doubleclick.net` connection (required in CSP `connect-src`).
+Client is **error-only** — Replay, Tracing, and Feedback removed for bundle size (~300KB saved). `bundleSizeOptimizations` enabled. Do NOT use `@sentry/node` — incompatible with CF Workers V8 isolates.
 
 ---
 
 ## Email & Contact Form
 
-**Outbound (Resend):** Domain `forestal-mt.com` verified. `RESEND_API_KEY` stored in CF Pages env + GH Actions secret. `POST /api/contact` maps `sendTo` labels (sales/support/admin) to `@forestal-mt.com` addresses server-side — addresses are never exposed to the client.
+**Outbound (Resend):** `POST /api/contact` maps `sendTo` labels (sales/support/admin) to `@forestal-mt.com` addresses server-side — never exposed to client.
 
-**Inbound (CF Email Routing):** `admin@`, `sales@`, `support@forestal-mt.com` all forward to `forestalmt.hn@gmail.com`. Gmail "Send mail as" configured via `smtp.resend.com:465` for all three addresses.
+**Inbound (CF Email Routing):** `admin@`, `sales@`, `support@forestal-mt.com` → `forestalmt.hn@gmail.com`.
 
-**Contact form data:**
+**Contact form stack:**
 
-- `src/pages/api/contact.ts` — SSR endpoint (`prerender = false`), validates payload, sends via Resend
-- `src/components/islands/ContactFormIsland.tsx` — Preact island (`client:visible`), fields: First Name, Last Name, Company (optional), Email, Country, Phone (dial code + per-country validation via `libphonenumber-js`), Subject (optional), Send To, Message
-- `src/data/countries.ts` — exports `COUNTRIES` array and `PRIORITY_COUNTRY_CODES` (16 priority markets)
+- `src/pages/api/contact.ts` — SSR endpoint (`prerender = false`), validates + Turnstile verify + sends via Resend
+- `src/components/islands/ContactFormIsland.tsx` — Preact island with Turnstile (lazy-injected, not in `<head>`)
+- `src/lib/contact-limits.ts` — field limits shared between island (UI) and API (validation)
+- `src/data/countries.ts` — `COUNTRIES` array + `PRIORITY_COUNTRY_CODES` (16 markets)
 
 ---
 
-## URL Policy
+## Pending: E-Commerce Activation
 
-All URLs end with `/`. Enforced via `trailingSlash: "always"`. No exceptions.
+**Full spec:** `docs/architecture/pdp-ecommerce-architecture.md`
+
+PDPs are static (JSON at build time). Cart activation requires Preact islands fetching from `fmt-ecommerce-api`. **Do NOT switch to `output: "hybrid"` for PDPs** — SSG shell + client-side API is correct.
+
+### Required before cart launch
+
+- [ ] `ProductAvailabilityIsland` replaces static price/availability block
+- [ ] API Worker endpoints: availability, cart, orders
+- [ ] DHL Express API integration (shipment creation, AWB, rates, tracking)
+- [ ] `api.forestal-mt.com` DNS record → Worker route
+- [ ] KV `SESSION` binding in CF Pages dashboard
+- [ ] Worker secrets: `DHL_API_KEY`, `DHL_ACCOUNT_NUMBER`
+- [ ] CORS on API Worker (allow `forestal-mt.com`)
+
+### JSON-LD — Deferred Until DHL
+
+- **`shippingRate`** — dynamic, calculated per-order by DHL API. Do NOT hardcode.
+- **`priceValidUntil`** — business decision. Do not add without Nery's instruction.
+
+---
+
+## SSR Migration Checklist
+
+When switching `output: "static"` → `"hybrid"`:
+
+1. Uncomment `Sentry.d1Integration(context.env.DB)` in `functions/_middleware.js`
+2. Uncomment D1/KV bindings in `wrangler.toml`
+3. Bind D1/KV in CF Pages dashboard (prod + preview)
+4. Change `output` in `astro.config.mjs`
+5. Verify `nodejs_compat` flag in CF Pages dashboard
+6. **Move security headers from `public/_headers` to `functions/_middleware.js`** — `_headers` does NOT apply to Pages Functions responses
+7. Test with `pnpm preview`
 
 ---
 
 ## Cloudflare Bindings
 
-| Binding   | Type      | Name                    | Runtime Access               |
-| --------- | --------- | ----------------------- | ---------------------------- |
-| `DB`      | D1        | `fmt-products-database` | `locals.runtime.env.DB`      |
-| `R2`      | R2 Bucket | `assets`                | `locals.runtime.env.R2`      |
-| `SESSION` | KV        | `SESSION`               | `locals.runtime.env.SESSION` |
+| Binding   | Type      | Name                    | Runtime Access               | Status  |
+| --------- | --------- | ----------------------- | ---------------------------- | ------- |
+| `R2`      | R2 Bucket | `assets`                | `locals.runtime.env.R2`      | Bound   |
+| `DB`      | D1        | `fmt-products-database` | `locals.runtime.env.DB`      | Pending |
+| `SESSION` | KV        | `SESSION`               | `locals.runtime.env.SESSION` | Pending |
 
 ---
 
@@ -391,19 +372,20 @@ All URLs end with `/`. Enforced via `trailingSlash: "always"`. No exceptions.
 
 - Use `@astrojs/tailwind` — use `@tailwindcss/vite` (Tailwind 4)
 - Use React — use Preact for islands
-- Use Astro's `<Image>` component for R2 URLs — use plain `<img>` tags
-- Store images in `public/` except favicons
-- Query D1 directly from Astro pages — product data at build time comes from `src/data/*.json`; D1 is for `fmt-ecommerce-api` Worker only
-- Use HTML comments in `.mdx` — use `{/* comment */}` only
+- Use Astro's `<Image>` for R2 URLs — use plain `<img>` with `cdnImage()`
+- Store images in `public/` (except favicons)
+- Query D1 from Astro pages — product data comes from JSON at build time; D1 is for `fmt-ecommerce-api` only
+- Use HTML comments in `.mdx` — use `{/* comment */}`
 - Use Corepack — being removed from Node.js 25+
-- Push without running `pnpm format && pnpm lint && pnpm check` — Husky enforces this automatically, CI gates all three
+- Add manual GA4 `<script>` tags — Zaraz handles analytics injection
+- Push without quality gates — Husky enforces format + lint + check
 
 ### DO
 
 - Keep SEO and OG `title`/`description` in sync in frontmatter
 - Use `cdn.forestal-mt.com` for all image URLs
 - Use trailing slashes on ALL URLs
-- Run `pnpm format && pnpm lint && pnpm build` before every commit — all three are CI gates
+- Run `pnpm build` after significant changes — catch errors before they deploy
 - Use `.surface-warm`, `.surface-parchment`, `.surface-dark` for section backgrounds
-- Use `.stagger-children` on grids, `.reveal-on-scroll` on individual elements
-- Use `font-[family-name:var(--font-heading)]` pattern (not `font-cinzel` etc.)
+- Use `font-[family-name:var(--font-heading)]` pattern
+- Use `cdnImage()` from `src/lib/image.ts` for all R2 image URLs

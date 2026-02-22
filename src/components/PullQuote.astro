@@ -13,7 +13,7 @@ const { quote, attribution, variant = "light" } = Astro.props;
 
 const isDark = variant === "dark";
 const quoteColor = isDark ? "text-white/80" : "text-charcoal/80";
-const markColor = isDark ? "text-[#F3C00D]/30" : "text-[#F3C00D]/40";
+const markColor = isDark ? "text-gold/30" : "text-gold/40";
 const attrColor = isDark ? "text-white/40" : "text-charcoal/40";
 const bgClass = isDark ? "bg-charcoal" : "surface-parchment";
 ---
@@ -39,7 +39,7 @@ const bgClass = isDark ? "bg-charcoal" : "surface-parchment";
             attrColor,
           ]}
         >
-          <span class="mr-2 inline-block h-px w-4 align-middle bg-[#F3C00D]/40" />
+          <span class="mr-2 inline-block h-px w-4 align-middle bg-gold/40" />
           {attribution}
         </p>
       )

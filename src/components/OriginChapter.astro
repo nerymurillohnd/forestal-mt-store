@@ -5,7 +5,7 @@
  * Used on all 3 catalog pages.
  */
 import OriginMetadata from "./OriginMetadata.astro";
-import { cdnImage } from "../lib/image";
+import { cdnImage, cdnSrcSet } from "../lib/image";
 
 interface Props {
   eyebrow: string;
@@ -47,13 +47,15 @@ const imageFirst = direction === "image-left";
       ]}
     >
       <img
-        src={cdnImage(image.src, { w: 1200 })}
+        src={cdnImage(image.src, { w: 800 })}
+        srcset={cdnSrcSet(image.src, [400, 640, 800])}
+        sizes="(min-width: 1024px) 50vw, 100vw"
         alt={image.alt}
         class="parallax-image h-full w-full object-cover"
         loading="lazy"
       />
       {/* Gold ring overlay */}
-      <div class="absolute inset-0 rounded-[2px] ring-1 ring-inset ring-[#F3C00D]/10"></div>
+      <div class="absolute inset-0 rounded-[2px] ring-1 ring-inset ring-gold/10"></div>
     </div>
 
     {/* Text column */}

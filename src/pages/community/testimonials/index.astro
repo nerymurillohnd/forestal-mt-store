@@ -101,10 +101,10 @@ const aggregate = {
   <Breadcrumb pageName={data.pageName} parent={{ name: "Community", href: "/community/" }} />
 
   {/* ── AGGREGATE RATING ── */}
-  <section class="surface-warm border-b border-[#F3C00D]/10 py-14">
+  <section class="surface-warm border-b border-gold/10 py-14">
     <div class="mx-auto max-w-3xl px-6 text-center lg:px-12">
       <p
-        class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#A18500]"
+        class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-gold-dark"
       >
         Verified Reviews
       </p>
@@ -122,17 +122,15 @@ const aggregate = {
       <div class="mt-3 flex justify-center gap-1.5">
         {
           Array.from({ length: 5 }).map(() => (
-            <svg
-              class="h-5 w-5 fill-[#F3C00D]"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
+            <svg class="h-5 w-5 fill-gold" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 0 0 .95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 0 0-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 0 0-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 0 0-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 0 0 .951-.69l1.07-3.292Z" />
             </svg>
           ))
         }
       </div>
-      <p class="mt-3 font-[family-name:var(--font-body)] text-[13px] leading-[1.85] text-[#333]/50">
+      <p
+        class="mt-3 font-[family-name:var(--font-body)] text-[13px] leading-[1.85] text-graphite/50"
+      >
         Based on {aggregate.count} verified reviews — retail customers and wholesale partners
       </p>
     </div>
@@ -147,20 +145,20 @@ const aggregate = {
       <div class="stagger-children grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {
           testimonials.map((t) => (
-            <article class="flex flex-col border-t-[3px] border-[#F3C00D]/40 bg-white p-7 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
+            <article class="flex flex-col border-t-[3px] border-gold/40 bg-white p-7 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
               {/* Stars */}
               <div class="flex gap-1">
                 {Array.from({ length: t.rating }).map(() => (
-                  <svg class="h-3.5 w-3.5 fill-[#F3C00D]" viewBox="0 0 20 20">
+                  <svg class="h-3.5 w-3.5 fill-gold" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 0 0 .95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 0 0-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 0 0-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 0 0-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 0 0 .951-.69l1.07-3.292Z" />
                   </svg>
                 ))}
               </div>
               {/* Quote */}
-              <blockquote class="mt-4 flex-1 font-[family-name:var(--font-body)] text-[13.5px] leading-[1.85] text-[#333]/70 before:mr-0.5 before:font-serif before:text-lg before:text-[#F3C00D] before:content-['\201C'] after:ml-0.5 after:font-serif after:text-lg after:text-[#F3C00D] after:content-['\201D']">
+              <blockquote class="mt-4 flex-1 font-[family-name:var(--font-body)] text-[13.5px] leading-[1.85] text-graphite/70 before:mr-0.5 before:font-serif before:text-lg before:text-gold before:content-['\201C'] after:ml-0.5 after:font-serif after:text-lg after:text-gold after:content-['\201D']">
                 {t.quote}
               </blockquote>
-              <div class="mt-5 h-px w-full bg-[#F3C00D]/15" />
+              <div class="mt-5 h-px w-full bg-gold/15" />
               {/* Attribution */}
               <footer class="mt-4 flex items-center justify-between gap-3">
                 <div>
@@ -174,14 +172,14 @@ const aggregate = {
                 <span
                   class={`shrink-0 rounded-full px-2.5 py-0.5 font-[family-name:var(--font-ui)] text-[9px] font-semibold uppercase tracking-[0.15em] ${
                     t.type === "wholesale"
-                      ? "bg-[#206D03]/10 text-[#206D03]"
-                      : "bg-[#A18500]/10 text-[#A18500]"
+                      ? "bg-leaf-green/10 text-leaf-green"
+                      : "bg-gold-dark/10 text-gold-dark"
                   }`}
                 >
                   {t.type === "wholesale" ? "Wholesale" : "Retail"}
                 </span>
               </footer>
-              <p class="mt-2 font-[family-name:var(--font-heading)] text-[9px] uppercase tracking-[0.2em] text-[#A18500]/60">
+              <p class="mt-2 font-[family-name:var(--font-heading)] text-[9px] uppercase tracking-[0.2em] text-gold-dark/60">
                 {t.product}
               </p>
             </article>
@@ -195,7 +193,7 @@ const aggregate = {
   <section class="surface-dark grain relative overflow-hidden py-16">
     <div class="reveal-on-scroll relative z-10 mx-auto max-w-2xl px-6 text-center lg:px-12">
       <p
-        class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/70"
+        class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-gold/70"
       >
         Ready to order?
       </p>
@@ -208,7 +206,7 @@ const aggregate = {
       <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
         <a
           href="/products/"
-          class="inline-block rounded-[3px] bg-[#F3C00D] px-7 py-3 font-[family-name:var(--font-ui)] text-[13px] font-semibold text-[#333] transition-all duration-300 hover:bg-[#F3C00D]/90"
+          class="inline-block rounded-[3px] bg-gold px-7 py-3 font-[family-name:var(--font-ui)] text-[13px] font-semibold text-graphite transition-all duration-300 hover:bg-gold/90"
         >
           Shop Now
         </a>

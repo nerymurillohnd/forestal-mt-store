@@ -14,14 +14,14 @@ interface Props {
 
 const { eyebrow, heading, description, primaryCta, secondaryCta, variant = "green" } = Astro.props;
 
-const bgClass = variant === "green" ? "bg-[#206D03]" : "bg-charcoal";
+const bgClass = variant === "green" ? "bg-leaf-green" : "bg-charcoal";
 ---
 
 <section class:list={["grain relative overflow-hidden py-24", bgClass]}>
   <div class="reveal-on-scroll relative z-10 mx-auto max-w-3xl px-6 text-center lg:px-12">
     {
       eyebrow && (
-        <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80">
+        <p class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-gold/80">
           {eyebrow}
         </p>
       )
@@ -42,7 +42,7 @@ const bgClass = variant === "green" ? "bg-[#206D03]" : "bg-charcoal";
     <div class="mt-10 flex flex-wrap justify-center gap-4">
       <a
         href={primaryCta.url}
-        class="inline-block rounded-[3px] bg-[#F3C00D] px-8 py-3.5 font-[family-name:var(--font-ui)] text-[13px] font-semibold text-[#333] transition-all duration-300 hover:bg-[#F3C00D]/90 hover:shadow-lg hover:shadow-[#F3C00D]/20"
+        class="inline-block rounded-[3px] bg-gold px-8 py-3.5 font-[family-name:var(--font-ui)] text-[13px] font-semibold text-graphite transition-all duration-300 hover:bg-gold/90 hover:shadow-lg hover:shadow-gold/20"
       >
         {primaryCta.label}
       </a>

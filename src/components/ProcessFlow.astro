@@ -28,7 +28,7 @@ const { eyebrow, heading, steps, footnote, intro } = Astro.props;
     {/* Header */}
     <div class="text-center reveal-on-scroll">
       <p
-        class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-[#F3C00D]/80"
+        class="font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.35em] text-gold/80"
       >
         {eyebrow}
       </p>
@@ -60,18 +60,18 @@ const { eyebrow, heading, steps, footnote, intro } = Astro.props;
         {
           steps.map((step) => (
             <div class="relative z-10 border border-white/10 bg-white/[0.03] p-8 backdrop-blur-sm frosted-hover">
-              <span class="block font-[family-name:var(--font-heading)] text-[1.5rem] font-normal text-[#F3C00D]/30">
+              <span class="block font-[family-name:var(--font-heading)] text-[1.5rem] font-normal text-gold/30">
                 {step.number}
               </span>
               {step.tag && (
-                <p class="mt-1 font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.3em] text-[#F3C00D]/60">
+                <p class="mt-1 font-[family-name:var(--font-heading)] text-[9px] font-normal uppercase tracking-[0.3em] text-gold/60">
                   {step.tag}
                 </p>
               )}
               <h3 class="mt-2 font-[family-name:var(--font-heading)] text-[0.95rem] font-normal tracking-wide text-white">
                 {step.title}
               </h3>
-              <div class="mt-3 h-px w-8 bg-[#F3C00D]/20" />
+              <div class="mt-3 h-px w-8 bg-gold/20" />
               <p class="mt-4 font-[family-name:var(--font-body)] text-[12px] leading-[1.85] text-white/45">
                 {step.description}
               </p>

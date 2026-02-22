@@ -100,6 +100,7 @@ const posterSrc = hasVideo ? getStreamPoster(background.stream, 1920, 1080) : nu
           class="h-full w-full object-cover"
           loading="eager"
           decoding="async"
+          fetchpriority="high"
           width="1920"
           height="1080"
         />
@@ -143,7 +144,7 @@ const posterSrc = hasVideo ? getStreamPoster(background.stream, 1920, 1080) : nu
 
     {
       subtitle && (
-        <p class="mt-2 font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.2em] text-white/50">
+        <p class="mt-2 font-[family-name:var(--font-heading)] text-[11px] font-normal uppercase tracking-[0.2em] text-gold/70">
           {subtitle}
         </p>
       )

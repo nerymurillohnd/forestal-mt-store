@@ -10,9 +10,9 @@ interface Props {
 
 const { metadata, variant = "light" } = Astro.props;
 
-const labelColor = variant === "light" ? "text-gold-dark" : "text-[#F3C00D]/60";
+const labelColor = variant === "light" ? "text-gold-dark" : "text-gold/60";
 const valueColor = variant === "light" ? "text-charcoal/70" : "text-white/60";
-const borderColor = variant === "light" ? "border-[#F3C00D]/30" : "border-[#F3C00D]/20";
+const borderColor = variant === "light" ? "border-gold/30" : "border-gold/20";
 ---
 
 <div class="grid grid-cols-2 gap-4">
